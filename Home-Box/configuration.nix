@@ -42,6 +42,9 @@
     # Set your time zone.
     time.timeZone = "America/Los_Angeles";
 
+    # Allow windows to have correct time on dualboot
+    time.hardwareClockInLocalTime = true;
+
     # Select internationalisation properties.
     i18n.defaultLocale = "en_US.UTF-8";
 
