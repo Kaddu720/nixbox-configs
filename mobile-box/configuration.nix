@@ -12,6 +12,26 @@
 
     boot.kernelModules = [ "kvm-amd" "amdgpu" ];
 
+    # Bootloader.
+    boot = {
+        loader = {
+            efi.canTouchEfiVariables = true;
+            grub = {
+                enable = true;
+                device = "nodev";
+                efiSupport = true;
+                useOSProber = true;
+            };
+        };
+        initrd.luks.devices.cryptroot.device = "/dev/nvme0n1p2";
+    };
+
+    swapDevices = [ {
+        device = "/dev/nvme0n1p3";
+        size = 8300; #mb
+        randomEncryption.enable = true;
+    } ];
+
     # Enable openGL and vulkan for graphic
     hardware.opengl.enable = true;
     hardware.opengl.driSupport = true;
@@ -21,16 +41,12 @@
     hardware.opengl.extraPackages = [ pkgs.mesa.drivers pkgs.amdvlk ];
     hardware.opengl.extraPackages32 = [ pkgs.driversi686Linux.amdvlk ];
 
-    # Bootloader.
-    boot.loader.grub.enable = true;
-    boot.loader.grub.device = "/dev/sda";
-    boot.loader.grub.useOSProber = true;
 
     # Graphics Drivers
     boot.initrd.kernelModules = [ "amdgpu" ];
 
     networking.hostName = "Mobile-Box"; # Define your hostname.
-    # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+    #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
     # Configure network proxy if necessary
     # networking.proxy.default = "http://user:password@proxy:port/";
@@ -109,6 +125,7 @@
         alsa.enable = true;
         alsa.support32Bit = true;
         pulse.enable = true;
+        wireplumber.enable = true;
     };
 
     # Set fish as default shell
