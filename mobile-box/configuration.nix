@@ -29,7 +29,7 @@
     # Graphics Drivers
     boot.initrd.kernelModules = [ "amdgpu" ];
 
-    networking.hostName = "Home-box"; # Define your hostname.
+    networking.hostName = "Mobile-Box"; # Define your hostname.
     # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
     # Configure network proxy if necessary
