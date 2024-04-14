@@ -70,7 +70,7 @@
     group = "users";
 
     createHome = true;
-    home = "/home/noah/";
+    home = "/home/noah";
     uid = 1000;
     packages = with pkgs; [];
     };
@@ -78,12 +78,13 @@
     # List packages installed in system profile. To search, run:
     # $ nix search wget
     environment.systemPackages = with pkgs; [
+        framework-tool
         git
         gnumake
         home-manager
         killall
         python311Packages.pip
-        neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+        neovim
         wget
         wirelesstools 
     ];
@@ -96,6 +97,9 @@
         displayManager.startx.enable = true;
         libinput.enable = true;
     };
+
+    # Disable ssh ask pass
+    programs.ssh.askPassword = "";
     
     # Configure keymap in X11
     services.xserver.xkb.layout = "us";
