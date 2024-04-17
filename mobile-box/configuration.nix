@@ -66,7 +66,7 @@
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users.noah = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
     group = "users";
 
     createHome = true;
@@ -82,7 +82,10 @@
         git
         gnumake
         home-manager
+        htop
         killall
+        gcc13
+        python3
         python311Packages.pip
         neovim
         wget
@@ -116,6 +119,15 @@
     # Set fish as default shell
     programs.fish.enable = true;
     users.defaultUserShell = pkgs.fish;   
+
+    # Activate Slock
+    programs.slock.enable = true;
+
+    #mysql
+    services.mysql = {
+        enable = true;
+        package = pkgs.mariadb;
+    };
 
     # Environmental Variables##
     environment.variables = { 
