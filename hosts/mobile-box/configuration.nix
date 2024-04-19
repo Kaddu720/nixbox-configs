@@ -8,6 +8,8 @@
     imports =
         [ # Include the results of the hardware scan.
         ./hardware-configuration.nix
+        inputs.home-manager.nixosModules.default
+        ../../modules/nixos/modules.nix
         ];
 
     # Use the systemd-boot EFI boot loader.
@@ -54,6 +56,26 @@
     # Enable sound.
     sound.enable = true;
 
+    # Define a user account. Don't forget to set a password with ‘passwd’.
+    users.users.noah = {
+        isNormalUser = true;
+        extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+        group = "users";
+        createHome = true;
+        home = "/home/noah";
+        uid = 1000;
+        shell = pkgs.fish;
+        packages = with pkgs; [];
+    };
+
+    home-manager = {
+        #also pas inputs to home-manager modules
+        extraSpecialArgs = { inherit inputs; };
+        users = {
+            "noah" = import ./home.nix;
+        };
+    };
+
     # Enable experimental packages
     nix.settings.experimental-features = [
       "nix-command"
@@ -63,17 +85,12 @@
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
 
-    # Define a user account. Don't forget to set a password with ‘passwd’.
-    users.users.noah = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
-    group = "users";
+    # Enable users to use programs
+    services.locate.enable = true;
 
-    createHome = true;
-    home = "/home/noah";
-    uid = 1000;
-    packages = with pkgs; [];
-    };
+    #Enable Custom Nixos Modules
+    xserver.enable = true;
+    pipewire.enable = true;
 
     # List packages installed in system profile. To search, run:
     # $ nix search wget
@@ -91,44 +108,19 @@
         wget
         wirelesstools 
     ];
-    # Enable user to use programs
-    services.locate.enable = true;
 
-    # Enable the X11 windowing system.
-    services.xserver = {
-        enable = true;
-        displayManager.startx.enable = true;
-        libinput.enable = true;
-    };
-
-    # Disable ssh ask pass
-    programs.ssh.askPassword = "";
-    
-    # Configure keymap in X11
-    services.xserver.xkb.layout = "us";
-    services.xserver.xkb.options = "eurosign:e,caps:escape";
-
-    # Enable Pipe Wire
-    services.pipewire = {
-        enable = true;
-        alsa.enable = true;
-        pulse.enable = true;
-        wireplumber.enable = true;
-    };
-
-    # Set fish as default shell
+    # Enable Programs
     programs.fish.enable = true;
-    users.defaultUserShell = pkgs.fish;   
-
-    # Activate Slock
     programs.slock.enable = true;
-
-    #mysql
+    programs.steam.enable = true;
     services.mysql = {
         enable = true;
         package = pkgs.mariadb;
     };
 
+    # Disable ssh ask pass
+    programs.ssh.askPassword = "";
+    
     # Environmental Variables##
     environment.variables = { 
         EDITOR = "nvim"; 

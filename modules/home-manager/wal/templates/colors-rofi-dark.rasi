@@ -1,0 +1,70 @@
+* {{
+    active-background: {color2};
+    active-foreground: @foreground;
+    normal-background: @background;
+    normal-foreground: @foreground;
+    urgent-background: {color1};
+    urgent-foreground: @foreground;
+
+    alternate-active-background: @background;
+    alternate-active-foreground: @foreground;
+    alternate-normal-background: @background;
+    alternate-normal-foreground: @foreground;
+    alternate-urgent-background: @background;
+    alternate-urgent-foreground: @foreground;
+
+    selected-active-background: {color1};
+    selected-active-foreground: @foreground;
+    selected-normal-background: {foreground};
+    selected-normal-foreground: @foreground;
+    selected-urgent-background: {color3};
+    selected-urgent-foreground: @foreground;
+
+    background-color: transparent;
+    background: transparent;
+    foreground: {foreground};
+    border-color: transparent;
+    spacing: 2;
+}}
+
+#window {{
+    location: north;
+    anchor: north;
+    width: 35%;
+    padding: 0px 0px;
+    children: [ horibox ];
+}}
+
+#horibox {{
+    orientation: horizontal;
+    children: [ prompt, entry, listview ];
+    height: 20px;
+}}
+
+#prompt {{
+    padding: 0px 4px;
+    background-color: @foreground;
+    text-color: {background};
+    spacing: 4px;
+}}
+
+#listview {{
+    layout: horizontal;
+    spacing: 5px;
+    lines: 100;
+    border-color: @background;
+}}
+
+#entry {{
+    padding: 0px 10px;
+    expand: false;
+    width: 10em;
+}}
+
+#element {{
+    padding: 0px 2px;
+}}
+
+#element-text selected {{
+    text-color: {background};
+}}

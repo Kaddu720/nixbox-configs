@@ -1,0 +1,32 @@
+From 61b2ef89d6a20be0670fab6d2f4a34c4791bf9f0 Mon Sep 17 00:00:00 2001
+From: Kaddu720 <nwilsonmalgus@gmail.com>
+Date: Tue, 16 Apr 2024 20:53:49 -0700
+Subject: [PATCH] wal
+
+---
+ colors-wal-dwm.h | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
+ create mode 100644 colors-wal-dwm.h
+
+diff --git a/colors-wal-dwm.h b/colors-wal-dwm.h
+new file mode 100644
+index 0000000..25666c2
+--- /dev/null
++++ b/colors-wal-dwm.h
+@@ -0,0 +1,13 @@
++static const char norm_fg[] = "#c7c4c4";
++static const char norm_bg[] = "#191919";
++static const char norm_border[] = "#58504e";
++
++static const char sel_fg[] = "#aa7264";
++static const char sel_bg[] = "#191919";
++static const char sel_border[] = "#c7c4c4";
++
++static const char *colors[][3]      = {
++    /*               fg           bg         border                         */
++    [SchemeNorm] = { norm_fg,     norm_bg,   norm_border }, // unfocused wins
++    [SchemeSel]  = { sel_fg,      sel_bg,    sel_border },  // the focused win
++};
+-- 
+2.44.0
+

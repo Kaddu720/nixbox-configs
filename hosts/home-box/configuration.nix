@@ -1,13 +1,9 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
-{ config, lib, pkgs, ... }:
-
-{
+{ config, lib, pkgs, inputs, ... }: {
     imports =
         [ # Include the results of the hardware scan.
-        ./hardware-configuration.nix
+            ./hardware-configuration.nix
+            inputs.home-manager.nixosModules.default
+            ../../modules/nixos/modules.nix
         ];
 
     # Use the systemd-boot EFI boot loader.
@@ -45,17 +41,29 @@
 
     # Select internationalisation properties.
     i18n.defaultLocale = "en_US.UTF-8";
-    # console = {
-    #   font = "Lat2-Terminus16";
-    #   keyMap = "us";
-    #   useXkbConfig = true; # use xkb.options in tty.
-    # };
-
-    # Enable CUPS to print documents.
-    # services.printing.enable = true;
 
     # Enable sound.
     sound.enable = true;
+
+    # Define a user account. Don't forget to set a password with ‘passwd’.
+    users.users.noah = {
+        isNormalUser = true;
+        extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+        group = "users";
+        createHome = true;
+        home = "/home/noah";
+        uid = 1000;
+        shell = pkgs.fish;
+        packages = with pkgs; [];
+    };
+
+    home-manager = {
+        #also pas inputs to home-manager modules
+        extraSpecialArgs = { inherit inputs; };
+        users = {
+            "noah" = import ./home.nix;
+        };
+    };
 
     # Enable experimental packages
     nix.settings.experimental-features = [
@@ -66,25 +74,17 @@
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
 
-    # Define a user account. Don't forget to set a password with ‘passwd’.
-    users.users.noah = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
-    group = "users";
+    # Enable users to use programs
+    services.locate.enable = true;
 
-    createHome = true;
-    home = "/home/noah";
-    uid = 1000;
-    packages = with pkgs; [];
-    };
+    #Enable Custom Nixos Modules
+    xserver.enable = true;
+    pipewire.enable = true;
 
-    # List packages installed in system profile. To search, run:
-    # $ nix search wget
+    # List packages at system level
     environment.systemPackages = with pkgs; [
-        framework-tool
         git
         gnumake
-        home-manager
         htop
         killall
         gcc13
@@ -94,48 +94,18 @@
         wget
         wirelesstools 
     ];
-    # Enable user to use programs
-    services.locate.enable = true;
 
-    # Enable the X11 windowing system.
-    services.xserver = {
-        enable = true;
-        displayManager.startx.enable = true;
-        libinput.enable = true;
-        videoDrivers = [ "amdgpu" ];
-    };
-
-    # Disable ssh ask pass
-    programs.ssh.askPassword = "";
-    
-    # Configure keymap in X11
-    services.xserver.xkb.layout = "us";
-    services.xserver.xkb.options = "eurosign:e,caps:escape";
-
-    # Enable Pipe Wire
-    services.pipewire = {
-        enable = true;
-        alsa.enable = true;
-        pulse.enable = true;
-        wireplumber.enable = true;
-    };
-
-    # Set fish as default shell
+    # Enable Programs
     programs.fish.enable = true;
-    users.defaultUserShell = pkgs.fish;   
-
-    # Activate Slock
     programs.slock.enable = true;
-
-    #mysql
+    programs.steam.enable = true;
     services.mysql = {
         enable = true;
         package = pkgs.mariadb;
     };
 
-    # Install steam
-     programs.steam.enable = true;
-
+    # Disable ssh ask pass
+    programs.ssh.askPassword = "";
 
     # Environmental Variables##
     environment.variables = { 
