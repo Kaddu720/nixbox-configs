@@ -1,16 +1,9 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
-{ config, lib, pkgs, ... }:
-
-{
-    imports =
-        [ # Include the results of the hardware scan.
+{ config, lib, pkgs, inputs, ... }: {
+    imports = [ # Include the results of the hardware scan.
         ./hardware-configuration.nix
         inputs.home-manager.nixosModules.default
         ../../modules/nixos/modules.nix
-        ];
+    ];
 
     # Use the systemd-boot EFI boot loader.
     boot.loader.systemd-boot.enable = true;
@@ -69,7 +62,7 @@
     };
 
     home-manager = {
-        #also pas inputs to home-manager modules
+        #also pass inputs to home-manager modules
         extraSpecialArgs = { inherit inputs; };
         users = {
             "noah" = import ./home.nix;
