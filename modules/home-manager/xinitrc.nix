@@ -36,7 +36,7 @@
                 [[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
 
                 # set walpaper image
-                feh --bg-scale /home/noah/.config/nixos-configs/modules/static/static/dark_fractal.jpg
+                feh --bg-scale /home/noah/.config/nixos/modules/static/static/dark_fractal.jpg
 
                 # Set pywal
                 wal -R &
