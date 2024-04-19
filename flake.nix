@@ -32,8 +32,11 @@
                     ];
                 };
                 Mobile-Box = nixpkgs.lib.nixosSystem {
-                    specialArgs = { inherit system; };
-                    modules = [ ./mobile-box/configuration.nix ];
+                    specialArgs = { inherit inputs; };
+                    modules = [ 
+                        ./hosts/mobile-box/configuration.nix 
+                        inputs.home-manager.nixosModules.default
+                    ];
                 };
             };
 
