@@ -10,11 +10,13 @@
             extraConfig = ''
                 #Tmux package manager
                 set -g @plugin 'tmux-plugins/tpm'
-                set -g @plugin 'tmux-plugins/tmux-sensible'
                 set -g @plugin 'christoomey/vim-tmux-navigator'
                 set -g @plugin 'tmux-plugins/tmux-yank'
 
                 run '~/.config/tmux/plugins/tpm/tpm'
+
+                #Status bar set at the top
+                set-option -g status-position top
 
                 #Mouse Support
                 set -g mouse on

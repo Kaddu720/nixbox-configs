@@ -10,6 +10,7 @@
     # Import nix modules
     imports = [
         ../../modules/home-manager/modules.nix
+        ../../modules/home-manager/dev-modules.nix
     ];
 
     # Desktop Environment
@@ -21,12 +22,6 @@
     dmenu.enable     = true;
     thunar.enable    = true;
 
-    # Development Tools
-    fish.enable      = true;
-    alacirtty.enable = true;
-    neovim.enable    = true;
-    tmux.enable      = true;
-
     # Install Packages
     home.packages = with pkgs; [
         caffeine-ng
@@ -36,13 +31,11 @@
         flameshot
         font-awesome_5
         hack-font
-        lazygit
         neofetch
         obsidian
         pipewire_0_2
         pwvucontrol
         syncthing
-        vscodium
         xautolock
     ];
 

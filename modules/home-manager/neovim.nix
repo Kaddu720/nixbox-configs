@@ -15,6 +15,7 @@
                 rose-pine
                 lightline-vim
                 vim-fugitive
+                fzf-vim
             ];
             extraConfig = ''
                 syntax on " enables syntax highlighting
@@ -57,7 +58,7 @@
 
 
                 " configuring text colors
-                colorscheme pywal
+                colorscheme slate
 
                 " Congfigure light line
                 let g:lightline = {
