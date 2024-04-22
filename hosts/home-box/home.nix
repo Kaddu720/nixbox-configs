@@ -35,6 +35,7 @@
         firefox
         font-awesome_5
         hack-font
+        lazygit
         neofetch
         obsidian
         pipewire_0_2

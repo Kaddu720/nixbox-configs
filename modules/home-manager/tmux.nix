@@ -34,6 +34,12 @@
                 set-option -g prefix C-a
                 bind-key C-a send-prefix
 
+                # navigate panes with vim keyes
+                bind-key h select-pane -L
+                bind-key j select-pane -D
+                bind-key k select-pane -U
+                bind-key l select-pane -R
+
                 #enable true vi mode for copying
                 bind-key -T copy-mode-vi v send-keys -X begin-selection
                 bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
@@ -46,8 +52,10 @@
                 unbind %
 
                 #adjust pane size with capital 'L" or "J"
-                bind -n M-J resize-pane -L 5
+                bind -n M-H resize-pane -L 5
                 bind -n M-L resize-pane -R 5
+                bind -n M-K resize-pane -U 5
+                bind -n M-J resize-pane -D 5
             '';
         };
     };
