@@ -33,6 +33,7 @@
         discord
         feh
         firefox
+        flameshot
         font-awesome_5
         hack-font
         lazygit

@@ -64,7 +64,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char scratchpadname[] = "scratchpad";
-static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
+static const char *scratchpadcmd[] = { "alacritty", "-t", "scratchpad", "-o", "window.dimensions.columns=120", "-o", "window.dimensions.lines=34", NULL };
 static const char *browsercmd[]  = { "firefox", NULL };
 static const char *screenshotcmd[]  = { "flameshot", "gui", NULL };
 
