@@ -4,16 +4,19 @@
             lib.mkEnableOption "enables tmux";
     };
 
-    config = lib.mkIf config.neovim.enable {    
+    config = lib.mkIf config.tmux.enable {    
         programs.tmux = {
             enable = true;
+            plugins = with pkgs.tmuxPlugins; [
+                vim-tmux-navigator
+                yank
+                rose-pine
+            ];
             extraConfig = ''
-                #Tmux package manager
-                set -g @plugin 'tmux-plugins/tpm'
-                set -g @plugin 'christoomey/vim-tmux-navigator'
-                set -g @plugin 'tmux-plugins/tmux-yank'
+                # Rose Pine theme settings
+                set -g @rose_pine_variant 'main'
+                set -g @rose_pine_only_windows 'on' # Leaves only the window module, for max focus and space
 
-                run '~/.config/tmux/plugins/tpm/tpm'
 
                 #Status bar set at the top
                 set-option -g status-position top
