@@ -13,13 +13,23 @@
                 rose-pine
             ];
             extraConfig = ''
-                # Rose Pine theme settings
-                set -g @rose_pine_variant 'main'
-                set -g @rose_pine_only_windows 'on' # Leaves only the window module, for max focus and space
-
-
-                #Status bar set at the top
+                #Status bar
                 set-option -g status-position top
+                set -g status-justify left
+                set -g status-style 'fg=colour1'
+                set -g status-left-length 10
+
+                setw -g window-status-current-style 'fg=colour0 bg=colour1 bold'
+                setw -g window-status-current-format ' #I #W #F '
+
+                setw -g window-status-style 'fg=colour1 dim'
+                setw -g window-status-format ' #I #[fg=colour7]#W #[fg=colour1]#F '
+
+                setw -g window-status-bell-style 'fg=colour2 bg=colour1 bold'
+
+                #True color settings
+                set -g default-terminal "$TERM"
+                set -ag terminal-overrides ",$TERM:Tc"
 
                 #Mouse Support
                 set -g mouse on

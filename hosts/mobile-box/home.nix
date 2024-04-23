@@ -20,7 +20,7 @@
     pywal.enable     = true;
     dwmblocks.enable = true;
     dmenu.enable     = true;
-    thunar.enable    = true;
+    gtk-tools.enable  = true;
 
     # Install Packages
     home.packages = with pkgs; [

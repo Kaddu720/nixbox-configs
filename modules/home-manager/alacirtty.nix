@@ -21,6 +21,9 @@
 
                 [mouse]
                 hide_when_typing = true
+
+                [env]
+                term = "xterm-256color"
             '';
         };
     };
