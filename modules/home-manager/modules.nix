@@ -6,6 +6,6 @@
         ./picom.nix
         ./wal/pywal.nix
         ./dmenu/dmenu.nix
-        ./thunar.nix
+        ./gtk-tools.nix
     ];
 }
