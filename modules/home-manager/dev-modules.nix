@@ -4,7 +4,7 @@
         ./alacirtty.nix
         ./neovim.nix
         ./tmux.nix
-    ]
+    ];
 
     fish.enable = 
         lib.mkDefault true;

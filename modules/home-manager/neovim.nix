@@ -58,11 +58,11 @@
 
 
                 " configuring text colors
-                colorscheme slate
+                colorscheme rose-pine-main
 
                 " Congfigure light line
                 let g:lightline = {
-                      \ 'colorscheme': 'wal',
+                      \ 'colorscheme': 'rosepine',
                       \ 'active': {
                       \   'left': [ [ 'mode', 'paste' ],
                       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
