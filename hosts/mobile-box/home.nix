@@ -35,7 +35,7 @@
         neofetch
         obsidian
         pipewire_0_2
-        pwvucontrol
+        pavucontrol
         syncthing
         xautolock
     ];
