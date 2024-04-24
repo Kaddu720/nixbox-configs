@@ -26,6 +26,7 @@
     home.packages = with pkgs; [
         caffeine-ng
         discord
+        dunst
         feh
         firefox
         flameshot
