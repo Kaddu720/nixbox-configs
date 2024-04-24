@@ -21,10 +21,6 @@
                         xrandr --output DP-1 --primary --mode 2560x1440 --rate 60.00 \
                             --output DP-2 --mode 1920x1080 --rate 60.00 --left-of DP-1 \
                             --output 'HDMI-1' --off
-                        
-                        xrandr --output DisplayPort-0 --primary --mode 2560x1440 --rate 60.00 \
-                            --output DisplayPort-1 --mode 1920x1080 --rate 60.00 --left-of DisplayPort-0  \
-                            --output 'HDMI-A-0' --off
                     ;;
                    
                     Mobile-Box)
