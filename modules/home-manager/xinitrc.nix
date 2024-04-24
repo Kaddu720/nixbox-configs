@@ -53,6 +53,9 @@
                 xset +dpms
                 xset dpms 300
 
+                #Activate dunst
+                dunst &
+
                 # Set up dwm blocks
                 dwmblocks &
 
