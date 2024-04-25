@@ -3,12 +3,14 @@
 if [ $(uname -n) = "Mobile-Box" ]; then
     capacity="$(cat "/sys/class/power_supply/BAT1/capacity")"
 
+    # To preserver long term battery, it stops charging at 85% full
+    # battery symbols are adjusgested to reflect that
     case 1 in
-        $(($capacity >= 75)) ) 
+        $(($capacity >= 64)) ) 
             printf "  %d%%\n" $capacity ;;
-        $(($capacity >= 50)) ) 
+        $(($capacity >= 43)) ) 
             printf " %d%%\n" $capacity ;;
-        $(($capacity >= 25)) ) 
+        $(($capacity >= 22)) ) 
             printf " %d%%\n" $capacity ;;
         $(($capacity >= 10)) ) 
             printf " %d%%\n" $capacity ;;
