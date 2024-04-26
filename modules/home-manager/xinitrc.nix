@@ -47,7 +47,7 @@
                 syncthing &
 
                 #Set us lock screen
-                xautolock -time 5 -locker 'slock' &
+                xautolock -time 5 -locker '.config/scripts/lockscreen.sh' &
 
                 # activate power star mode, and set screen to power off after 5 min
                 xset +dpms
@@ -67,6 +67,19 @@
                 #done
 
                 #exec i3
+            '';
+            ".config/scripts/lockscreen.sh".text = ''
+                #!/bin/sh
+                
+                # Turn dunst back on when the script ends
+                trap "dunstctl set-paused false" EXIT
+                
+                # pause notifications
+                dunstctl set-paused true
+
+                # enable the lock screen
+                slock
+                
             '';
         };
     };

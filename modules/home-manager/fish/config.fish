@@ -36,7 +36,7 @@ end
 
 #Pipe wire sinck selector
 function dmenu-sound
-    set sink $( wpctl status -k | grep -m 1 'Sinks:' --no-group-separator -A2 | grep -v 'Sinks' | cut -b 7-30 | dmenu -p "selct Audio Output" -l 2 | cut -d'.' -f1 )
+    set sink $( wpctl status -k | grep -m 1 'Sinks:' --no-group-separator -A2 | grep -v 'Sinks' | cut -b 7-30 | dmenu -p "selct Audio Output" -l 2 | cut -b '5-6' )
     wpctl set-default $sink
     pkill -RTMIN+10 dwmblocks
 end
