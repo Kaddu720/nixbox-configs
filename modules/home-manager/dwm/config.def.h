@@ -30,12 +30,13 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class        instance    title       tags mask     isfloating   monitor */
-	{ "Alacritty",  NULL,       NULL,       1 << 0,       0,           0 },
-	{ "firefox",    NULL,       NULL,       1 << 1,       0,           1 },
-	{ "discord",    NULL,       NULL,       1 << 2,       0,           1 },
-	{ "steam",      NULL,       NULL,       1 << 2,       0,           0 },
-	{ "obsidian",   NULL,       NULL,       1 << 3,       0,           0 },
+	/* class         instance    title       tags mask     isfloating   monitor */
+	{ "Alacritty",   NULL,       NULL,       1 << 0,       0,           0 },
+	{ "firefox",     NULL,       NULL,       1 << 1,       0,           1 },
+	{ "discord",     NULL,       NULL,       1 << 2,       0,           1 },
+	{ "steam",       NULL,       NULL,       1 << 2,       0,           0 },
+	{ "obsidian",    NULL,       NULL,       1 << 3,       0,           0 },
+	{ "Pavucontrol", NULL,       NULL,       0,            1,           0 },
 };
 
 /* layout(s) */
@@ -79,7 +80,7 @@ static const Key keys[] = {
     { MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_w,      spawn,          {.v = browsercmd } },
 	{ WINKEY|ShiftMask,             XK_s,      spawn,          {.v = screenshotcmd } },
-	{ MODKEY,                       XK_b,      togglebar,      {0} },
+	{ MODKEY,                       XK_b,      togglebar,      {1} },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
