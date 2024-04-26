@@ -21,8 +21,10 @@
                     ./patches/dwm-alwayscenter-20200625-f04cac6.diff
                     # scratch pad
                     ./patches/dwm-scratchpad-20240321-061e9fe.diff
-                    # Hide empty patches
+                    # Hide empty tags
                     ./patches/dwm-hide_vacant_tags-6.4.diff
+                    # Custom patch to make monitors share tags
+                    ./patches/dwm-shared-monitor-tags-6.5.diff
                 ];
             };
         in with pkgs; [
