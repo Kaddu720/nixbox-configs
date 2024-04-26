@@ -47,7 +47,7 @@
                 syncthing &
 
                 #Set us lock screen
-                xautolock -time 5 -locker '.config/scripts/lockscreen.sh' &
+                xautolock -time 5 -locker '~/.config/scripts/lockscreen.sh' -detectsleep &
 
                 # activate power star mode, and set screen to power off after 5 min
                 xset +dpms
