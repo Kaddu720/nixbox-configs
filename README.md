@@ -1,5 +1,8 @@
 # nixbox-configs
 
+__Install Article__
+https://qfpl.io/posts/installing-nixos/
+
 __Install Instructions__
 When installing, only encrypt your root drive. Then the swap file will be automatically encrypted by nixos.
 
