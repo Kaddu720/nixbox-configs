@@ -21,7 +21,11 @@
     boot.initrd.kernelModules = [ "amdgpu" ];
 
     # Enable openGl graphics
-    hardware.opengl.enable = true;
+    hardware.opengl = {
+        enable = true;
+        driSupport = true;
+        driSupport32Bit = true;
+    };
 
     networking.hostName = "Home-Box"; # Define your hostname.
     # Pick only one of the below networking options.
@@ -87,6 +91,8 @@
         htop
         killall
         gcc13
+        mangohud
+        protonup
         python3
         python311Packages.pip
         neovim
@@ -98,6 +104,8 @@
     programs.fish.enable = true;
     programs.slock.enable = true;
     programs.steam.enable = true;
+    programs.steam.gamescopeSession.enable = true;
+    programs.gamemode.enable = true;
     services.mysql = {
         enable = true;
         package = pkgs.mariadb;
@@ -110,6 +118,11 @@
     environment.variables = { 
         EDITOR = "nvim"; 
         HOME = "/home/noah";
+    };
+
+    environment.sessionVariables = {
+        STEAM_EXTRA_COMPAT_TOOLS_PATHS =
+            "/home/noah/.steam/root/compatibilityrools.d";
     };
 
 

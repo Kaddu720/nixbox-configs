@@ -11,3 +11,6 @@ sudo nixos-rebuild switch --flake ~/.config/nixbox/#The-Box
 
 __Getting pywal to work__
 Install pywal. Then install `.cache/wal/colors.nix to` `.cache/wal/colors.json`
+
+__Activate protondb for gaming__
+run `protonup`

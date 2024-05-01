@@ -10,9 +10,6 @@
 
         home.file = {
             ".config/alacirtty/alacirtty.toml".text = ''
-                [shell]
-                program = "fish"
-
                 [font]
                 size = 12.0
 

@@ -38,6 +38,7 @@
         pavucontrol
         syncthing
         xautolock
+        zoom-us
     ];
 
     # Let Home Manager install and manage itself.

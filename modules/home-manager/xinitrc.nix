@@ -68,19 +68,21 @@
 
                 #exec i3
             '';
-            ".config/scripts/lockscreen.sh".text = ''
-                #!/bin/sh
-                
-                # Turn dunst back on when the script ends
-                trap "dunstctl set-paused false" EXIT
-                
-                # pause notifications
-                dunstctl set-paused true
+            ".config/scripts/lockscreen.sh" = {
+                text = ''
+                    #!/bin/sh
+                    
+                    # Turn dunst back on when the script ends
+                    trap "dunstctl set-paused false" EXIT
+                    
+                    # pause notifications
+                    dunstctl set-paused true
 
-                # enable the lock screen
-                slock
-                
-            '';
+                    # enable the lock screen
+                    slock
+                '';
+                executable = true;
+            };
         };
     };
 }

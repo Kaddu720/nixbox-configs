@@ -11,6 +11,7 @@
             libinput.enable = true;
             xkb.layout = "us";
             xkb.options = "eurosign:e,caps:escape";
+            videoDrivers = ["andgpu"];
         };
     };
 }
