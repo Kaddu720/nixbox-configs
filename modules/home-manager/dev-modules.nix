@@ -17,6 +17,7 @@
 
 
     home.packages = with pkgs; [
+        awscli2
         bat
         fzf
         lazygit

@@ -37,6 +37,7 @@
         pipewire_0_2
         pavucontrol
         syncthing
+        ventoy-full
         xautolock
         zoom-us
     ];

@@ -27,6 +27,8 @@
                     ./patches/dwm-scratchpad-20240321-061e9fe.diff
                     # modified patch to focus newly opened windows
                     ./patches/dwm-focusonnetactive-6.2.diff
+                    # modified path to follow windows when they changes tags
+                    ./patches/dwm-windowfollow-20221002-69d5652.diff
                 ];
             };
         in with pkgs; [

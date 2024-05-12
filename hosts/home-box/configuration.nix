@@ -5,9 +5,16 @@
         ../../modules/nixos/modules.nix
     ];
 
-    # Use the systemd-boot EFI boot loader.
-    boot.loader.systemd-boot.enable = true;
-    boot.loader.efi.canTouchEfiVariables = true;
+    # Set up Grub
+    boot.loader = {
+        efi.canTouchEfiVariables = true;
+        grub = {
+            enable = true;
+            devices = [ "nodev" ];
+            efiSupport = true;
+            useOSProber = true;
+        };
+    };
 
     # decrypt encrypted partition
     boot.initrd.luks.devices = {
@@ -86,6 +93,7 @@
 
     # List packages at system level
     environment.systemPackages = with pkgs; [
+        dislocker
         git
         gnumake
         htop

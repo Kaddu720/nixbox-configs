@@ -39,6 +39,11 @@ static const Rule rules[] = {
 	{ "Pavucontrol", NULL,       NULL,       0,            1,           0 },
 };
 
+/* window following */
+#define WFACTIVE '>'
+#define WFINACTIVE 'v'
+#define WFDEFAULT WFACTIVE
+
 /* layout(s) */
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
@@ -81,6 +86,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_w,      spawn,          {.v = browsercmd } },
 	{ WINKEY|ShiftMask,             XK_s,      spawn,          {.v = screenshotcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {1} },
+    { MODKEY,                       XK_n,      togglefollow,   {0} },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
@@ -121,6 +127,7 @@ static const Button buttons[] = {
 	/* click                event mask      button          function        argument */
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
+    { ClkFollowSymbol,      0,              Button1,        togglefollow,   {0} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },

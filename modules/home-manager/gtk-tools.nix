@@ -16,6 +16,8 @@
             xfce.thunar-archive-plugin
         ];
 
+        xdg.mimeApps.defaultApplications."inode/directory" = "thunar";
+
         home.file = {
             ".config/gtk-3.0/settings.ini".text = ''
                 [Settings]
