@@ -22,6 +22,9 @@ if status is-interactive
     fzf --fish | source
     eval "$(thefuck --alias)"
     eval "$(zoxide init fish)"
+
+    #aliases
+    alias cd "z"
 end
 
 #Fucntions
