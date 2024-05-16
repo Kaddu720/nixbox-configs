@@ -32,11 +32,11 @@ static const Rule rules[] = {
 	 */
 	/* class         instance    title       tags mask     isfloating   monitor */
 	{ "Alacritty",   NULL,       NULL,       1 << 0,       0,           0 },
-	{ "firefox",     NULL,       NULL,       1 << 1,       0,           1 },
+	{ "firefox",     NULL,       NULL,       1 << 1,       0,          -1 },
 	{ "discord",     NULL,       NULL,       1 << 2,       0,           1 },
 	{ "steam",       NULL,       NULL,       1 << 2,       0,           0 },
 	{ "obsidian",    NULL,       NULL,       1 << 3,       0,           0 },
-	{ "Pavucontrol", NULL,       NULL,       0,            1,           0 },
+	{ "Pavucontrol", NULL,       NULL,       0,            1,          -1 },
 };
 
 /* window following */

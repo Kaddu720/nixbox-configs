@@ -14,3 +14,12 @@ Install pywal. Then install `.cache/wal/colors.nix to` `.cache/wal/colors.json`
 
 __Activate protondb for gaming__
 run `protonup`
+
+## Home-Box
+__Bios settings__
+- CPU
+    - 4550 mhz
+    - 1.2V
+- RAM
+    - Set to Auto
+    - Activate XMP
