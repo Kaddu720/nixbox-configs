@@ -2,11 +2,16 @@
     description = "Flake for setting up boxes";
 
     inputs = {
-        nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+        nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
         home-manager = {
           url = "github:nix-community/home-manager";
           inputs.nixpkgs.follows = "nixpkgs";
+        };
+
+        nixvim = {
+            url = "github:nix-community/nixvim";
+            inputs.nixpkgs.follows = "nixpkgs";
         };
     };
 
@@ -29,6 +34,7 @@
                     modules = [ 
                         ./hosts/home-box/configuration.nix 
                         inputs.home-manager.nixosModules.default
+                        inputs.nixvim.nixosModules.nixvim
                     ];
                 };
                 Mobile-Box = nixpkgs.lib.nixosSystem {
@@ -36,6 +42,7 @@
                     modules = [ 
                         ./hosts/mobile-box/configuration.nix 
                         inputs.home-manager.nixosModules.default
+                        inputs.nixvim.homeManagerModules.nixvim
                     ];
                 };
             };

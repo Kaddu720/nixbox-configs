@@ -9,13 +9,11 @@
             enable = true;
             defaultEditor = true;
             plugins = with pkgs.vimPlugins; [
-                pywal-nvim
                 vim-tmux-navigator
-                wal-vim
                 rose-pine
                 lightline-vim
                 vim-fugitive
-                fzf-vim
+                telescope-nvim
             ];
             extraConfig = ''
                 syntax on " enables syntax highlighting

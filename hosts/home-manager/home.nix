@@ -11,6 +11,7 @@
     imports = [
         ../../modules/home-manager/modules.nix
         ../../modules/home-manager/dev-modules.nix
+        inputs.nixvim.homeManagerModules.nixvim
     ];
 
     # Desktop Environment

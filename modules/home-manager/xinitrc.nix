@@ -4,7 +4,7 @@
             lib.mkEnableOption "config files for xinitrc";
     };
 
-    config = lib.mkIf config.neovim.enable {    
+    config = lib.mkIf config.xinitrc.enable {    
         home.file = {
             ".xinitrc".text = ''
                 
