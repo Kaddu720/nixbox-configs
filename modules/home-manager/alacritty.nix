@@ -1,20 +1,25 @@
 { pkgs, lib, config, ... }: {
     options = {
-        alacirtty.enable = 
-            lib.mkEnableOption "enables alacirtty";
+        alacritty.enable = 
+            lib.mkEnableOption "enables alacritty";
     };
 
-    config = lib.mkIf config.alacirtty.enable {    
+    config = lib.mkIf config.alacritty.enable {    
 
         home.packages = with pkgs; [ alacritty ];
 
         home.file = {
-            ".config/alacirtty/alacirtty.toml".text = ''
+            ".config/alacritty/alacritty.toml".text = ''
+                [window]
+                padding = { x = 10, y = 5 }
+                dynamic_padding = true
+
                 [font]
                 size = 12.0
 
                 [font.normal]
                 family = "Hack Nerd Font Mono"
+                style = "Regular"
 
                 [mouse]
                 hide_when_typing = true

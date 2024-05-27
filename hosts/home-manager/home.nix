@@ -32,8 +32,8 @@
         firefox
         flameshot
         font-awesome_5
-        hack-font
         neofetch
+        (nerdfonts.override { fonts = [ "Hack" ]; })
         obsidian
         pipewire_0_2
         pavucontrol

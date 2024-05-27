@@ -1,14 +1,14 @@
 { pkgs, lib, ... }: {
     imports = [
         ./fish/fish.nix
-        ./alacirtty.nix
+        ./alacritty.nix
         ./nixvim.nix
         ./tmux.nix
     ];
 
     fish.enable = 
         lib.mkDefault true;
-    alacirtty.enable =
+    alacritty.enable =
         lib.mkDefault true;
     nixvim.enable =
         lib.mkDefault true;

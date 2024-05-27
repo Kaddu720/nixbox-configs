@@ -1,5 +1,5 @@
 
-{ lib, config, ... }: {
+{ pkgs, lib, config, ... }: {
     options = {
         nixvim.enable = 
             lib.mkEnableOption "enables nixvim";
@@ -13,12 +13,12 @@
             colorschemes.rose-pine.enable = true;
 
             plugins = {
-                lualine.enable = true;
-                telescope.enable = true;
-                tmux-navigator.enable = true;
                 fugitive.enable = true;
                 harpoon.enable = true;
-                neo-tree.enable = true;
+                lualine.enable = true;
+                nvim-tree.enable = true;
+                telescope.enable = true;
+                tmux-navigator.enable = true;
                 lsp = {
                     enable = true;
                     servers = {
@@ -42,6 +42,8 @@
                 incsearch = true; #highlight objects as you search for them
                 ignorecase = true; #case insensitive search 
                 smartcase = true;
+
+                showmode = false; #Let lualine provide status
             };
 
             autoCmd = [
@@ -49,7 +51,59 @@
                 {
                     event = [ "BufNewFile" "BufReadPost" ];
                     pattern = [ "*.txt" "*.md" ];
-                    command = "set spell spellang=en_us";
+                    command = "set spell spelllang=en_us";
+                }
+            ];
+
+            globals.mapleader = " ";
+            keymaps = [
+                {
+                    mode = "n";
+                    key = "<leader>tf";
+                    action = "<cmd>Telescope find_files<CR>";
+                    options.desc = "Telescop find files";
+                }
+
+                {
+                    mode = "n";
+                    key = "<leader>tb";
+                    action = "<cmd>Telescope buffers<CR>";
+                    options.desc = "Telescop find buffers";
+                }
+
+                {
+                    mode = "n";
+                    key = "<leader>tg";
+                    action = "<cmd>Telescope live_grep<CR>";
+                    options.desc = "Telescop search for words in files";
+                }
+
+                {
+                    mode = "n";
+                    key = "<leader>ee";
+                    action = "<cmd>NvimTreeToggle<CR>";
+                    options.desc = "Toggle file exploere";
+                }
+
+                {
+                    mode = "n";
+                    key = "<leader>ef";
+                    action = "<cmd>NvimTreeFindFileToggle<CR>";
+                    options.desc = "Toggle file exploere on current location";
+                }
+
+                {
+                    mode = "n";
+                    key = "<leader>ec";
+                    action = "<cmd>NvimTreeCollapse<CR>";
+                    options.desc = "Collapse File Explorer";
+                }
+
+                {
+                    mode = "n";
+                    key = "<leader>er";
+                    action = "<cmd>NvimTreeRrefresh<CR>";
+                    options.desc = "Refresh File Exploerer";
                 }
             ];
         };
