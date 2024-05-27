@@ -1,5 +1,4 @@
-
-{ pkgs, lib, config, ... }: {
+{ lib, config, ... }: {
     options = {
         nixvim.enable = 
             lib.mkEnableOption "enables nixvim";
@@ -13,12 +12,19 @@
             colorschemes.rose-pine.enable = true;
 
             plugins = {
+                cmp.enable = true;
                 fugitive.enable = true;
                 harpoon.enable = true;
                 lualine.enable = true;
                 nvim-tree.enable = true;
-                telescope.enable = true;
+                nvim-autopairs.enable = true;
+                oil.enable = true;
                 tmux-navigator.enable = true;
+                which-key.enable = true;
+                telescope = {
+                    enable = true;
+                    extensions.fzf-native.enable = true;
+                };
                 lsp = {
                     enable = true;
                     servers = {
@@ -59,23 +65,23 @@
             keymaps = [
                 {
                     mode = "n";
-                    key = "<leader>tf";
+                    key = "<leader>ff";
                     action = "<cmd>Telescope find_files<CR>";
                     options.desc = "Telescop find files";
                 }
 
                 {
                     mode = "n";
-                    key = "<leader>tb";
+                    key = "<leader>fb";
                     action = "<cmd>Telescope buffers<CR>";
                     options.desc = "Telescop find buffers";
                 }
 
                 {
                     mode = "n";
-                    key = "<leader>tg";
+                    key = "<leader>fw";
                     action = "<cmd>Telescope live_grep<CR>";
-                    options.desc = "Telescop search for words in files";
+                    options.desc = "Telescop find words";
                 }
 
                 {
@@ -104,6 +110,13 @@
                     key = "<leader>er";
                     action = "<cmd>NvimTreeRrefresh<CR>";
                     options.desc = "Refresh File Exploerer";
+                }
+                
+                {
+                    mode = "n";
+                    key = "<leader>o";
+                    action = "<cmd>Oil<CR>";
+                    options.desc = "Edit File system";
                 }
             ];
         };
