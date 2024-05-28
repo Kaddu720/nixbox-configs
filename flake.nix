@@ -8,9 +8,11 @@
           url = "github:nix-community/home-manager";
           inputs.nixpkgs.follows = "nixpkgs";
         };
+
+        nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     };
 
-    outputs = { self, nixpkgs, ... }@inputs:
+    outputs = { self, nixpkgs, nixos-hardware, ... }@inputs:
         let
             system = "x86_64-linux";
 
@@ -36,6 +38,7 @@
                     modules = [ 
                         ./hosts/mobile-box/configuration.nix 
                         inputs.home-manager.nixosModules.default
+                        nixos-hardware.nixosModules.framework-12th-gen-intel
                     ];
                 };
             };
