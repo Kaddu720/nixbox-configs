@@ -17,6 +17,9 @@
         };
     };
 
+    # Enable framework firmware
+    services.fwupd.enable = true;
+
     # Enable openGl graphics
     hardware.opengl.enable = true;
 
@@ -110,7 +113,7 @@
         enable = true;
         package = pkgs.mariadb;
     };
-
+    
     # Enable nixos power management
     services.thermald.enable = true;
 
