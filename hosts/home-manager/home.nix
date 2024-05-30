@@ -15,11 +15,10 @@
     ];
 
     # Desktop Environment
-    xinitrc.enable   = true;
+    dwlinit.enable   = true;
     dwl.enable       = true;
     picom.enable     = true;
     pywal.enable     = true;
-    dmenu.enable     = true;
     gtk-tools.enable  = true;
 
     # Install Packages

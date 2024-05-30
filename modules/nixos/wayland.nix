@@ -10,6 +10,7 @@
 
         #enable greetd greeter
         services.greetd.settings = {
+            enable = true;
             default_session = {
                 command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --remember-session --cmd 'dwl \> /tmp/dwltags'";
             };
@@ -20,6 +21,10 @@
             enable = true;
             wrapperFeatures.gtk = true;
         };
-            
+
+        #Install wlr-randr to manage monitors
+        environment.systemPackages = with pkgs; [
+            wlr-randr
+        ];
     };
 }
