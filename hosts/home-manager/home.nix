@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }: {
+{ pkgs, inputs, ... }: {
     home.username = "noah";
     home.homeDirectory = "/home/noah";
 
@@ -15,10 +15,10 @@
     ];
 
     # Desktop Environment
-    dwlinit.enable   = true;
-    dwl.enable       = true;
-    picom.enable     = true;
-    pywal.enable     = true;
+    dwlinit.enable    = true;
+    dwl.enable        = true;
+    dmenu.enable      = true;
+    pywal.enable      = true;
     gtk-tools.enable  = true;
 
     # Install Packages

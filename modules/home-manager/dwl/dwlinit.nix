@@ -1,10 +1,10 @@
 { lib, config, ... }: {
     options = {
-        dwlint.sh.enable = 
+        dwlinit.enable = 
             lib.mkEnableOption "config files for to start dwl desktop environment";
     };
 
-    config = lib.mkIf config.dwlint.sh.enable {    
+    config = lib.mkIf config.dwlinit.enable {    
         home.file = {
             ".dwlint.sh".text = ''
                 
@@ -16,9 +16,9 @@
                 #Set up display config
                 case $HOSTNAME in
                     Home-Box)
-                        wlr-randr --output DP-1 --mode 2560x1440[@165Hz] --adaptive-sync enabled \
-                            --output DP-2 --mode 1920x1080[@60Hz] --pos -2560,0 \
-                            --output 'HDMI-1' --off
+                        wlr-randr --output DP-1 --pos 0,0 --custom-mode 2560x1440@120Hz --adaptive-sync enabled \
+                                --output DP-2 --pos -2560,0 \
+                                --output 'HDMI-1' --off
                     ;;
                    
                     Mobile-Box)
@@ -47,9 +47,6 @@
 
                 #Activate dunst
                 dunst &
-
-                #turn on dwl
-                dwl &
             '';
             ".config/scripts/lockscreen.sh" = {
                 text = ''

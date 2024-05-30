@@ -22,11 +22,11 @@ static int log_level = WLR_ERROR;
 
 static const Rule rules[] = {
 	/* app_id            title       tags mask     isfloating   monitor */
-	{ "Alacritty",       NULL,       1 << 0,       0,           0 },
+	{ "Alacritty",       NULL,       1 << 0,       0,           1 },
 	{ "firefox",         NULL,       1 << 1,       0,          -1 },
-	{ "discord",         NULL,       1 << 2,       0,           1 },
-	{ "steam",           NULL,       1 << 2,       0,           0 },
-	{ "obsidian",        NULL,       1 << 3,       0,           0 },
+	{ "discord",         NULL,       1 << 2,       0,           0 },
+	{ "steam",           NULL,       1 << 2,       0,           1 },
+	{ "obsidian",        NULL,       1 << 3,       0,           1 },
 	{ "Pavucontrol",     NULL,       0,            1,          -1 },
 
 };
