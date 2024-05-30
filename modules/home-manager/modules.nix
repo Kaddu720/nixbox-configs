@@ -1,7 +1,7 @@
 { pkgs, lib, ... }: {
     imports = [
         ./xinitrc.nix
-        ./dwm/dwm.nix
+        ./dwl/dwl.nix
         ./dwmblocks/dwmblocks.nix
         ./picom.nix
         ./wal/pywal.nix

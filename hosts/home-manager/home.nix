@@ -16,7 +16,7 @@
 
     # Desktop Environment
     xinitrc.enable   = true;
-    dwm.enable       = true;
+    dwl.enable       = true;
     picom.enable     = true;
     pywal.enable     = true;
     dwmblocks.enable = true;
