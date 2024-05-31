@@ -81,7 +81,8 @@ static const char *screenshotcmd[]  = { "flameshot", "gui", NULL };
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_space,  spawn,          {.v = dmenucmd} },
-	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } }, /*termcmd needs this command and the one bellow it */
+	{ MODKEY,                       XK_Return, view,           {1} },
     { MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_w,      spawn,          {.v = browsercmd } },
 	{ WINKEY|ShiftMask,             XK_s,      spawn,          {.v = screenshotcmd } },
