@@ -88,7 +88,7 @@
     services.locate.enable = true;
 
     #Enable Custom Nixos Modules
-    #xserver.enable = true;
+    xserver.enable = true;
     wayland.enable = true;
     pipewire.enable = true;
 

@@ -6,7 +6,7 @@
 
     config = lib.mkIf config.dwlinit.enable {    
         home.file = {
-            ".dwlint.sh".text = ''
+            ".dwlinit.sh".text = ''
                 
                 #!/bin/sh
 

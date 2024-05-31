@@ -6,7 +6,7 @@
 
     config = lib.mkIf config.dwl.enable {
         home.packages = let 
-            dwl = pkgs.dwm.override {
+            dwl = pkgs.dwl.override {
                 conf = ./config.def.h;
             };
         in with pkgs; [

@@ -15,6 +15,8 @@
     ];
 
     # Desktop Environment
+    xinitrc.enable   = true;
+    dwm.enable       = true;
     dwlinit.enable   = true;
     dwl.enable       = true;
     picom.enable     = true;
