@@ -6,22 +6,12 @@
 
     config = lib.mkIf config.dwl.enable {
         home.packages = let 
-            dwl = pkgs.dwl.override {
+            dwl = pkgs.dwm.override {
                 conf = ./config.def.h;
             };
         in with pkgs; [
             dwl
             yambar
-        ];
-
-        nixpkgs.overlays = [
-            (self: super: {
-                dwl = super.dwl.overrideAttrs (oldAttrs: rec {
-                    pathces = [
-
-                    ];
-                });
-             })
         ];
     };
 }

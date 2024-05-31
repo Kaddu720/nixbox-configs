@@ -1,10 +1,10 @@
-{ ... }: {
+{ pkgs, lib, ... }: {
     imports = [
-        ./dwl/dwlinit.nix
+        ./xinitrc.nix
         ./dwl/dwl.nix
-        ./dmenu/dmenu.nix
         ./picom.nix
         ./wal/pywal.nix
+        ./dmenu/dmenu.nix
         ./gtk-tools.nix
     ];
 }
