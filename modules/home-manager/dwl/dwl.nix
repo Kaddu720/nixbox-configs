@@ -13,5 +13,15 @@
             dwl
             yambar
         ];
+
+       nixpkgs.overlays = [
+        (self: super: {
+            dwl = super.dwl.overrideAttrs (oldAttrs: rec {
+                patches = [
+                    dwl-patches/autostart.patch
+                ];
+            });
+         })
+       ];
     };
 }

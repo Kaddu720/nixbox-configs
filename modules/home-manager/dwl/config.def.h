@@ -7,6 +7,12 @@
 static const int sloppyfocus               = 1;  /* focus follows mouse */
 static const int bypass_surface_visibility = 0;  /* 1 means idle inhibitors will disable idle tracking even if it's surface isn't visible  */
 static const unsigned int borderpx         = 1;  /* border pixel of windows */
+
+static const unsigned int gappih    = 10;       /* horiz inner gap between windows */
+static const unsigned int gappiv    = 10;       /* vert inner gap between windows */
+static const unsigned int gappoh    = 10;       /* horiz outer gap between windows and screen edge */
+static const unsigned int gappov    = 10;       /* vert outer gap between windows and screen edge */
+
 static const float rootcolor[]             = COLOR(0x222222ff);
 static const float bordercolor[]           = COLOR(0x444444ff);
 static const float focuscolor[]            = COLOR(0x005577ff);
@@ -20,13 +26,19 @@ static const float fullscreen_bg[]         = {0.1f, 0.1f, 0.1f, 1.0f}; /* You ca
 /* logging */
 static int log_level = WLR_ERROR;
 
+/*Autostart*/
+static const char *const autostart[] = {
+    "wlr-randr --output DP-1 --pos 0,0 --mode 2560x1440@120.001999Hz --adaptive-sync enabled --output DP-2 --pos -2560,0", NULL,
+    NULL /* terminate */    
+};
+
 static const Rule rules[] = {
 	/* app_id            title       tags mask     isfloating   monitor */
-	{ "Alacritty",       NULL,       1 << 0,       0,           0 },
+	{ "Alacritty",       NULL,       1 << 0,       0,           1 },
 	{ "firefox",         NULL,       1 << 1,       0,          -1 },
-	{ "discord",         NULL,       1 << 2,       0,           1 },
-	{ "steam",           NULL,       1 << 2,       0,           0 },
-	{ "obsidian",        NULL,       1 << 3,       0,           0 },
+	{ "discord",         NULL,       1 << 2,       0,           0 },
+	{ "steam",           NULL,       1 << 2,       0,           1 },
+	{ "obsidian",        NULL,       1 << 3,       0,           1 },
 	{ "Pavucontrol",     NULL,       0,            1,          -1 },
 
 };
