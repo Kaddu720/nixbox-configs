@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }: {
+{ pkgs, inputs, ... }: {
     imports = [ # Include the results of the hardware scan.
         inputs.home-manager.nixosModules.default
         inputs.nixos-hardware.nixosModules.framework-12th-gen-intel
