@@ -13,6 +13,7 @@
             url = "github:nix-community/nixvim";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+
         nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     };
 
@@ -43,8 +44,8 @@
                     modules = [ 
                         ./hosts/mobile-box/configuration.nix 
                         inputs.home-manager.nixosModules.default
-                        inputs.nixvim.homeManagerModules.nixvim
-                        nixos-hardware.nixosModules.framework-12th-gen-intel
+                        inputs.nixvim.nixosModules.nixvim
+                        inputs.nixos-hardware.nixosModules.framework-12th-gen-intel
                     ];
                 };
             };
