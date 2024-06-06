@@ -23,3 +23,8 @@ __Bios settings__
 - RAM
     - Set to Auto
     - Activate XMP
+
+## Updating the various systems
+Linux:
+
+Mac: `nix run nix-darwin -- switch --flake ./#Work-Box --show-trace`
