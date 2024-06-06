@@ -1,5 +1,9 @@
 { pkgs, inputs, ... }: {
 
+    imports = [ # Include the results of the hardware scan.
+        ../../modules/darwin/mac-desktop.nix
+    ];
+
     # Auto upgrade nix package and the daemon service.
     services.nix-daemon.enable = true;
     # nix.package = pkgs.nix;
@@ -21,6 +25,10 @@
             "noahwilson" = import ../home-manager/work.nix;
         };
     };
+
+    #Set up yabai window manager
+    yabai.enable = true;
+    skhd.enable = true;
 
     # List packages at system level
     environment.systemPackages = with pkgs; [

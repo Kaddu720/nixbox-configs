@@ -9,12 +9,9 @@
 
     # Import nix modules
     imports = [
-        ../../modules/home-manager/modules.nix
         ../../modules/home-manager/dev-modules.nix
         inputs.nixvim.homeManagerModules.nixvim
     ];
-
-    wal.enable = true;
 
     # Install Packages
     home.packages = with pkgs; [

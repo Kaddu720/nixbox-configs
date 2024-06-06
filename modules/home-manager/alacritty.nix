@@ -14,6 +14,10 @@
                 padding = { x = 10, y = 5 }
                 dynamic_padding = true
 
+                decorations = "Buttonless"
+                opacity = 0.8
+                blur = true
+
                 [font]
                 size = 12.0
 
