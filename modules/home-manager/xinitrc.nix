@@ -53,6 +53,9 @@
                 xset +dpms
                 xset dpms 300
 
+                #activate ssh server
+                exec ssh-agent fish
+
                 #Activate dunst
                 dunst &
 
@@ -60,13 +63,6 @@
                 dwmblocks &
 
                 exec dwm
-
-                # launch Polybar
-                #for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-                #    MONITOR=$m polybar --reload home &
-                #done
-
-                #exec i3
             '';
             ".config/scripts/lockscreen.sh" = {
                 text = ''
