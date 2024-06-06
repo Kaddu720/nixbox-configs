@@ -18,7 +18,7 @@
         #also pas inputs to home-manager modules
         extraSpecialArgs = { inherit inputs; };
         users = {
-            "noahwilson" = import ../home-manager/work-home.nix;
+            "noahwilson" = import ../home-manager/work.nix;
         };
     };
 

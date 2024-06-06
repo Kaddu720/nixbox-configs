@@ -1,5 +1,4 @@
-
-{ config, pkgs, inputs, ... }: {
+{ pkgs, inputs, ... }: {
     home.username = "noahwilson";
     home.homeDirectory = "/Users/noahwilson";
 
@@ -13,8 +12,9 @@
         ../../modules/home-manager/modules.nix
         ../../modules/home-manager/dev-modules.nix
         inputs.nixvim.homeManagerModules.nixvim
-	#inputs.nixvim.nixDarwinModules.nixvim
     ];
+
+    wal.enable = true;
 
     # Install Packages
     home.packages = with pkgs; [
