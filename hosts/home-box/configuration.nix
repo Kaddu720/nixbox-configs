@@ -64,7 +64,6 @@
         home = "/home/noah";
         uid = 1000;
         shell = pkgs.fish;
-        packages = with pkgs; [];
     };
 
     home-manager = {
