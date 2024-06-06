@@ -35,6 +35,13 @@
         HOME = "/Users/noahwilson";
     };
 
+    # Enable automatic garbage collection
+    nix.gc = {
+        automatic = true;
+        dates = "weekly";
+        options = "--delete-older-than 7d";
+    };
+
     # Used for backwards compatibility, please read the changelog before changing.
     # $ darwin-rebuild changelog
     system.stateVersion = 4;
