@@ -62,7 +62,7 @@
         # Home-manager Configs
         homeConfigurations = {
             Home = home-manager.lib.homeManagerConfiguration {
-                pkgs = import nixpkgs { system = "x86-64-linux"; };
+                pkgs = nixpkgs.legacyPackages."x86_64-linux";
 
                 modules = [ 
                     ./users/home.nix 

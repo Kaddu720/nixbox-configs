@@ -36,7 +36,6 @@
         zoom-us
     ];
 
-    programs.fish.enable = true;
     # Broswer opens thunar be default
     xdg.mimeApps.defaultApplications."inode/directory" = "thunar";
 

@@ -13,9 +13,9 @@ Mac: `nix run nix-darwin -- switch --flake ./#Work-Box --show-trace`
 
 ## Updating home-manager
 
-Linux: `home-manager switch --flake ./#Home-Box`
+ `nix run home-manager -- switch --flake ./#FlakeName`
 
-Mac: `nix run home-manager -- switch --flake ./#Work`
+ linxu back up : `home-manager switch --flake ./#Home --option eval-cache  false`
 
 ## Notes for Apps
 __Activate protondb for gaming__
