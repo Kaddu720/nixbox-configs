@@ -30,7 +30,7 @@
                     yabai -m config mouse_drop_action swp
 
                     # rules
-                    yabai -m rule --add app="^System Preferences$" manage=off
+                    yabai -m rule --add app="^System Settings$" manage=off
 
                     echo "yabai configuration loaded.."
             '';
