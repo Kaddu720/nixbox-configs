@@ -6,11 +6,11 @@ if [ $(uname -n) = "Mobile-Box" ]; then
     # To preserver long term battery, it stops charging at 85% full
     # battery symbols are adjusgested to reflect that
     case 1 in
-        $(($capacity >= 64)) ) 
+        $(($capacity >= 75)) ) 
             printf "  %d%%\n" $capacity ;;
-        $(($capacity >= 43)) ) 
+        $(($capacity >= 50)) ) 
             printf " %d%%\n" $capacity ;;
-        $(($capacity >= 22)) ) 
+        $(($capacity >= 25)) ) 
             printf " %d%%\n" $capacity ;;
         $(($capacity >= 10)) ) 
             printf " %d%%\n" $capacity ;;

@@ -9,21 +9,26 @@
           inputs.nixpkgs.follows = "nixpkgs";
         };
 
+        darwin = {
+            url = "github:LnL7/nix-darwin";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
+
         nixvim = {
             url = "github:nix-community/nixvim";
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
 
-        darwin = {
-	        url = "github:LnL7/nix-darwin";
-	        inputs.nixpkgs.follows = "nixpkgs";
-	    };
-
         nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+        auto-cpufreq = {
+           url = "github:AdnanHodzic/auto-cpufreq";
+           inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
 
-    outputs = { nixpkgs, darwin, home-manager, nixos-hardware, ... }@inputs: {
+    outputs = { nixpkgs, darwin, home-manager, auto-cpufreq, nixos-hardware, ... }@inputs: {
         nixosConfigurations = {
             Home-Box = nixpkgs.lib.nixosSystem {
                 system = "x86-64-linux";
@@ -38,8 +43,9 @@
                 specialArgs = { inherit inputs; };
                 modules = [ 
                     ./hosts/mobile-box/configuration.nix 
-                    inputs.home-manager.nixosModules.default
+                    home-manager.nixosModules.default
                     nixos-hardware.nixosModules.framework-12th-gen-intel
+                    auto-cpufreq.nixosModules.default
                 ];
             };
         };

@@ -62,7 +62,6 @@
         home = "/home/noah";
         uid = 1000;
         shell = pkgs.fish;
-        packages = with pkgs; [];
     };
 
     home-manager = {
@@ -115,33 +114,22 @@
         package = pkgs.mariadb;
     };
     
-    # Enable nixos power management
-    services.thermald.enable = true;
-
-    # Enable TLP for better laptop battery
-    services.tlp = {
-        enable = true;
-        settings = {
-            CPU_SCALING_GOVERNOR_ON_AC = "performance";
-            CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-
-            CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
-            CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
-
-            CPU_MIN_PERF_ON_AC = 0;
-            CPU_MAX_PERF_ON_AC = 100;
-            CPU_MIN_PERF_ON_BAT = 0;
-            CPU_MAX_PERF_ON_BAT = 20;
-
-        #Optional helps save long term battery health
-        START_CHARGE_THRESH_BAT0 = 40; # 40 and bellow it starts to charge
-        STOP_CHARGE_THRESH_BAT0 = 85; # 80 and above it stops charging
-
-        };
-    };
-
     # Disable ssh ask pass
     programs.ssh.askPassword = "";
+
+    # Power Controls
+    programs.auto-cpufreq.enable = true;
+    programs.auto-cpufreq.settings = {
+        charger = {
+          governor = "performance";
+          turbo = "auto";
+        };
+
+        battery = {
+          governor = "powersave";
+          turbo = "auto";
+        };
+    };
     
     # Environmental Variables##
     environment.variables = { 
