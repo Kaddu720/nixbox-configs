@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, ... }: {
     home = {
         username = "noahwilson";
         homeDirectory = "/Users/noahwilson";
@@ -9,8 +9,7 @@
 
     # Import nix modules
     imports = [
-        ../../modules/home-manager/dev-modules.nix
-        inputs.nixvim.homeManagerModules.nixvim
+        ../modules/home-manager/dev-modules.nix
     ];
 
     #disables personall git credentials

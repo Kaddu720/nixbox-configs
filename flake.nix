@@ -29,6 +29,8 @@
     };
 
     outputs = { nixpkgs, darwin, home-manager, auto-cpufreq, nixos-hardware, nixvim, ... }@inputs: {
+
+        # Host Configs
         nixosConfigurations = {
             Home-Box = nixpkgs.lib.nixosSystem {
                 system = "x86-64-linux";
@@ -56,9 +58,11 @@
                 ];
             };
         };
+
+        # Home-manager Configs
         homeConfigurations = {
             Home = home-manager.lib.homeManagerConfiguration {
-                pkgs = nixpkgs.legacyPackages."x86_64-linux";
+                pkgs = import nixpkgs { system = "x86-64-linux"; };
 
                 modules = [ 
                     ./users/home.nix 
@@ -66,10 +70,10 @@
                 ];
             };
             Work = home-manager.lib.homeManagerConfiguration {
-                pkgs = nixpkgs.legacyPackages."aarch64-darwin";
+                pkgs = import nixpkgs { system = "aarch64-darwin"; };
 
                 modules = [ 
-                    ./users/home.nix 
+                    ./users/work.nix 
                     nixvim.homeManagerModules.nixvim
                 ];
             };

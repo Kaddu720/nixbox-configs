@@ -6,9 +6,18 @@ https://qfpl.io/posts/installing-nixos/
 __Install Instructions__
 When installing, only encrypt your root drive. Then the swap file will be automatically encrypted by nixos.
 
-__Command to run nix rebuild from this direcotry__
-sudo nixos-rebuild switch --flake ~/.config/nixbox/#The-Box
+## Updating System Configurations
+Linux: `sudo nixos-rebuild switch --flake ./#Home-Box --option eval-cache false`
 
+Mac: `nix run nix-darwin -- switch --flake ./#Work-Box --show-trace`
+
+## Updating home-manager
+
+Linux: `home-manager switch --flake ./#Home-Box`
+
+Mac: `nix run home-manager -- switch --flake ./#Work`
+
+## Notes for Apps
 __Activate protondb for gaming__
 run `protonup`
 
@@ -21,11 +30,3 @@ __Bios settings__
     - Set to Auto
     - Activate XMP
 
-## Updating the various systems
-Linux: sudo nixos-rebuild switch --flake ./#Home-Box --option eval-cache false
-
-Mac: `nix run nix-darwin -- switch --flake ./#Work-Box --show-trace`
-
-## Updating home-manager
-
-home-manager switch --flake ./#<name of env>
