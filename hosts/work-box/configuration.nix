@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, ... }: {
 
     imports = [ # Include the results of the hardware scan.
         ../../modules/darwin/mac-desktop.nix
@@ -18,16 +18,9 @@
         home = "/Users/noahwilson";
     };
 
-    home-manager = {
-        #also pas inputs to home-manager modules
-        extraSpecialArgs = { inherit inputs; };
-        users = {
-            "noahwilson" = import ../home-manager/work.nix;
-        };
-    };
-
     # List packages at system level
     environment.systemPackages = with pkgs; [
+        home-manager
         neovim
     ];
 

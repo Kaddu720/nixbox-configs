@@ -25,3 +25,7 @@ __Bios settings__
 Linux: sudo nixos-rebuild switch --flake ./#Home-Box --option eval-cache false
 
 Mac: `nix run nix-darwin -- switch --flake ./#Work-Box --show-trace`
+
+## Updating home-manager
+
+home-manager switch --flake ./#<name of env>

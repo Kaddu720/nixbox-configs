@@ -28,14 +28,13 @@
         };
     };
 
-    outputs = { nixpkgs, darwin, home-manager, auto-cpufreq, nixos-hardware, ... }@inputs: {
+    outputs = { nixpkgs, darwin, home-manager, auto-cpufreq, nixos-hardware, nixvim, ... }@inputs: {
         nixosConfigurations = {
             Home-Box = nixpkgs.lib.nixosSystem {
                 system = "x86-64-linux";
                 specialArgs = { inherit inputs; };
                 modules = [ 
                     ./hosts/home-box/configuration.nix 
-                    home-manager.nixosModules.default
                 ];
             };
             Mobile-Box = nixpkgs.lib.nixosSystem {
@@ -43,7 +42,6 @@
                 specialArgs = { inherit inputs; };
                 modules = [ 
                     ./hosts/mobile-box/configuration.nix 
-                    home-manager.nixosModules.default
                     nixos-hardware.nixosModules.framework-12th-gen-intel
                     auto-cpufreq.nixosModules.default
                 ];
@@ -55,7 +53,24 @@
                 specialArgs = { inherit inputs; };
                 modules = [
                     ./hosts/work-box/configuration.nix
-                    home-manager.darwinModules.home-manager
+                ];
+            };
+        };
+        homeConfigurations = {
+            Home = home-manager.lib.homeManagerConfiguration {
+                pkgs = nixpkgs.legacyPackages."x86_64-linux";
+
+                modules = [ 
+                    ./users/home.nix 
+                    nixvim.homeManagerModules.nixvim
+                ];
+            };
+            Work = home-manager.lib.homeManagerConfiguration {
+                pkgs = nixpkgs.legacyPackages."aarch64-darwin";
+
+                modules = [ 
+                    ./users/home.nix 
+                    nixvim.homeManagerModules.nixvim
                 ];
             };
         };

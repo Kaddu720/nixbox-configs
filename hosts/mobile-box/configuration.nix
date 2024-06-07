@@ -1,6 +1,5 @@
 { pkgs, inputs, ... }: {
     imports = [ # Include the results of the hardware scan.
-        inputs.home-manager.nixosModules.default
         inputs.nixos-hardware.nixosModules.framework-12th-gen-intel
         ./hardware-configuration.nix
         ../../modules/nixos/modules.nix
@@ -62,14 +61,6 @@
         home = "/home/noah";
         uid = 1000;
         shell = pkgs.fish;
-    };
-
-    home-manager = {
-        #also pass inputs to home-manager modules
-        extraSpecialArgs = { inherit inputs; };
-        users = {
-            "noah" = import ../home-manager/home.nix;
-        };
     };
 
     # Enable experimental packages

@@ -4,6 +4,7 @@
         ./alacritty.nix
         ./nixvim.nix
         ./tmux.nix
+        ./git.nix
     ];
 
     fish.enable = 
@@ -13,6 +14,8 @@
     nixvim.enable =
         lib.mkDefault true;
     tmux.enable =
+        lib.mkDefault true;
+    git.enable = 
         lib.mkDefault true;
 
     home.packages = with pkgs; [

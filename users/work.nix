@@ -1,39 +1,31 @@
 { pkgs, inputs, ... }: {
-    home.username = "noah";
-    home.homeDirectory = "/home/noah";
-
-    home.stateVersion = "23.11"; # Origial nix version this was configured on
+    home = {
+        username = "noahwilson";
+        homeDirectory = "/Users/noahwilson";
+    };
 
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
 
     # Import nix modules
     imports = [
-        ../../modules/home-manager/linux-desktop.nix
         ../../modules/home-manager/dev-modules.nix
         inputs.nixvim.homeManagerModules.nixvim
     ];
 
+    #disables personall git credentials
+    git.enable = false;
+
     # Install Packages
     home.packages = with pkgs; [
-        caffeine-ng
-        discord
-        dunst
-        feh
-        firefox
         flameshot
-        font-awesome_5
-        neofetch
         (nerdfonts.override { fonts = [ "Hack" ]; })
-        obsidian
-        pipewire_0_2
-        pavucontrol
-        syncthing
-        ventoy-full
-        xautolock
-        zoom-us
     ];
 
     # Let Home Manager install and manage itself.
     programs.home-manager.enable = true;
+
+    # Origial nix version this was configured on
+    # Dont' delete or it could bork the entire config
+    home.stateVersion = "23.11";
 }

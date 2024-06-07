@@ -1,6 +1,5 @@
 { pkgs, inputs, ... }: {
     imports = [ # Include the results of the hardware scan.
-        inputs.home-manager.nixosModules.default
         ./hardware-configuration.nix
         ../../modules/nixos/modules.nix
     ];
@@ -70,14 +69,6 @@
         shell = pkgs.fish;
     };
 
-    home-manager = {
-        #also pas inputs to home-manager modules
-        extraSpecialArgs = { inherit inputs; };
-        users = {
-            "noah" = import ../home-manager/home.nix;
-        };
-    };
-
     # Enable experimental packages
     nix.settings.experimental-features = [
       "nix-command"
@@ -97,9 +88,9 @@
     # List packages at system level
     environment.systemPackages = with pkgs; [
         dislocker
-        git
         gnumake
         htop
+        home-manager
         killall
         gcc13
         mangohud
