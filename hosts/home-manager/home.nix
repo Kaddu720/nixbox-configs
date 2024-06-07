@@ -18,7 +18,6 @@
     xinitrc.enable   = true;
     dwm.enable       = true;
     picom.enable     = true;
-    pywal.enable     = true;
     dwmblocks.enable = true;
     dmenu.enable     = true;
     gtk-tools.enable  = true;

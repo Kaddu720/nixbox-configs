@@ -34,9 +34,6 @@
                 # set walpaper image
                 feh --bg-scale /home/noah/.config/nixos/modules/static/dark_fractal.jpg
 
-                # Set pywal
-                wal -R &
-
                 # Start Picom
                 picom --blur-method "dual_kawase" --daemon &
 
@@ -52,9 +49,6 @@
                 # activate power star mode, and set screen to power off after 5 min
                 xset +dpms
                 xset dpms 300
-
-                #activate ssh server
-                exec ssh-agent fish
 
                 #Activate dunst
                 dunst &
