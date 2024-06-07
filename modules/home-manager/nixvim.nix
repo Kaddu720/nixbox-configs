@@ -9,7 +9,14 @@
     		enable = true;
     		defaultEditor = true;
 
-            colorschemes.rose-pine.enable = true;
+            colorschemes.rose-pine = {
+                enable = true;
+                settings = {
+                    styles = {
+                        transparency = true;
+                    };
+                };
+            };
 
             plugins = {
                 cmp.enable = true;
