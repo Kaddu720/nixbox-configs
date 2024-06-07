@@ -26,10 +26,6 @@
         };
     };
 
-    #Set up yabai window manager
-    yabai.enable = true;
-    skhd.enable = true;
-
     # List packages at system level
     environment.systemPackages = with pkgs; [
         neovim
