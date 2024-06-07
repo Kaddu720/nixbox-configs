@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=i3
-Comment=My i3 config
-Exec=i3-init
-X-GNOME-WMName=i3
-X-GNOME-Autostart-Phase=WindowManager
-X-GNOME-Provides=windowmanager
-X-GNOME-Autostart-Notify=false
