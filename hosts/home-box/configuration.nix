@@ -66,7 +66,6 @@
         createHome = true;
         home = "/home/noah";
         uid = 1000;
-        shell = pkgs.fish;
     };
 
     # Enable experimental packages
@@ -103,7 +102,6 @@
     ];
 
     # Enable Programs
-    programs.fish.enable = true;
     programs.slock.enable = true;
     programs.steam.enable = true;
     programs.steam.gamescopeSession.enable = true;
