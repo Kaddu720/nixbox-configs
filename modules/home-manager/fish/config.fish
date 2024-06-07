@@ -7,8 +7,7 @@ set SSH_ASKPASS ''
 if status is-interactive
     # Commands to run in interactive sessions can go here
 
-    # pywal
-    cat /home/noah/.cache/wal/sequences
+    # bat color scheme
     set -gx BAT_THEME "base16"
 
     # Command to activate vi mode
