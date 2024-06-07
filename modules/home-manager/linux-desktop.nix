@@ -5,7 +5,7 @@
         ./dwmblocks/dwmblocks.nix
         ./picom.nix
         ./dmenu/dmenu.nix
-        ./gtk-tools.nix
+        ./gtk-theme.nix
     ];
 
     xinitrc.enable = 
@@ -18,6 +18,6 @@
         lib.mkDefault true;
     dmenu.enable = 
         lib.mkDefault true;
-    gtk-tools.enable = 
+    gtk-theme.enable = 
         lib.mkDefault true;
 }

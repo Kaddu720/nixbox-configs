@@ -99,7 +99,7 @@
     # Enable Programs
     programs.fish.enable = true;
     programs.slock.enable = true;
-    programs.steam.enable = true;
+    programs.dconf.enable = true; #enable gtk desktop
     services.mysql = {
         enable = true;
         package = pkgs.mariadb;

@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, ... }: {
     imports = [ # Include the results of the hardware scan.
         ./hardware-configuration.nix
         ../../modules/nixos/modules.nix
@@ -103,6 +103,7 @@
 
     # Enable Programs
     programs.slock.enable = true;
+    programs.dconf.enable = true; #enable gtk desktops
     programs.steam.enable = true;
     programs.steam.gamescopeSession.enable = true;
     programs.gamemode.enable = true;
