@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }: {
+{ pkgs, inputs, ... }: {
     home.username = "noah";
     home.homeDirectory = "/home/noah";
 
@@ -9,18 +9,10 @@
 
     # Import nix modules
     imports = [
-        ../../modules/home-manager/modules.nix
+        ../../modules/home-manager/linux-desktop.nix
         ../../modules/home-manager/dev-modules.nix
         inputs.nixvim.homeManagerModules.nixvim
     ];
-
-    # Desktop Environment
-    xinitrc.enable   = true;
-    dwm.enable       = true;
-    picom.enable     = true;
-    dwmblocks.enable = true;
-    dmenu.enable     = true;
-    gtk-tools.enable  = true;
 
     # Install Packages
     home.packages = with pkgs; [
