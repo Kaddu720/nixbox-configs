@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }: {
+{ lib, config, ... }: {
     options = {
         xinitrc.enable = 
             lib.mkEnableOption "config files for xinitrc";
