@@ -25,9 +25,6 @@
         neovim
     ];
 
-    # Enable Programs
-    programs.fish.enable = true;
-
     environment.variables = { 
         EDITOR = "nvim"; 
         HOME = "/Users/noahwilson";

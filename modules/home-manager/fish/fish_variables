@@ -1,19 +1,15 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR --export POETFOLIO_DB_NAME:poetfolio_dev
-SETUVAR --export POETFOLIO_DB_PASSWORD:secret_poet_pass
-SETUVAR --export POETFOLIO_DB_USER:poetfolio
-SETUVAR --export POETFOLIO_EMAIL_HOST:smtp\x2eoffice365\x2ecom
-SETUVAR --export POETFOLIO_EMAIL_PASSWORD:csvfqkkjyvmsdbxk
-SETUVAR --export POETFOLIO_EMAIL_USER:scholars\x40whittier\x2eedu
-SETUVAR --export POETFOLIO_MEDIA:/home/noah/Documents/projects/dashboard/media
-SETUVAR --export POETFOLIO_SECRET_KEY:vvRxcurRuAttgwUHZ8rYk2ZuXoPz5K
-SETUVAR --export POETFOLIO_STATIC:/home/noah/Documents/projects/dashboard/static
 SETUVAR __fish_initialized:3400
 SETUVAR _fish_abbr_dashserv:python\x20manage\x2epy\x20runserver_plus\x20\x2d\x2dcert\x2dfile\x20\x7e/Documents/projects/cert\x2epem\x20\x2d\x2dkey\x2dfile\x20\x7e/Documents/projects/key\x2epem
 SETUVAR _fish_abbr_list:ls
 SETUVAR _fish_abbr_logout:dm\x2dtool\x20switch\x2dto\x2dgreeter
 SETUVAR chain_links:chain\x2elinks\x2eroot\x1echain\x2elinks\x2ejobs\x1echain\x2elinks\x2epwd\x1echain\x2elinks\x2evcs_branch\x1echain\x2elinks\x2evcs_dirty\x1echain\x2elinks\x2evcs_stashed
+
+#Fish Keybindings 
+SETUVAR fish_key_bindings:fish_default_key_bindings
+
+# Fish shell colors
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:005fd7
@@ -36,9 +32,19 @@ SETUVAR fish_color_selection:white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dbrbl
 SETUVAR fish_color_status:red
 SETUVAR fish_color_user:brgreen
 SETUVAR fish_color_valid_path:\x2d\x2dunderline
-SETUVAR fish_key_bindings:fish_default_key_bindings
 SETUVAR fish_pager_color_completion:\x1d
 SETUVAR fish_pager_color_description:B3A06D\x1eyellow
 SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
+
+#Dashboard variables
+SETUVAR --export POETFOLIO_DB_NAME:poetfolio_dev
+SETUVAR --export POETFOLIO_DB_PASSWORD:secret_poet_pass
+SETUVAR --export POETFOLIO_DB_USER:poetfolio
+SETUVAR --export POETFOLIO_EMAIL_HOST:smtp\x2eoffice365\x2ecom
+SETUVAR --export POETFOLIO_EMAIL_PASSWORD:csvfqkkjyvmsdbxk
+SETUVAR --export POETFOLIO_EMAIL_USER:scholars\x40whittier\x2eedu
+SETUVAR --export POETFOLIO_MEDIA:/home/noah/Documents/projects/dashboard/media
+SETUVAR --export POETFOLIO_SECRET_KEY:vvRxcurRuAttgwUHZ8rYk2ZuXoPz5K
+SETUVAR --export POETFOLIO_STATIC:/home/noah/Documents/projects/dashboard/static

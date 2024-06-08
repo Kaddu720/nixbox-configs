@@ -98,7 +98,6 @@
     ];
 
     # Enable Programs
-    programs.fish.enable = true;
     programs.slock.enable = true;
     programs.dconf.enable = true; #enable gtk desktops
     programs.steam.enable = true;
