@@ -75,10 +75,6 @@
     # Enable users to use programs
     services.locate.enable = true;
 
-    #Enable Custom Nixos Modules
-    xserver.enable = true;
-    pipewire.enable = true;
-
     # List packages installed in system profile. To search, run:
     # $ nix search wget
     environment.systemPackages = with pkgs; [

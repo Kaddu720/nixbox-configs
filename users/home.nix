@@ -30,13 +30,10 @@
         syncthing
         ventoy-full
         xautolock
-        xfce.thunar
-        xfce.thunar-volman
-        xfce.thunar-archive-plugin
         zoom-us
     ];
 
-    # Broswer opens thunar be default
+    # Broswer opens thunar by default
     xdg.mimeApps.defaultApplications."inode/directory" = "thunar";
 
     # Let Home Manager install and manage itself.

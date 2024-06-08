@@ -80,10 +80,6 @@
     # Enable users to use programs
     services.locate.enable = true;
 
-    #Enable Custom Nixos Modules
-    xserver.enable = true;
-    pipewire.enable = true;
-
     # List packages at system level
     environment.systemPackages = with pkgs; [
         dislocker
