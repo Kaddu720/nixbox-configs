@@ -84,7 +84,6 @@
         systemPackages = with pkgs; [
             dislocker
             gnumake
-            htop
             home-manager
             killall
             gcc13

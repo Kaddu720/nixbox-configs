@@ -21,7 +21,9 @@
     home.packages = with pkgs; [
         awscli2
         bat
+        bottom
         fzf
+        htop
         lazygit
         nerdfonts
         ripgrep
