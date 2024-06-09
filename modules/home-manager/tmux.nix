@@ -7,6 +7,7 @@
     config = lib.mkIf config.tmux.enable {    
         programs.tmux = {
             enable = true;
+            shell = if "${config.home.username}" == "noahwilson" then "/usr/local/bin/fish" else "${pkgs.fish}/bin/fish";
             plugins = with pkgs.tmuxPlugins; [
                 vim-tmux-navigator
                 yank
