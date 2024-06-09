@@ -40,9 +40,6 @@
                 # start up caffeine so that the desktop doesn't go the sleep when in full screen
                 caffeine &
 
-                # start us syncthing for syncing files
-                syncthing &
-
                 #Set us lock screen
                 xautolock -time 5 -locker '~/.config/scripts/lockscreen.sh' -detectsleep &
 

@@ -1,4 +1,11 @@
 { pkgs, ... }: {
+
+    # Import nix modules
+    imports = [
+        ../modules/home-manager/linux-desktop.nix
+        ../modules/home-manager/dev-modules.nix
+    ];
+
     home = {
         username = "noah";
         homeDirectory = "/home/noah";
@@ -8,11 +15,9 @@
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
 
-    # Import nix modules
-    imports = [
-        ../modules/home-manager/linux-desktop.nix
-        ../modules/home-manager/dev-modules.nix
-    ];
+
+    # Broswer opens thunar by default
+    xdg.mimeApps.defaultApplications."inode/directory" = "thunar";
 
     # Install Packages
     home.packages = with pkgs; [
@@ -27,14 +32,15 @@
         (nerdfonts.override { fonts = [ "Hack" ]; })
         obsidian
         pavucontrol
-        syncthing
         ventoy-full
         xautolock
         zoom-us
     ];
 
-    # Broswer opens thunar by default
-    xdg.mimeApps.defaultApplications."inode/directory" = "thunar";
+    # configure services
+    services = {
+        syncthing.enable = true;
+    };
 
     # Let Home Manager install and manage itself.
     programs.home-manager.enable = true;
