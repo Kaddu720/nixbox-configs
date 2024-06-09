@@ -63,7 +63,6 @@
         createHome = true;
         home = "/home/noah";
         uid = 1000;
-        shell = pkgs.fish;
     };
 
     # Enable experimental packages
@@ -118,9 +117,12 @@
 
         # Enable gtk desktop
         dconf.enable = true;
-        
-        # Disable ssh ask pass
-        ssh.askPassword = "";
+       
+
+        ssh = {
+            startAgent = true;
+            askPassword = "";
+        };
 
         # Battery Power Controls
         auto-cpufreq = {
