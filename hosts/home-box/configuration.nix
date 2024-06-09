@@ -4,27 +4,27 @@
         ../../modules/nixos/modules.nix
     ];
 
-    # Set up Grub
-    boot.loader = {
-        efi.canTouchEfiVariables = true;
-        grub = {
-            enable = true;
-            devices = [ "nodev" ];
-            efiSupport = true;
-            useOSProber = true;
+    boot = {
+        # Set up Grub
+        loader = {
+            efi.canTouchEfiVariables = true;
+            grub = {
+                enable = true;
+                devices = [ "nodev" ];
+                efiSupport = true;
+                useOSProber = true;
+            };
         };
-    };
-
-    # decrypt encrypted partition
-    boot.initrd.luks.devices = {
-        root = {
-        device = "/dev/nvme1n1p2";
-        preLVM = true;
+        # decrypt encrypted partition
+        initrd.luks.devices = {
+            root = {
+            device = "/dev/nvme1n1p2";
+            preLVM = true;
+            };
         };
+        # Set up AMD Graphics Drivers
+        initrd.kernelModules = [ "amdgpu" ];
     };
-
-    # AMD Graphics Drivers
-    boot.initrd.kernelModules = [ "amdgpu" ];
 
     # Enable openGl graphics
     hardware.opengl = {
@@ -38,11 +38,14 @@
     # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
     networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
-    # Set your time zone.
-    time.timeZone = "America/Los_Angeles";
+    time = {
+        # Set your time zone.
+        timeZone = "America/Los_Angeles";
+    
+        # Allow windows to have correct time on dual boot
+        hardwareClockInLocalTime = true;
+    };
 
-    # Allow windows to have correct time on dual boot
-    time.hardwareClockInLocalTime = true;
 
     # Configure network proxy if necessary
     # networking.proxy.default = "http://user:password@proxy:port/";
@@ -54,9 +57,6 @@
     # Enable sound.
     sound.enable = true;
 
-    # Enable SSH
-    services.openssh.enable = true;
-    programs.ssh.startAgent = true;
 
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users.noah = {
@@ -77,51 +77,63 @@
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
 
-    # Enable users to use programs
-    services.locate.enable = true;
 
-    # List packages at system level
-    environment.systemPackages = with pkgs; [
-        dislocker
-        gnumake
-        htop
-        home-manager
-        killall
-        gcc13
-        mangohud
-        protonup
-        python3
-        python311Packages.pip
-        neovim
-        wget
-        wirelesstools 
-    ];
-
-    # Enable Programs
-    programs.slock.enable = true;
-    programs.dconf.enable = true; #enable gtk desktops
-    programs.steam.enable = true;
-    programs.steam.gamescopeSession.enable = true;
-    programs.gamemode.enable = true;
-    services.mysql = {
-        enable = true;
-        package = pkgs.mariadb;
+    # Configure Environment
+    environment = {
+        # List packages at system level
+        systemPackages = with pkgs; [
+            dislocker
+            gnumake
+            htop
+            home-manager
+            killall
+            gcc13
+            mangohud
+            protonup
+            python3
+            python311Packages.pip
+            neovim
+            wget
+            wirelesstools 
+        ];
+        variables = { 
+            EDITOR = "nvim"; 
+            HOME = "/home/noah";
+        };
+        sessionVariables = {
+            STEAM_EXTRA_COMPAT_TOOLS_PATHS =
+                "/home/noah/.steam/root/compatibilityrools.d";
+        };
     };
 
-    # Disable ssh ask pass
-    programs.ssh.askPassword = "";
+    #Configure Services
+    services = {
+        mysql = {
+            enable = true;
+            package = pkgs.mariadb;
+        };
 
-    # Environmental Variables##
-    environment.variables = { 
-        EDITOR = "nvim"; 
-        HOME = "/home/noah";
+        # Enable users to use system programs
+        locate.enable = true;
+
+        # Enable SSH
+        openssh.enable = true;
     };
 
-    environment.sessionVariables = {
-        STEAM_EXTRA_COMPAT_TOOLS_PATHS =
-            "/home/noah/.steam/root/compatibilityrools.d";
+    # Configure Programs
+    programs = {
+        slock.enable = true;
+        dconf.enable = true; #enable gtk desktops
+        gamemode.enable = true;
+        ssh = {
+            startAgent = true;
+            askPassword = "";
+        };
+        steam = {
+            enable = true;
+            gamescopeSession.enable = true;
+        };
     };
-
 
     # Copy the NixOS configuration file and link it from the resulting system
     # (/run/current-system/configuration.nix). This is useful in case you
@@ -153,4 +165,3 @@
     # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
     system.stateVersion = "23.11"; # Did you read the comment?
 }
-

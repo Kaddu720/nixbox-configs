@@ -5,20 +5,21 @@
         ../../modules/nixos/modules.nix
     ];
 
-    # Use the systemd-boot EFI boot loader.
-    boot.loader.systemd-boot.enable = true;
-    boot.loader.efi.canTouchEfiVariables = true;
+    boot = {
+        # Use the systemd-boot EFI boot loader.
+        loader = {
+            systemd-boot.enable = true;
+            efi.canTouchEfiVariables = true;
+        };
 
-    # decrypt encrypted partition
-    boot.initrd.luks.devices = {
-        root = {
-        device = "/dev/nvme0n1p2";
-        preLVM = true;
+        # decrypt encrypted partition
+        initrd.luks.devices = {
+            root = {
+            device = "/dev/nvme0n1p2";
+            preLVM = true;
+            };
         };
     };
-
-    # Enable framework firmware
-    services.fwupd.enable = true;
 
     # Enable openGl graphics
     hardware.opengl.enable = true;
@@ -29,10 +30,12 @@
     networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
     # Set your time zone.
-    time.timeZone = "America/Los_Angeles";
+    time = {
+        timeZone = "America/Los_Angeles";
+        # Allow windows to have correct time on dual boot
+        hardwareClockInLocalTime = true;
+    };
 
-    # Allow windows to have correct time on dual boot
-    time.hardwareClockInLocalTime = true;
 
     # Configure network proxy if necessary
     # networking.proxy.default = "http://user:password@proxy:port/";
@@ -72,57 +75,69 @@
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
 
-    # Enable users to use programs
-    services.locate.enable = true;
-
-    # List packages installed in system profile. To search, run:
-    # $ nix search wget
-    environment.systemPackages = with pkgs; [
-        framework-tool
-        git
-        gnumake
-        home-manager
-        htop
-        killall
-        gcc13
-        python3
-        python311Packages.pip
-        neovim
-        wget
-        wirelesstools 
-    ];
-
-    # Enable Programs
-    programs.slock.enable = true;
-    programs.dconf.enable = true; #enable gtk desktop
-    services.mysql = {
-        enable = true;
-        package = pkgs.mariadb;
-    };
-    
-    # Disable ssh ask pass
-    programs.ssh.askPassword = "";
-
-    # Power Controls
-    programs.auto-cpufreq.enable = true;
-    programs.auto-cpufreq.settings = {
-        charger = {
-          governor = "performance";
-          turbo = "auto";
-        };
-
-        battery = {
-          governor = "powersave";
-          turbo = "auto";
+    #Configure environment Variables
+    environment = {
+        systemPackages = with pkgs; [
+            framework-tool
+            git
+            gnumake
+            home-manager
+            htop
+            killall
+            gcc13
+            python3
+            python311Packages.pip
+            neovim
+            wget
+            wirelesstools 
+        ];
+        # Environmental Variables##
+        variables = { 
+            EDITOR = "nvim"; 
+            HOME = "/home/noah";
         };
     };
-    
-    # Environmental Variables##
-    environment.variables = { 
-        EDITOR = "nvim"; 
-        HOME = "/home/noah";
+
+    #Configure Services
+    services = {
+        # Enable framework firmware
+        fwupd.enable = true;
+
+        # Enable users to use programs
+        locate.enable = true;
+
+        mysql = {
+            enable = true;
+            package = pkgs.mariadb;
+        };
     };
 
+    # Configure Programs
+    programs = {
+        slock.enable = true;
+
+        # Enable gtk desktop
+        dconf.enable = true;
+        
+        # Disable ssh ask pass
+        ssh.askPassword = "";
+
+        # Battery Power Controls
+        auto-cpufreq = {
+            enable = true;
+            settings = {
+                charger = {
+                  governor = "performance";
+                  turbo = "auto";
+                };
+
+                battery = {
+                  governor = "powersave";
+                  turbo = "auto";
+                };
+            };
+        };
+    };
 
     # Copy the NixOS configuration file and link it from the resulting system
     # (/run/current-system/configuration.nix). This is useful in case you
@@ -154,4 +169,3 @@
     # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
     system.stateVersion = "23.11"; # Did you read the comment?
 }
-

@@ -19,16 +19,19 @@
         home = "/Users/noahwilson";
     };
 
-    # List packages at system level
-    environment.systemPackages = with pkgs; [
-        home-manager
-        neovim
-    ];
-
-    environment.variables = { 
-        EDITOR = "nvim"; 
-        HOME = "/Users/noahwilson";
+    #Configure Environmental Variables
+    environment = {
+        # List packages at system level
+        systemPackages = with pkgs; [
+            home-manager
+            neovim
+        ];
+        variables = { 
+            EDITOR = "nvim"; 
+            HOME = "/Users/noahwilson";
+        };
     };
+
 
     # Enable automatic garbage collection
     nix.gc = {
