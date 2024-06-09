@@ -7,13 +7,26 @@
     config = lib.mkIf config.tmux.enable {    
         programs.tmux = {
             enable = true;
+            
             shell = if "${config.home.username}" == "noahwilson" then "/usr/local/bin/fish" else "${pkgs.fish}/bin/fish";
+            mouse = true;
+            keyMode = "vi";
+            baseIndex = 1; #window and panes #s start on 1
+            terminal = "alacritty";
+
             plugins = with pkgs.tmuxPlugins; [
                 vim-tmux-navigator
                 yank
                 rose-pine
             ];
             extraConfig = ''
+                #True color settings
+                set -g default-terminal "$TERM"
+                set -ag terminal-overrides ",$TERM:Tc"
+
+                #Start Windows and panes at 1, not 0
+                set-option -g renumber-windows on
+
                 #Status bar
                 set-option -g status-position top
                 set -g status-justify left
@@ -27,22 +40,6 @@
                 setw -g window-status-format ' #I #[fg=colour7]#W #[fg=colour1]#F '
 
                 setw -g window-status-bell-style 'fg=colour2 bg=colour1 bold'
-
-                #True color settings
-                set -g default-terminal "$TERM"
-                set -ag terminal-overrides ",$TERM:Tc"
-
-                #Mouse Support
-                set -g mouse on
-
-                #set vi-mode
-                set-window-option -g mode-keys vi
-
-                #Start Windows and panes at 1, not 0
-                set -g base-index 1
-                set -g pane-base-index 1
-                set-window-option -g pane-base-index 1
-                set-option -g renumber-windows on
 
                 #Key bindings#
                 # prefix key ix now C-b
