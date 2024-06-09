@@ -36,8 +36,8 @@
                 shift + alt - l : yabai -m window --swap east
 
                 # move a winodw to previous and next display
-                shift + alt - s : yabai -m window --display west; yabai -m display --focus west;
-                shift + alt - g : yabai -m window --display east; yabai -m display --focus east;
+                shift + alt - , : yabai -m window --display west; yabai -m display --focus west;
+                shift + alt - . : yabai -m window --display east; yabai -m display --focus east;
 
                 # move window to a space #
                 shift + alt - 1 : yabai -m window --space 1;
