@@ -9,30 +9,30 @@
         services.yabai = {
             enable = true;
             enableScriptingAddition = true;
+            config = {
+                # Set Binary split layout option
+                layout                       = "bsp";
+                window_placement             = "second_child";
+
+                # Padding
+                top_padding                  = 10;
+                bottom_padding               = 10;
+                left_padding                 = 10;
+                right_padding                = 10;
+                window_gap                   = 10;
+
+                # Mouse settings
+                mouse_follows_focus          = "on";
+                mouse_modifier               = "alt";
+                mouse_action1                = "move";
+                mouse_action2                = "resize";
+                mouse_drop_action            = "swp";
+
+            };
 
             extraConfig = ''
-                    # set binary split layout option
-                    yabai -m config layout bsp
-                    yabai -m config window_placement second_child
-
-                    #padding
-                    yabai -m config top_padding 10
-                    yabai -m config bottom_padding 10
-                    yabai -m config left_padding 10
-                    yabai -m config right_padding 10
-                    yabai -m config window_gap 10
-
-                    # mouse settings
-                    yabai -m config mouse_folows_focus on
-                    yabai -m config mouse_modifier alt
-                    yabai -m config mouse_action1 move
-                    yabai -m config mouse_action2 resize
-                    yabai -m config mouse_drop_action swp
-
                     # rules
                     yabai -m rule --add app="^System Settings$" manage=off
-
-                    echo "yabai configuration loaded.."
             '';
         };
     };
