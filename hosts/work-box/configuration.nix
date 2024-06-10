@@ -14,6 +14,9 @@
     # The platform the configuration will be used on.
     nixpkgs.hostPlatform = "aarch64-darwin";
 
+    # Allow unfree packages
+    nixpkgs.config.allowUnfree = true;
+
     #users
     users.users.noahwilson = {
         home = "/Users/noahwilson";
@@ -25,6 +28,7 @@
         systemPackages = with pkgs; [
             home-manager
             neovim
+            raycast
         ];
         variables = { 
             EDITOR = "nvim"; 

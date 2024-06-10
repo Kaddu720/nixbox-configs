@@ -39,6 +39,7 @@
                         pyright.enable = true; #python
                         nixd.enable = true; #nix
                         marksman.enable = true; #markdown
+                        terraformls.enable = true; #terraform
                     };
                 };
             };
