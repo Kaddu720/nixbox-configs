@@ -15,14 +15,14 @@
                 alt - w : open -n -a "Google Chrome"
 
                 # change window focus
-                alt - j : yabai -m window --forus south
-                alt - k : yabai -m window --forus north
-                alt - h : yabai -m window --forus west
-                alt - l : yabai -m window --forus east
+                alt - j : yabai -m window --focus south
+                alt - k : yabai -m window --focus north
+                alt - h : yabai -m window --focus west
+                alt - l : yabai -m window --focus east
 
                 # Change focus between external displays (left and right)
-                alt - s : yabai -m display --focus west
-                alt - g : yabai -m display --focus east
+                alt - , : yabai -m display --focus west
+                alt - . : yabai -m display --focus east
 
                 # Modify the current layout
                 alt - f : yabai -m config layout float #float
@@ -36,10 +36,10 @@
                 shift + alt - l : yabai -m window --swap east
 
                 # move a winodw to previous and next display
-                shift + alt - , : yabai -m window --display west; yabai -m display --focus west;
-                shift + alt - . : yabai -m window --display east; yabai -m display --focus east;
+                shift + alt - < : yabai -m window --display west; yabai -m display --focus west;
+                shift + alt - > : yabai -m window --display east; yabai -m display --focus east;
 
-                # move window to a space #
+                 move window to a space #
                 shift + alt - 1 : yabai -m window --space 1;
                 shift + alt - 2 : yabai -m window --space 2;
                 shift + alt - 3 : yabai -m window --space 3;
