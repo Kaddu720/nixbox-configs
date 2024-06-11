@@ -3,6 +3,7 @@
         inputs.nixos-hardware.nixosModules.framework-12th-gen-intel
         ./hardware-configuration.nix
         ../../modules/nixos/modules.nix
+        ../../modules/nixos/laptop-modules.nix
     ];
 
     boot = {

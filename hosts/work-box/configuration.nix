@@ -2,6 +2,7 @@
 
     imports = [ # Include the results of the hardware scan.
         ../../modules/darwin/mac-desktop.nix
+        ../../modules/nixos/laptop-modules.nix
     ];
 
     # Auto upgrade nix package and the daemon service.
@@ -33,6 +34,7 @@
         variables = { 
             EDITOR = "nvim"; 
             HOME = "/Users/noahwilson";
+            Host = "aarch65-darwin";
         };
     };
 

@@ -19,6 +19,10 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
+        kmonad = {
+            url = "git+https://github.com/kmonad/kmonad?submodules=1&dir=nix";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
 
         nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
@@ -28,7 +32,7 @@
         };
     };
 
-    outputs = { nixpkgs, darwin, home-manager, auto-cpufreq, nixos-hardware, nixvim, ... }@inputs: {
+    outputs = { nixpkgs, darwin, home-manager, auto-cpufreq, nixos-hardware, kmonad, nixvim, ... }@inputs: {
 
         # Host Configs
         nixosConfigurations = {
@@ -55,6 +59,7 @@
                 specialArgs = { inherit inputs; };
                 modules = [
                     ./hosts/work-box/configuration.nix
+                    kmonad.nixosModules.default
                 ];
             };
         };
@@ -75,6 +80,7 @@
                 modules = [ 
                     ./users/work.nix 
                     nixvim.homeManagerModules.nixvim
+                    kmonad.nixModules.default
                 ];
             };
         };
