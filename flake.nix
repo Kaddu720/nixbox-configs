@@ -50,6 +50,7 @@
                     ./hosts/mobile-box/configuration.nix 
                     nixos-hardware.nixosModules.framework-12th-gen-intel
                     auto-cpufreq.nixosModules.default
+                    kmonad.nixosModules.default
                 ];
             };
         };
@@ -80,7 +81,6 @@
                 modules = [ 
                     ./users/work.nix 
                     nixvim.homeManagerModules.nixvim
-                    kmonad.nixModules.default
                 ];
             };
         };
