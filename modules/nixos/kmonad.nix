@@ -1,5 +1,5 @@
 
-{ lib, config, users,  ... }: {
+{ lib, config,  ... }: {
     options = {
         kmonad.enable = 
             lib.mkEnableOption "enables kmonad";
@@ -10,9 +10,17 @@
             enable = true;
             keyboards = {
                 myKMonadOutput = {
-                    device = "FM72257058VNX0QAG+RMN";
-                    fallthrough = true;
+                    device = "/dev/input/by-path/platform-i8042-serio-0-event-kbd";
                     config = ''
+                        ;; define laptop keybaord input
+                        (defcfg
+                            input  (device-file "/dev/input/by-id/usb-04d9_daskeyboard-event-kbd")
+                            output (uinput-sink "My KMonad output"
+                            "/run/current-system/sw/bin/sleep 1 && /run/current-system/sw/bin/setxkbmap -option compose:ralt")
+
+                            fallthrough true
+                        )
+
                         ;; keys to modify
                         (defsrc
                             a    s    d    f    g    h    j    k    l    ;
