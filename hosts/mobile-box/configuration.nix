@@ -78,6 +78,7 @@
     #Configure environment Variables
     environment = {
         systemPackages = with pkgs; [
+            brightnessctl
             framework-tool
             git
             gnumake
