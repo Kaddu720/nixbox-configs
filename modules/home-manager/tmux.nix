@@ -8,7 +8,7 @@
         programs.tmux = {
             enable = true;
             
-            shell = if "${config.home.username}" == "noahwilson" then "/usr/local/bin/fish" else "${pkgs.fish}/bin/fish";
+            shell = if "${config.home.username}" == "noahwilson" then "/usr/local/bin/fish" else "/home/noah/.nix-profile/bin/fish";
             mouse = true;
             keyMode = "vi";
             baseIndex = 1; #window and panes #s start on 1
