@@ -8,13 +8,6 @@
 
         programs.fish = {
             enable = true;
-            shellInit = ''
-                #auto start Tmux
-                if status is-interactive
-                and not set -q TMUX
-                    exec tmux
-                end
-            '';
             interactiveShellInit = ''
                 set fish_greeting " Praise the Omnissiah"
 
