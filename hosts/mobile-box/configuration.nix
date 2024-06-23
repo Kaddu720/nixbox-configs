@@ -79,6 +79,7 @@
     environment = {
         systemPackages = with pkgs; [
             brightnessctl
+            dk
             framework-tool
             git
             gnumake

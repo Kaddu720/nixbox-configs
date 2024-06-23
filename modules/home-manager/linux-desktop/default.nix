@@ -1,8 +1,9 @@
 { lib, ... }: {
     imports = [
         ./xinitrc.nix
-        ./dwm/dwm.nix
-        ./dwmblocks/dwmblocks.nix
+        ./dk.nix
+        ./sxhkd.nix
+        ./polybar.nix
         ./picom.nix
         ./dmenu/dmenu.nix
         ./gtk-theme.nix
@@ -10,9 +11,11 @@
 
     xinitrc.enable = 
         lib.mkDefault true;
-    dwm.enable = 
+    dk.enable = 
         lib.mkDefault true;
-    dwmblocks.enable = 
+    sxhkd.enable = 
+        lib.mkDefault true;
+    polybar.enable =
         lib.mkDefault true;
     picom.enable = 
         lib.mkDefault true;

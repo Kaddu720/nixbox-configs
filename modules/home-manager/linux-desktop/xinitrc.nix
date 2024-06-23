@@ -51,9 +51,9 @@
                 dunst &
 
                 # Set up dwm blocks
-                dwmblocks &
+                #dwmblocks &
 
-                exec dwm
+                exec dk
             '';
             ".config/scripts/lockscreen.sh" = {
                 text = ''
