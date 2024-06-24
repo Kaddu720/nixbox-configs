@@ -5,23 +5,40 @@
     };
 
     config = lib.mkIf config.polybar.enable {
+
+        home.file = {
+            ".config/scripts/polybarLaunch.sh" = {
+                text = ''
+                    #!/bin/sh
+
+                    # Terminate already running bar instances
+                    killall -q polybar
+
+                    case $HOSTNAME in
+                        Home-Box)
+                           MONITOR=DP-1 polybar --reload primary &
+                           MONITOR=DP-2 polybar --reload secondary &
+                        ;;
+                       
+                        Mobile-Box)
+                            polybar --reload primary &
+                        ;;
+                    esac
+
+                    polybar-msg action pipewire hook 0
+                '';
+                executable = true;
+            };
+            ".config/polybar/pb-volume.sh" = {
+                source = ./pb-volume;
+                executable = true;
+            };
+        };
+
         services.polybar = {
             enable = true;
-            script = ''
-                #!/bin/bash
-                # Terminate already running bar instances
-                killall -q polybar
-
-                # Launch bar1 and bar2
-                if type "xrandr"; then
-                  for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-                    MONITOR=$m polybar --reload home &
-                  done
-                else
-                  polybar --reload home &
-                fi
-            '';
             config = ./polybarrc;
+            script = '''';
         };
     };
 }

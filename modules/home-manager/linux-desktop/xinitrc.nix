@@ -50,9 +50,10 @@
                 #Activate dunst
                 dunst &
 
-                # Set up dwm blocks
-                #dwmblocks &
-
+                # Set up polybar
+                ~/.config/scripts/polybarLaunch.sh
+                polybar-msg action pipewire hook 0
+                
                 exec dk
             '';
             ".config/scripts/lockscreen.sh" = {

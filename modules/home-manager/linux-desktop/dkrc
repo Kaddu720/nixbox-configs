@@ -15,15 +15,16 @@ if hash sxhkd >/dev/null 2>&1; then
 fi
 
 # spawn a scratchpad terminal if not already (see sxhkdrc and rules for bind and setup)
-if ! pgrep -f "alacritty -t scratchpad" >/dev/null 2>&1; then
-    alacritty -t scratchpad &
-fi
+#if ! pgrep -f "alacritty --class scratchpad" >/dev/null 2>&1; then
+#    alacritty --class scratchpad &
+#fi
 
+{ # compound command to redirect all outpu
 	# workspace settings
 	# ------------------------
 
 	# initialize 6 workspaces (1-6) (default: 1/monitor)
-	dkcmd set numws=6
+	dkcmd set numws=5
 
 	# default workspace '_' values used when allocating new workspaces
 	# can be applied to all existing workspaces when passed 'apply' after ws=_
@@ -33,23 +34,29 @@ fi
 	 dkcmd set \
 	 	ws=1  name="dev" \
 	 	ws=2  name="web" \
-	 	ws=3  name="fun"
+	 	ws=3  name="fun" \
+	 	ws=4  name="misc" \
+        ws=5  name="tv"
 
 	# enable static workspaces and assign them to monitors (only relevant for multiple monitors)
 	# aside -
 	#       many that come from other workspace models tried dk and requested this feature
 	#       try embracing the default behaviour and allow access to any workspace from any monitor
 	#       you might end up liking it :)
-	#
-	# mon1='DisplayPort-0'
-	# mon2='HDMI-A-0'
-	# dkcmd set static_ws=true \
-	# 	ws=1  mon=$mon1 \
-	# 	ws=2  mon=$mon1 \
-	# 	ws=3  mon=$mon1 \
-	# 	ws=4  mon=$mon2 \
-	# 	ws=5  mon=$mon2 \
-	# 	ws=6  mon=$mon2 \
+	
+    case $HOSTNAME in
+        Home-Box)
+            mon1='DP-1'
+            mon2='DP-2'
+            mon3='DP-3'
+            mon4='HDMI-1'
+   
+	        dkcmd set static_ws=true \
+	            ws=1  mon=$mon1 \
+                ws=2  mon=$mon1 \
+	            ws=3  mon=$mon2 \
+        ;;
+    esac
 
 
 	# global settings
@@ -87,11 +94,16 @@ fi
 
 	# window rules
 	# --------------
+   
+    # Keeps current window is postion when a new window is opened
+    dkcmd set tile_tohead=0 tile_hints=false
 
 	# rule class, instance, and title regexes (*ALWAYS* CASE INSENSITIVE)
-
 	# open window(s) on a specific workspace (assigned monitor)
-	# dkcmd rule class="^gimp$" ws=2
+	dkcmd rule class="^alacritty$" ws=1 focus = true
+	dkcmd rule class="^firefox$" ws=2 focus = true
+	dkcmd rule class="^discord$" ws=3
+    dkcmd rule class="^steam$" ws=3
 
 	# open window(s) on a monitor by number or name (active workspace on monitor)
 	# dkcmd rule class="^chromium$" mon="HDMI-A-0"
@@ -102,16 +114,12 @@ fi
 	# dkcmd rule class="^mpv$" instance="^albumart$" float=true ignore_cfg=true callback=albumart bw=0
 
 	# open window(s) in a floating state
-	dkcmd rule class="^(pavucontrol|transmission-gtk|steam|lxappearance)$" float=true
+	dkcmd rule class="^(pavucontrol|steam|thunar)$" float=true
+    dkcmd rule class="^scratchpad$" title ="scratchpad" float=true w=12080 h=720 x=350 y=32
 
-	# open window(s) with a specific geometry and coordinates (floating only!)
-	# dkcmd rule class="^google-chrome$" title="^open files$" float=true w=1280 h=720
 
 	# open window(s) with ignore_msg=true to avoid focus being grabbed and changing workspace
 	# dkcmd rule class="^TelegramDesktop$" ignore_msg=true
-
-	# define some terminals and allow them to be absorbed by spawned windows
-	dkcmd rule class="^(alacritty)$" terminal=true
 
 	# set a window to never absorb other windows, like the xev event tester
 	dkcmd rule title="^Event Tester$" no_absorb=true
@@ -119,8 +127,6 @@ fi
 	# send a window to the scratchpad
 	dkcmd rule class="^scratchpad$" scratch=true
 
-	# focus window and workspace on opening
-	# dkcmd rule class="^firefox$" ws=1 focus=true
 
 	# update or remove an existing rule with the same match patterns
 	# dkcmd rule class="^firefox$" mon="HDMI-A-0"

@@ -82,6 +82,7 @@
     environment = {
         # List packages at system level
         systemPackages = with pkgs; [
+            dk
             dislocker
             gnumake
             home-manager

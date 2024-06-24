@@ -1,9 +1,28 @@
-;Home Bar==================================================
-[bar/home]
+;Bars==================================================
+;Primary===============================================
+[bar/primary]
+monitor = ${env:MONITOR:}
+enable-ipc = true
+
+background = #00000000
+
+font-0 = Hack Nerd Font Mono :size=12:style=Bold;2"
+font-1 = Font Awesome 5 Free Solid:style=Regular:size=13;2"
+
+height = 30
+line-size = 2
+padding = 3
+module-margin = 1.5
+
+modules-left = dk
+modules-center = 
+modules-right = tray wireless-network wired-network pipewire battery datetime
+
+;Secondary===============================================
+[bar/secondary]
 monitor = ${env:MONITOR:}
 
-background = #20ffffff
-foreground = #ffffff
+background = #00000000
 
 font-0 = Hack Nerd Font Mono :size=12:style=Bold;2"
 font-1 = Font Awesome 5 Free Solid:style=Regular:size=13;2
@@ -15,19 +34,13 @@ module-margin = 1.5
 
 modules-left = dk
 modules-center = 
-modules-right = tray network pulseaudio battery datetime
+modules-right = datetime
 
+
+;Colors==================================================
 [colors]
 text = #c7c4c4
 active = #aa7264
-
-;TRAY=======================================================
-
-[module/tray]
-type = internal/tray
-
-format-margin = 8px
-tray-spacing = 8px
 
 ;MODULES=======================================================
 [module/dk]
@@ -49,7 +62,14 @@ label-urgent-foreground = ${colors.text}
 label-urgent-background = ${colors.active}
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
-[module/network]
+[module/tray]
+type = internal/tray
+
+format-margin = 8px
+tray-spacing = 8px
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+[module/wireless-netowrk]
 type = internal/network
 interface = wlp166s0
 interface-type = wireless
@@ -61,28 +81,40 @@ label-disconnected-foreground = ${colors.text}
 label-connected = " connected"
 label-connected-foreground = ${colors.text}
 
+click-right = dmenu-wifi
+
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
-[module/pulseaudio]
-type = internal/pulseaudio
+[module/wired-network]
+type = internal/network
+interface = eno1
+interface-type = wireless
+interval = 3.0
 
-use-ui-max = true
-interval = 5
+label-disconnected = " disconnected" 
+label-disconnected-foreground = ${colors.text}
 
-format-volume = <label-volume>
-label-volume =  %percentage%%
-label-volume-foreground = ${colors.text}
+label-connected = " connected"
+label-connected-foreground = ${colors.text}
 
-label-muted = 
-label-muted-foreground = ${colors.text}
+click-left = dmenu-wifi
 
-click-right = pavucontrol
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+[module/pipewire]
+type = custom/ipc
+
+hook-0 = ~/.config/polybar/pb-volume.sh
+
+label = %output%
+label-foreground = ${colors.text}
+
+click-left = pavucontrol
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 [module/battery]
 type = internal/battery
 battery = BAT1
 adapter = ACAD
-full-at = 97
+full-at = 97 
 poll-interval = 10
 
 label-charging = %percentage%%
@@ -107,13 +139,13 @@ animation-charging-4 = ""
 animation-charging-framerate = 750
 
 
-format-charging = <animation-charging> <label-charging>
-format-discharging = <ramp-capacity> <label-discharging>
+format-charging = <label-charging> <animation-charging>
+format-discharging = <label-discharging> <ramp-capacity> 
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 [module/datetime]
 type = internal/date
-date = %a %b %d  %I:%M %p
+date = %a %b %d %I:%M %p
 label-foreground = ${colors.text}
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
