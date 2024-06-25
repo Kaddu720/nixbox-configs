@@ -27,7 +27,6 @@
         systemPackages = with pkgs; [
             home-manager
             neovim
-            raycast
         ];
         variables = { 
             EDITOR = "nvim"; 
