@@ -2,7 +2,7 @@
 
     imports = [ # Include the results of the hardware scan.
         ../../modules/darwin/mac-desktop.nix
-        ../../modules/nixos/laptop-modules.nix
+        #../../modules/nixos/laptop-modules.nix
     ];
 
     # Auto upgrade nix package and the daemon service.
@@ -38,6 +38,7 @@
         };
     };
 
+    services.skhd.enable = true;
 
     # Enable automatic garbage collection
     nix.gc = {

@@ -10,6 +10,7 @@
     # Import nix modules
     imports = [
         ../modules/home-manager/dev-modules.nix
+        ../modules/home-manager/mac/default.nix
     ];
 
     #disables personall git credentials

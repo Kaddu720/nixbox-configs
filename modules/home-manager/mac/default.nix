@@ -1,9 +1,10 @@
 
 { lib, ... }: {
     imports = [
-        ./yabai.nix
+        ./skhd.nix
     ];
 
-    yabai.enable = 
+    skhd.enable = 
         lib.mkDefault true;
 }
+

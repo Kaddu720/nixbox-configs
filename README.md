@@ -15,7 +15,7 @@ Mac: `nix run nix-darwin -- switch --flake ./#Work-Box --show-trace`
 
  `nix run home-manager -- switch --flake ./#FlakeName`
 
- linxu back up : `home-manager switch --flake ./#Home --option eval-cache  false`
+ linux back up : `home-manager switch --flake ./#Home --option eval-cache  false`
 
 ## Notes for Apps
 __Activate protondb for gaming__
