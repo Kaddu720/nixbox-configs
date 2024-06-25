@@ -9,7 +9,7 @@
 
     # Import nix modules
     imports = [
-        ../modules/home-manager/mac/default.nix
+        ../modules/home-manager/mac-desktop/default.nix
         ../modules/home-manager/dev-modules/default.nix
     ];
 
