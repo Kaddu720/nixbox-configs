@@ -3,7 +3,7 @@
     # Import nix modules
     imports = [
         ../modules/home-manager/linux-desktop/default.nix
-        ../modules/home-manager/dev-modules.nix
+        ../modules/home-manager/dev-modules/default.nix
     ];
 
     home = {
