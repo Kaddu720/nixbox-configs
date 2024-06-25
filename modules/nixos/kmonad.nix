@@ -30,24 +30,11 @@
                           lctl lmet lalt           spc            ralt  rctl
                         )
                         
-                        ;; alsiases for home row keys
-                        (defalias
-                            met_a (tap-hold-next-release 200 a lmet)
-                            alt_s (tap-hold-next-release 200 s lalt)
-                            sft_d (tap-hold-next-release 200 d lsft)
-                            ctl_f (tap-hold-next-release 200 f lctl)
-
-                            ctl_j (tap-hold-next-release 200 j rctl)
-                            sft_k (tap-hold-next-release 200 k rsft)
-                            alt_l (tap-hold-next-release 200 l lalt)
-                            met_; (tap-hold-next-release 200 ; rmet)
-                        )
-                        
                         ;; translate aliases into output
                         (deflayer homerowmods
                             grv  1    2    3    4    5    6    7    8    9    0    -    =    \
                             tab  q    w    e    r    t    y    u    i    o    p    [    ]    bspc
-                            lctl @met_a   @alt_s   @sft_d   @ctl_f   g   h   @ctl_j   @sft_k   @alt_l   @met_;    '    ret
+                            lctl a    s    d    f    g    h    j    k    l    ;    '    ret
                             lsft z    x    c    v    b    n    m    ,    .    /    rsft
                             lctl lmet lalt           spc            ralt rctl
                         )

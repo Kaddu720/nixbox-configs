@@ -1,8 +1,6 @@
 { pkgs, ... }: {
 
     imports = [ # Include the results of the hardware scan.
-        ../../modules/darwin/mac-desktop.nix
-        #../../modules/nixos/laptop-modules.nix
     ];
 
     # Auto upgrade nix package and the daemon service.
@@ -37,8 +35,12 @@
             Host = "aarch65-darwin";
         };
     };
-
-    services.skhd.enable = true;
+    
+    #enable programs as services
+    services = {
+        skhd.enable = true;
+        yabai.enable = true;
+    };
 
     # Enable automatic garbage collection
     nix.gc = {
