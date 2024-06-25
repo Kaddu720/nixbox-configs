@@ -60,7 +60,6 @@
                 specialArgs = { inherit inputs; };
                 modules = [
                     ./hosts/work-box/configuration.nix
-                    #kmonad.nixosModules.default
                 ];
             };
         };
