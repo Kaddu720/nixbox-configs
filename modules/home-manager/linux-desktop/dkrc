@@ -15,9 +15,6 @@ if hash sxhkd >/dev/null 2>&1; then
 fi
 
 # spawn a scratchpad terminal if not already (see sxhkdrc and rules for bind and setup)
-#if ! pgrep -f "alacritty --class scratchpad" >/dev/null 2>&1; then
-#    alacritty --class scratchpad &
-#fi
 
 { # compound command to redirect all outpu
 	# workspace settings
@@ -115,9 +112,6 @@ fi
 
 	# open window(s) in a floating state
 	dkcmd rule class="^(pavucontrol|steam|thunar)$" float=true
-    dkcmd rule class="^scratchpad$" title ="scratchpad" float=true w=12080 h=720 x=350 y=32
-
-
 	# open window(s) with ignore_msg=true to avoid focus being grabbed and changing workspace
 	# dkcmd rule class="^TelegramDesktop$" ignore_msg=true
 
@@ -125,8 +119,7 @@ fi
 	dkcmd rule title="^Event Tester$" no_absorb=true
 
 	# send a window to the scratchpad
-	dkcmd rule class="^scratchpad$" scratch=true
-
+	dkcmd rule class="^scratchpad$" title="scratchpad" float=true
 
 	# update or remove an existing rule with the same match patterns
 	# dkcmd rule class="^firefox$" mon="HDMI-A-0"

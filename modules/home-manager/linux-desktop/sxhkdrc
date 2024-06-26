@@ -70,12 +70,12 @@ alt + shift + {q,Return,Tab}
 	dkcmd win {full,fakefull}
 
 # toggle floating, or sticky on a window
-alt + shift {f,s,u}
+alt + shift {f,s}
     dkcmd win {float,stick}
 
 # toggle scratch pad
 alt + u
-    dkcmd win scratchpad scratch
+    if ! pgrep -f "alacritty --class scratchpad" >/dev/null 2>&1; then alacritty --class scratchpad & else dkcmd win scratchpad scratch; fi
 
 # move window, signed (+/-) for relative changes, for tiled windows
 # y coord changes will move the window up/down the stack
