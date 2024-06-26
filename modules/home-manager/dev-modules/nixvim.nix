@@ -1,4 +1,4 @@
-{ lib, config, ... }: {
+{ pkgs, lib, config, ... }: {
     options = {
         nixvim.enable = 
             lib.mkEnableOption "enables nixvim";
@@ -19,6 +19,11 @@
             };
 
             plugins = {
+                lazy = {
+                    enable = true;
+                    plugins = [
+                    ];
+                };
                 cmp.enable = true;
                 cmp-treesitter.enable =  true;
                 fugitive.enable = true;
