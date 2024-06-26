@@ -107,13 +107,5 @@ alt + {_,shift + ,ctrl + }{comma,period,backslash}
 alt + {t,m,f,c}
 	dkcmd set layout {tile,mononone,none,cycle}
 
-# change number of windows in master or first stack
-alt + {_,shift + }{i,d}
-	dkcmd set {master,stack} {+1,-1}
-
-# change gap width
-alt + {equal,minus}
-	dkcmd set gap {+5,-5}
-
 
 # vim:ft=sxhkdrc
