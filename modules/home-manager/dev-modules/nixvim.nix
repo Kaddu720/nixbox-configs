@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }: {
+{ lib, config, ... }: {
     options = {
         nixvim.enable = 
             lib.mkEnableOption "enables nixvim";
@@ -25,7 +25,7 @@
                     ];
                 };
                 cmp.enable = true;
-                cmp-treesitter.enable =  true;
+                cmp-treesitter.enable = true;
                 fugitive.enable = true;
                 harpoon.enable = true;
                 lualine.enable = true;
@@ -33,6 +33,10 @@
                 nvim-autopairs.enable = true;
                 oil.enable = true;
                 tmux-navigator.enable = true;
+                treesitter = {
+                    enable = true;
+                    indent = true;
+                };
                 which-key.enable = true;
                 telescope = {
                     enable = true;
@@ -77,6 +81,32 @@
 
             globals.mapleader = " ";
             keymaps = [
+                # Page up and down navigation
+                {
+                    key = "<C-d>";
+                    action = "<C-d>zz";
+                    options.noremap = true;
+                }
+
+                {
+                    key = "<C-u>";
+                    action = "<C-u>zz";
+                    options.noremap = true;
+                }
+
+                # Center page when searching
+                {
+                    key = "<n>";
+                    action = "<nzzzv";
+                    options.noremap = true;
+                }
+
+                {
+                    key = "<N>";
+                    action = "<Nzzzv";
+                    options.noremap = true;
+                }
+
                 # Telescope
                 {
                     mode = "n";
