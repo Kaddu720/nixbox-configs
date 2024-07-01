@@ -27,6 +27,9 @@
         systemPackages = with pkgs; [
             home-manager
             neovim
+            sketchybar
+            sketchybar-app-font
+            yabai
         ];
         variables = { 
             EDITOR = "nvim"; 
@@ -38,6 +41,7 @@
     #enable programs as services
     services = {
         skhd.enable = true;
+        sketchybar.enable = true;
         yabai.enable = true;
     };
 

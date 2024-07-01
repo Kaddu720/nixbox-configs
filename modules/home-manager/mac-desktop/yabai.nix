@@ -29,6 +29,9 @@
 
                 # rules
                 yabai -m rule --add app="^System Settings$" manage=off
+
+                # External Bar rules
+                yabai -m config external_bar all:40:0
             '';
         };
     };

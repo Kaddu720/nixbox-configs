@@ -24,6 +24,7 @@
         bottom
         fzf
         htop
+        jq
         lazygit
         nerdfonts
         ripgrep
