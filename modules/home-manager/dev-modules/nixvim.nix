@@ -25,6 +25,7 @@
                     ];
                 };
                 cmp.enable = true;
+                cmp-nvim-lsp.enable = true;
                 cmp-treesitter.enable = true;
                 fugitive.enable = true;
                 harpoon.enable = true;
