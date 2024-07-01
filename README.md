@@ -17,6 +17,9 @@ Mac: `nix run nix-darwin -- switch --flake ./#Work-Box --show-trace`
 
  linux back up : `home-manager switch --flake ./#Home --option eval-cache  false`
 
+## Updating Packages installed
+`nix flake update`
+
 ## Notes for Apps
 __Activate protondb for gaming__
 run `protonup`

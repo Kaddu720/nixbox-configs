@@ -26,13 +26,6 @@
         initrd.kernelModules = [ "amdgpu" ];
     };
 
-    # Enable openGl graphics
-    hardware.opengl = {
-        enable = true;
-        driSupport = true;
-        driSupport32Bit = true;
-    };
-
     networking.hostName = "Home-Box"; # Define your hostname.
     # Pick only one of the below networking options.
     # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
