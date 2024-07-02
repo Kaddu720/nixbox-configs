@@ -15,8 +15,8 @@
                 source = ./plugins/battery.sh;
                 executable = true;
             };
-            ".config/sketchybar/plugins/clock.sh" = {
-                source = ./plugins/clock.sh;
+            ".config/sketchybar/plugins/calendar.sh" = {
+                source = ./plugins/calendar.sh;
                 executable = true;
             };
             ".config/sketchybar/plugins/front_app.sh" = {
