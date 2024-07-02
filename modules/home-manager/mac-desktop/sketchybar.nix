@@ -31,6 +31,10 @@
                 source = ./plugins/volume.sh;
                 executable = true;
             };
+            ".config/sketchybar/plugins/wifi.sh" = {
+                source = ./plugins/wifi.sh;
+                executable = true;
+            };
         };
     };
 }
