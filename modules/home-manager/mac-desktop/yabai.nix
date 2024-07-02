@@ -11,9 +11,9 @@
 
                 # Set Binary split layout option
                 yabai -m config layout bsp
-                yabai -m window_placement second_child
+                yabai -m config window_placement second_child
 
-                                # Padding
+                # Padding
                 yabai -m config top_padding    10
                 yabai -m config bottom_padding 10
                 yabai -m config left_padding   10
@@ -25,7 +25,7 @@
                 yabai -m config mouse_modifier alt
                 yabai -m config mouse_action1 move
                 yabai -m config mouse_action2 resize
-                yabai -m config mouse_drop_action swp
+                yabai -m config mouse_drop_action swap
 
                 # rules
                 yabai -m rule --add app="^System Settings$" manage=off
