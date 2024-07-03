@@ -28,6 +28,7 @@
         lazygit
         nerdfonts
         ripgrep
+        sops
         thefuck
         vscodium
         zoxide

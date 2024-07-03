@@ -89,17 +89,6 @@
                 SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
                 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
                 SETUVAR fish_pager_color_selected_background:\x2dr
-
-                #Dashboard variables
-                SETUVAR --export POETFOLIO_DB_NAME:poetfolio_dev
-                SETUVAR --export POETFOLIO_DB_PASSWORD:secret_poet_pass
-                SETUVAR --export POETFOLIO_DB_USER:poetfolio
-                SETUVAR --export POETFOLIO_EMAIL_HOST:smtp\x2eoffice365\x2ecom
-                SETUVAR --export POETFOLIO_EMAIL_PASSWORD:csvfqkkjyvmsdbxk
-                SETUVAR --export POETFOLIO_EMAIL_USER:scholars\x40whittier\x2eedu
-                SETUVAR --export POETFOLIO_MEDIA:/home/noah/Documents/projects/dashboard/media
-                SETUVAR --export POETFOLIO_SECRET_KEY:vvRxcurRuAttgwUHZ8rYk2ZuXoPz5K
-                SETUVAR --export POETFOLIO_STATIC:/home/noah/Documents/projects/dashboard/static
             '';
         };
     };
