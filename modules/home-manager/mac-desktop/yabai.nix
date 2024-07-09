@@ -29,6 +29,7 @@
 
                 # rules
                 yabai -m rule --add app="^System Settings$" manage=off
+                yabai -m rule --add app="^Cisco AnyConnect Secure Mobility Client$" manage=off
 
                 # External Bar rules
                 yabai -m config external_bar all:30:0
