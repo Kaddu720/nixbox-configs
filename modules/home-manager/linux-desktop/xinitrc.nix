@@ -6,7 +6,7 @@
 
     config = lib.mkIf config.xinitrc.enable {    
         home.file = {
-            ".xinitrc".text = ''
+            ".xinitrc".text = /*bash*/ ''
                 
                 #!/bin/sh
 
@@ -57,7 +57,7 @@
                 exec dk
             '';
             ".config/scripts/lockscreen.sh" = {
-                text = ''
+                text = /*bash*/ ''
                     #!/bin/sh
                     
                     # Turn dunst back on when the script ends

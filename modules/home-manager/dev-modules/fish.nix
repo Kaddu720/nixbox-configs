@@ -8,7 +8,7 @@
 
         programs.fish = {
             enable = true;
-            interactiveShellInit = ''
+            interactiveShellInit = /*fish*/ ''
                 set fish_greeting " Praise the Omnissiah"
 
                 # bat color scheme
@@ -49,7 +49,7 @@
         };
 
         home.file = {
-            ".config/fish/fish_variables".text = ''
+            ".config/fish/fish_variables".text = /*fish*/''
                 # This file contains fish universal variable definitions.
                 # VERSION: 3.0
                 SETUVAR __fish_initialized:3400

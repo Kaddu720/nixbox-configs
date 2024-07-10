@@ -7,7 +7,7 @@
     config = lib.mkIf config.yabai.enable {    
 
         home.file.".config/yabai/yabairc" = {
-            text = ''
+            text = /*bash*/ ''
 
                 # Set Binary split layout option
                 yabai -m config layout bsp
