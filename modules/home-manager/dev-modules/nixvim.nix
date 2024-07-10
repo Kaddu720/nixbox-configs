@@ -18,6 +18,7 @@
             };
 
             plugins = {
+                commentary.enable = true;
                 harpoon.enable = true;
                 lualine.enable = true;
                 nvim-tree.enable = true;
@@ -28,11 +29,12 @@
                     enable = true;
                     indent = true;
                 };
-                which-key.enable = true;
                 telescope = {
                     enable = true;
                     extensions.fzf-native.enable = true;
                 };
+                which-key.enable = true;
+
                 # Completion
                 cmp = {
                     enable = true;
@@ -66,9 +68,10 @@
                 };
                 cmp-nvim-lsp.enable = true;
                 cmp-treesitter.enable = true;
+                friendly-snippets.enable = true;
                 luasnip.enable = true;
                 cmp_luasnip.enable = true;
-                friendly-snippets.enable = true;
+
                 # Language Servers
                 lsp = {
                     enable = true;
