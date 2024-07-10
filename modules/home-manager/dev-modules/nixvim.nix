@@ -3,7 +3,6 @@
         nixvim.enable = 
             lib.mkEnableOption "enables nixvim";
     };
-
     config = lib.mkIf config.nixvim.enable {    
         programs.nixvim = {
     		enable = true;
@@ -19,15 +18,6 @@
             };
 
             plugins = {
-                lazy = {
-                    enable = true;
-                    plugins = [
-                    ];
-                };
-                cmp.enable = true;
-                cmp-nvim-lsp.enable = true;
-                cmp-treesitter.enable = true;
-                fugitive.enable = true;
                 harpoon.enable = true;
                 lualine.enable = true;
                 nvim-tree.enable = true;
@@ -43,6 +33,43 @@
                     enable = true;
                     extensions.fzf-native.enable = true;
                 };
+                # Completion
+                cmp = {
+                    enable = true;
+                    autoEnableSources = false;
+                    settings = {
+                        mapping = {
+                            __raw = ''
+                                cmp.mapping.preset.insert({
+                                    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+                                    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+                                    ['<C-Space>'] = cmp.mapping.complete(),
+                                    ['<C-e>'] = cmp.mapping.abort(),
+                                    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+                                })
+                            '';
+                        };
+                        snippet = {
+                            expand = "function(args) require('luasnip').lsp_expand(args.body) end";
+                        };
+                        sources = {
+                            __raw = ''
+                                cmp.config.sources({
+                                    { name = 'nvim_lsp' },
+                                    { name = 'luasnip' },
+                                }, {
+                                    { name = 'buffer' },
+                            })
+                        '';
+                      };
+                    };
+                };
+                cmp-nvim-lsp.enable = true;
+                cmp-treesitter.enable = true;
+                luasnip.enable = true;
+                cmp_luasnip.enable = true;
+                friendly-snippets.enable = true;
+                # Language Servers
                 lsp = {
                     enable = true;
                     servers = {
@@ -70,6 +97,8 @@
 
                 showmode = false; #Let lualine provide status
             };
+
+            clipboard.providers.xclip.enable = true;
 
             autoCmd = [
                 #Special commands for editing mark down
@@ -107,6 +136,9 @@
                     action = "<Nzzzv";
                     options.noremap = true;
                 }
+
+                # Completion
+
 
                 # Telescope
                 {
