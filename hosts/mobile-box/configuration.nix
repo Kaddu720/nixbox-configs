@@ -86,8 +86,6 @@
             htop
             killall
             gcc13
-            python3
-            python311Packages.pip
             neovim
             wget
             wirelesstools 

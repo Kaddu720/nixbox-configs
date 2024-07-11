@@ -83,8 +83,6 @@
             gcc13
             mangohud
             protonup
-            python3
-            python311Packages.pip
             neovim
             wget
             wirelesstools 

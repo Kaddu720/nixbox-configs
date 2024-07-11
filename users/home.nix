@@ -32,6 +32,9 @@
         (nerdfonts.override { fonts = [ "Hack" ]; })
         obsidian
         pavucontrol
+        (python311.withPackages (ppkgs: [
+            ppkgs.boto3
+        ]))
         ventoy-full
         xautolock
         zoom-us
