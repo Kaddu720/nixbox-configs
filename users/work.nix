@@ -18,8 +18,10 @@
 
     # Install Packages
     home.packages = with pkgs; [
-        flameshot
         (nerdfonts.override { fonts = [ "Hack" ]; })
+        (python311.withPackages (ppkgs: [
+            ppkgs.boto3
+        ]))
     ];
 
     # Let Home Manager install and manage itself.
