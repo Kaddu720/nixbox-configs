@@ -7,7 +7,6 @@
     config = lib.mkIf config.xinitrc.enable {    
         home.file = {
             ".xinitrc".text = /*bash*/ ''
-                
                 #!/bin/sh
 
                 # global xinitrc file, used by all X sessions started by xinit (startx)
