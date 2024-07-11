@@ -41,7 +41,7 @@
                     autoEnableSources = false;
                     settings = {
                         mapping = {
-                            __raw = ''
+                            __raw = /*lua*/ ''
                                 cmp.mapping.preset.insert({
                                     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
                                     ['<C-f>'] = cmp.mapping.scroll_docs(4),
@@ -55,7 +55,7 @@
                             expand = "function(args) require('luasnip').lsp_expand(args.body) end";
                         };
                         sources = {
-                            __raw = ''
+                            __raw = /*lua*/ ''
                                 cmp.config.sources({
                                     { name = 'nvim_lsp' },
                                     { name = 'luasnip' },
@@ -63,6 +63,8 @@
                                     { name = 'buffer' },
                             })
                         '';
+                        window.completion.border = [ "rounded" ];
+                        window.documenation.border = [ "rounded" ];
                       };
                     };
                 };
@@ -75,6 +77,7 @@
                 # Language Servers
                 lsp = {
                     enable = true;
+                    capabilities = "require('cmp_nvim_lsp').default_capabilities()";
                     servers = {
                         pyright.enable = true; #python
                         nixd.enable = true; #nix
