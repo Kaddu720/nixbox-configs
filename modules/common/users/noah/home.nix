@@ -1,16 +1,14 @@
 { pkgs, ... }: {
-
     # Import nix modules
     imports = [
-        ../modules/home-manager/linux-desktop/default.nix
-        ../modules/home-manager/dev-modules/default.nix
+        ../../../home-manager/linux-desktop/default.nix
+        ../../../home-manager/dev-modules/default.nix
     ];
 
     home = {
         username = "noah";
         homeDirectory = "/home/noah";
     };
-
 
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
@@ -32,9 +30,6 @@
         (nerdfonts.override { fonts = [ "Hack" ]; })
         obsidian
         pavucontrol
-        (python311.withPackages (ppkgs: [
-            ppkgs.boto3
-        ]))
         ventoy-full
         xautolock
         zoom-us
@@ -45,6 +40,10 @@
         syncthing.enable = true;
     };
 
+    programs.ssh = {
+        enable = true;
+        addKeysToAgent = "yes";
+    };
     # Let Home Manager install and manage itself.
     programs.home-manager.enable = true;
 

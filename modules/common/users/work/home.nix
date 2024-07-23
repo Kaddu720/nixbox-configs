@@ -1,4 +1,10 @@
 { pkgs, ... }: {
+    # Import nix modules
+    imports = [
+        ../../../home-manager/mac-desktop/default.nix
+        ../../../modules/home-manager/dev-modules/default.nix
+    ];
+
     home = {
         username = "noahwilson";
         homeDirectory = "/Users/noahwilson";
@@ -6,12 +12,6 @@
 
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
-
-    # Import nix modules
-    imports = [
-        ../modules/home-manager/mac-desktop/default.nix
-        ../modules/home-manager/dev-modules/default.nix
-    ];
 
     #disables personall git credentials
     git.enable = false;

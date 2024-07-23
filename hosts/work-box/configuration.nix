@@ -25,7 +25,6 @@
     environment = {
         # List packages at system level
         systemPackages = with pkgs; [
-            home-manager
             neovim
             sketchybar
             sketchybar-app-font

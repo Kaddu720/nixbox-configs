@@ -1,10 +1,23 @@
 # nixbox-configs
 
+## Instalation Philsophy
+
+- __Hosts:__ settings specific to a particual machine
+
+- __Modules:__ Contains users and nix packages/modules
+
+    - __Users:__ Configures users settings, imports all nix packages/modules, and is imported by a host
+        - Root contains all of the defualt settings for a machine
+
+    - __Darwin, home-manager, nixos:__ Contains all of the packages, modules, and  configurations of their respecitive nix component
+
+    - __Static:__ Static files like wallpapers
+
 __Install Article__
 https://qfpl.io/posts/installing-nixos/
 
 __Install Instructions__
-When installing, only encrypt your root drive. Then the swap file will be automatically encrypted by nixos.
+When installing, only create and encrypt your root drive. Then the swap file will be automatically encrypted by nixos.
 
 ## Updating System Configurations
 Linux: `sudo nixos-rebuild switch --flake ./#Home-Box --option eval-cache false`

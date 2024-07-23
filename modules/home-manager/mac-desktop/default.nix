@@ -1,4 +1,3 @@
-
 { lib, ... }: {
     imports = [
         ./skhd.nix
@@ -13,4 +12,3 @@
     sketchybar.enable =
         lib.mkDefault true;
 }
-

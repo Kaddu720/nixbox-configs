@@ -1,6 +1,6 @@
-{ pkgs, lib, ... }: {
-    imports = [
-        ./fish.nix
+{ config, lib, pkgs, ... }: {
+imports = [
+    ./fish.nix
         ./alacritty.nix
         ./nixvim.nix
         ./tmux.nix

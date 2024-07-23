@@ -70,7 +70,7 @@
                 pkgs = nixpkgs.legacyPackages."x86_64-linux";
 
                 modules = [ 
-                    ./users/home.nix 
+                    ./modules/common/users/noah/home.nix
                     nixvim.homeManagerModules.nixvim
                 ];
             };
@@ -78,7 +78,7 @@
                 pkgs = import nixpkgs { system = "aarch64-darwin"; };
 
                 modules = [ 
-                    ./users/work.nix 
+                    ./modules/common/users/work/home.nix
                     nixvim.homeManagerModules.nixvim
                 ];
             };

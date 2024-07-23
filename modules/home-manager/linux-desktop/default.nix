@@ -24,4 +24,3 @@
     gtk-theme.enable = 
         lib.mkDefault true;
 }
-
