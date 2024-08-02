@@ -100,27 +100,24 @@
                 alt + ctrl + {h,j,k,l}
                     dkcmd win resize {w=-20,h=+20,h=-20,w=+20}
 
-                # view, send, or follow to a workspace (by number)
-                alt + {_,shift + ,ctrl + }{1-6}
-                    dkcmd ws {view,follow,send} {1-6}
+                # Work spaces
+                # ---------------------
 
-                # view, send, or follow to the next, previous, last active,
-                # next non-empty, or prev non-empty workspace
-                alt + {_,shift + ,ctrl + }{bracketleft,bracketright,BackSpace,Left,Right}
-                    dkcmd ws {view,send,follow} {prev,next,last,prevne,nextne}
+                # view, send, or follow to a workspace on monitor 1 (by number)
+                alt + {_,shift + ,ctrl + }{1-6}
+                    dkcmd ws {view,send,follow} {1-4}
+
+                # view, send, or follow to a workspace on monitor 2 (by number)
+                super + {_,shift + ,ctrl + }{1-2}
+                    dkcmd ws {view,send,follow} {5-6}
 
                 # view, send, or follow to the next, previous, or last active monitor
                 alt + {_,shift + ,ctrl + }{comma,period,backslash}
                     dkcmd mon {view,send,follow} {prev,next,last}
 
-
-                # Work spaces
-                # ---------------------
-
                 # change active workspace layout or cycle between them
                 alt + {t,m,f,c}
                     dkcmd set layout {tile,mononone,none,cycle}
-
 
                 # vim:ft=sxhkdrc
             '';

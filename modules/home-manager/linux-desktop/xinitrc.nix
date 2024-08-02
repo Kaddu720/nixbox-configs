@@ -49,10 +49,7 @@
                 #Activate dunst
                 dunst &
 
-                # Set up polybar
-                ~/.config/scripts/polybarLaunch.sh
-                polybar-msg action pipewire hook 0
-                
+                # Start dk and polybar
                 exec dk
             '';
             ".config/scripts/lockscreen.sh" = {

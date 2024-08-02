@@ -24,42 +24,45 @@
                         sxhkd -c "$HOME/.config/sxhkd/sxhkdrc" &
                     fi
 
-                    { # compound command to redirect all outpu
+                    { # compound command to redirect all output
                         # workspace settings
                         # ------------------------
-
-                        # initialize 6 workspaces (1-6) (default: 1/monitor)
-                        dkcmd set numws=5
 
                         # default workspace '_' values used when allocating new workspaces
                         # can be applied to all existing workspaces when passed 'apply' after ws=_
                         dkcmd set ws=_ apply layout=tile master=1 stack=3 gap=10 msplit=0.55 ssplit=0.45
 
-                        # change workspace names (default: number == name)
-                         dkcmd set \
-                            ws=1  name="dev" \
-                            ws=2  name="web" \
-                            ws=3  name="fun" \
-                            ws=4  name="misc" \
-                            ws=5  name="tv"
-
-                        # enable static workspaces and assign them to monitors (only relevant for multiple monitors)
-                        # aside -
-                        #       many that come from other workspace models tried dk and requested this feature
-                        #       try embracing the default behaviour and allow access to any workspace from any monitor
-                        #       you might end up liking it :)
-                        
+                        HOSTNAME=$(uname -n)
                         case $HOSTNAME in
                             Home-Box)
-                                mon1='DP-1'
-                                mon2='DP-2'
-                                mon3='DP-3'
-                                mon4='HDMI-1'
-                       
+                                # initialize 6 workspaces (1-6) (default: 1/monitor)
+                                dkcmd set numws=6
+                                
+                                # monitor designations
+                                mon1 = 'DP-1'
+                                mon2 = 'DP-2'
+                                mon3 = 'DP-3'
+                                mon4 = 'HDMI-1'
+
+                                # Set up work spaces
                                 dkcmd set static_ws=true \
-                                    ws=1  mon=$mon1 \
-                                    ws=2  mon=$mon1 \
-                                    ws=3  mon=$mon2 \
+                                ws=1 name="dev" mon=$mon1 \
+                                ws=2 name="web" mon=$mon1 \
+                                ws=3 mon=$mon1 \
+                                ws=4 mon=$mon1 \
+                                ws=5 name="fun" mon=$mon2 \
+                                ws=6 name="docs" mon=$mon2
+                            ;;
+
+                            Mobile-Box)
+                                # initialize 4 workspaces (1-4) (default: 1/monitor)
+                                dkcmd set numws = 4
+
+                                # set up work spaces 
+                                dkcmd set \
+                                    ws=1 name="dev" \
+                                    ws=2 name="web" \
+                                    ws=3 name="fun"
                             ;;
                         esac
 
@@ -107,8 +110,8 @@
                         # open window(s) on a specific workspace (assigned monitor)
                         dkcmd rule class="^alacritty$" ws=1 focus = true
                         dkcmd rule class="^firefox$" ws=2 focus = true
-                        dkcmd rule class="^discord$" ws=3
-                        dkcmd rule class="^steam$" ws=3
+                        dkcmd rule class="^discord$" ws=5
+                        dkcmd rule class="^steam$" ws=5
 
                         # open window(s) on a monitor by number or name (active workspace on monitor)
                         # dkcmd rule class="^chromium$" mon="HDMI-A-0"
@@ -139,6 +142,9 @@
                         # delete all rules
                         # dkcmd rule remove '*'
 
+                        # Set up polybar
+                        ~/.config/scripts/polybarLaunch.sh
+                        polybar-msg action pipewire hook 0
                     } >> "$logfile" 2>&1 # append responses
 
                     # inform of any errors in a notification
