@@ -28,6 +28,7 @@
        dock.mru-spaces = false;
        finder.AppleShowAllExtensions = true;
        screensaver.askForPasswordDelay = 10;
+       NSGlobalDomain.AppleInterfaceStyle = "Dark";
     };
 
     #Configure Environmental Variables
