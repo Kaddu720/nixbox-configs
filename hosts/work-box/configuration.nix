@@ -23,12 +23,27 @@
 
     security.pam.enableSudoTouchIdAuth = true;
 
-    system.defaults = {
-       dock.autohide = true;
-       dock.mru-spaces = false;
-       finder.AppleShowAllExtensions = true;
-       screensaver.askForPasswordDelay = 10;
-       NSGlobalDomain.AppleInterfaceStyle = "Dark";
+    system= {
+        defaults = {
+            dock = {
+                autohide = true;
+                mru-spaces = false;
+            };
+           finder = {
+               AppleShowAllExtensions = true;
+               CreateDesktop = false;
+               FXPreferredViewStyle = "Nlsv";
+            };
+
+            NSGlobalDomain.AppleInterfaceStyle = "Dark";
+            screensaver.askForPasswordDelay = 10;
+            spaces.spans-displays = false;
+        };
+        keyboard = {
+            enableKeyMapping = true;
+            remapCapsLockToControl = true;
+            swapLeftCommandAndLeftAlt = true;
+        };
     };
 
     #Configure Environmental Variables
