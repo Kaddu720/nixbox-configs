@@ -2,7 +2,7 @@
     # Import nix modules
     imports = [
         ../../../home-manager/mac-desktop/default.nix
-        ../../../modules/home-manager/dev-modules/default.nix
+        ../../../home-manager/dev-modules/default.nix
     ];
 
     home = {

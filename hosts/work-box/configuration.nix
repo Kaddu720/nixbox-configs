@@ -21,14 +21,22 @@
         home = "/Users/noahwilson";
     };
 
+    security.pam.enableSudoTouchIdAuth = true;
+
+    system.defaults = {
+       dock.autohide = true;
+       dock.mru-spaces = false;
+       finder.AppleShowAllExtensions = true;
+       screensaver.askForPasswordDelay = 10;
+    };
+
     #Configure Environmental Variables
     environment = {
         # List packages at system level
         systemPackages = with pkgs; [
-            neovim
-            sketchybar
             sketchybar-app-font
-            yabai
+            slack
+            #redisinsight
         ];
         variables = { 
             EDITOR = "nvim"; 
