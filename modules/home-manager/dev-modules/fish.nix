@@ -27,7 +27,10 @@
                 alias cd "z"
 
                 #enable homebrew on mac
-                eval "$(/opt/homebrew/bin/brew shellenv)"
+                switch $hostname
+                    case "DTLA-SysOPS-NW-ML"
+                        eval "$(/opt/homebrew/bin/brew shellenv)"
+                end
 
                 # Fucntions
                 #Wifi Function
