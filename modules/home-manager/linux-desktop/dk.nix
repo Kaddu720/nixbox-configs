@@ -39,19 +39,19 @@
                                 dkcmd set numws=6
                                 
                                 # monitor designations
-                                mon1 = 'DP-1'
-                                mon2 = 'DP-2'
-                                mon3 = 'DP-3'
-                                mon4 = 'HDMI-1'
+                                # mon1 = 'DP-1'
+                                # mon2 = 'DP-2'
+                                # mon3 = 'DP-3'
+                                # mon4 = 'HDMI-1'
 
                                 # Set up work spaces
                                 dkcmd set static_ws=true \
-                                ws=1 name="dev" mon=$mon1 \
-                                ws=2 name="web" mon=$mon1 \
-                                ws=3 mon=$mon1 \
-                                ws=4 mon=$mon1 \
-                                ws=5 name="fun" mon=$mon2 \
-                                ws=6 name="docs" mon=$mon2
+                                ws=1 name="dev" mon=DP-1 \
+                                ws=2 name="web" mon=DP-1 \
+                                ws=3 mon=DP-1 \
+                                ws=4 mon=DP-1 \
+                                ws=5 name="fun" mon=DP-2 \
+                                ws=6 name="docs" mon=DP-2
                             ;;
 
                             Mobile-Box)
