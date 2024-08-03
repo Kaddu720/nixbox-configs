@@ -14,6 +14,11 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
+        nix-homebrew = {
+            url = "github:zhaofengli-wip/nix-homebrew";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
+
         nixvim = {
             url = "github:nix-community/nixvim";
             inputs.nixpkgs.follows = "nixpkgs";
@@ -32,7 +37,7 @@
         };
     };
 
-    outputs = { nixpkgs, darwin, home-manager, auto-cpufreq, nixos-hardware, kmonad, nixvim, ... }@inputs: {
+    outputs = { nixpkgs, darwin, home-manager, nix-homebrew, auto-cpufreq, nixos-hardware, kmonad, nixvim, ... }@inputs: {
 
         # Host Configs
         nixosConfigurations = {
@@ -60,6 +65,7 @@
                 specialArgs = { inherit inputs; };
                 modules = [
                     ./hosts/work-box/configuration.nix
+                    nix-homebrew.darwinModules.nix-homebrew
                 ];
             };
         };

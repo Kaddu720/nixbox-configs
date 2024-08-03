@@ -26,6 +26,9 @@
                 eval "$(zoxide init fish)"
                 alias cd "z"
 
+                #enable homebrew on mac
+                eval "$(/opt/homebrew/bin/brew shellenv)"
+
                 # Fucntions
                 #Wifi Function
                 function dmenu-wifi

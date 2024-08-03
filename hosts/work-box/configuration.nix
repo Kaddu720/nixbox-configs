@@ -65,7 +65,22 @@
     services = {
         skhd.enable = true;
         sketchybar.enable = true;
-        yabai.enable = true;
+    };
+
+    # Enable home-brew (remember to go to the homebrew website and install it)
+    # fish is already configured to use it
+    homebrew= {
+        enable = true;
+        casks = [
+            "amethyst"
+        ];
+    };
+
+    nix-homebrew = {
+        enable = true;
+        enableRosetta = true;
+        user = "noahwilson";
+        autoMigrate = true;
     };
 
     # Enable automatic garbage collection

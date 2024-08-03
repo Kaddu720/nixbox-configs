@@ -1,13 +1,13 @@
 { lib, ... }: {
     imports = [
+        ./amethyst.nix
         ./skhd.nix
         ./sketchybar.nix
-        ./yabai.nix
     ];
-
-    skhd.enable = 
+    
+    amethyst.enable =
         lib.mkDefault true;
-    yabai.enable = 
+    skhd.enable = 
         lib.mkDefault true;
     sketchybar.enable =
         lib.mkDefault true;
