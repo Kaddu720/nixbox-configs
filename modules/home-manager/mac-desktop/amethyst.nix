@@ -71,6 +71,16 @@
                   mod: mod1
                   key: k
 
+                # Move the currently focused window onto the next screen in the list going counter-clockwise.
+                swap-screen-ccw:
+                  mod: mod2
+                  key: ','
+
+                # Move the currently focused window onto the next screen in the list going clockwise.
+                swap-screen-cw:
+                  mod: mod2
+                  key: '.'
+
                 # Swap the position of the currently focused window with the next window in the list going counter-clockwise.
                 swap-ccw:
                   mod: mod2
