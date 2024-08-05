@@ -73,7 +73,22 @@
         enable = true;
         casks = [
             "amethyst"
+            "gpg-suite"
             "redisinsight"
+        ];
+        brews = [
+
+            "ca-certificates"
+            "cffi"
+            "coreutils"
+            "docutils"
+            "gmp"
+            "jq"
+            "oniguruma"
+            "openssl@3"
+            "pycparser"
+            "python-setuptools"
+            "redis"
         ];
     };
 
