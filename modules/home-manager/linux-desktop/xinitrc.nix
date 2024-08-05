@@ -31,7 +31,7 @@
                 [[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
 
                 # set walpaper image
-                feh --bg-scale /home/noah/.config/nixos/modules/static/dark_fractal.jpg
+                feh --bg-scale /home/noah/.config/nixos/modules/common/static/dark_fractal.jpg
 
                 # Start Picom
                 picom --blur-method "dual_kawase" --daemon &
