@@ -17,7 +17,11 @@ __Install Article__
 https://qfpl.io/posts/installing-nixos/
 
 __Install Instructions__
-When installing, only create and encrypt your root drive. Then the swap file will be automatically encrypted by nixos.
+__Encryption__
+- When installing, only create and encrypt your root drive. Then the swap file will be automatically encrypted by nixos.
+
+__Setting up a computer__
+- you'll have  to set up the personal ssh key in the `.ssh/personal` directory
 
 ## Updating System Configurations
 Linux: `sudo nixos-rebuild switch --flake ./#Home-Box --option eval-cache false`

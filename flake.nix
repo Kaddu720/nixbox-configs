@@ -19,6 +19,11 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
+        sops-nix = {
+            url = "github:Mic92/sops-nix";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
+
         nixvim = {
             url = "github:nix-community/nixvim";
             inputs.nixpkgs.follows = "nixpkgs";
@@ -37,7 +42,7 @@
         };
     };
 
-    outputs = { nixpkgs, darwin, home-manager, nix-homebrew, auto-cpufreq, nixos-hardware, kmonad, nixvim, ... }@inputs: {
+    outputs = { nixpkgs, darwin, home-manager, nix-homebrew, sops-nix, auto-cpufreq, nixos-hardware, kmonad, nixvim, ... }@inputs: {
 
         # Host Configs
         nixosConfigurations = {
@@ -77,6 +82,7 @@
 
                 modules = [ 
                     ./modules/common/users/noah/home.nix
+                    sops-nix.homeManagerModules.sops
                     nixvim.homeManagerModules.nixvim
                 ];
             };

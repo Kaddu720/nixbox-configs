@@ -1,8 +1,17 @@
+{ config, pkgs, inputs, ... }: {
     # Import nix modules
     imports = [
         ../../../home-manager/linux-desktop/default.nix
         ../../../home-manager/dev-modules/default.nix
     ];
+
+    sops = {
+        defaultSopsFile = ../../../../secrets.yaml;
+        age.keyFile = "/home/noah/.config/sops/age/keys.txt";
+
+        secrets = {
+        };
+    };
 
     home = {
         username = "noah";
