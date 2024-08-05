@@ -1,4 +1,3 @@
-{ pkgs, ... }: {
     # Import nix modules
     imports = [
         ../../../home-manager/linux-desktop/default.nix
@@ -43,6 +42,12 @@
     programs.ssh = {
         enable = true;
         addKeysToAgent = "yes";
+        matchBlocks = {
+            "github.com" = {
+                user = "git";
+                identityFile = "~/.ssh/personal/personal";
+            };
+        };
     };
     # Let Home Manager install and manage itself.
     programs.home-manager.enable = true;
