@@ -42,7 +42,7 @@
         keyboard = {
             enableKeyMapping = true;
             remapCapsLockToControl = true;
-            swapLeftCommandAndLeftAlt = true;
+            #swapLeftCommandAndLeftAlt = true;
         };
     };
 
@@ -73,6 +73,7 @@
         enable = true;
         casks = [
             "amethyst"
+            "redisinsight"
         ];
     };
 

@@ -182,19 +182,19 @@
                 follow-space-thrown-windows: true
 
                 # The integer percentage of the screen dimension to increment and decrement main pane ratios by (default 5).
-                window-resize-step: 5
+                window-resize-step: 0
 
                 # Padding to apply between windows and the left edge of the screen (in px, default 0).
-                screen-padding-left: 5
+                screen-padding-left: 0
 
                 # Padding to apply between windows and the right edge of the screen (in px, default 0).
-                screen-padding-right: 5
+                screen-padding-right: 0
 
                 # Padding to apply between windows and the top edge of the screen (in px, default 0).
-                screen-padding-top: 5
+                screen-padding-top: 30
 
                 # Padding to apply between windows and the bottom edge of the screen (in px, default 0).
-                screen-padding-bottom: 5
+                screen-padding-bottom: 0
 
                 # true to maintain layout state across application executions (default true).
                 restore-layouts-on-launch: true
