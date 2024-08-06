@@ -5,14 +5,6 @@
         ../../../home-manager/dev-modules/default.nix
     ];
 
-    sops = {
-        defaultSopsFile = ../../../../secrets.yaml;
-        age.keyFile = "/home/noah/.config/sops/age/keys.txt";
-
-        secrets = {
-        };
-    };
-
     home = {
         username = "noah";
         homeDirectory = "/home/noah";
@@ -34,11 +26,9 @@
         firefox
         flameshot
         font-awesome_5
-        neofetch
         (nerdfonts.override { fonts = [ "Hack" ]; })
         obsidian
         pavucontrol
-        ventoy-full
         xautolock
         zoom-us
     ];

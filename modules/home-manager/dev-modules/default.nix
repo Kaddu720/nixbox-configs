@@ -23,14 +23,12 @@ imports = [
         bat
         bottom
         fzf
-        htop
         jq
         lazygit
         nerdfonts
         ripgrep
         sops
         thefuck
-        vscodium
         zoxide
     ];
 }

@@ -23,11 +23,12 @@
                 lualine.enable = true;
                 nvim-tree.enable = true;
                 nvim-autopairs.enable = true;
+                #obsidian.enable = true;
                 oil.enable = true;
                 tmux-navigator.enable = true;
                 treesitter = {
                     enable = true;
-                    indent = true;
+                    settings.indent.enable = true;
                 };
                 telescope = {
                     enable = true;
