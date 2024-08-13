@@ -35,7 +35,6 @@
         systemPackages = with pkgs; [
             mangohud
             protonup
-            rtkit
         ];
         sessionVariables = {
             STEAM_EXTRA_COMPAT_TOOLS_PATHS =
