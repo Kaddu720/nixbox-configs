@@ -206,6 +206,9 @@
                 # Padding to apply between windows and the bottom edge of the screen (in px, default 0).
                 screen-padding-bottom: 0
 
+                # True to disable screen padding on in-built display (default false).
+                disable-padding-on-builtin-display: true
+
                 # true to maintain layout state across application executions (default true).
                 restore-layouts-on-launch: true
 
