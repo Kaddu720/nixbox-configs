@@ -16,6 +16,7 @@
             bluez
             dk
             dislocker
+            libreoffice-still
             rtkit
             tree
             wirelesstools 

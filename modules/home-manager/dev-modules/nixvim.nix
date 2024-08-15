@@ -61,7 +61,7 @@
                                     { name = 'nvim_lsp' },
                                     { name = 'luasnip' },
                                 }, {
-                                    { name = 'buffer' },
+                                    { name = 'buffer' },nixvim
                             })
                         '';
                         window.completion.border = [ "rounded" ];
@@ -84,6 +84,7 @@
                         nixd.enable = true; #nix
                         marksman.enable = true; #markdown
                         terraformls.enable = true; #terraform
+                        #tailwindcss.enable = true; #tailwind css
                     };
                 };
             };
