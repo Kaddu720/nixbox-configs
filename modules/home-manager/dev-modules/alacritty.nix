@@ -35,7 +35,7 @@
                 };
 
                 font = {
-                    size = 12.0;
+                    size = if "${config.home.username}" == "noahwilson" then 18 else 12;
                     normal = {
                         family = "Hack Nerd Font Mono";
                         style = "Regular";
