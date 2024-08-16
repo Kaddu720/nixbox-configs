@@ -44,7 +44,10 @@
         matchBlocks = {
             "github.com" = {
                 user = "git";
-                identityFile = "~/.ssh/personal/personal";
+                identityFile = [ 
+                    "~/.ssh/personal/personal" 
+                    "~/.ssh/mobile/mobile"
+                ];
             };
         };
     };

@@ -19,7 +19,7 @@ imports = [
         lib.mkDefault true;
 
     home.packages = with pkgs; [
-        awscli2
+        #awscli2
         bat
         bottom
         fzf
