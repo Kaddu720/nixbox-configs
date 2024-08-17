@@ -23,9 +23,26 @@
                 lualine.enable = true;
                 nvim-tree.enable = true;
                 nvim-autopairs.enable = true;
-                #obsidian.enable = true;
                 oil.enable = true;
                 tmux-navigator.enable = true;
+                obsidian = {
+                    enable = true;
+                    settings = {
+                        workspaces = [
+                            {
+                                name = "Second_Brain";
+                                path = "~/Second_Brain";
+                            }
+                        ];
+                        completion = {
+                            min_chars = 2;
+                            nvim_cmp = true;
+                        };
+                        win_options = {
+                            conceallevel = 4;
+                        };
+                    };
+                };
                 treesitter = {
                     enable = true;
                     settings.indent.enable = true;
@@ -95,7 +112,7 @@
 
                 expandtab = true; # convert tabs to spaces
                 tabstop = 4; #tab shifts 4 spaces
-                shiftwidth = 4; #make shift in vidual mode worth 4 spaces
+                shiftwidth = 4; #make shift in visual mode worth 4 spaces
                 smartindent = true; #enable auto indent
 
                 hlsearch = true; #highlight search results
@@ -104,6 +121,8 @@
                 smartcase = true;
 
                 showmode = false; #Let lualine provide status
+
+                conceallevel = 1; # let obsidian coneal text with ui
             };
 
             clipboard.providers.xclip.enable = true;
@@ -142,6 +161,20 @@
                 {
                     key = "<N>";
                     action = "<Nzzzv";
+                    options.noremap = true;
+                }
+
+                # Traverse soft wrapped lines
+
+                {
+                    key = "j";
+                    action = "gj";
+                    options.noremap = true;
+                }
+
+                {
+                    key = "k";
+                    action = "gk";
                     options.noremap = true;
                 }
 
