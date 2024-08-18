@@ -1,0 +1,94 @@
+{
+  lib,
+  config,
+  ...
+}: {
+  imports = [
+    ./plugins
+    ./lspConfig.nix
+  ];
+
+  options = {
+    nixvim.enable =
+      lib.mkEnableOption "enables nixvim";
+  };
+  config = lib.mkIf config.nixvim.enable {
+    programs.nixvim = {
+      enable = true;
+      defaultEditor = true;
+
+      opts = {
+        number = true;
+        relativenumber = true;
+
+        expandtab = true; # convert tabs to spaces
+        tabstop = 2; #tab shifts 2 spaces
+        shiftwidth = 2; #make shift in visual mode worth 2 spaces
+        smartindent = true; #enable auto indent
+
+        hlsearch = true; #highlight search results
+        incsearch = true; #highlight objects as you search for them
+        ignorecase = true; #case insensitive search
+        smartcase = true;
+
+        showmode = false; #Let lualine provide status
+
+        conceallevel = 2; # let obsidian coneal text with ui
+      };
+
+      clipboard.providers.xclip.enable = true;
+
+      autoCmd = [
+        #Special commands for editing mark down
+        {
+          event = ["BufNewFile" "BufReadPost"];
+          pattern = ["*.txt" "*.md"];
+          command = "set spell spelllang=en_us";
+        }
+      ];
+
+      globals.mapleader = " ";
+      keymaps = [
+        # Page up and down navigation
+        {
+          key = "<C-d>";
+          action = "<C-d>zz";
+          options.noremap = true;
+        }
+
+        {
+          key = "<C-u>";
+          action = "<C-u>zz";
+          options.noremap = true;
+        }
+
+        # Center page when searching
+        {
+          key = "<n>";
+          action = "<nzzzv";
+          options.noremap = true;
+        }
+
+        {
+          key = "<N>";
+          action = "<Nzzzv";
+          options.noremap = true;
+        }
+
+        # Traverse soft wrapped lines
+
+        {
+          key = "j";
+          action = "gj";
+          options.noremap = true;
+        }
+
+        {
+          key = "k";
+          action = "gk";
+          options.noremap = true;
+        }
+      ];
+    };
+  };
+}

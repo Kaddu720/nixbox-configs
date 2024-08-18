@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }: {
 imports = [
     ./fish.nix
-        ./alacritty.nix
-        ./nixvim.nix
-        ./tmux.nix
-        ./git.nix
+    ./alacritty.nix
+    ./tmux.nix
+    ./git.nix
+    ./neovim/nixvim.nix
     ];
 
     fish.enable = 
