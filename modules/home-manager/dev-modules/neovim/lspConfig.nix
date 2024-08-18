@@ -1,6 +1,12 @@
-{...}: {
+{pkgs, ...}: {
   programs.nixvim = {
     plugins = {
+      lazy.plugins = [
+        {
+          pkg = pkgs.vimPlugins.none-ls-nvim;
+          event = ["BufNewFile" "BufReadPre"];
+        }
+      ];
       lsp = {
         enable = true;
         capabilities = "require('cmp_nvim_lsp').default_capabilities()";
