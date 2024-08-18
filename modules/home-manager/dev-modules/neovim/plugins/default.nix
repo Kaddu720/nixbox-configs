@@ -16,7 +16,7 @@
       plugins = [
         {
           pkg = pkgs.vimPlugins.comment-nvim;
-          event = ["ModeChanged"];
+          event = ["BufNewFile" "BufReadPre"];
         }
         {
           pkg = pkgs.vimPlugins.auto-pairs;
