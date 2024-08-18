@@ -1,34 +1,38 @@
-{ config, lib, pkgs, ... }: {
-imports = [
+{
+  lib,
+  pkgs,
+  ...
+}: {
+  imports = [
     ./fish.nix
     ./alacritty.nix
     ./tmux.nix
     ./git.nix
     ./neovim/nixvim.nix
-    ];
+  ];
 
-    fish.enable = 
-        lib.mkDefault true;
-    alacritty.enable =
-        lib.mkDefault true;
-    nixvim.enable =
-        lib.mkDefault true;
-    tmux.enable =
-        lib.mkDefault true;
-    git.enable = 
-        lib.mkDefault true;
+  fish.enable =
+    lib.mkDefault true;
+  alacritty.enable =
+    lib.mkDefault true;
+  nixvim.enable =
+    lib.mkDefault true;
+  tmux.enable =
+    lib.mkDefault true;
+  git.enable =
+    lib.mkDefault true;
 
-    home.packages = with pkgs; [
-        #awscli2
-        bat
-        bottom
-        fzf
-        jq
-        lazygit
-        nerdfonts
-        ripgrep
-        sops
-        thefuck
-        zoxide
-    ];
+  home.packages = with pkgs; [
+    #awscli2
+    bat
+    bottom
+    fzf
+    jq
+    lazygit
+    nerdfonts
+    ripgrep
+    sops
+    thefuck
+    zoxide
+  ];
 }
