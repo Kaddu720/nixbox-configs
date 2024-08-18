@@ -26,9 +26,11 @@
             min_chars = 2;
             nvim_cmp = true;
           };
-          win_options = {
-            conceallevel = 4;
-          };
+          follow_url_func.__raw = ''
+            function(url)
+              vim.fn.jobstart({"xdg-open", url})
+            end
+          '';
         };
       };
     };
