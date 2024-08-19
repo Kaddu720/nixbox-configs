@@ -22,6 +22,7 @@
     (python311.withPackages (ppkgs: [
       ppkgs.boto3
     ]))
+    obsidian
   ];
 
   # Let Home Manager install and manage itself.

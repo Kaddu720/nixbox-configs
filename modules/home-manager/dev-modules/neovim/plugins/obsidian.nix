@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   programs.nixvim = {
     plugins = {
       lazy.plugins = [
@@ -16,12 +20,20 @@
       obsidian = {
         enable = true;
         settings = {
-          workspaces = [
-            {
-              name = "Second_Brain";
-              path = "~/Second_Brain";
-            }
-          ];
+          workspaces =
+            if "${config.home.username}" == "noahwilson"
+            then [
+              {
+                name = "WorkBrain";
+                path = "~/WorkBrain";
+              }
+            ]
+            else [
+              {
+                name = "Second_Brain";
+                path = "~/Second_Brain";
+              }
+            ];
           completion = {
             min_chars = 2;
             nvim_cmp = true;
@@ -31,8 +43,10 @@
               vim.fn.jobstart({"xdg-open", url})
             end
           '';
-          templates.subdir ="~/Second_Brain/resources/templates";
-          
+          templates.subdir =
+            if "${config.home.username}" == "noahwilson"
+            then "~/WorkBrain/resources/templates"
+            else "~/Second_Brain/resources/templates";
         };
       };
     };
