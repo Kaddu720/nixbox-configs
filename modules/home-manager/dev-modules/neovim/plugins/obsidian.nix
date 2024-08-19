@@ -31,6 +31,8 @@
               vim.fn.jobstart({"xdg-open", url})
             end
           '';
+          templates.subdir ="~/Second_Brain/resources/templates";
+          
         };
       };
     };
