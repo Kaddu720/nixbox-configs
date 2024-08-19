@@ -34,7 +34,6 @@
 
   # configure services
   services = {
-    syncthing.enable = true;
   };
 
   programs.ssh = {
