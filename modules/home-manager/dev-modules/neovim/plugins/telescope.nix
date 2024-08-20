@@ -1,7 +1,13 @@
 {pkgs, ...}: {
   programs.nixvim = {
     plugins = {
-      telescope.enable = true;
+      telescope = {
+        enable = true;
+        extensions = {
+          fzf-native.enable = true;
+          ui-select.enable = true;
+        };
+      };
 
       lazy.plugins = [
         {
@@ -15,6 +21,8 @@
             pkgs.vimPlugins.plenary-nvim
             # fzf optomizer plugin
             pkgs.vimPlugins.telescope-fzf-native-nvim
+            # Ui for menues
+            pkgs.vimPlugins.telescope-ui-select-nvim
           ];
         }
       ];
