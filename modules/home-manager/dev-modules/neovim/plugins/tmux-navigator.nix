@@ -1,14 +1,15 @@
 {pkgs, ...}: {
   programs.nixvim = {
     plugins = {
-      lualine.enable = true;
+      tmux-navigator.enable = true;
 
       lazy.plugins = [
         {
-          pkg = pkgs.vimPlugins.lualine-nvim;
+          pkg = pkgs.vimPlugins.tmux-navigator;
           lazy = false;
         }
       ];
+
     };
   };
 }

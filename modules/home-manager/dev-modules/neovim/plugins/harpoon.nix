@@ -1,6 +1,8 @@
 {pkgs, ...}: {
   programs.nixvim = {
     plugins = {
+      harpoon.enable = true;
+
       lazy.plugins = [
         {
           pkg = pkgs.vimPlugins.harpoon;
@@ -11,6 +13,7 @@
         }
       ];
     };
+
     keymaps = [
       # Harpoon
       {

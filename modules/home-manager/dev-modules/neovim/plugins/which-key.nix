@@ -1,12 +1,12 @@
 {pkgs, ...}: {
   programs.nixvim = {
     plugins = {
-      lualine.enable = true;
+      which-key.enable = true;
 
       lazy.plugins = [
         {
-          pkg = pkgs.vimPlugins.lualine-nvim;
-          lazy = false;
+          pkg = pkgs.vimPlugins.which-key-nvim;
+          event = "VeryLazy";
         }
       ];
     };

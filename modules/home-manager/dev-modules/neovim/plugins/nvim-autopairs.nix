@@ -1,12 +1,12 @@
 {pkgs, ...}: {
   programs.nixvim = {
     plugins = {
-      lualine.enable = true;
+      nvim-autopairs.enable = true;
 
       lazy.plugins = [
         {
-          pkg = pkgs.vimPlugins.lualine-nvim;
-          lazy = false;
+          pkg = pkgs.vimPlugins.nvim-autopairs;
+          event = ["InsertEnter"];
         }
       ];
     };

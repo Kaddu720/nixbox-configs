@@ -1,20 +1,6 @@
 {pkgs, ...}: {
   programs.nixvim = {
     plugins = {
-      lazy.plugins = [
-        {
-          pkg = pkgs.vimPlugins.nvim-cmp;
-          event = ["InsertEnter"];
-          dependencies = [
-            pkgs.vimPlugins.cmp-nvim-lsp
-            pkgs.vimPlugins.cmp-treesitter
-            pkgs.vimPlugins.friendly-snippets
-            pkgs.vimPlugins.luasnip
-            pkgs.vimPlugins.cmp_luasnip
-          ];
-        }
-      ];
-
       cmp = {
         enable = true;
         autoEnableSources = false;
@@ -60,6 +46,20 @@
       friendly-snippets.enable = true;
       luasnip.enable = true;
       cmp_luasnip.enable = true;
+
+      lazy.plugins = [
+        {
+          pkg = pkgs.vimPlugins.nvim-cmp;
+          event = ["InsertEnter"];
+          dependencies = [
+            pkgs.vimPlugins.cmp-nvim-lsp
+            pkgs.vimPlugins.cmp-treesitter
+            pkgs.vimPlugins.friendly-snippets
+            pkgs.vimPlugins.luasnip
+            pkgs.vimPlugins.cmp_luasnip
+          ];
+        }
+      ];
     };
   };
 }

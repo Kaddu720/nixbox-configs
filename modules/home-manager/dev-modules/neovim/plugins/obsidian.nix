@@ -5,18 +5,6 @@
 }: {
   programs.nixvim = {
     plugins = {
-      lazy.plugins = [
-        {
-          pkg = pkgs.vimPlugins.obsidian-nvim;
-          dependencies = [
-            # required
-            pkgs.vimPlugins.plenary-nvim
-          ];
-          lazy = true;
-          ft = "markdown";
-        }
-      ];
-
       obsidian = {
         enable = true;
         settings = {
@@ -38,17 +26,46 @@
             min_chars = 2;
             nvim_cmp = true;
           };
-          follow_url_func.__raw = ''
-            function(url)
-              vim.fn.jobstart({"xdg-open", url})
-            end
-          '';
+          follow_url_func.__raw =
+            if "${config.home.username}" == "noahwilson"
+            then ''
+              function(url)
+                vim.fn.jobstart({"open", url})  -- Mac OS
+              end
+            ''
+            else ''
+              function(url)
+                vim.fn.jobstart({"xdg-open", url}) -- linux
+              end
+            '';
           templates.subdir =
             if "${config.home.username}" == "noahwilson"
             then "~/WorkBrain/resources/templates"
             else "~/Second_Brain/resources/templates";
         };
       };
+
+      lazy.plugins = [
+        {
+          pkg = pkgs.vimPlugins.obsidian-nvim;
+          dependencies = [
+            # required
+            pkgs.vimPlugins.plenary-nvim
+          ];
+          lazy = true;
+          ft = "markdown";
+        }
+      ];
     };
+
+    keymaps = [
+      # Harpoon
+      {
+        mode = "n";
+        key = "<leader>ot";
+        action = "<cmd>ObsidianTemplate<CR>";
+        options.desc = "Obsidian Template Menu";
+      }
+    ];
   };
 }

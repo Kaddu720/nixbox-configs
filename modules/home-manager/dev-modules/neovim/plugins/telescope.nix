@@ -1,20 +1,25 @@
 {pkgs, ...}: {
   programs.nixvim = {
-    plugins.lazy.plugins = [
-      {
-        name = "telescope-nvim";
-        pkg = pkgs.vimPlugins.telescope-nvim;
-        cmd.__raw = ''
-          "Telescope"
-        '';
-        dependencies = [
-          # required
-          pkgs.vimPlugins.plenary-nvim
-          # fzf optomizer plugin
-          pkgs.vimPlugins.telescope-fzf-native-nvim
-        ];
-      }
-    ];
+    plugins = {
+      telescope.enable = true;
+
+      lazy.plugins = [
+        {
+          name = "telescope-nvim";
+          pkg = pkgs.vimPlugins.telescope-nvim;
+          cmd.__raw = ''
+            "Telescope"
+          '';
+          dependencies = [
+            # required
+            pkgs.vimPlugins.plenary-nvim
+            # fzf optomizer plugin
+            pkgs.vimPlugins.telescope-fzf-native-nvim
+          ];
+        }
+      ];
+    };
+
     keymaps = [
       {
         mode = "n";
