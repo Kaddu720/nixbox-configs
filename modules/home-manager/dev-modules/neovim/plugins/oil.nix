@@ -6,6 +6,7 @@
         settings = {
           default_file_explorer = true;
           experimental_watch_for_changes = true;
+          float.border = "rounded";
         };
       };
 
@@ -21,7 +22,7 @@
       {
         mode = "n";
         key = "-";
-        action = "<cmd>Oil<CR>";
+        action = "<cmd>Oil --float<CR>";
         options.desc = "File Explorer";
       }
     ];
