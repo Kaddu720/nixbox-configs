@@ -59,12 +59,18 @@
     };
 
     keymaps = [
-      # Harpoon
+      # Obsidian
       {
         mode = "n";
         key = "<leader>ot";
         action = "<cmd>ObsidianTemplate<CR>";
         options.desc = "Obsidian Template Menu";
+      }
+      {
+        mode = "n";
+        key = "<leader>os";
+        action = "<cmd>! ./sync<CR>";
+        options.desc = "Obsidian Sync";
       }
     ];
   };
