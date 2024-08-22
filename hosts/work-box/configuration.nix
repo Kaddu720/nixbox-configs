@@ -58,6 +58,8 @@
       EDITOR = "nvim";
       HOME = "/Users/noahwilson";
       Host = "aarch65-darwin";
+      AWS_PROFILE = "sre_v1-prod";
+      TF_SECRET = "terraform_builder";
     };
   };
 

@@ -23,7 +23,6 @@
     lib.mkDefault true;
 
   home.packages = with pkgs; [
-    #awscli2
     bat
     bottom
     fzf
@@ -34,5 +33,8 @@
     sops
     thefuck
     zoxide
+    # AXS / Ekiree managment modules
+    awscli2
+    terraform
   ];
 }
