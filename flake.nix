@@ -81,19 +81,24 @@
 
     # Home-manager Configs
     homeConfigurations = {
-      Home = home-manager.lib.homeManagerConfiguration {
+      Home-Box = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."x86_64-linux";
-
         modules = [
-          ./modules/common/users/noah/home.nix
+          ./hosts/home-box/home-manager.nix
           nixvim.homeManagerModules.nixvim
         ];
       };
-      Work = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {system = "aarch64-darwin";};
-
+      Mobiel-Box = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages."x86_64-linux";
         modules = [
-          ./modules/common/users/work/home.nix
+          ./hosts/mobile-box/home-manager.nix
+          nixvim.homeManagerModules.nixvim
+        ];
+      };
+      Work-Box = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {system = "aarch64-darwin";};
+        modules = [
+          ./hosts/work-box/home-manager.nix
           nixvim.homeManagerModules.nixvim
         ];
       };
