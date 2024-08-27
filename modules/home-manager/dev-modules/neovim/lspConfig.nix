@@ -20,6 +20,14 @@
           pyright.enable = true; #python
           nixd.enable = true; #nix
           marksman.enable = true; #markdown
+          ltex = {
+            enable = true; # spelling and grammer in markdown
+            settings = {
+              language = "en-US";
+              enabled = true;
+              dictionary = {};
+            };
+          };
           terraformls.enable = true; #terraform
           #tailwindcss.enable = true; #tailwind css
         };
