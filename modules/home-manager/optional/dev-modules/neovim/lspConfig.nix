@@ -4,21 +4,15 @@
 }: {
 
   programs.nixvim = {
-    # allow ltex to add words to the dictionary
-    extraConfigLua = ''
-      -- Allow ltex to add words to the dictionary {
-      local spell_words = {}
-      for word in io.open(vim.fn.stdpath("config") .. "/spell/en.utf-8.add", "r"):lines() do
-          table.insert(spell_words, word)
-      end
-      -- }
-    '';
-
     plugins = {
       lazy.plugins = [
         {
           pkg = pkgs.vimPlugins.none-ls-nvim;
           event = ["BufNewFile" "BufReadPre"];
+        }
+        {
+          pkg = pkgs.vimPlugins.ltex_extra-nvim;
+          ft = "markdown";
         }
       ];
 
@@ -59,6 +53,8 @@
           isort.enable = true; # python linting
         };
       };
+
+      ltex-extra.enable = true;
     };
   };
 }
