@@ -1,5 +1,19 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  ...
+}: {
+
   programs.nixvim = {
+    # allow ltex to add words to the dictionary
+    extraConfigLua = ''
+      -- Allow ltex to add words to the dictionary {
+      local spell_words = {}
+      for word in io.open(vim.fn.stdpath("config") .. "/spell/en.utf-8.add", "r"):lines() do
+          table.insert(spell_words, word)
+      end
+      -- }
+    '';
+
     plugins = {
       lazy.plugins = [
         {
@@ -7,6 +21,7 @@
           event = ["BufNewFile" "BufReadPre"];
         }
       ];
+
       lsp = {
         enable = true;
         capabilities = "require('cmp_nvim_lsp').default_capabilities()";
@@ -25,7 +40,9 @@
             settings = {
               language = "en-US";
               enabled = true;
-              dictionary = {};
+              dictionary = {
+                "en-us".__raw = "spell_words";
+              };
             };
           };
           terraformls.enable = true; #terraform
