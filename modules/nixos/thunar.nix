@@ -10,9 +10,6 @@
   };
 
   config = lib.mkIf config.thunar.enable {
-    # Broswer opens thunar by default
-    xdg.mimeApps.defaultApplications."inode/directory" = "thunar";
-
     programs.thunar = {
       enable = true;
       plugins = with pkgs.xfce; [
