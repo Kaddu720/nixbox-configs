@@ -45,7 +45,7 @@
 
                 # browser
                 alt + w
-                    firefox
+                    zen
 
                 # screenshot and selection capture
                 super + shift + s

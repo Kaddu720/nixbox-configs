@@ -55,12 +55,19 @@
 
                         # Set up work spaces
                         dkcmd set static_ws=true \
-                        ws=1 name="dev" mon=DP-1 \
-                        ws=2 name="web" mon=DP-1 \
-                        ws=3 mon=DP-1 \
-                        ws=4 mon=DP-1 \
-                        ws=5 name="fun" mon=DP-2 \
-                        ws=6 name="docs" mon=DP-2
+                          ws=1 name="dev" mon=DP-1 \
+                          ws=2 name="web" mon=DP-1 \
+                          ws=3 mon=DP-1 \
+                          ws=4 mon=DP-1 \
+                          ws=5 name="fun" mon=DP-2 \
+                          ws=6 name="docs" mon=DP-2
+
+                        # rule class, instance, and title regexes (*ALWAYS* CASE INSENSITIVE)
+                        # open window(s) on a specific workspace (assigned monitor)
+                        dkcmd rule class="^alacritty$" ws=1 focus = true
+                        dkcmd rule class="^zen$" ws=2 focus = true
+                        dkcmd rule class="^discord$" ws=5
+                        dkcmd rule class="^steam$" ws=5
                     ;;
 
                     Mobile-Box)
@@ -69,9 +76,15 @@
 
                         # set up work spaces
                         dkcmd set \
-                            ws=1 name="dev" \
-                            ws=2 name="web" \
-                            ws=3 name="fun"
+                          ws=1 name="dev" \
+                          ws=2 name="web" \
+                          ws=3 name="fun"
+
+                        # rule class, instance, and title regexes (*ALWAYS* CASE INSENSITIVE)
+                        # open window(s) on a specific workspace (assigned monitor)
+                        dkcmd rule class="^alacritty$" ws=1 focus = true
+                        dkcmd rule class="^zen$" ws=2 focus = true
+                        dkcmd rule class="^discord$" ws=3
                     ;;
                 esac
 
@@ -114,13 +127,6 @@
 
                 # Keeps current window is postion when a new window is opened
                 dkcmd set tile_tohead=0 tile_hints=false
-
-                # rule class, instance, and title regexes (*ALWAYS* CASE INSENSITIVE)
-                # open window(s) on a specific workspace (assigned monitor)
-                dkcmd rule class="^alacritty$" ws=1 focus = true
-                dkcmd rule class="^firefox$" ws=2 focus = true
-                dkcmd rule class="^discord$" ws=5
-                dkcmd rule class="^steam$" ws=5
 
                 # open window(s) on a monitor by number or name (active workspace on monitor)
                 # dkcmd rule class="^chromium$" mon="HDMI-A-0"
