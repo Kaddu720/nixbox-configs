@@ -9,6 +9,9 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # Broswer opens thunar by default
+  xdg.mimeApps.defaultApplications."inode/directory" = "thunar";
+
   # Install Packages
   home.packages = with pkgs; [
     caffeine-ng

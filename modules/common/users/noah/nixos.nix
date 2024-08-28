@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.noah = {
     isNormalUser = true;
@@ -20,6 +24,7 @@
       rtkit
       tree
       wirelesstools
+      inputs.zen-browser.packages."x86_64-linux".default
     ];
     variables = {
       EDITOR = "nvim";

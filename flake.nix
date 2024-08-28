@@ -24,6 +24,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    zen-browser = {
+      url = "github:MarceColl/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     kmonad = {
       url = "git+https://github.com/kmonad/kmonad?submodules=1&dir=nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -51,14 +56,14 @@
     # Host Configs
     nixosConfigurations = {
       Home-Box = nixpkgs.lib.nixosSystem {
-        system = "x86-64-linux";
+        system = "x86_64-linux";
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/home-box/configuration.nix
         ];
       };
       Mobile-Box = nixpkgs.lib.nixosSystem {
-        system = "x86-64-linux";
+        system = "x86_64-linux";
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/mobile-box/configuration.nix
@@ -88,7 +93,7 @@
           nixvim.homeManagerModules.nixvim
         ];
       };
-      Mobiel-Box = home-manager.lib.homeManagerConfiguration {
+      Mobile-Box = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."x86_64-linux";
         modules = [
           ./hosts/mobile-box/home-manager.nix
