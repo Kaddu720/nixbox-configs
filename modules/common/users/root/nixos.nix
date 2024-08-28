@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    ../../../nixos/default.nix
+    ../../../nixos
   ];
 
   networking.networkmanager.enable = true;
@@ -33,6 +33,7 @@
       killall
       mangohud
       neovim
+      vlc
       wget
     ];
   };

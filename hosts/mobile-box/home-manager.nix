@@ -1,6 +1,9 @@
 {...}: {
   imports = [
     ../../modules/common/users/noah/home.nix
+    ../../modules/home-manager/core
+    ../../modules/home-manager/optional/linux-desktop
+    ../../modules/home-manager/optional/dev-modules
   ];
 
   programs.ssh = {

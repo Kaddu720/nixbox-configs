@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    # Include the results of the hardware scan.
+    ../../modules/common/users/work/nixos.nix
   ];
 
   # Auto upgrade nix package and the daemon service.
@@ -15,13 +15,6 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  #users
-  users.users.noahwilson = {
-    home = "/Users/noahwilson";
-  };
-
-  security.pam.enableSudoTouchIdAuth = true;
 
   system = {
     defaults = {
@@ -54,13 +47,6 @@
       slack
       #redisinsight
     ];
-    variables = {
-      EDITOR = "nvim";
-      HOME = "/Users/noahwilson";
-      Host = "aarch65-darwin";
-      AWS_PROFILE = "sre_v1-prod";
-      TF_SECRET = "terraform_builder";
-    };
   };
 
   #enable programs as services

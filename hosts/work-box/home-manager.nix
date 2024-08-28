@@ -1,6 +1,9 @@
 {...}: {
   imports = [
     ../../modules/common/users/work/home.nix
+    ../../modules/home-manager/core
+    ../../modules/home-manager/optional/mac-desktop
+    ../../modules/home-manager/optional/dev-modules
   ];
 
   # Let Home Manager install and manage itself.

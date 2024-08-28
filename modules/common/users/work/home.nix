@@ -1,10 +1,5 @@
 {pkgs, ...}: {
   # Import nix modules
-  imports = [
-    ../../../home-manager/mac-desktop
-    ../../../home-manager/dev-modules
-  ];
-
   home = {
     username = "noahwilson";
     homeDirectory = "/Users/noahwilson";
