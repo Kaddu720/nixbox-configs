@@ -6,7 +6,7 @@
       lazy.plugins = [
         {
           pkg = pkgs.vimPlugins.tmux-navigator;
-          lazy = false;
+          event = "VeryLazy";
         }
       ];
 

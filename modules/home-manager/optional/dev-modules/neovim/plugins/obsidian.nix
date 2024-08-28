@@ -52,7 +52,6 @@
             # required
             pkgs.vimPlugins.plenary-nvim
           ];
-          lazy = true;
           ft = "markdown";
         }
       ];

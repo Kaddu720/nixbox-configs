@@ -6,7 +6,7 @@
       lazy.plugins = [
         {
           pkg = pkgs.vimPlugins.harpoon;
-          lazy = true;
+          event = "VeryLazy";
           cmd.__raw = ''
             "Harpoon"
           '';
