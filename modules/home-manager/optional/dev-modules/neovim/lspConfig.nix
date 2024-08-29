@@ -38,7 +38,6 @@
                 "en-us".__raw = "spell_words";
               };
               checkFrequency = "save";
-              diagnosticSeverity = "error";
             };
           };
           terraformls.enable = true; #terraform
