@@ -47,12 +47,6 @@
                         # initialize 6 workspaces (1-6) (default: 1/monitor)
                         dkcmd set numws=6
 
-                        # monitor designations
-                        # mon1 = 'DP-1'
-                        # mon2 = 'DP-2'
-                        # mon3 = 'DP-3'
-                        # mon4 = 'HDMI-1'
-
                         # Set up work spaces
                         dkcmd set static_ws=true \
                           ws=1 name="dev" mon=DP-1 \
@@ -71,14 +65,16 @@
                     ;;
 
                     Mobile-Box)
-                        # initialize 4 workspaces (1-4) (default: 1/monitor)
-                        dkcmd set numws = 4
+                        # initialize 5 workspaces (1-5) (default: 1/monitor)
+                        dkcmd set numws = 5
 
                         # set up work spaces
-                        dkcmd set \
-                          ws=1 name="dev" \
-                          ws=2 name="web" \
-                          ws=3 name="fun"
+                        dkcmd set static_ws=true \
+                          ws=1 name="dev" mon=eDP-1 \
+                          ws=2 name="web" mon=eDP-1 \
+                          ws=3 name="fun" mon=eDP-1 \
+                          ws=4 mon=eDP-1 \
+                          ws=5 mon=DP-2
 
                         # rule class, instance, and title regexes (*ALWAYS* CASE INSENSITIVE)
                         # open window(s) on a specific workspace (assigned monitor)
