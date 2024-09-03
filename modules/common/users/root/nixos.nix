@@ -36,14 +36,4 @@
       wget
     ];
   };
-
-  # Enable automatic garbage collection
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 7d";
-  };
-
-  # This option defines the first version of NixOS you have installed on this particular machine,
-  system.stateVersion = "23.11"; # Did you read the comment?
 }
