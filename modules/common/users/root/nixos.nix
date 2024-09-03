@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   imports = [
-    ../../../nixos
   ];
 
   networking.networkmanager.enable = true;
