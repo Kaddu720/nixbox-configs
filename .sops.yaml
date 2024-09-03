@@ -1,7 +1,9 @@
 keys:
-  - &primary age18anjk676a9exncxke6uszwlhzqd8lh6ya5r0l8lrp0mpfcg0f4rqg2q6kh
+  - &home-box age18anjk676a9exncxke6uszwlhzqd8lh6ya5r0l8lrp0mpfcg0f4rqg2q6kh
+  - &work-box age1hucqc43fyjxcj7uj7prugfjw0nsf9zcwpqjk0mcnmjnp2ndaspmqjj623d
 creation_rules:
   - path_regex: secrets.yaml$
     key_groups:
       - age:
-        - *primary
+        - *home-box
+        - *work-box
