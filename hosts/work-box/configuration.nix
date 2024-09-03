@@ -57,7 +57,7 @@
   };
 
   # Imported Optional Modules
-  homebrew.enable = true;
+  homebrewPkgs.enable = true;
 
   # Enable automatic garbage collection
   nix.gc = {
