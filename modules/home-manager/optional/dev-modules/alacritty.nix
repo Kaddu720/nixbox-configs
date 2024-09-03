@@ -30,10 +30,6 @@
                     blur = true;
                 };
 
-                mouse = {
-                    hide_when_typing = true;
-                };
-
                 font = {
                     size = if "${config.home.username}" == "noahwilson" then 18 else 12;
                     normal = {
