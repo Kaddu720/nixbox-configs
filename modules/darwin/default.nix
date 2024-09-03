@@ -1,0 +1,5 @@
+{...}: {
+  import = [
+    ./homebrew.nix
+  ];
+}
