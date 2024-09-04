@@ -14,6 +14,7 @@
 
   # Install Packages
   home.packages = with pkgs; [
+    bitwarden-desktop
     caffeine-ng
     discord
     dunst

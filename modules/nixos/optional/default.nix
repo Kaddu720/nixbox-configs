@@ -1,7 +1,7 @@
 {...}: {
   imports = [
-    ./steam
-    ./kmonad
-    ./auto-cpufreq
+    ./steam.nix
+    ./kmonad.nix
+    ./auto-cpufreq.nix
   ];
 }
