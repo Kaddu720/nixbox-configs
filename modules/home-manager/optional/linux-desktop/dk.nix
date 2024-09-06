@@ -59,7 +59,7 @@
                         # rule class, instance, and title regexes (*ALWAYS* CASE INSENSITIVE)
                         # open window(s) on a specific workspace (assigned monitor)
                         dkcmd rule class="^alacritty$" ws=1 focus = true
-                        dkcmd rule class="^zen$" ws=2 focus = true
+                        dkcmd rule class="^zen-alpha$" ws=2 focus = true
                         dkcmd rule class="^discord$" ws=5
                         dkcmd rule class="^steam$" ws=5
                     ;;
@@ -79,7 +79,7 @@
                         # rule class, instance, and title regexes (*ALWAYS* CASE INSENSITIVE)
                         # open window(s) on a specific workspace (assigned monitor)
                         dkcmd rule class="^alacritty$" ws=1 focus = true
-                        dkcmd rule class="^zen$" ws=2 focus = true
+                        dkcmd rule class="^zen-alpha$" ws=2 focus = true
                         dkcmd rule class="^discord$" ws=3
                     ;;
                 esac
