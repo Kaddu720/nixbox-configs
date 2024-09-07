@@ -33,6 +33,9 @@
                 sxhkd -c "$HOME/.config/sxhkd/sxhkdrc" &
             fi
 
+            # spawn a scratchpad terminal if not already (see sxhkdrc and rules for binds/setup)
+            pgrep -f "alacritty --class scratchpad" || alacritty --class scratchpad &
+
             { # compound command to redirect all output
                 # workspace settings
                 # ------------------------
@@ -124,13 +127,6 @@
                 # Keeps current window is postion when a new window is opened
                 dkcmd set tile_tohead=0 tile_hints=false
 
-                # open window(s) on a monitor by number or name (active workspace on monitor)
-                # dkcmd rule class="^chromium$" mon="HDMI-A-0"
-
-                # open window(s) and use a callback function (user defined in config.h)
-                # we also ignore_cfg=true to stop the window from being resized on it's own from events
-                # eg. mpv --x11-name=albumart /path/to/media
-                # dkcmd rule class="^mpv$" instance="^albumart$" float=true ignore_cfg=true callback=albumart bw=0
 
                 # open window(s) in a floating state
                 dkcmd rule class="^(pavucontrol|steam|thunar)$" float=true
@@ -140,8 +136,8 @@
                 # set a window to never absorb other windows, like the xev event tester
                 dkcmd rule title="^Event Tester$" no_absorb=true
 
-                # send a window to the scratchpad
-                dkcmd rule class="^scratchpad$" title="scratchpad" float=true
+                # Enable Scratch Pad rules
+                dkcmd rule class="^scratchpad$" title="scratchpad" float=true scratch=true w=1280 h=520 x=325 y=32
 
                 # update or remove an existing rule with the same match patterns
                 # dkcmd rule class="^firefox$" mon="HDMI-A-0"

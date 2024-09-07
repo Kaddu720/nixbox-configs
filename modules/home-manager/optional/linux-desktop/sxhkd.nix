@@ -89,7 +89,7 @@
 
                 # toggle scratch pad
                 alt + u
-                    if ! pgrep -f "alacritty --class scratchpad" >/dev/null 2>&1; then alacritty --class scratchpad & else dkcmd win scratchpad scratch; fi
+                    dkcmd win scratchpad scratch
 
                 # move window, signed (+/-) for relative changes, for tiled windows
                 # y coord changes will move the window up/down the stack
