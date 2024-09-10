@@ -43,7 +43,7 @@
       };
       cmp-nvim-lsp.enable = true;
       cmp-treesitter.enable = true;
-      friendly-snippets.enable = true;
+      #friendly-snippets.enable = true;
       luasnip.enable = true;
       cmp_luasnip.enable = true;
 
@@ -54,7 +54,7 @@
           dependencies = [
             pkgs.vimPlugins.cmp-nvim-lsp
             pkgs.vimPlugins.cmp-treesitter
-            pkgs.vimPlugins.friendly-snippets
+            #pkgs.vimPlugins.friendly-snippets
             pkgs.vimPlugins.luasnip
             pkgs.vimPlugins.cmp_luasnip
           ];
