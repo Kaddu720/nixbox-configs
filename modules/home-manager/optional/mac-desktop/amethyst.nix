@@ -11,8 +11,8 @@
                 # layouts - Ordered list of layouts to use by layout key (default tall, wide, fullscreen, and column).
                 layouts:
                   - tall
-                  - fullscreen
-                  - floating
+                  # - fullscreen
+                  # - floating
 
                 # First mod (default option + shift).
                 mod1:
@@ -42,14 +42,14 @@
                 # ','
 
                 # Move to the next layout in the list.
-                cycle-layout:
-                  mod: ""
-                  key: ""
+                # cycle-layout:
+                #   mod: ""
+                #   key: ""
 
                 # Move to the previous layout in the list.
-                cycle-layout-backward:
-                  mod: ""
-                  key: ""
+                # cycle-layout-backward:
+                #   mod: ""
+                #   key: ""
 
                 # Shrink the main pane by a percentage of the screen dimension as defined by window-resize-step. Note that not all layouts respond to this command.
                 shrink-main:
