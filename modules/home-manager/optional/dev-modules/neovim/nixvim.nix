@@ -29,7 +29,8 @@
         hlsearch = true; #highlight search results
         incsearch = true; #highlight objects as you search for them
         ignorecase = true; #case insensitive search
-        smartcase = true;
+        smartcase = true; # Case matters if I use a capital letter
+        inccommand = "split"; # gives me a preview of what commands will look like when executed
 
         showmode = false; #Let lualine provide status
 
