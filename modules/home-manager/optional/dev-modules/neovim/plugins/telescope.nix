@@ -23,6 +23,8 @@
             pkgs.vimPlugins.telescope-fzf-native-nvim
             # Ui for menues
             pkgs.vimPlugins.telescope-ui-select-nvim
+            # web-devicons
+            pkgs.vimPlugins.nvim-web-devicons
           ];
         }
       ];

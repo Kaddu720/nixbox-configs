@@ -13,6 +13,8 @@
             # required
             pkgs.vimPlugins.plenary-nvim
             pkgs.vimPlugins.nui-nvim
+            # web-devicons
+            pkgs.vimPlugins.nvim-web-devicons
           ];
         }
       ];
