@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ ...}: {
   imports = [
     ../../modules/common/users/work/nixos.nix
     ../../modules/darwin
@@ -17,47 +17,7 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  system = {
-    defaults = {
-      dock = {
-        autohide = true;
-        mru-spaces = false;
-      };
-      finder = {
-        AppleShowAllExtensions = true;
-        CreateDesktop = false;
-        FXPreferredViewStyle = "Nlsv";
-      };
-
-      NSGlobalDomain.AppleInterfaceStyle = "Dark";
-      screensaver.askForPasswordDelay = 10;
-      spaces.spans-displays = false;
-    };
-    keyboard = {
-      enableKeyMapping = true;
-      remapCapsLockToControl = true;
-      #swapLeftCommandAndLeftAlt = true;
-    };
-  };
-
-  #Configure Environmental Variables
-  environment = {
-    # List packages at system level
-    systemPackages = with pkgs; [
-      sketchybar-app-font
-      slack
-      #redisinsight
-    ];
-  };
-
-  #enable programs as services
-  services = {
-    skhd.enable = true;
-    sketchybar.enable = true;
-  };
-
   # Imported Optional Modules
-  homebrewPkgs.enable = true;
 
   # Enable automatic garbage collection
   nix.gc = {
