@@ -66,6 +66,7 @@
       "amethyst"
       "gpg-suite"
       "redisinsight"
+      "zen-browser"
     ];
     brews = [
       "ca-certificates"
@@ -73,7 +74,6 @@
       "coreutils"
       "docutils"
       "gmp"
-      "jq"
       "oniguruma"
       "openssl@3"
       "pycparser"
