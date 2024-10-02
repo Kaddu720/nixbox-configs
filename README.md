@@ -50,3 +50,8 @@ __Bios settings__
     - Set to Auto
     - Activate XMP
 
+## On Key maps
+- Alt: Window Manager level navigation
+- Alt + Shift: Window Movement
+- Ctl: Application level navigation
+- Ctl + Shift: Application level unit movement

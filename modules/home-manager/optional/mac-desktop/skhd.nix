@@ -11,7 +11,7 @@
                 alt - return : open -n -a alacritty
 
                 # open brower
-                alt - w : open -n -a "Google Chrome"
+                alt - w : open -n -a "Zen Browser"
             '';
             executable = true;
         };
