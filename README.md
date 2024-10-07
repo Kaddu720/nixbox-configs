@@ -38,17 +38,27 @@ Mac: `nix run nix-darwin -- switch --flake ./#Work-Box --show-trace`
 `nix flake update`
 
 ## Notes for Apps
-__Activate protondb for gaming__
+__Activate proton db for gaming__
 run `protonup`
 
 ## Home-Box
 __Bios settings__
 - CPU
-    - 4550 mhz
+    - 4550 MHz
     - 1.2V
 - RAM
     - Set to Auto
     - Activate XMP
+
+## On Usage
+
+The goal is to have one work space and one application for each functionality. So, each application needs to be able to contain multiple work spaces within itself
+- 1 Terminal for work
+    - The terminal can then be multiplexed with tmux
+- 1 Browser for Documentation or main usage
+    - Zen browser supports work spaces for multiple different contexts
+
+I usually assume that I have a second monitor for communication or entertainment. But if I don't, (like on a laptop) communication will get its own workspace
 
 ## On Key maps
 - Alt: Window Manager level navigation
