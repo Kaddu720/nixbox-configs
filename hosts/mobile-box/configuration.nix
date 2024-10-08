@@ -47,7 +47,7 @@
 
   # Imported Optional Modules
   kmonad.enable = true;
-  auto-cpufreq = true;
+  auto-cpufreq.enable = true;
 
   # Enable automatic garbage collection
   nix.gc = {
