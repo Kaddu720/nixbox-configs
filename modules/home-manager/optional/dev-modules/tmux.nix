@@ -13,7 +13,6 @@
     programs.tmux = {
       enable = true;
 
-      #shell = if "${config.home.username}" == "noahwilson" then "/usr/local/bin/fish" else "/home/noah/.nix-profile/bin/fish";
       shell = "${pkgs.fish}/bin/fish";
       mouse = true;
       keyMode = "vi";
