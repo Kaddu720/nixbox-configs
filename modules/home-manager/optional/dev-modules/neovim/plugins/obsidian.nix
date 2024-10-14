@@ -71,6 +71,12 @@
         action = "<cmd>! ./sync<CR>";
         options.desc = "Obsidian Sync";
       }
+      {
+        mode = "n";
+        key = "<leader>od";
+        action = "<cmd>ObsdianDailies<CR>";
+        options.desc = "Obsidian Daily";
+      }
     ];
   };
 }
