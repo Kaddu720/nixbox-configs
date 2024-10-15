@@ -74,7 +74,7 @@
       {
         mode = "n";
         key = "<leader>od";
-        action = "<cmd>ObsdianDailies<CR>";
+        action = "<cmd>ObsidianDailies<CR>";
         options.desc = "Obsidian Daily";
       }
     ];
