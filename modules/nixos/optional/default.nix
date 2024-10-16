@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    ./steam.nix
+    ./games.nix
     ./kmonad.nix
     ./auto-cpufreq.nix
   ];

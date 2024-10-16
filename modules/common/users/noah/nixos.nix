@@ -18,7 +18,6 @@
     # List packages at system level
     systemPackages = with pkgs; [
       bluez
-      bottles
       dk
       dislocker
       libreoffice-still

@@ -16,6 +16,7 @@
       systemPackages = with pkgs; [
         mangohud
         protonup
+        bottles
       ];
 
       sessionVariables = {

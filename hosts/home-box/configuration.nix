@@ -33,7 +33,7 @@
   networking.hostName = "Home-Box"; # Define your hostname.
 
   # Imported Optional Modules
-  steam.enable = true;
+  games.enable = true;
 
   # Enable automatic garbage collection
   nix.gc = {
