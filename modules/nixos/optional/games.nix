@@ -5,11 +5,11 @@
   ...
 }: {
   options = {
-    steam.enable =
+    games.enable =
       lib.mkEnableOption "enables steam";
   };
 
-  config = lib.mkIf config.steam.enable {
+  config = lib.mkIf config.games.enable {
     # Configure Environment
     environment = {
       # List packages at system level
