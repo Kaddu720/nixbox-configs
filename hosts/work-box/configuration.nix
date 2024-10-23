@@ -1,4 +1,4 @@
-{ ...}: {
+{...}: {
   imports = [
     ../../modules/common/users/work/nixos.nix
     ../../modules/darwin
