@@ -51,12 +51,12 @@
         {
           pkg = pkgs.vimPlugins.nvim-cmp;
           event = ["InsertEnter"];
-          dependencies = [
-            pkgs.vimPlugins.cmp-nvim-lsp
-            pkgs.vimPlugins.cmp-treesitter
+          dependencies = with pkgs.vimPlugins; [
+            cmp-nvim-lsp
+            cmp-treesitter
             #pkgs.vimPlugins.friendly-snippets
-            pkgs.vimPlugins.luasnip
-            pkgs.vimPlugins.cmp_luasnip
+            luasnip
+            cmp_luasnip
           ];
         }
       ];

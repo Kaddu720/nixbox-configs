@@ -9,12 +9,12 @@
           cmd.__raw = ''
             "Neotree"
           '';
-          dependencies = [
+          dependencies = with pkgs.vimPlugins; [
             # required
-            pkgs.vimPlugins.plenary-nvim
-            pkgs.vimPlugins.nui-nvim
+            plenary-nvim
+            nui-nvim
             # web-devicons
-            pkgs.vimPlugins.nvim-web-devicons
+            nvim-web-devicons
           ];
         }
       ];

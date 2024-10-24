@@ -48,9 +48,9 @@
       lazy.plugins = [
         {
           pkg = pkgs.vimPlugins.obsidian-nvim;
-          dependencies = [
+          dependencies = with pkgs.vimPlugins; [
             # required
-            pkgs.vimPlugins.plenary-nvim
+           plenary-nvim
           ];
           ft = "markdown";
         }

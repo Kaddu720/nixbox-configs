@@ -16,15 +16,15 @@
           cmd.__raw = ''
             "Telescope"
           '';
-          dependencies = [
+          dependencies = with pkgs.vimPlugins; [
             # required
-            pkgs.vimPlugins.plenary-nvim
+            plenary-nvim
             # fzf optomizer plugin
-            pkgs.vimPlugins.telescope-fzf-native-nvim
+            telescope-fzf-native-nvim
             # Ui for menues
-            pkgs.vimPlugins.telescope-ui-select-nvim
+            telescope-ui-select-nvim
             # web-devicons
-            pkgs.vimPlugins.nvim-web-devicons
+            nvim-web-devicons
           ];
         }
       ];
