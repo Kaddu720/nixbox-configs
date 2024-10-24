@@ -46,10 +46,6 @@
     nixpkgs,
     darwin,
     home-manager,
-    nix-homebrew,
-    auto-cpufreq,
-    nixos-hardware,
-    kmonad,
     nixvim,
     ...
   } @ inputs: {
@@ -60,8 +56,8 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/home-box/configuration.nix
-          auto-cpufreq.nixosModules.default
-          kmonad.nixosModules.default
+          inputs.auto-cpufreq.nixosModules.default
+          inputs.kmonad.nixosModules.default
         ];
       };
       Mobile-Box = nixpkgs.lib.nixosSystem {
@@ -69,9 +65,9 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/mobile-box/configuration.nix
-          nixos-hardware.nixosModules.framework-12th-gen-intel
-          auto-cpufreq.nixosModules.default
-          kmonad.nixosModules.default
+          inputs.nixos-hardware.nixosModules.framework-12th-gen-intel
+          inputs.auto-cpufreq.nixosModules.default
+          inputs.kmonad.nixosModules.default
         ];
       };
     };
@@ -81,7 +77,7 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/work-box/configuration.nix
-          nix-homebrew.darwinModules.nix-homebrew
+          inputs.nix-homebrew.darwinModules.nix-homebrew
         ];
       };
     };
