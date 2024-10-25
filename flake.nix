@@ -56,8 +56,6 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/home-box/configuration.nix
-          inputs.auto-cpufreq.nixosModules.default
-          inputs.kmonad.nixosModules.default
         ];
       };
       Mobile-Box = nixpkgs.lib.nixosSystem {
