@@ -18,6 +18,7 @@
 
   home.packages = with pkgs; [
     bat
+    beekeeper-studio
     jq
     lazygit
     nerdfonts
