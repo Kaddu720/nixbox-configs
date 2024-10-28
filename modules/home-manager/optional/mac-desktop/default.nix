@@ -1,14 +1,11 @@
 {lib, ...}: {
   imports = [
-    ./amethyst.nix
+    ./aerospace.nix
     ./skhd.nix
-    ./sketchybar.nix
   ];
 
-  amethyst.enable =
+  aerospace.enable =
     lib.mkDefault true;
   skhd.enable =
-    lib.mkDefault true;
-  sketchybar.enable =
     lib.mkDefault true;
 }
