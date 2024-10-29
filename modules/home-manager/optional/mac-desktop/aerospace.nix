@@ -99,13 +99,10 @@
           # All possible commands: https://nikitabobko.github.io/AeroSpace/commands
 
           # See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
-          # You can uncomment the following lines to open up terminal with alt + enter shortcut (like in i3)
-          # alt-enter = '''exec-and-forget osascript -e '
-          # tell application "Terminal"
-          #     do script
-          #     activate
-          # end tell'
-          # '''
+          # Open Terminal
+          alt-enter = 'exec-and-forget open -n -a alacritty'
+          # Open Browser
+          alt-w = 'exec-and-forget open -n -a "Zen Browser"'
 
           # See: https://nikitabobko.github.io/AeroSpace/commands#layout
           alt-slash = 'layout tiles horizontal vertical'
