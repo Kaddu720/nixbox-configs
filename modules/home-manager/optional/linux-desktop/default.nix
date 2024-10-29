@@ -1,4 +1,4 @@
-{lib, ...}: {
+{lib, pkgs, ...}: {
   imports = [
     ./xinitrc.nix
     ./dk.nix
@@ -23,4 +23,15 @@
     lib.mkDefault true;
   gtk-theme.enable =
     lib.mkDefault true;
+
+  # Install Packages
+  home.packages = with pkgs; [
+    caffeine-ng
+    dunst
+    feh
+    font-awesome_5
+    (nerdfonts.override {fonts = ["Hack"];})
+    pavucontrol
+    xautolock
+  ];
 }
