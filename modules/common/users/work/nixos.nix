@@ -44,9 +44,8 @@
     ];
   };
 
-  #enable programs as services
+  #enable programs and services
   services = {
-    skhd.enable = true;
   };
 
   # Homebrew
