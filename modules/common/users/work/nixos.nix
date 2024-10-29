@@ -62,6 +62,7 @@
     enable = true;
     casks = [
       "nikitabobko/tap/aerospace"
+      "hiddenbar"
       "gpg-suite"
       "redisinsight"
       "zen-browser"
