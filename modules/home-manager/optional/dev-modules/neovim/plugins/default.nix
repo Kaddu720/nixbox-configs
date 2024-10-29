@@ -2,6 +2,7 @@
   imports = [
     ./comment.nix
     ./completions.nix
+    ./gitblame.nix
     ./harpoon.nix
     ./lualine.nix
     ./markdown-preview.nix

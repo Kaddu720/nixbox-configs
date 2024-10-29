@@ -17,6 +17,7 @@
   environment = {
     # List packages at system level
     systemPackages = with pkgs; [
+      beekeeper-studio
       bluez
       dk
       dislocker
