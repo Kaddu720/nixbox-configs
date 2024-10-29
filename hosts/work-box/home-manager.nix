@@ -6,6 +6,19 @@
     ../../modules/home-manager/optional/dev-modules
   ];
 
+  programs.ssh = {
+    enable = true;
+    addKeysToAgent = "yes";
+    matchBlocks = {
+      "github.com" = {
+        user = "git";
+        identityFile = [
+          "~/.ssh/work-box"
+        ];
+      };
+    };
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 

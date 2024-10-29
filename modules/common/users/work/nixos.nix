@@ -40,7 +40,6 @@
   environment = {
     # List packages at system level
     systemPackages = with pkgs; [
-      sketchybar-app-font
       slack
     ];
   };
@@ -48,7 +47,6 @@
   #enable programs as services
   services = {
     skhd.enable = true;
-    sketchybar.enable = true;
   };
 
   # Homebrew
@@ -63,7 +61,8 @@
   homebrew = {
     enable = true;
     casks = [
-      "amethyst"
+      "nikitabobko/tap/aerospace"
+      "hiddenbar"
       "gpg-suite"
       "redisinsight"
       "zen-browser"

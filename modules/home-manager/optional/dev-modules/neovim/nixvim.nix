@@ -77,7 +77,6 @@
         }
 
         # Traverse soft wrapped lines
-
         {
           key = "j";
           action = "gj";
@@ -89,6 +88,22 @@
           action = "gk";
           options.noremap = true;
         }
+
+        # Open Splits
+        {
+          mode = "n";
+          key = "<leader>sv";
+          action = "<cmd>vsplit<CR>";
+          options.desc = "Open Vertical Split";
+        }
+
+        {
+          mode = "n";
+          key = "<leader>sh";
+          action = "<cmd>split<CR>";
+          options.desc = "Open Horizontal Split";
+        }
+        
       ];
     };
   };
