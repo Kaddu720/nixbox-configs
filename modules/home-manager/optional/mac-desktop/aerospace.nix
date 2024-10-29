@@ -137,7 +137,7 @@
           alt-4 = 'workspace 4'
 
           cmd-1 = 'workspace com'
-          cmd-2 = "workspace 6"
+          cmd-2 = "workspace doc"
 
           # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
           alt-shift-1 = 'move-node-to-workspace dev'
@@ -146,7 +146,7 @@
           alt-shift-4 = 'move-node-to-workspace 4'
 
           cmd-shift-1 = 'move-node-to-workspace com'
-          cmd-shift-2 = 'move-node-to-workspace 6'
+          cmd-shift-2 = 'move-node-to-workspace doc'
 
 
           # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace and look at work space
@@ -156,7 +156,7 @@
           alt-ctrl-4 = ['move-node-to-workspace 4', 'workspace 4']
 
           cmd-ctrl-1 = ['move-node-to-workspace com', 'workspace com']
-          cmd-ctrl-2 = ['move-node-to-workspace 6', 'workspace 6']
+          cmd-ctrl-2 = ['move-node-to-workspace doc', 'workspace doc']
 
           # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
           alt-tab = 'workspace-back-and-forth'
@@ -211,7 +211,7 @@
           dev = ['built-in', 'BenQ', 'VG27A']
           web = ['built-in', 'BenQ', 'VG27A']
           com = ['built-in', 'HP', 'VG279QR']
-          6 = ['built-in', 'HP', 'VG279QR']
+          doc = ['built-in', 'HP', 'VG279QR']
         '';
     };
   };
