@@ -208,10 +208,10 @@
           run  = "move-node-to-workspace 6"
 
           [workspace-to-monitor-force-assignment]
-          dev = ['built-in', 'BenQ']
-          web = ['built-in', 'BenQ']
-          com = ['built-in', 'HP']
-          6 = ['built-in', 'HP']
+          dev = ['built-in', 'BenQ', 'VG27A']
+          web = ['built-in', 'BenQ', 'VG27A']
+          com = ['built-in', 'HP', 'VG279QR']
+          6 = ['built-in', 'HP', 'VG279QR']
         '';
     };
   };
