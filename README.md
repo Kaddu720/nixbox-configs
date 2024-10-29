@@ -61,7 +61,16 @@ The goal is to have one work space and one application for each functionality. S
 I usually assume that I have a second monitor for communication or entertainment. But if I don't, (like on a laptop) communication will get its own workspace
 
 ## On Key maps
-- Alt: Window Manager level navigation
-- Alt + Shift: Window Movement
-- Ctl: Application level navigation
-- Ctl + Shift: Application level unit movement
+### Alt: Main monitor window manager level navigation
+    - Alt + 1 : `dev` work space (Terminal)
+    - Alt + 2 : `web` work space (Browser)
+    - Alt + n>2 : n work space
+### Meta/Win/Cmd : Second monitor window manager level navigation
+    - Meta + 1 : `com` work space (Discord, Slack, Outlook)
+    - Meta + 2 : `doc` work space (Documentation, Zoom)
+
+### Alt/Meta + Shift: Window Movement
+    - Alt/Meta + Shift + n : Move window to workspace n
+
+### Ctl: Application level navigation
+### Ctl + Shift: Application level unit movement
