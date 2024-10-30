@@ -8,7 +8,7 @@
     home.packages = with pkgs; [sxhkd];
     home.file.".config/sxhkd/sxhkdrc" = {
       text = ''
-        # Dk and sxhkd setting
+        # Dk and sxhkd settings
         # ---------------------
 
         # reload sxhkd

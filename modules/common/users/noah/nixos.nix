@@ -19,7 +19,6 @@
     systemPackages = with pkgs; [
       beekeeper-studio
       bluez
-      dk
       dislocker
       libreoffice-still
       rtkit

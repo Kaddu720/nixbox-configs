@@ -28,7 +28,8 @@
     enable = true;
     linux = {
       dk = true;
-      sxkhd = true;
+      sxhkd = true;
+      linuxUtils = true;
     };
   };
 }

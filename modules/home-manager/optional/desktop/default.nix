@@ -5,6 +5,7 @@ with lib; {
     ./window-managers/dk.nix
     ./command-daemons/skhd.nix
     ./command-daemons/sxhkd.nix
+    ./linux-utils
   ];
 
   options.services.desktop-config = {
@@ -20,6 +21,11 @@ with lib; {
         type = types.bool;
         default = false;
         description = "Enable sxhkd command daemon for Linux";
+      };
+      linuxUtils = mkOption {
+        type = types.bool;
+        default = false;
+        description = "Enable Utils for complete Linux desktop for Linux";
       };
     };
 
