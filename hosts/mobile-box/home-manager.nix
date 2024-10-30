@@ -7,12 +7,6 @@
     ../../modules/home-manager/optional/dev-modules
   ];
 
-  # Imported Optional Modules
-  services.desktop = {
-    enable = true;
-    linux = true;
-  };
-
   # Standard Modules
   programs.ssh = {
     enable = true;

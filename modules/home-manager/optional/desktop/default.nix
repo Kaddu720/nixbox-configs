@@ -1,11 +1,5 @@
-{
-  config,
-  lib,
-  ...
-}:
-with lib; let
-  cfg = config.services.desktop;
-in {
+{lib, ...}:
+with lib; {
   imports = [
     ./window-managers/aerospace.nix
     ./window-managers/dk.nix
@@ -13,27 +7,33 @@ in {
     ./command-daemons/sxhkd.nix
   ];
 
-  options.services.desktop = {
+  options.services.desktop-config = {
     enable = mkEnableOption "enables custom desktop module";
 
-    mac = mkOption {
-      type = types.bool;
-      default = false;
+    linux = {
+      dk = mkOption {
+        type = types.bool;
+        default = false;
+        description = "Enable dk window manager for Linux";
+      };
+      sxhkd = mkOption {
+        type = types.bool;
+        default = false;
+        description = "Enable sxhkd command daemon for Linux";
+      };
     };
 
-    linux = mkOption {
-      type = types.bool;
-      default = false;
+    mac = {
+      aerospace = mkOption {
+        type = types.bool;
+        default = false;
+        description = "Enable aerospace window manager for Mac";
+      };
+      skhd = mkOption {
+        type = types.bool;
+        default = false;
+        description = "Enable skhd command daemon for Mac";
+      };
     };
-  };
-
-  config = mkIf cfg.enable {
-    # macOs
-    aerospace.enable = mkIf (cfg.mac) true;
-    skhd.enable = mkIf (cfg.mac) true;
-
-    # linux
-    dk.enable = mkIf (cfg.linux) true;
-    sxhkd.enable = mkIf (cfg.linux) true;
   };
 }

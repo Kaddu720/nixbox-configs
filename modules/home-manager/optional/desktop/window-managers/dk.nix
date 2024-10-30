@@ -4,16 +4,9 @@
   config,
   ...
 }: {
-  options = {
-    dk.enable =
-      lib.mkEnableOption "enables dk";
-  };
-
-  config = lib.mkIf config.dk.enable {
+  config = lib.mkIf (config.services.desktop-config.linux.dk == true) {
     home = {
-      packages = with pkgs; [
-        dk
-      ];
+      packages = with pkgs; [ dk ];
       file.".config/dk/dkrc" = {
         text =
           /*

@@ -3,12 +3,7 @@
   config,
   ...
 }: {
-  options = {
-    skhd.enable =
-      lib.mkEnableOption "enables skhd";
-  };
-
-  config = lib.mkIf config.skhd.enable {
+  config = lib.mkIf (config.services.desktop-config.mac.skhd == true) {
     home.file.".config/skhd/skhdrc" = {
       text = ''
         # open terminal

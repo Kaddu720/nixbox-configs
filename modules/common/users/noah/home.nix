@@ -22,4 +22,13 @@
     pavucontrol
     zoom-us
   ];
+
+  # Imported Optional Modules
+  services.desktop-config = {
+    enable = true;
+    linux = {
+      dk = true;
+      sxkhd = true;
+    };
+  };
 }
