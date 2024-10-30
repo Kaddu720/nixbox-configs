@@ -2,10 +2,17 @@
   imports = [
     ../../modules/common/users/work/home.nix
     ../../modules/home-manager/core
-    ../../modules/home-manager/optional/mac-desktop
+    ../../modules/home-manager/optional/desktop
     ../../modules/home-manager/optional/dev-modules
   ];
 
+  # Imported Optional Modules
+  services.desktop = {
+    enable = true;
+    mac = true;
+  };
+
+  # Standard Modules
   programs.ssh = {
     enable = true;
     addKeysToAgent = "yes";

@@ -1,8 +1,6 @@
 {lib, pkgs, ...}: {
   imports = [
     ./xinitrc.nix
-    ./dk.nix
-    ./sxhkd.nix
     ./polybar.nix
     ./picom.nix
     ./dmenu/dmenu.nix

@@ -98,12 +98,6 @@
 
           # All possible commands: https://nikitabobko.github.io/AeroSpace/commands
 
-          # See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
-          # Open Terminal
-          alt-enter = 'exec-and-forget open -n -a alacritty'
-          # Open Browser
-          alt-w = 'exec-and-forget open -n -a "Zen Browser"'
-
           # See: https://nikitabobko.github.io/AeroSpace/commands#layout
           alt-slash = 'layout tiles horizontal vertical'
           alt-comma = 'layout accordion horizontal vertical'
