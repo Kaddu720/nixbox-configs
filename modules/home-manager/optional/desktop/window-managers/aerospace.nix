@@ -192,7 +192,7 @@
 
           [[on-window-detected]]
           if.app-id = 'us.zoom.xos'
-          run  = "move-node-to-workspace 6"
+          run  = "move-node-to-workspace doc"
 
           [workspace-to-monitor-force-assignment]
           dev = ['built-in', 'BenQ', 'VG27A']
