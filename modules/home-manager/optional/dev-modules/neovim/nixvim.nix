@@ -35,6 +35,9 @@
         showmode = false; #Let lualine provide status
 
         conceallevel = 2; # let obsidian coneal text with ui
+
+        splitright = true; # when opening a split, fous on right window
+        splitbelow = true; # when opening a split, focus on bottom window
       };
 
       clipboard.providers.xclip.enable = true;
