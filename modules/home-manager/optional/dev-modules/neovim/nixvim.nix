@@ -38,6 +38,8 @@
 
         splitright = true; # when opening a split, fous on right window
         splitbelow = true; # when opening a split, focus on bottom window
+
+        swapfile = false;
       };
 
       clipboard.providers.xclip.enable = true;
