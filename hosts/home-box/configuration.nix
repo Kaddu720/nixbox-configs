@@ -32,7 +32,10 @@
 
   networking.hostName = "Home-Box"; # Define your hostname.
 
+  hardware.uinput.enable = true;
+
   # Imported Optional Modules
+  kanata.enable = true;
   games.enable = true;
 
   # Enable automatic garbage collection

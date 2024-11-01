@@ -29,11 +29,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    kmonad = {
-      url = "git+https://github.com/kmonad/kmonad?submodules=1&dir=nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     auto-cpufreq = {
@@ -65,7 +60,6 @@
           ./hosts/mobile-box/configuration.nix
           inputs.nixos-hardware.nixosModules.framework-12th-gen-intel
           inputs.auto-cpufreq.nixosModules.default
-          inputs.kmonad.nixosModules.default
         ];
       };
     };
