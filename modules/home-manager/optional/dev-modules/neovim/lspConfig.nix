@@ -1,8 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
-
+{pkgs, ...}: {
   programs.nixvim = {
     plugins = {
       lazy.plugins = [
@@ -47,11 +43,17 @@
       none-ls = {
         # utility lsp
         enable = true;
-        sources.formatting = {
-          alejandra.enable = true; # nix formatting
+        sources = {
+          formatting = {
+            alejandra.enable = true; # nix formatting
 
-          black.enable = true; # python formatting
-          isort.enable = true; # python linting
+            black.enable = true; # python formatting
+            isort.enable = true; # python linting
+          };
+          diagnostics = {
+
+          mypy.enable = true;
+          };
         };
       };
 
