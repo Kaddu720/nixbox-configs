@@ -13,7 +13,7 @@
     programs.alacritty = {
       enable = true;
       settings = {
-        shell = {
+        terminal.shell = {
           #username on the work machine is "noahwilson"
           program =
             if "${config.home.username}" == "noahwilson"
