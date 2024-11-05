@@ -22,6 +22,7 @@
           "<leader>fm" = "format";
         };
         servers = {
+          #pyright.enable = true; # python
           basedpyright.enable = true; # python lsp
           ruff.enable = true; # python linter
 
