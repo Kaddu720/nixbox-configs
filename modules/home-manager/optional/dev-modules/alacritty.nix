@@ -13,12 +13,13 @@
     programs.alacritty = {
       enable = true;
       settings = {
-        terminal.shell = {
+        shell = {
           #username on the work machine is "noahwilson"
-          program =
-            if "${config.home.username}" == "noahwilson"
-            then "/usr/local/bin/fish"
-            else "${pkgs.fish}/bin/fish";
+          program = "${pkgs.fish}/bin/fish";
+            # if "${config.home.username}" == "noahwilson"
+            # then "/usr/local/bin/fish"
+            # else "${pkgs.fish}/bin/fish";
+            
         };
 
         env = {
