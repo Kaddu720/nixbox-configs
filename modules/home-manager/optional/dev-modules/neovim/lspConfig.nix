@@ -1,4 +1,4 @@
-{config, pkgs, ...}: {
+{pkgs, ...}: {
   programs.nixvim = {
     plugins = {
       lazy.plugins = [
@@ -32,8 +32,10 @@
           nixd.enable = true; # nix
           marksman.enable = true; # markdown
           #tailwindcss.enable = true; # tailwind css
-          ltex = { # spelling and grammer in markdown
-            enable = true;             settings = {
+          ltex = {
+            # spelling and grammer in markdown
+            enable = true;
+            settings = {
               language = "en-US";
               enabled = true;
               dictionary = {
@@ -54,7 +56,8 @@
             isort.enable = true; # python linting and import sorting
           };
           diagnostics = {
-            mypy.enable = true;
+            mypy.enable = true; # python disagnositcs
+            deadnix.enable = true; # nix diagnostics
           };
         };
       };
