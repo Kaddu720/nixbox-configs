@@ -54,8 +54,7 @@
             isort.enable = true; # python linting
           };
           diagnostics = {
-
-          mypy.enable = true;
+            mypy.enable = true;
           };
         };
       };
