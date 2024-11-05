@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{config, pkgs, ...}: {
   programs.nixvim = {
     plugins = {
       lazy.plugins = [
@@ -21,9 +21,9 @@
           "<leader>ca" = "code_action";
           "<leader>fm" = "format";
         };
+
         servers = {
-          #pyright.enable = true; # python
-          basedpyright.enable = true; # python lsp
+          pyright.enable = true; # legacy python lsp
           ruff.enable = true; # python linter
 
           terraformls.enable = true; # terraform
@@ -51,8 +51,7 @@
           formatting = {
             alejandra.enable = true; # nix formatting
 
-            black.enable = true; # python formatting
-            isort.enable = true; # python linting
+            isort.enable = true; # python linting and import sorting
           };
           diagnostics = {
             mypy.enable = true;
