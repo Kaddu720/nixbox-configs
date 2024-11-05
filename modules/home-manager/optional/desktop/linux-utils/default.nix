@@ -16,7 +16,7 @@
     xinitrc.enable = true;
     polybar.enable = true;
     picom.enable = true;
-    dmenu.enable = true;
+    #dmenu.enable = true;
     gtk-theme.enable = true;
 
     # Install Packages
