@@ -6,7 +6,6 @@
     ./harpoon.nix
     ./lackluster.nix
     ./lualine.nix
-    ./markdown-preview.nix
     ./neo-tree.nix
     ./noice.nix
     ./nvim-autopairs.nix
