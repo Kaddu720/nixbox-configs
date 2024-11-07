@@ -171,7 +171,7 @@
           alt-shift-l = ['join-with right', 'mode main']
           
           [[on-window-detected]]
-          if.app-id = 'org.alacritty'
+          if.app-name-regex-substring = 'alacritty'
           run  = "move-node-to-workspace dev"
 
           [[on-window-detected]]
