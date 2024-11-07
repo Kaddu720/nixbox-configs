@@ -4,6 +4,8 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/0.1";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -39,8 +41,9 @@
 
   outputs = {
     nixpkgs,
-    darwin,
+    determinate,
     home-manager,
+    darwin,
     nixvim,
     ...
   } @ inputs: {
@@ -51,6 +54,7 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/home-box/configuration.nix
+          determinate.nixosModules.default
         ];
       };
       Mobile-Box = nixpkgs.lib.nixosSystem {
@@ -58,6 +62,7 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/mobile-box/configuration.nix
+          determinate.nixosModules.default
           inputs.nixos-hardware.nixosModules.framework-12th-gen-intel
           inputs.auto-cpufreq.nixosModules.default
         ];
@@ -69,6 +74,7 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/work-box/configuration.nix
+          determinate.darwinModules.default
           inputs.nix-homebrew.darwinModules.nix-homebrew
         ];
       };
