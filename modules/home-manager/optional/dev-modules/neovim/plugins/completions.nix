@@ -36,8 +36,10 @@
                         { name = 'buffer' },nixvim
                 })
               '';
-            window.completion.border = ["bordered"];
-            window.documenation.border = ["bordered"];
+            window = {
+              completion = {border = "solid";};
+              documentation = {border = "solid";};
+            };
           };
         };
       };
