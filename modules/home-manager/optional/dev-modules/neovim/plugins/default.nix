@@ -11,6 +11,7 @@
     ./nvim-autopairs.nix
     ./obsidian.nix
     ./oil.nix
+    ./render-markdown.nix
     ./rosepine.nix
     ./telescope.nix
     ./treesitter.nix

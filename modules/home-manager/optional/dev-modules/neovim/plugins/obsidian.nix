@@ -8,6 +8,7 @@
       obsidian = {
         enable = true;
         settings = {
+          ui.enable = false;
           workspaces =
             if "${config.home.username}" == "noahwilson"
             then [
