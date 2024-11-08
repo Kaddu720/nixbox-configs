@@ -33,7 +33,7 @@
 
         # launcher
         alt + space
-            dmenu_run
+            rofi -show drun
 
         # terminal
         alt + Return

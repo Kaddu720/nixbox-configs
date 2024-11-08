@@ -8,7 +8,7 @@
     ./xinitrc.nix
     ./polybar.nix
     ./picom.nix
-    ./dmenu/dmenu.nix
+    ./rofi.nix
     ./gtk-theme.nix
   ];
 
@@ -16,7 +16,7 @@
     xinitrc.enable = true;
     polybar.enable = true;
     picom.enable = true;
-    #dmenu.enable = true;
+    rofi.enable = true;
     gtk-theme.enable = true;
 
     # Install Packages

@@ -35,9 +35,9 @@
             (defalias
               escctrl (tap-hold 100 100 esc lctl)
               a (tap-hold $tap-time $hold-time a lmet)
-              s (tap-hold $tap-time $hold-time s lalt)
+              s (tap-hold $tap-time $hold-time s lctl)
               d (tap-hold $tap-time $hold-time d lsft)
-              f (tap-hold $tap-time $hold-time f lctl)
+              f (tap-hold $tap-time $hold-time f lalt)
               j (tap-hold $tap-time $hold-time j rctl)
               k (tap-hold $tap-time $hold-time k rsft)
               l (tap-hold $tap-time $hold-time l ralt)
