@@ -14,7 +14,6 @@
 
   # Install Packages
   home.packages = with pkgs; [
-    bitwarden-desktop
     discord
     firefox
     flameshot
