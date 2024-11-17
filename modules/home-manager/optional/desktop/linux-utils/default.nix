@@ -5,6 +5,7 @@
   ...
 }: {
   imports = [
+    ./dunst.nix
     ./xinitrc.nix
     ./polybar.nix
     ./picom.nix
@@ -13,6 +14,7 @@
   ];
 
   config = lib.mkIf (config.services.desktop-config.linux.linuxUtils == true) {
+    dunst.nix = true;
     xinitrc.enable = true;
     polybar.enable = true;
     picom.enable = true;
