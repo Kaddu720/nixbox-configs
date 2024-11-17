@@ -69,19 +69,19 @@
 
         [urgency_low]
         timeout = 5
-        background = "#00000099"
+        background = "#191724FF"
         foreground = "#FFFFFFFF"
         frame_color = "#DD9998FF"
 
         [urgency_normal]
         timeout = 5
-        background = "#00000099"
+        background = "#191724FF"
         foreground = "#FFFFFFFF"
         frame_color = "#DD9998FF"
 
         [urgency_critical]
         timeout = 5
-        background = "#00000099"
+        background = "#191724FF"
         foreground = "#FFFFFFFF"
         frame_color = "#DD9998FF"
       '';
