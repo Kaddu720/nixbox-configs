@@ -130,7 +130,7 @@
                 dkcmd rule title="^Event Tester$" no_absorb=true
 
                 # Enable Scratch Pad rules
-                dkcmd rule class="^scratchpad$" title="scratchpad" float=true scratch=true w=1280 h=520 x=325 y=32
+                dkcmd rule class="^scratchpad$" title="scratchpad" float=true scratch=true w=1280 h=520 x=center y=center
 
                 # update or remove an existing rule with the same match patterns
                 # dkcmd rule class="^firefox$" mon="HDMI-A-0"
