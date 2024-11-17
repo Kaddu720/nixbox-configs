@@ -16,134 +16,277 @@
 
     home.file = {
       ".config/rofi/config.rasi".text = ''
-        configuration{
-            modi: "run,window,combi";
-            icon-theme: "Oranchelo";
-            show-icons: true;
-            terminal: "alacritty";
-            drun-display-format: "{icon} {name}";
-            location: 0;
-            disable-history: false;
-            hide-scrollbar: true;
-            display-combi: " 🖥️  All ";
-            display-run: " 🏃  Run ";
-            display-window: " 🪟  Window";
-            sidebar-mode: true;
+        * {
+            background:     #191724FF;
+            background-alt: #121212FF;
+            foreground:     #FFFFFFFF;
+            selected:       #DD9998FF;
+            active:         #5D8787FF;
+            urgent:         #444444FF;
         }
 
-        @theme "rosepine"
-      '';
-      ".config/rofi/rosepine.rasi".text = ''
-           * {
-            bg-col:  #1e1e2e;
-            bg-col-light: #1e1e2e;
-            border-col: #1e1e2e;
-            selected-col: #1e1e2e;
-            blue: #89b4fa;
-            fg-col: #cdd6f4;
-            fg-col2: #f38ba8;
-            grey: #6c7086;
-            width: 600;
-            font: "JetBrainsMono Nerd Font 18";
+        /*****----- Configuration -----*****/
+        configuration {
+        	modi:                       "drun,run,filebrowser,window";
+            show-icons:                 false;
+            display-drun:               "drun";
+            display-run:                "run";
+            display-filebrowser:        "files";
+            display-window:             "windows";
+        	drun-display-format:        "{name} [<span weight='light' size='small' color='#444444'><i>({generic})</i></span>]";
+        	window-format:              "{w} · {c} · {t}";
         }
 
-        element-text, element-icon , mode-switcher {
-            background-color: inherit;
-            text-color:       inherit;
+        * {
+            border-colour:               var(selected);
+            handle-colour:               var(selected);
+            background-colour:           var(background);
+            foreground-colour:           var(foreground);
+            alternate-background:        var(background-alt);
+            normal-background:           var(background);
+            normal-foreground:           var(foreground);
+            urgent-background:           var(urgent);
+            urgent-foreground:           var(background);
+            active-background:           var(active);
+            active-foreground:           var(background);
+            selected-normal-background:  var(selected);
+            selected-normal-foreground:  var(background);
+            selected-urgent-background:  var(active);
+            selected-urgent-foreground:  var(background);
+            selected-active-background:  var(urgent);
+            selected-active-foreground:  var(background);
+            alternate-normal-background: var(background);
+            alternate-normal-foreground: var(foreground);
+            alternate-urgent-background: var(urgent);
+            alternate-urgent-foreground: var(background);
+            alternate-active-background: var(active);
+            alternate-active-foreground: var(background);
         }
 
+        /*****----- Main Window -----*****/
         window {
-            height: 360px;
-            border: 3px;
-            border-color: @border-col;
-            background-color: @bg-col;
+            /* properties for window widget */
+            transparency:                "real";
+            location:                    center;
+            anchor:                      center;
+            fullscreen:                  false;
+            width:                       600px;
+            x-offset:                    0px;
+            y-offset:                    0px;
+
+            /* properties for all widgets */
+            enabled:                     true;
+            margin:                      0px;
+            padding:                     0px;
+            border:                      3px solid;
+            border-radius:               0px;
+            border-color:                @border-colour;
+            cursor:                      "default";
+            background-color:            @background-colour;
         }
 
+        /*****----- Main Box -----*****/
         mainbox {
-            background-color: @bg-col;
+            enabled:                     true;
+            spacing:                     10px;
+            margin:                      0px;
+            padding:                     15px;
+            border:                      0px solid;
+            border-radius:               0px 0px 0px 0px;
+            border-color:                @border-colour;
+            background-color:            transparent;
+            children:                    [ "inputbar", "message", "listview", "mode-switcher" ];
         }
 
+        /*****----- Inputbar -----*****/
         inputbar {
-            children: [prompt,entry];
-            background-color: @bg-col;
-            border-radius: 5px;
-            padding: 2px;
+            enabled:                     true;
+            spacing:                     10px;
+            margin:                      0px;
+            padding:                     10px 5px;
+            border:                      0px 0px 0px 0px;
+            border-radius:               0px;
+            border-color:                @urgent;
+            background-color:            transparent;
+            text-color:                  @foreground;
+            children:                    [ "entry" ];
         }
 
         prompt {
-            background-color: @blue;
-            padding: 6px;
-            text-color: @bg-col;
-            border-radius: 3px;
-            margin: 20px 0px 0px 20px;
+            enabled:                     true;
+            background-color:            transparent;
+            text-color:                  inherit;
         }
-
         textbox-prompt-colon {
-            expand: false;
-            str: ":";
+            enabled:                     true;
+            expand:                      false;
+            str:                         ":";
+            background-color:            transparent;
+            text-color:                  inherit;
         }
-
         entry {
-            padding: 6px;
-            margin: 20px 0px 0px 10px;
-            text-color: @fg-col;
-            background-color: @bg-col;
+            enabled:                     true;
+            background-color:            transparent;
+            text-color:                  inherit;
+            cursor:                      text;
+            placeholder:                 "search...";
+            placeholder-color:           @urgent;
         }
 
+        /*****----- Listview -----*****/
         listview {
-            border: 0px 0px 0px;
-            padding: 6px 0px 0px;
-            margin: 10px 0px 0px 20px;
-            columns: 2;
-            lines: 5;
-            background-color: @bg-col;
+            enabled:                     true;
+            columns:                     1;
+            lines:                       10;
+            cycle:                       true;
+            dynamic:                     true;
+            scrollbar:                   true;
+            layout:                      vertical;
+            reverse:                     false;
+            fixed-height:                true;
+            fixed-columns:               true;
+
+            spacing:                     10px;
+            margin:                      0px;
+            padding:                     0px;
+            border:                      0px solid;
+            border-radius:               0px;
+            border-color:                @border-colour;
+            background-color:            transparent;
+            text-color:                  @foreground-colour;
+            cursor:                      "default";
+        }
+        scrollbar {
+            handle-width:                1px ;
+            handle-color:                @urgent;
+            border-radius:               0px;
+            background-color:            @alternate-background;
         }
 
+        /*****----- Elements -----*****/
         element {
-            padding: 5px;
-            background-color: @bg-col;
-            text-color: @fg-col  ;
+            enabled:                     true;
+            spacing:                     10px;
+            margin:                      0px;
+            padding:                     2px;
+            border:                      0px solid;
+            border-radius:               0px;
+            border-color:                @border-colour;
+            background-color:            transparent;
+            text-color:                  @foreground-colour;
+            cursor:                      pointer;
         }
-
+        element normal.normal {
+            background-color:            transparent;
+            text-color:                  var(normal-foreground);
+        }
+        element normal.urgent {
+            background-color:            transparent;
+            text-color:                  var(urgent-background);
+        }
+        element normal.active {
+            background-color:            transparent;
+            text-color:                  var(active-background);
+        }
+        element selected.normal {
+            background-color:            transparent;
+            text-color:                  var(selected-normal-background);
+        }
+        element selected.urgent {
+            background-color:            transparent;
+            text-color:                  var(selected-urgent-background);
+        }
+        element selected.active {
+            background-color:            transparent;
+            text-color:                  var(selected-active-background);
+        }
+        element alternate.normal {
+            background-color:            transparent;
+            text-color:                  var(alternate-normal-foreground);
+        }
+        element alternate.urgent {
+            background-color:            transparent;
+            text-color:                  var(alternate-urgent-background);
+        }
+        element alternate.active {
+            background-color:            transparent;
+            text-color:                  var(alternate-active-background);
+        }
         element-icon {
-            size: 25px;
+            background-color:            transparent;
+            text-color:                  inherit;
+            size:                        24px;
+            cursor:                      inherit;
+        }
+        element-text {
+            background-color:            transparent;
+            text-color:                  inherit;
+            highlight:                   inherit;
+            cursor:                      inherit;
+            vertical-align:              0.5;
+            horizontal-align:            0.0;
         }
 
-        element selected {
-            background-color:  @selected-col ;
-            text-color: @fg-col2  ;
+        /*****----- Mode Switcher -----*****/
+        mode-switcher{
+            enabled:                     true;
+            spacing:                     0px;
+            margin:                      0px;
+            padding:                     0px;
+            border:                      0px solid;
+            border-radius:               0px;
+            border-color:                @border-colour;
+            background-color:            transparent;
+            text-color:                  @foreground-colour;
         }
-
-        mode-switcher {
-            spacing: 0;
-          }
-
         button {
-            padding: 10px;
-            background-color: @bg-col-light;
-            text-color: @grey;
-            vertical-align: 0.5; 
-            horizontal-align: 0.5;
+            padding:                     5px;
+            border:                      0px solid;
+            border-radius:               0px;
+            border-color:                @border-colour;
+            background-color:            transparent;
+            text-color:                  inherit;
+            cursor:                      pointer;
         }
-
         button selected {
-          background-color: @bg-col;
-          text-color: @blue;
+            background-color:            transparent;
+            text-color:                  @active;
         }
 
+        /*****----- Message -----*****/
         message {
-            background-color: @bg-col-light;
-            margin: 2px;
-            padding: 2px;
-            border-radius: 5px;
+            enabled:                     true;
+            margin:                      0px;
+            padding:                     0px;
+            border:                      0px solid;
+            border-radius:               0px 0px 0px 0px;
+            border-color:                @border-colour;
+            background-color:            transparent;
+            text-color:                  @foreground-colour;
         }
-
         textbox {
-            padding: 6px;
-            margin: 20px 0px 0px 20px;
-            text-color: @blue;
-            background-color: @bg-col-light;
-        }   '';
+            padding:                     5px;
+            border:                      0px solid;
+            border-radius:               0px;
+            border-color:                @border-colour;
+            background-color:            @background-colour;
+            text-color:                  @border-colour;
+            vertical-align:              0.5;
+            horizontal-align:            0.0;
+            highlight:                   none;
+            placeholder-color:           @foreground-colour;
+            blink:                       true;
+            markup:                      true;
+        }
+        error-message {
+            padding:                     30px;
+            border:                      0px solid;
+            border-radius:               0px;
+            border-color:                @border-colour;
+            background-color:            @background-colour;
+            text-color:                  @foreground-colour;
+        }
+      '';
     };
   };
 }
