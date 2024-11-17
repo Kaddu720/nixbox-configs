@@ -32,7 +32,7 @@
         shadow-offset-y = -7;
 
         shadow-exclude = [
-          "class_g = 'dmenu'"
+          "class_g = 'rofi'"
         ]
 
         #################################
@@ -89,7 +89,7 @@
           "window_type = 'desktop'",
           "_GTK_FRAME_EXTENTS@:c",
           "class_g ?= 'zoom'",
-          "name = 'dmenu'"
+          "name = 'rofi'"
         ];
 
 
