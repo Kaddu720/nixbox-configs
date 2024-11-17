@@ -35,25 +35,25 @@
 
           # Fucntions
           #Wifi Function
-          function dmenu-wifi
-              set bssid $(nmcli device wifi list | sed -n '1!p' | cut -b 9- | dmenu -p "Select wifi" -l 20  | cut -d ' ' -f1)
-              set name $(echo "" 	| dmenu -p "Enter Username : ")
-              set pass $(echo "" 	| dmenu -p "Enter Password : ")
+          function rofi-wifi
+              set bssid $(nmcli device wifi list | sed -n '1!p' | cut -b 9- | rofi -dmenu -p "Select wifi" -l 20  | cut -d ' ' -f1)
+              set name $(echo "" 	| rofi -dmenu -p "Enter Username : ")
+              set pass $(echo "" 	| rofi -dmenu -p "Enter Password : ")
               nmcli device wifi connect $bssid password $pass
               pkill -RTMIN+9 dwmblocks
           end
 
-          function dmenu-wifi-username
-              set bssid $(nmcli device wifi list | sed -n '1!p' | cut -b 9- | dmenu -p "Select wifi" -l 20  | cut -d ' ' -f1)
-              set name $(echo "" 	| dmenu -p "Enter Username : ")
-              set pass $(echo "" 	| dmenu -p "Enter Password : ")
+          function rofi-wifi-username
+              set bssid $(nmcli device wifi list | sed -n '1!p' | cut -b 9- | rofi -dmenu -p "Select wifi" -l 20  | cut -d ' ' -f1)
+              set name $(echo "" 	| rofi -dmenu -p "Enter Username : ")
+              set pass $(echo "" 	| rofi -dmenu -p "Enter Password : ")
               nmcli device wifi connect $bssid name $name password $pass
               pkill -RTMIN+9 dwmblocks
           end
 
           #Pipe wire sinck selector
-          function dmenu-sound
-              set sink $( wpctl status -k | grep -m 1 'Sinks:' --no-group-separator -A2 | grep -v 'Sinks' | cut -b 7-30 | dmenu -p "selct Audio Output" -l 2 | cut -b '5-6' )
+          function rofi-sound
+              set sink $( wpctl status -k | grep -m 1 'Sinks:' --no-group-separator -A2 | grep -v 'Sinks' | cut -b 7-30 | rofi -dmenu -p "selct Audio Output" -l 2 | cut -b '5-6' )
               wpctl set-default $sink
               pkill -RTMIN+10 dwmblocks
           end
