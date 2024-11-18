@@ -143,7 +143,7 @@
                 # dkcmd rule remove '*'
 
                 # Set up polybar
-                ~/.config/scripts/polybarLaunch.sh
+                ~/.config/polybar/polybarLaunch.sh
                 polybar-msg action pipewire hook 0
             } >> "$logfile" 2>&1 # append responses
 

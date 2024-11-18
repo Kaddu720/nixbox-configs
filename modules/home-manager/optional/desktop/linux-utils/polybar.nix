@@ -10,7 +10,7 @@
 
   config = lib.mkIf config.polybar.enable {
     home.file = {
-      ".config/scripts/polybarLaunch.sh" = {
+      ".config/polybar/polybarLaunch.sh" = {
         text = ''
           #!/bin/sh
 

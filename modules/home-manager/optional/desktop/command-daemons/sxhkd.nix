@@ -35,6 +35,10 @@
         alt + space
             rofi -show drun
 
+        # helper scripts launcher
+        alt + shift + space
+          /home/noah/.config/scripts/rofi-menu.sh
+
         # terminal
         alt + Return
             alacritty

@@ -60,25 +60,6 @@
           # Start dk and polybar
           exec dk
         '';
-      ".config/scripts/lockscreen.sh" = {
-        text =
-          /*
-          bash
-          */
-          ''
-            #!/bin/sh
-
-            # Turn dunst back on when the script ends
-            trap "dunstctl set-paused false" EXIT
-
-            # pause notifications
-            dunstctl set-paused true
-
-            # enable the lock screen
-            slock
-          '';
-        executable = true;
-      };
     };
   };
 }
