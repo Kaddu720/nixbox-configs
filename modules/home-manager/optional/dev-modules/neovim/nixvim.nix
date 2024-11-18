@@ -23,8 +23,10 @@
 
         expandtab = true; # convert tabs to spaces
         tabstop = 2; #tab shifts 2 spaces
+        softtabstop = 2;
         shiftwidth = 2; #make shift in visual mode worth 2 spaces
         smartindent = true; #enable auto indent
+        autoindent = true;
 
         hlsearch = true; #highlight search results
         incsearch = true; #highlight objects as you search for them
