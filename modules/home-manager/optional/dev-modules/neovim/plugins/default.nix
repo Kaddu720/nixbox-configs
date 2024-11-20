@@ -4,6 +4,7 @@
     ./completions.nix
     ./gitblame.nix
     ./harpoon.nix
+    ./indent-blankline.nix
     ./lackluster.nix
     ./lualine.nix
     ./neo-tree.nix

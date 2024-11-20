@@ -1,11 +1,11 @@
 {pkgs, ...}: {
   programs.nixvim = {
     plugins = {
-      comment.enable = true;
+      indent-blankline.enable = true;
 
       lazy.plugins = [
         {
-          pkg = pkgs.vimPlugins.comment-nvim;
+          pkg = pkgs.vimPlugins.indent-blankline-nvim;
           event = ["BufNewFile" "BufReadPre"];
         }
       ];
