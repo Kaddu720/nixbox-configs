@@ -14,9 +14,6 @@
   # Install Packages
   home.packages = with pkgs; [
     (nerdfonts.override {fonts = ["Hack"];})
-    (python311.withPackages (ppkgs: [
-      ppkgs.boto3
-    ]))
     obsidian
   ];
 

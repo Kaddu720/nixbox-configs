@@ -58,10 +58,6 @@
               pkill -RTMIN+10 dwmblocks
           end
         '';
-      shellAbbrs = {
-        # Start Dashboard Development Server
-        dashserv = "python manage.py runserver_plus --cert-file ~/Projects/mkcert/cert.pem --key-file ~/Projects/mkcert/key.pem";
-      };
     };
 
     home.file = {
@@ -73,7 +69,6 @@
           # This file contains fish universal variable definitions.
           # VERSION: 3.0
           SETUVAR __fish_initialized:3400
-          SETUVAR _fish_abbr_dashserv:python\x20manage\x2epy\x20runserver_plus\x20\x2d\x2dcert\x2dfile\x20\x7e/Documents/projects/cert\x2epem\x20\x2d\x2dkey\x2dfile\x20\x7e/Documents/projects/key\x2epem
           SETUVAR _fish_abbr_list:ls
           SETUVAR _fish_abbr_logout:dm\x2dtool\x20switch\x2dto\x2dgreeter
           SETUVAR chain_links:chain\x2elinks\x2eroot\x1echain\x2elinks\x2ejobs\x1echain\x2elinks\x2epwd\x1echain\x2elinks\x2evcs_branch\x1echain\x2elinks\x2evcs_dirty\x1echain\x2elinks\x2evcs_stashed
