@@ -14,6 +14,7 @@
     ./rosepine.nix
     ./telescope.nix
     ./treesitter.nix
+    ./trouble.nix
     ./web-devicons.nix
     ./which-key.nix
   ];
