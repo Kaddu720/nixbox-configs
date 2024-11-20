@@ -7,7 +7,7 @@
     ./lackluster.nix
     ./lualine.nix
     ./neo-tree.nix
-    #./noice.nix
+    ./noice.nix
     ./nvim-autopairs.nix
     ./obsidian.nix
     ./oil.nix
