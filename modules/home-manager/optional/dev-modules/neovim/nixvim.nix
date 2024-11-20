@@ -5,7 +5,7 @@
 }: {
   imports = [
     ./plugins
-    ./lspConfig.nix
+    ./lsp
   ];
 
   options = {
