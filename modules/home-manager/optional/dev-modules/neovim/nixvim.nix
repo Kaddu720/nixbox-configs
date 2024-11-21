@@ -33,6 +33,8 @@
         ignorecase = true; #case insensitive search
         smartcase = true; # Case matters if I use a capital letter
         inccommand = "split"; # gives me a preview of what commands will look like when executed
+        scrolloff = 10; # make sure 10 lines are  visible above and bellow text when scrolling
+        backspace = ["start" "eol" "indent"]; # back space over empty white space
 
         showmode = false; #Let lualine provide status
 
