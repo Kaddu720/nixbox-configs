@@ -18,6 +18,7 @@
       keyMode = "vi";
       baseIndex = 1; #window and panes #s start on 1
       terminal = "alacritty";
+      sensibleOnTop = false;
 
       plugins = with pkgs.tmuxPlugins; [
         vim-tmux-navigator
@@ -25,6 +26,7 @@
         rose-pine
       ];
       extraConfig = ''
+        set-option -g default-shell ${pkgs.fish}/bin/fish
         #True color settings
         set -g default-terminal "$TERM"
         set -ag terminal-overrides ",$TERM:Tc"
