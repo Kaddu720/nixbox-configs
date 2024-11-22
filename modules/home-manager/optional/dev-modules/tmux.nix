@@ -25,10 +25,8 @@
       plugins = with pkgs.tmuxPlugins; [
         vim-tmux-navigator
         yank
-        rose-pine
       ];
       extraConfig = ''
-        set-option -g default-shell ${pkgs.fish}/bin/fish
         #True color settings
         set -g default-terminal "$TERM"
         set -ag terminal-overrides ",$TERM:Tc"
@@ -37,21 +35,23 @@
         set-option -g renumber-windows on
 
         #Status bar
-        set-option -g status-position top
+        set -g status-interval 3
+        set -g status-position top
+
+        set -g status-left "#[fg=#1f1d2e,bold,bg=#ebbcba] #S "
+        set -g status-right "#[fg=#e0def4,bold,bg=#1f1d2e]%a %Y-%m-%d "
+
         set -g status-justify left
-        set -g status-style 'fg=colour1'
-        set -g status-left-length 10
+        set -g status-left-length 200
+        set -g status-right-length 200
 
-        setw -g window-status-current-style 'fg=colour0 bg=colour1 bold'
-        setw -g window-status-current-format ' #I #W #F '
+        set -g status-style ' '
 
-        setw -g window-status-style 'fg=colour1 dim'
-        setw -g window-status-format ' #I #[fg=colour7]#W #[fg=colour1]#F '
-
-        setw -g window-status-bell-style 'fg=colour2 bg=colour1 bold'
+        set -g window-status-current-format '#[fg=#1f1d2e,bg=#ebbcba] #I:#W '
+        set -g window-status-format '#[fg=#ebbcba] #I:#W '
 
         #Key bindings#
-        # prefix key ix now C-b
+        # prefix key is now C-b
         unbind-key C-b
         set-option -g prefix C-a
         bind-key C-a send-prefix
@@ -68,8 +68,8 @@
         bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
 
         #open panes in current directory
-        bind | split-window -h -c "#{pane_current_path}"
-        bind - split-window -v -c "#{pane_current_path}"
+        bind v split-window -h -c "#{pane_current_path}"
+        bind s split-window -v -c "#{pane_current_path}"
         unbind '"'
         unbind %
 
