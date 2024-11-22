@@ -127,11 +127,12 @@
 
           # Create session with specified name if it does not already exist. If no
           # argument is given, session name will be based on layout file name.
-          if initialize_session "dashboard"; then
+          if initialize_session "AXS"; then
 
             # Create a new window inline within session layout definition.
             new_window "notes"
-            run_cmd "nvim ~/Work_Brain"
+            run_cmd "/Users/noahwilson/WorkBrain"
+            run_cmd "nvim ."
 
             new_window "nvim"
             run_cmd "nvim ."
@@ -143,7 +144,7 @@
             run_cmd "cd nixos"
 
             # Select the default active window on session creation.
-            select_window 2
+            select_window 1
 
           fi
 
