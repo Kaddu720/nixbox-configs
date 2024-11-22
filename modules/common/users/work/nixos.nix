@@ -49,11 +49,6 @@
     skhd.enable = true;
   };
 
-  programs.direnv = {
-    enable = true;
-    nix-direnv.enable = true;
-  };
-
   # Homebrew
   # Enable home-brew (remember to go to the homebrew website and install it)
   nix-homebrew = {
