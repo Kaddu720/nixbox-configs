@@ -14,6 +14,7 @@
     ./oil.nix
     ./rosepine.nix
     ./telescope.nix
+    ./tmux-navigator.nix
     ./treesitter.nix
     ./trouble.nix
     ./web-devicons.nix
