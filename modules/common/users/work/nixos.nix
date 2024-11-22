@@ -64,6 +64,7 @@
       "nikitabobko/tap/aerospace"
       "hiddenbar"
       "gpg-suite"
+      "raycast"
       "redisinsight"
       "zen-browser"
     ];
