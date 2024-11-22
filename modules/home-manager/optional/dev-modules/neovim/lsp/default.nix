@@ -11,7 +11,7 @@
       lazy.plugins = [
         {
           pkg = pkgs.vimPlugins.none-ls-nvim;
-          event = ["BufNewFile" "BufReadPre"];
+          event = ["BufNewFile" "BufReadPost"];
         }
       ];
 
@@ -19,7 +19,7 @@
         enable = true;
         capabilities = "require('cmp_nvim_lsp').default_capabilities()";
         keymaps.lspBuf = {
-          K = "hover";
+          H = "hover";
           gd = "definition";
           "<leader>ca" = "code_action";
           "<leader>fm" = "format";
