@@ -38,17 +38,21 @@
         set -g status-interval 3
         set -g status-position top
 
-        set -g status-left "#[fg=#1f1d2e,bold,bg=#ebbcba] #S "
-        set -g status-right "#[fg=#e0def4,bold,bg=#1f1d2e]%a %Y-%m-%d "
-
         set -g status-justify left
         set -g status-left-length 200
         set -g status-right-length 200
 
-        set -g status-style ' '
+        set -g status-style " "
 
-        set -g window-status-current-format '#[fg=#1f1d2e,bg=#ebbcba] #I:#W '
-        set -g window-status-format '#[fg=#ebbcba] #I:#W '
+        #Left status bar
+        set -g status-left "#[fg=#26233a,bold,bg=#ebbcba] #S #[fg=#ebbcba,bg=#191724] "
+        set -g window-status-current-format '#[fg=#ebbcba]#I:#W'
+        set -g window-status-format '#[fg=#908caa]#I:#W'
+        set -g window-status-separator " "
+
+        #Right status bar
+        set -g status-right "#[fg=#908caa] "" #[fg=#908caa]#{pane_current_path} "
+
 
         #Key bindings#
         # prefix key is now C-b
