@@ -146,6 +146,7 @@
 
             new_window "term"
             run_cmd "cd nixos"
+            run_cmd "clear"
 
             # Select the default active window on session creation.
             select_window 1
