@@ -42,5 +42,6 @@
       nix-direnv.enable = true;
     };
     eza.enable = true;
+    carapace.enable = true;
   };
 }
