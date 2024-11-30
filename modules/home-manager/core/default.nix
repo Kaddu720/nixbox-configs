@@ -5,12 +5,9 @@
   ...
 }: {
   imports = [
-    ./fish.nix
     ./git.nix
   ];
 
-  fish.enable =
-    lib.mkDefault true;
   git.enable =
     lib.mkDefault true;
 
@@ -19,7 +16,10 @@
     fzf
     ripgrep
     sops
-    thefuck
-    zoxide
   ];
+
+  programs = {
+    thefuck.enable = true;
+    zoxide.enable = true;
+  };
 }

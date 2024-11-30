@@ -11,7 +11,6 @@
             "markdown"
             "terraform"
             "sxhkdrc"
-            # parsers for noice.nvim
             "vim"
             "regex"
             "lua"
