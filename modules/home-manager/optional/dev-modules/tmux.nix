@@ -111,6 +111,10 @@
 
             new_window "term"
             run_cmd "cd ekiree_dashboard"
+            run_cmd "clear"
+            split_h 50
+            run_cmd "cd ekiree_dashboard"
+            run_cmd "python manage.py runserver"
 
             # Select the default active window on session creation.
             select_window 2
