@@ -29,7 +29,7 @@
       dunst
       feh
       font-awesome_5
-      (nerdfonts.override {fonts = ["Hack"];})
+      nerd-fonts.hack
       pavucontrol
       xautolock
     ];

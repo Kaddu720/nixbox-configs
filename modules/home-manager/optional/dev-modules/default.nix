@@ -25,12 +25,11 @@
   starship.enable =
     lib.mkDefault true;
 
-
   home.packages = with pkgs; [
     bat
     jq
     lazygit
-    nerdfonts
+    nerd-fonts.hack
     # AXS / Ekiree managment modules
     awscli2
     terraform
