@@ -125,77 +125,76 @@
           finalize_and_go_to_session
         '';
 
-        ".tmux-layouts/dashConfig.session.sh".text =
-          /*
-          bash
-          */
-          ''
-            # Set a custom session root path. Default is `$HOME`.
-            # Must be called before `initialize_session`.
-            session_root "~/Projects/dashboard/configuration/"
+      ".tmux-layouts/dashConfig.session.sh".text =
+        /*
+        bash
+        */
+        ''
+          # Set a custom session root path. Default is `$HOME`.
+          # Must be called before `initialize_session`.
+          session_root "~/Projects/dashboard/configuration/"
 
-            # Create session with specified name if it does not already exist. If no
-            # argument is given, session name will be based on layout file name.
-            if initialize_session "dashboard"; then
+          # Create session with specified name if it does not already exist. If no
+          # argument is given, session name will be based on layout file name.
+          if initialize_session "dashboard"; then
 
-              # Create a new window inline within session layout definition.
-              new_window "notes"
-              run_cmd "nvim ~/Second_Brain/areasOfResponsibility/Ekiree/Tech"
+            # Create a new window inline within session layout definition.
+            new_window "notes"
+            run_cmd "nvim ~/Second_Brain/areasOfResponsibility/Ekiree/Tech"
 
-              new_window "nvim"
-              run_cmd "nvim"
+            new_window "nvim"
+            run_cmd "nvim"
 
-              new_window "git"
-              run_cmd "lazygit"
+            new_window "git"
+            run_cmd "lazygit"
 
-              new_window "term"
+            new_window "term"
 
-              # Select the default active window on session creation.
-              select_window 2
+            # Select the default active window on session creation.
+            select_window 2
 
-            fi
+          fi
 
-            # Finalize session creation and switch/attach to it.
-            finalize_and_go_to_session
-          '';
+          # Finalize session creation and switch/attach to it.
+          finalize_and_go_to_session
+        '';
 
-        ".tmux-layouts/axs.session.sh".text =
-          /*
-          bash
-          */
-          ''
-            # Set a custom session root path. Default is `$HOME`.
-            # Must be called before `initialize_session`.
-            session_root "~/Documents/Github/axs-configurations"
+      ".tmux-layouts/axs.session.sh".text =
+        /*
+        bash
+        */
+        ''
+          # Set a custom session root path. Default is `$HOME`.
+          # Must be called before `initialize_session`.
+          session_root "~/Documents/Github/axs-configurations"
 
-            # Create session with specified name if it does not already exist. If no
-            # argument is given, session name will be based on layout file name.
-            if initialize_session "AXS"; then
+          # Create session with specified name if it does not already exist. If no
+          # argument is given, session name will be based on layout file name.
+          if initialize_session "AXS"; then
 
-              # Create a new window inline within session layout definition.
-              new_window "notes"
-              run_cmd "/Users/noahwilson/WorkBrain"
-              run_cmd "nvim ."
+            # Create a new window inline within session layout definition.
+            new_window "notes"
+            run_cmd "/Users/noahwilson/WorkBrain"
+            run_cmd "nvim ."
 
-              new_window "nvim"
-              run_cmd "nvim ."
+            new_window "nvim"
+            run_cmd "nvim ."
 
-              new_window "git"
-              run_cmd "lazygit"
+            new_window "git"
+            run_cmd "lazygit"
 
-              new_window "term"
-              run_cmd "cd nixos"
-              run_cmd "clear"
+            new_window "term"
+            run_cmd "cd nixos"
+            run_cmd "clear"
 
-              # Select the default active window on session creation.
-              select_window 1
+            # Select the default active window on session creation.
+            select_window 1
 
-            fi
+          fi
 
-            # Finalize session creation and switch/attach to it.
-            finalize_and_go_to_session
-          '';
-      };
+          # Finalize session creation and switch/attach to it.
+          finalize_and_go_to_session
+        '';
     };
   };
 }
