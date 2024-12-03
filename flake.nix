@@ -2,7 +2,7 @@
   description = "Flake for setting up boxes";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/release-24.11";
 
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/0.1";
 
