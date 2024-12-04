@@ -15,7 +15,7 @@
     programs.tmux = {
       enable = true;
 
-      shell = "${pkgs.nushell}/bin/nu";
+      shell = "${pkgs.fish}/bin/fish";
       mouse = true;
       keyMode = "vi";
       baseIndex = 1; #window and panes #s start on 1
@@ -174,11 +174,11 @@
 
             # Create a new window inline within session layout definition.
             new_window "notes"
-            run_cmd "/Users/noahwilson/WorkBrain"
-            run_cmd "nvim ."
+            run_cmd "cd /Users/noahwilson/WorkBrain"
+            run_cmd "nvim"
 
             new_window "nvim"
-            run_cmd "nvim ."
+            run_cmd "nvim"
 
             new_window "git"
             run_cmd "lazygit"

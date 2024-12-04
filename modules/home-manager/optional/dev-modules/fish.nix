@@ -28,11 +28,18 @@
           bind -M insert \cf accept-autosuggestion
 
           # enable fzf, the fuck, and zoxide
-          fzf --fish | source
-          eval "$(thefuck --alias)"
-          eval "$(zoxide init fish)"
           alias cd "z"
         '';
+    };
+
+    # extra Fish integrations
+    programs = {
+      fzf.enableFishIntegration = true;
+      zoxide.enableFishIntegration = true;
+      thefuck.enableFishIntegration = true;
+      starship.enableFishIntegration = true;
+      eza.enableFishIntegration = true;
+      carapace.enableFishIntegration = true;
     };
 
     home.file = {

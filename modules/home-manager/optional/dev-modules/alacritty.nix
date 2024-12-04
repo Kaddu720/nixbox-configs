@@ -15,7 +15,7 @@
       settings = {
         terminal.shell = {
           #username on the work machine is "noahwilson"
-          program = "${pkgs.nushell}/bin/nu";
+          program = "${pkgs.fish}/bin/fish";
             # if "${config.home.username}" == "noahwilson"
             # then "/usr/local/bin/fish"
             # else "${pkgs.fish}/bin/fish";
