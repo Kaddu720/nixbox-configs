@@ -14,12 +14,7 @@
       enable = true;
       settings = {
         terminal.shell = {
-          #username on the work machine is "noahwilson"
           program = "${pkgs.fish}/bin/fish";
-            # if "${config.home.username}" == "noahwilson"
-            # then "/usr/local/bin/fish"
-            # else "${pkgs.fish}/bin/fish";
-            
         };
         env = {
           term = "xterm-256color";
