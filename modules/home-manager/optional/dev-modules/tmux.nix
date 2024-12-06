@@ -106,15 +106,15 @@
             new_window "nvim"
             run_cmd "nvim ./ekiree_dashboard"
 
-            new_window "git"
-            run_cmd "lazygit"
-
             new_window "term"
             run_cmd "cd ekiree_dashboard"
             run_cmd "clear"
             split_h 50
             run_cmd "cd ekiree_dashboard"
             run_cmd "python manage.py runserver"
+
+            new_window "git"
+            run_cmd "lazygit"
 
             # Select the default active window on session creation.
             select_window 2
