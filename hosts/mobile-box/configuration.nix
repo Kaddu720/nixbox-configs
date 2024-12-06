@@ -32,6 +32,7 @@
   networking.hostName = "Mobile-Box"; # Define your hostname.
 
   # Imported Optional Modules
+  docker.enable = true;
   kanata.enable = true;
 
   # Configure system specific packages

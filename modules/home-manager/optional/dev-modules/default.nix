@@ -32,6 +32,7 @@
     nerd-fonts.hack
     # AXS / Ekiree managment modules
     awscli2
+    docker
     terraform
   ];
 

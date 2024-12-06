@@ -35,6 +35,7 @@
   hardware.uinput.enable = true;
 
   # Imported Optional Modules
+  docker.enable = true;
   kanata.enable = true;
   games.enable = true;
 
