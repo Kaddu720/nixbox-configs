@@ -13,8 +13,7 @@
 
     - __Static:__ Static files like wallpapers
 
-__Install Article__
-https://qfpl.io/posts/installing-nixos/
+[__Install Article__](https://qfpl.io/posts/installing-nixos/)
 
 __Install Instructions__
 __Encryption__
@@ -59,6 +58,18 @@ The goal is to have one work space and one application for each functionality. S
     - Zen browser supports work spaces for multiple different contexts
 
 I usually assume that I have a second monitor for communication or entertainment. But if I don't, (like on a laptop) communication will get its own workspace
+
+## If a Nix install borks grub
+1. Boot into ventory nix installer
+2. Open a termina
+3. Use Gparted to unecncrypt the partion
+4. Run `lsblk` to check partion namting
+5. Runn commands
+    a. `mount /dev/nvme0n1p2/nixos-vg/root /mnt`
+    b. 'mount /dev/nvme0n1p1/ /mnt/boot'
+6. cd down to the direcotry containg the nix directory
+7. `nix-install --flake ./#Home-Box`
+
 
 ## On Key maps
 ### Alt: Main monitor window manager level navigation
