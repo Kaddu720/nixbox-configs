@@ -10,12 +10,12 @@
   };
 
   config = lib.mkIf config.tmux.enable {
-    home.packages = with pkgs; [tmuxifier];
+    home.packages = with pkgs; [tmuxp];
 
     programs.tmux = {
       enable = true;
 
-      shell = "${pkgs.nushell}/bin/fish";
+      shell = "${pkgs.fish}/bin/fish";
       mouse = true;
       keyMode = "vi";
       baseIndex = 1; #window and panes #s start on 1
@@ -86,114 +86,105 @@
     };
 
     home.file = {
-      ".tmux-layouts/dashboard.session.sh".text =
+      ".config/tmuxp/dashboard.yaml".text =
         /*
-        bash
+        yaml
         */
         ''
-          # Set a custom session root path. Default is `$HOME`.
-          # Must be called before `initialize_session`.
-          session_root "~/Projects/dashboard/dev/ekiree_dashboard"
+          session_name: Dashboard
+          start_directory: ~/Projects/dashboard/dev/ekiree_dashboard
 
-          # Create session with specified name if it does not already exist. If no
-          # argument is given, session name will be based on layout file name.
-          if initialize_session "dashboard"; then
+          windows:
+          - window_name: notes
+            panes:
+              - shell_command:
+                - nvim ~/Second_Brain/areasOfResponsibility/Ekiree/Tech
 
-            # Create a new window inline within session layout definition.
-            new_window "notes"
-            run_cmd "nvim ~/Second_Brain/areasOfResponsibility/Ekiree/Tech"
+          - window_name: nvim
+            focus: true
+            panes:
+              - shell_command:
+                - nvim ./ekiree_dashboard
 
-            new_window "nvim"
-            run_cmd "nvim ./ekiree_dashboard"
+          - window_name: term
+            layout: main-vertical
+            shell_command_before:
+              - cd ekiree_dashboard
+            panes:
+              - shell_command:
+                - clear
+                focus: true
+              - shell_command:
+                - clear
+                - python manage.py runserver
 
-            new_window "term"
-            run_cmd "cd ekiree_dashboard"
-            run_cmd "clear"
-            split_h 50
-            run_cmd "cd ekiree_dashboard"
-            run_cmd "python manage.py runserver"
-
-            new_window "git"
-            run_cmd "lazygit"
-
-            # Select the default active window on session creation.
-            select_window 2
-
-          fi
-
-          # Finalize session creation and switch/attach to it.
-          finalize_and_go_to_session
+          - window_name: git
+            panes:
+              - shell_command:
+                - lazygit
         '';
 
-      ".tmux-layouts/dashConfig.session.sh".text =
+      ".config/tmuxp/work.yaml".text =
         /*
-        bash
+        yaml
         */
         ''
-          # Set a custom session root path. Default is `$HOME`.
-          # Must be called before `initialize_session`.
-          session_root "~/Projects/dashboard/configuration/"
+          session_name: Work
+          start_directory: ~/Documents/axs-sre-config/Github/axs-configuration
 
-          # Create session with specified name if it does not already exist. If no
-          # argument is given, session name will be based on layout file name.
-          if initialize_session "dashboard"; then
+          windows:
+          - window_name: notes
+            panes:
+              - shell_command:
+                - nvim ~/Second_Brain/areasOfResponsibility/Ekiree/Tech
 
-            # Create a new window inline within session layout definition.
-            new_window "notes"
-            run_cmd "nvim ~/Second_Brain/areasOfResponsibility/Ekiree/Tech"
+          - window_name: nvim
+            focus: true
+            panes:
+              - shell_command:
+                - nvim
 
-            new_window "nvim"
-            run_cmd "nvim"
+          - window_name: git
+            panes:
+              - shell_command:
+                - lazygit
 
-            new_window "git"
-            run_cmd "lazygit"
-
-            new_window "term"
-
-            # Select the default active window on session creation.
-            select_window 2
-
-          fi
-
-          # Finalize session creation and switch/attach to it.
-          finalize_and_go_to_session
+          - window_name: term
+            panes:
+              - shell_command:
+                - cd nixos
+                - clear
         '';
 
-      ".tmux-layouts/axs.session.sh".text =
+      ".config/tmuxp/dashboard-config.yaml".text =
         /*
-        bash
+        yaml
         */
         ''
-          # Set a custom session root path. Default is `$HOME`.
-          # Must be called before `initialize_session`.
-          session_root "~/Documents/Github/axs-configurations"
+          session_name: Dashboard-Config
+          start_directory: ~/Projects/dashboard/configuration
 
-          # Create session with specified name if it does not already exist. If no
-          # argument is given, session name will be based on layout file name.
-          if initialize_session "AXS"; then
+          windows:
+          - window_name: notes
+            panes:
+            - shell_command:
+              - nvim ~/Second_Brain/areasOfResponsibility/Ekiree/Tech
 
-            # Create a new window inline within session layout definition.
-            new_window "notes"
-            run_cmd "cd /Users/noahwilson/WorkBrain"
-            run_cmd "nvim"
+          - window_name: nvim
+            focus: true
+            panes:
+            - shell_command:
+              - nvim
 
-            new_window "nvim"
-            run_cmd "nvim"
+          - window_name: term
+            panes:
+            - shell_command:
+              - clear
 
-            new_window "git"
-            run_cmd "lazygit"
-
-            new_window "term"
-            run_cmd "cd nixos"
-            run_cmd "clear"
-
-            # Select the default active window on session creation.
-            select_window 1
-
-          fi
-
-          # Finalize session creation and switch/attach to it.
-          finalize_and_go_to_session
+          - window_name: git
+            panes:
+            - shell_command:
+              - lazygit
         '';
     };
   };
