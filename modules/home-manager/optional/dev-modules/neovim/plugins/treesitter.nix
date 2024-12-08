@@ -16,9 +16,10 @@
             "lua"
             "bash"
             "markdown_inline"
+            "yaml"
           ];
           indent.enable = true;
-          hightlight.enable = true;
+          highlight.enable = true;
         };
       };
 

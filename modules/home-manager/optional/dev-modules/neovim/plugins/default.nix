@@ -12,6 +12,7 @@
     ./nvim-autopairs.nix
     ./obsidian.nix
     ./oil.nix
+    ./otter.nix
     ./rosepine.nix
     ./telescope.nix
     ./tmux-navigator.nix
