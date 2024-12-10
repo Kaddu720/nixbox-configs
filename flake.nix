@@ -26,6 +26,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    neovim-config = {
+      url = "github:Kaddu720/neovim-config?ref=master";
+    };
+
     zen-browser = {
       url = "github:VCPYC/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -45,6 +49,7 @@
     home-manager,
     darwin,
     nixvim,
+    neovim-config,
     ...
   } @ inputs: {
     # Host Configs
@@ -87,6 +92,7 @@
         modules = [
           ./hosts/home-box/home-manager.nix
           nixvim.homeManagerModules.nixvim
+          neovim-config.homeModules.default
         ];
       };
       Mobile-Box = home-manager.lib.homeManagerConfiguration {
@@ -94,6 +100,7 @@
         modules = [
           ./hosts/mobile-box/home-manager.nix
           nixvim.homeManagerModules.nixvim
+          neovim-config.homeModules.default
         ];
       };
       Work-Box = home-manager.lib.homeManagerConfiguration {
@@ -101,6 +108,7 @@
         modules = [
           ./hosts/work-box/home-manager.nix
           nixvim.homeManagerModules.nixvim
+          neovim-config.homeModules.default
         ];
       };
     };
