@@ -9,7 +9,7 @@
       lazy.plugins = [
         {
           pkg = pkgs.vimPlugins.otter-nvim;
-          event = ["VeryLazy"];
+          ft = "nix";
           dependencies = with pkgs.vimPlugins; [
             nvim-cmp
             nvim-lspconfig
