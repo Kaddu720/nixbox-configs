@@ -14,7 +14,7 @@
   };
   config = lib.mkIf config.nixvim.enable {
     programs.nixvim = {
-      enable = true;
+      enable = false;
       defaultEditor = true;
 
       opts = {

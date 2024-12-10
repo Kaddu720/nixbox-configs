@@ -1,5 +1,9 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  ...
+}: {
   # Import nix modules
+
   home = {
     username = "noahwilson";
     homeDirectory = "/Users/noahwilson";
@@ -10,6 +14,9 @@
 
   #disables personall git credentials
   git.enable = false;
+
+  # Use neovim from NixCats
+  nvim.enable = true;
 
   # Install Packages
   home.packages = with pkgs; [

@@ -14,8 +14,8 @@
 
   alacritty.enable =
     lib.mkDefault true;
-  # nixvim.enable =
-  #   lib.mkDefault true;
+  nixvim.enable =
+    lib.mkDefault true;
   tmux.enable =
     lib.mkDefault true;
   fish.enable =
