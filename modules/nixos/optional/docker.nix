@@ -1,6 +1,7 @@
 {
   config,
   lib,
+pkgs,
   ...
 }: {
   options = {
@@ -9,6 +10,9 @@
   };
 
   config = lib.mkIf config.docker.enable {
+    environment.systemPackages = with pkgs; [
+    ];
+
     virtualisation.docker = {
       enable = true;
       storageDriver = "btrfs";
