@@ -130,13 +130,13 @@
         */
         ''
           session_name: Work
-          start_directory: ~/Documents/axs-sre-config/Github/axs-configuration
+          start_directory: ~/Documents/sre_lambda_layer/Github/axs-configurations
 
           windows:
           - window_name: notes
             panes:
               - shell_command:
-                - nvim ~/Second_Brain/areasOfResponsibility/Ekiree/Tech
+                - nvim ~/WorkBrain
 
           - window_name: nvim
             focus: true
