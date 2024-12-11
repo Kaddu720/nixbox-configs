@@ -10,6 +10,7 @@
     ./fish.nix
     ./nushell.nix
     ./starship.nix
+    ./lazygit.nix
   ];
 
   alacritty.enable =
@@ -24,11 +25,12 @@
     lib.mkDefault true;
   starship.enable =
     lib.mkDefault true;
+  lazygit.enable =
+    lib.mkDefault true;
 
   home.packages = with pkgs; [
     bat
     jq
-    lazygit
     nerd-fonts.hack
     # AXS / Ekiree managment modules
     awscli2
