@@ -738,11 +738,11 @@
         "nixpkgs": "nixpkgs_6"
       },
       "locked": {
-        "lastModified": 1733878178,
-        "narHash": "sha256-VFKM2j4zgUiyU2hPEMK7RfHrNTSemNvLAgAceW6xCkI=",
+        "lastModified": 1733915809,
+        "narHash": "sha256-iuCoAJM7gQ7+xWECH9Nlq38g8CbwJYLDT85K4WOaWlg=",
         "owner": "Kaddu720",
         "repo": "neovim-config",
-        "rev": "025adb69ace1addaae56336bcef3647bd1c45da8",
+        "rev": "e5717a28b6bf5c1f9d71e70241935a23e7ab7c56",
         "type": "github"
       },
       "original": {
@@ -824,15 +824,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1732886786,
-        "narHash": "sha256-O88e6uyJpzqcol893SrG6WEd8VcFk5MIpfISkdxrm7E=",
-        "owner": "VCPYC",
+        "lastModified": 1733840403,
+        "narHash": "sha256-j5hmZ/Oudzr4/HB383uUvY86PxB4c94+7QRV109kOpE=",
+        "owner": "0xc000022070",
         "repo": "zen-browser-flake",
-        "rev": "a105c5d5d2bbef13aff5dc3a9f311aa18352747e",
+        "rev": "ddbfcd69583724e6d142af98010411ac26c2029d",
         "type": "github"
       },
       "original": {
-        "owner": "VCPYC",
+        "owner": "0xc000022070",
         "repo": "zen-browser-flake",
         "type": "github"
       }

@@ -12,6 +12,9 @@
   # Broswer opens thunar by default
   xdg.mimeApps.defaultApplications."inode/directory" = "thunar";
 
+  # Use neovim from NixCats
+  nvim.enable = true;
+
   # Install Packages
   home.packages = with pkgs; [
     discord
