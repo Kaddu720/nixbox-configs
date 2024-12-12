@@ -738,11 +738,11 @@
         "nixpkgs": "nixpkgs_6"
       },
       "locked": {
-        "lastModified": 1733956171,
-        "narHash": "sha256-CUTFNyMazjpGaWlPATr9I7Kw1eKVMfwIoAV2iPQap+M=",
+        "lastModified": 1734004812,
+        "narHash": "sha256-H/fUE0KXAJB/9BrO5h4NuCETxZBrudNmkXgYp7k0YeE=",
         "owner": "Kaddu720",
         "repo": "neovim-config",
-        "rev": "1d6bbb50e9e50457a9996b90e03db56a89781afd",
+        "rev": "75f5d202d9f2aa1b4ff2634bb84cad53acc95a1d",
         "type": "github"
       },
       "original": {
