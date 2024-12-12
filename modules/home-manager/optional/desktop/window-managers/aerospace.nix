@@ -3,7 +3,6 @@
   config,
   ...
 }: {
-
   config = lib.mkIf (config.services.desktop-config.mac.aerospace == true) {
     home.file.".config/aerospace/aerospace.toml" = {
       text =
@@ -169,7 +168,7 @@
           alt-shift-j = ['join-with down', 'mode main']
           alt-shift-k = ['join-with up', 'mode main']
           alt-shift-l = ['join-with right', 'mode main']
-          
+
           [[on-window-detected]]
           if.app-name-regex-substring = 'alacritty'
           run  = "move-node-to-workspace dev"
@@ -180,8 +179,8 @@
 
           [[on-window-detected]]
           if.app-id = 'com.cisco.anyconnect.gui'
-          run  = "move-node-to-workspace web"
-          
+          run  = "layout floating"
+
           [[on-window-detected]]
           if.app-id = 'com.tinyspeck.slackmacgap'
           run  = "move-node-to-workspace com"
@@ -193,6 +192,7 @@
           [[on-window-detected]]
           if.app-id = 'us.zoom.xos'
           run  = "move-node-to-workspace doc"
+
 
           [workspace-to-monitor-force-assignment]
           dev = ['built-in', 'BenQ', 'VG27A']
