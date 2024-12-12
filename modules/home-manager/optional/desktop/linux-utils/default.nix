@@ -30,6 +30,7 @@
       feh
       font-awesome_5
       nerd-fonts.hack
+      nerd-fonts.jetbrains-mono
       pavucontrol
       xautolock
     ];

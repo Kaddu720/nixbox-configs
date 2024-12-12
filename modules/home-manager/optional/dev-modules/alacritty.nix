@@ -37,7 +37,7 @@
             then 18
             else 12;
           normal = {
-            family = "Hack Nerd Font Mono";
+            family = "JetBrainsMono Nerd Font Mono";
             style = "Regular";
           };
         };

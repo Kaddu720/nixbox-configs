@@ -32,6 +32,7 @@
     bat
     jq
     nerd-fonts.hack
+    nerd-fonts.jetbrains-mono
     # AXS / Ekiree managment modules
     awscli2
     docker
