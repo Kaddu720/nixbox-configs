@@ -91,6 +91,7 @@
         modules = [
           ./hosts/home-box/home-manager.nix
           nixvim.homeManagerModules.nixvim
+          inputs.nvim-config.homeModules.default
         ];
       };
       Mobile-Box = home-manager.lib.homeManagerConfiguration {
@@ -98,6 +99,7 @@
         modules = [
           ./hosts/mobile-box/home-manager.nix
           nixvim.homeManagerModules.nixvim
+          inputs.nvim-config.homeModules.default
         ];
       };
       Work-Box = home-manager.lib.homeManagerConfiguration {
