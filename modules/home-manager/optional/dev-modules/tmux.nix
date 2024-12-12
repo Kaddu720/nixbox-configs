@@ -134,12 +134,12 @@
 
           windows:
           - window_name: notes
+            focus: true
             panes:
               - shell_command:
                 - nvim ~/WorkBrain
 
           - window_name: nvim
-            focus: true
             panes:
               - shell_command:
                 - nvim
