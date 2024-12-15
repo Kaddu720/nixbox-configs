@@ -27,7 +27,6 @@
             fi
 
             # spawn a scratchpad terminal if not already (see sxhkdrc and rules for binds/setup)
-            pgrep -f "alacritty --class scratchpad" || alacritty --class scratchpad &
 
             { # compound command to redirect all output
                 # workspace settings
@@ -147,6 +146,8 @@
                 # Set up polybar
                 ~/.config/polybar/polybarLaunch.sh
                 polybar-msg action pipewire hook 0
+                # Launch Discord
+                discord
             } >> "$logfile" 2>&1 # append responses
 
             # inform of any errors in a notification
