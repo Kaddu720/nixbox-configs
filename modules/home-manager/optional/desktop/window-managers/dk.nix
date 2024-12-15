@@ -6,7 +6,7 @@
 }: {
   config = lib.mkIf (config.services.desktop-config.linux.dk == true) {
     home = {
-      packages = with pkgs; [ dk ];
+      packages = with pkgs; [dk];
       file.".config/dk/dkrc" = {
         text =
           /*
@@ -55,7 +55,8 @@
                         # rule class, instance, and title regexes (*ALWAYS* CASE INSENSITIVE)
                         # open window(s) on a specific workspace (assigned monitor)
                         dkcmd rule class="^alacritty$" ws=1 focus = true
-                        dkcmd rule class="^zen-alpha$" ws=2 focus = true
+                        dkcmd rule class="^zen-beta$" ws=2 focus = true
+                        dkcmd rule class="^obsidian" ws=3 focus = true
                         dkcmd rule class="^discord$" ws=5
                         dkcmd rule class="^steam$" ws=5
                     ;;
@@ -75,7 +76,8 @@
                         # rule class, instance, and title regexes (*ALWAYS* CASE INSENSITIVE)
                         # open window(s) on a specific workspace (assigned monitor)
                         dkcmd rule class="^alacritty$" ws=1 focus = true
-                        dkcmd rule class="^zen-alpha$" ws=2 focus = true
+                        dkcmd rule class="^zen-beta$" ws=2 focus = true
+                        dkcmd rule class="^obsidian" ws=3 focus = true
                         dkcmd rule class="^discord$" ws=3
                     ;;
                 esac
