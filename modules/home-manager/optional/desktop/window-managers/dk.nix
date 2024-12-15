@@ -27,6 +27,7 @@
             fi
 
             # spawn a scratchpad terminal if not already (see sxhkdrc and rules for binds/setup)
+            #pgrep -f "alacritty --class scratchpad" || alacritty --class scratchpad &
 
             { # compound command to redirect all output
                 # workspace settings
