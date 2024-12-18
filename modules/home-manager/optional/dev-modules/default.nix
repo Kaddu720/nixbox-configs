@@ -6,7 +6,6 @@
   imports = [
     ./alacritty.nix
     ./tmux.nix
-    ./neovim/nixvim.nix
     ./fish.nix
     ./nushell.nix
     ./starship.nix
@@ -14,8 +13,6 @@
   ];
 
   alacritty.enable =
-    lib.mkDefault true;
-  nixvim.enable =
     lib.mkDefault true;
   tmux.enable =
     lib.mkDefault true;
