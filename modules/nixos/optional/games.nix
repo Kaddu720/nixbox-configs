@@ -17,6 +17,8 @@
         mangohud
         protonup
         bottles
+        piper
+        libratbag
       ];
 
       sessionVariables = {
