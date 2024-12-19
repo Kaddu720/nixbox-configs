@@ -3,6 +3,7 @@ with lib; {
   imports = [
     ./window-managers/aerospace.nix
     ./window-managers/dk.nix
+    ./window-managers/river.nix
     ./command-daemons/skhd.nix
     ./command-daemons/sxhkd.nix
     ./linux-utils
@@ -21,6 +22,11 @@ with lib; {
         type = types.bool;
         default = false;
         description = "Enable sxhkd command daemon for Linux";
+      };
+      river = mkOption {
+        type = types.bool;
+        default = false;
+        description = "Enable river window manager for Linux";
       };
       linuxUtils = mkOption {
         type = types.bool;

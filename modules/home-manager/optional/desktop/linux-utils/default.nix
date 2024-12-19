@@ -12,6 +12,7 @@
     ./picom.nix
     ./rofi.nix
     ./gtk-theme.nix
+    ./sandbar.nix
   ];
 
   config = lib.mkIf (config.services.desktop-config.linux.linuxUtils == true) {
@@ -22,6 +23,7 @@
     picom.enable = true;
     rofi.enable = true;
     gtk-theme.enable = true;
+    sandbar.enable = true;
 
     # Install Packages
     home.packages = with pkgs; [

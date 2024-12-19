@@ -22,8 +22,11 @@
     flameshot
     obsidian
     pavucontrol
+    swaylock
     zoom-us
   ];
+
+  # Wayland
 
   # Imported Optional Modules
   services.desktop-config = {
@@ -31,6 +34,7 @@
     linux = {
       dk = true;
       sxhkd = true;
+      river = true;
       linuxUtils = true;
     };
   };
