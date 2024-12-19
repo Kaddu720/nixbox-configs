@@ -95,7 +95,6 @@
 
           # See: https://nikitabobko.github.io/AeroSpace/commands#layout
           alt-slash = 'layout tiles horizontal vertical'
-          alt-comma = 'layout accordion horizontal vertical'
 
           # See: https://nikitabobko.github.io/AeroSpace/commands#focus
           alt-h = 'focus left'
