@@ -33,7 +33,6 @@
   };
 
   # Enable river wm
-  programs.river.enable = true;
   services.dbus.enable = true;
 
   xdg.portal = {

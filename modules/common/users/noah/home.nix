@@ -24,6 +24,7 @@
     pavucontrol
     swaylock
     zoom-us
+    river
   ];
 
   # Wayland

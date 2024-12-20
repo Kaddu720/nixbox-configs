@@ -30,14 +30,16 @@
 
             while cat "$FIFO"; do :; done | sandbar \
             	-font "JetBrains Mono Nerd Font:Pixelsize" \
-            	-active-fg-color "#000000" \
-            	-active-bg-color "#98971a" \
-            	-inactive-fg-color "#ebdbb2" \
-            	-inactive-bg-color "#000000" \
-            	-urgent-fg-color "#000000" \
-            	-urgent-bg-color "#cc241d" \
-            	-title-fg-color "#000000" \
-            	-title-bg-color "#98971a"
+              -hide-vacant-tags \
+              -tags 5 dev web misc fun coms \
+            	-active-fg-color "#ebbcba" \
+            	-active-bg-color "#191724" \
+            	-inactive-fg-color "#e0def4" \
+            	-inactive-bg-color "#191724" \
+            	-urgent-fg-color "#191724" \
+            	-urgent-bg-color "#eb6f92" \
+            	-title-fg-color "#e0def4" \
+            	-title-bg-color "#191724"
           '';
         executable = true;
       };
