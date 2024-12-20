@@ -5,6 +5,10 @@
   ...
 }: {
   config = lib.mkIf (config.services.desktop-config.linux.river == true) {
+    home.packages = with pkgs; [
+      swaybg
+    ];
+
     wayland.windowManager.river = {
       enable = true;
       extraConfig =
@@ -13,6 +17,13 @@
         */
         ''
           #!/bin/sh
+
+          # Set up desktop background
+          [[ -e $HOME/.config/nixos/modules/common/static/dark_fractal.jpg ]] && riverctl spawn "swaybg -m fill -i $HOME/.config/nixos/modules/common/static/dark_fractal.jpg"
+
+          # Set up sandbar
+          riverctl spawn "$HOME/.config/river/status"
+          riverctl spawn "$HOME/.config/river/bar"
 
           # Terminal
           riverctl map normal Alt Return spawn alacritty
@@ -150,9 +161,9 @@
           done
 
           # Set background and border color
-          riverctl background-color 0x002b36
-          riverctl border-color-focused 0x93a1a1
-          riverctl border-color-unfocused 0x586e75
+          riverctl border-color-focused 0xebbcba
+          riverctl border-color-unfocused 0x31748f
+          riverctl border-width 0
 
           # Set keyboard repeat rate
           riverctl set-repeat 50 300
@@ -168,14 +179,7 @@
           riverctl default-layout rivertile
           rivertile -view-padding 6 -outer-padding 6 &
 
-          # Set up sandbar
-          riverctl spawn "$HOME/.config/river/status"
-          riverctl spawn "$HOME/.config/river/bar"
-
-          # Set up auxilary programs
-          kanshi
-          waybar
-          discord
+          riverctl spawn "discord" 
         '';
     };
 

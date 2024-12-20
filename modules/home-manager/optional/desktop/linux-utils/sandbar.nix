@@ -9,6 +9,7 @@
       lib.mkEnableOption "enables sandbar";
   };
 
+  # Docs to read when I come back to fix this: https://github.com/kolunmi/sandbar
   config = lib.mkIf config.sandbar.enable {
     home = {
       packages = with pkgs; [
@@ -46,7 +47,7 @@
           bash
           */
           ''
-            #!/bin/env sh
+            #!/usr/bin/env sh
 
             cpu() {
             	cpu="$(grep -o "^[^ ]*" /proc/loadavg)"
