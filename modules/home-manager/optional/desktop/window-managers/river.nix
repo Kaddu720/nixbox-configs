@@ -28,8 +28,8 @@
               ;;
 
               Mobile-Box)
-                Primary_Monitor=DP-1
-                Seconday_Monitor=DP-2
+                Primary_Monitor=eDP-1
+                Seconday_Monitor=eDP-1
               ;;
           esac
 
@@ -216,6 +216,9 @@
           output DP-1 mode 2560x1440@165Hz position 1920,0 adaptive_sync on
           output DP-2 mode 1920x1080@60Hz position 0,0
           output HDMI-A-1 disable
+        }
+        profile Mobile-Box {
+          output eDP-1 mode 2256x1504@59.999001Hz 
         }
       '';
     };
