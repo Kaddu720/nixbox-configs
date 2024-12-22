@@ -53,15 +53,15 @@
             #!/usr/bin/env sh
 
             cpu() {
-            	cpu="cpu:$(grep -o "^[^ ]*" /proc/loadavg)%"
+            	cpu=" $(grep -o "^[^ ]*" /proc/loadavg)%"
             }
 
             memory() {
-            	memory="mem:$(free -h | sed -n "2s/\([^ ]* *\)\{2\}\([^ ]*\).*/\2/p")"
+            	memory=" $(free -h | sed -n "2s/\([^ ]* *\)\{2\}\([^ ]*\).*/\2/p")"
             }
 
             disk() {
-            	disk="disk:$(df -h | awk 'NR==5{print $5}')"
+            	disk=" $(df -h | awk 'NR==5{print $5}')"
             }
 
             datetime() {
@@ -71,11 +71,11 @@
             bat() {
             	read -r bat_status </sys/class/power_supply/BAT1/status
             	read -r bat_capacity </sys/class/power_supply/BAT1/capacity
-            	bat="bat: $bat_status $bat_capacity%"
+            	bat="$bat_capacity% $bat_status"
             }
 
             vol() {
-            	vol="vol: $([ "$(pamixer --get-mute)" = "false" ] && printf "%s%%" "$(pamixer --get-volume)" || printf '-')"
+            	vol=" $([ "$(pamixer --get-mute)" = "false" ] && printf "%s%%" "$(pamixer --get-volume)" || printf '-')"
             }
 
             display() {
