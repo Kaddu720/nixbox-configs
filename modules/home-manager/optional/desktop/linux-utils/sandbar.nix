@@ -53,15 +53,15 @@
             #!/usr/bin/env sh
 
             cpu() {
-            	cpu="$(grep -o "^[^ ]*" /proc/loadavg)"
+            	cpu="cpu:$(grep -o "^[^ ]*" /proc/loadavg)"
             }
 
             memory() {
-            	memory="$(free -h | sed -n "2s/\([^ ]* *\)\{2\}\([^ ]*\).*/\2/p")"
+            	memory="mem:$(free -h | sed -n "2s/\([^ ]* *\)\{2\}\([^ ]*\).*/\2/p")"
             }
 
             disk() {
-            	disk="$(df -h | awk 'NR==2{print $4}')"
+            	disk="disk:$(df -h | awk 'NR==5{print $5}')"
             }
 
             datetime() {
@@ -69,17 +69,17 @@
             }
 
             bat() {
-            	read -r bat_status </sys/class/power_supply/BAT0/status
-            	read -r bat_capacity </sys/class/power_supply/BAT0/capacity
-            	bat="$bat_status $bat_capacity%"
+            	read -r bat_status </sys/class/power_supply/BAT1/status
+            	read -r bat_capacity </sys/class/power_supply/BAT1/capacity
+            	bat="bat: $bat_status $bat_capacity%"
             }
 
             vol() {
-            	vol="$([ "$(pamixer --get-mute)" = "false" ] && printf "%s%%" "$(pamixer --get-volume)" || printf '-')"
+            	vol="vol: $([ "$(pamixer --get-mute)" = "false" ] && printf "%s%%" "$(pamixer --get-volume)" || printf '-')"
             }
 
             display() {
-            	echo "all status [$memory $cpu $disk] [$bat] [$vol] [$datetime]" >"$FIFO"
+            	echo "all status [$cpu $memory $disk] [$vol] [$bat] [$datetime]" >"$FIFO"
             }
 
             printf "%s" "$$" > "$XDG_RUNTIME_DIR/status_pid"
