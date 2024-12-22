@@ -71,11 +71,12 @@
             bat() {
             	read -r bat_status </sys/class/power_supply/BAT1/status
             	read -r bat_capacity </sys/class/power_supply/BAT1/capacity
-            	bat="$bat_capacity% $bat_status"
+            	# bat="$bat_capacity%  $bat_status"
+            	bat="$([ "$bat_status" = "Discharging" ] && printf "%s%%  " "$bat_capacity" || printf "%s%%" "$bat_capacity")"
             }
 
             vol() {
-            	vol=" $([ "$(pamixer --get-mute)" = "false" ] && printf "%s%%" "$(pamixer --get-volume)" || printf '-')"
+            	vol="$([ "$(pamixer --get-mute)" = "false" ] && printf "  %s%%" "$(pamixer --get-volume)" || printf ' -')"
             }
 
             display() {
@@ -93,7 +94,7 @@
             		[ $((sec % 15)) -eq 0 ] && memory
             		[ $((sec % 15)) -eq 0 ] && cpu
             		[ $((sec % 15)) -eq 0 ] && disk
-            		[ $((sec % 60)) -eq 0 ] && bat
+            		[ $((sec % 30)) -eq 0 ] && bat
             		[ $((sec % 5)) -eq 0 ] && vol
             		[ $((sec % 5)) -eq 0 ] && datetime
 
