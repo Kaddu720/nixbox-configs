@@ -53,7 +53,7 @@
             #!/usr/bin/env sh
 
             cpu() {
-            	cpu="cpu:$(grep -o "^[^ ]*" /proc/loadavg)"
+            	cpu="cpu:$(grep -o "^[^ ]*" /proc/loadavg)%"
             }
 
             memory() {
