@@ -29,9 +29,10 @@
             mkfifo "$FIFO"
 
             while cat "$FIFO"; do :; done | sandbar \
-            	-font "JetBrains Mono Nerd Font:Pixelsize" \
+            	-font "JetBrains Mono Nerd Font :size=12" \
               -hide-vacant-tags \
               -tags 5 dev web misc fun coms \
+              -vertical-padding 5 \
             	-active-fg-color "#ebbcba" \
             	-active-bg-color "#191724" \
             	-inactive-fg-color "#e0def4" \

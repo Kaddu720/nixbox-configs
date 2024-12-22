@@ -68,12 +68,12 @@
            riverctl map normal Alt+Shift K swap previous
 
            # Alt+Period and Alt+Comma to focus the next/previous output
-           riverctl map normal Alt Period focus-output -current-tags next
-           riverctl map normal Alt Comma focus-output -current-tags previous
+           riverctl map normal Alt Period focus-output next
+           riverctl map normal Alt Comma focus-output previous
 
            # Alt+Shift+{Period,Comma} to send the focused view to the next/previous output
-           riverctl map normal Alt+Shift Period send-to-output next
-           riverctl map normal Alt+Shift Comma send-to-output previous
+           riverctl map normal Alt+Shift Period send-to-output -current-tags next
+           riverctl map normal Alt+Shift Comma send-to-output -current-tags previous
 
            # Alt+Return to bump the focused view to the top of the layout stack
            riverctl map normal Alt+Shift Return zoom
@@ -200,6 +200,7 @@
            riverctl focus-output $Seconday_Monitor
            riverctl send-layout-cmd rivertile "main-location right"
            riverctl spawn "discord"
+           riverctl set-focused-tags 8
 
            riverctl focus-output $Primary_Monitor
         '';

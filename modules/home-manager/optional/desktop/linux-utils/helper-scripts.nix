@@ -42,7 +42,7 @@
 
             # enable the lock screen
             #slock
-            swaylock --ignore-empty-password --color 000000 --no-unlock-indicator
+            swaylock --ignore-empty-password --color 000000
           '';
       };
       ".config/scripts/audio-input.sh" = {
