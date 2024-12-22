@@ -199,10 +199,14 @@
            # Configure Seconday_Monitor
            riverctl focus-output $Seconday_Monitor
            riverctl send-layout-cmd rivertile "main-location right"
-           riverctl spawn "discord"
            riverctl set-focused-tags 8
+           riverctl spawn "discord"
 
+           # Configure Primary_Monitor
            riverctl focus-output $Primary_Monitor
+           riverctl send-layout-cmd rivertile "main-location left"
+           riverctl set-focused-tags 1
+
         '';
     };
 
