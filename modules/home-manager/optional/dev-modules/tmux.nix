@@ -137,7 +137,7 @@
             focus: true
             panes:
               - shell_command:
-                - nvim ~/WorkBrain
+                - nvim ~/Second_Brain
 
           - window_name: nvim
             panes:
