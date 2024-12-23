@@ -41,7 +41,8 @@
             dunstctl set-paused true
 
             # enable the lock screen
-            slock
+            #slock
+            swaylock --ignore-empty-password --color 000000
           '';
       };
       ".config/scripts/audio-input.sh" = {

@@ -32,6 +32,33 @@
     };
   };
 
+  # Enable river wm
+  security.pam.services.swaylock = {
+    text = ''
+      auth include login
+    '';
+  };
+  services.dbus.enable = true;
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-wlr
+    ];
+    wlr = {
+      enable = true;
+      settings = {
+        # uninteresting for this problem, for completeness only
+        screencast = {
+          output_name = "DP-1";
+          max_fps = 30;
+          chooser_type = "simple";
+          # chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
+        };
+      };
+    };
+  };
+
   #Configure Services
   services = {
     mysql = {

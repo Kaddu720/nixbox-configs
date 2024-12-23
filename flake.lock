@@ -948,11 +948,11 @@
         "plugins-snacks": "plugins-snacks"
       },
       "locked": {
-        "lastModified": 1734632370,
-        "narHash": "sha256-FA13Rqhzmqrf3jQBY+QRmUUsqyvY+pvmzLfmxRTxB9Y=",
+        "lastModified": 1734651636,
+        "narHash": "sha256-zGvoy5Atwu5cTT3Ilj3w6HyEyNMYSFw3AEKzWFH0dWk=",
         "owner": "Kaddu720",
         "repo": "neovim-config",
-        "rev": "1616bc07b694b9dc0217e8cc4a036a2b93c522e6",
+        "rev": "1aba2769297a5ff02338666d6440a2dacf06338c",
         "type": "github"
       },
       "original": {
