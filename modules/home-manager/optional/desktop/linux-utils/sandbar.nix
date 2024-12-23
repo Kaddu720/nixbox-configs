@@ -65,7 +65,7 @@
             }
 
             datetime() {
-            	datetime="$(date "+%a %d %b %I:%M %P")"
+            	datetime="$(date "+%a %b %d %I:%M %p")"
             }
 
             bat() {
