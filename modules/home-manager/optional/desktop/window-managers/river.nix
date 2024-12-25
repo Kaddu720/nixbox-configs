@@ -41,10 +41,11 @@
            riverctl spawn "$HOME/.config/river/bar"
 
            # Terminal
-           riverctl map normal Alt Return spawn alacritty
+           riverctl map normal Alt Return spawn "riverctl focus-output $Primary_Monitor && riverctl set-focused-tags 1 && riverctl spawn alacritty"
 
            # Browser
-           riverctl map normal Alt W spawn zen
+           riverctl map normal Alt W spawn "riverctl focus-output $Primary_Monitor && riverctl set-focused-tags 2 && riverctl spawn zen"
+
 
            # Rofi
            riverctl map normal Alt Space spawn 'rofi -show drun'
@@ -206,7 +207,6 @@
            riverctl focus-output $Primary_Monitor
            riverctl send-layout-cmd rivertile "main-location left"
            riverctl set-focused-tags 1
-
         '';
     };
 
