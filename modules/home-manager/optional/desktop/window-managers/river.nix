@@ -40,6 +40,13 @@
           riverctl spawn "$HOME/.config/river/status"
           riverctl spawn "$HOME/.config/river/bar"
 
+          # Set up caffine
+          caffeine &
+
+          # activate power star mode, and set screen to power off after 5 min
+          xset +dpms
+          xset dpms 300
+
           # Terminal
           riverctl map normal Alt Return spawn alacritty
 
