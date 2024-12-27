@@ -21,11 +21,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nvim-config = {
       url = "github:Kaddu720/neovim-config?ref=master";
     };
@@ -90,7 +85,6 @@
         pkgs = nixpkgs.legacyPackages."x86_64-linux";
         modules = [
           ./hosts/home-box/home-manager.nix
-          nixvim.homeManagerModules.nixvim
           inputs.nvim-config.homeModules.default
         ];
       };
@@ -98,7 +92,6 @@
         pkgs = nixpkgs.legacyPackages."x86_64-linux";
         modules = [
           ./hosts/mobile-box/home-manager.nix
-          nixvim.homeManagerModules.nixvim
           inputs.nvim-config.homeModules.default
         ];
       };
@@ -106,7 +99,6 @@
         pkgs = import nixpkgs {system = "aarch64-darwin";};
         modules = [
           ./hosts/work-box/home-manager.nix
-          nixvim.homeManagerModules.nixvim
           inputs.nvim-config.homeModules.default
         ];
       };
