@@ -73,22 +73,22 @@
 
                 read -r bat_status </sys/class/power_supply/BAT1/status
                 read -r bat_capacity </sys/class/power_supply/BAT1/capacity
-
+                
                 if [ "$bat_status" = "Discharging" ]; then
                   case 1 in
                     $((bat_capacity >= 75)) )
-                          bat = printf "%s%% " $bat_capacity ;;
+                          bat = "$(printf "%s%%  " $bat_capacity)" ;;
                     $((bat_capacity >= 50)) )
-                          bat = printf "%s%% " $bat_capacity ;;
+                          bat="$(printf "%s%%  " $bat_capacity)" ;;
                     $((bat_capacity >= 25)) )
-                          bat = printf "%s%% " $bat_capacity ;;
+                          bat = "$(printf "%s%%  " $bat_capacity)" ;;
                     $((bat_capacity >= 10)) )
-                          bat = printf "%s%% " $bat_capacity ;;
+                          bat = "$(printf "%s%%  " $bat_capacity)" ;;
                     * )
-                          bat = printf "%s%% " $bat_capacity ;;
+                          bat = "$(printf "%s%%  " $bat_capacity)" ;;
                   esac
                 else
-                  bat = printf "%s%%" "$bat_capacity"
+                  bat = "$(printf "%s%% " $bat_capacity)"
                 fi
               else
                 bat=""
