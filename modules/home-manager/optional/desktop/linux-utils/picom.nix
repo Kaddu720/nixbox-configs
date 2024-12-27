@@ -10,7 +10,7 @@
   };
 
   config = lib.mkIf config.picom.enable {
-    home.packages = with pkgs; [picom];
+    home.packages = [pkgs.picom];
 
     home.file = {
       ".config/picom/picom.conf".text = ''

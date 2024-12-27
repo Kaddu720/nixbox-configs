@@ -26,15 +26,21 @@
     sandbar.enable = true;
 
     # Install Packages
-    home.packages = with pkgs; [
-      caffeine-ng
-      dunst
-      feh
-      font-awesome_5
-      nerd-fonts.hack
-      nerd-fonts.jetbrains-mono
-      pavucontrol
-      xautolock
-    ];
+    home.packages = builtins.attrValues {
+      inherit
+        (pkgs)
+        caffeine-ng
+        dunst
+        feh
+        font-awesome_5
+        pavucontrol
+        xautolock
+        ;
+      inherit
+        (pkgs.nerd-fonts)
+        hack
+        jetbrains-mono
+        ;
+    };
   };
 }

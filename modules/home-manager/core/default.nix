@@ -1,4 +1,3 @@
-
 {
   lib,
   pkgs,
@@ -11,12 +10,15 @@
   git.enable =
     lib.mkDefault true;
 
-  home.packages = with pkgs; [
-    bottom
-    fzf
-    ripgrep
-    sops
-  ];
+  home.packages = builtins.attrValues {
+    inherit
+      (pkgs)
+      bottom
+      fzf
+      ripgrep
+      sops
+      ;
+  };
 
   programs = {
     thefuck.enable = true;

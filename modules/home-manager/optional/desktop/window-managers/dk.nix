@@ -6,7 +6,7 @@
 }: {
   config = lib.mkIf (config.services.desktop-config.linux.dk == true) {
     home = {
-      packages = with pkgs; [dk];
+      packages = [pkgs.dk];
       file.".config/dk/dkrc" = {
         text =
           /*

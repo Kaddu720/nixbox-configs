@@ -36,12 +36,13 @@
   kanata.enable = true;
 
   # Configure system specific packages
-  environment = {
-    systemPackages = with pkgs; [
+  environment.systemPackages = builtins.attrValues {
+    inherit
+      (pkgs)
       brightnessctl
       playerctl
       framework-tool
-    ];
+      ;
   };
 
   # Configure system specific programs

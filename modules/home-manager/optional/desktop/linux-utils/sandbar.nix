@@ -12,10 +12,13 @@
   # Docs to read when I come back to fix this: https://github.com/kolunmi/sandbar
   config = lib.mkIf config.sandbar.enable {
     home = {
-      packages = with pkgs; [
-        sandbar
-        pamixer
-      ];
+      packages = builtins.attrValues {
+        inherit
+          (pkgs)
+          sandbar
+          pamixer
+          ;
+      };
       file.".config/river/bar" = {
         text =
           /*
@@ -73,7 +76,7 @@
 
                 read -r bat_status </sys/class/power_supply/BAT1/status
                 read -r bat_capacity </sys/class/power_supply/BAT1/capacity
-                
+
                 if [ "$bat_status" = "Discharging" ]; then
                   case 1 in
                     $((bat_capacity >= 75)) )

@@ -16,16 +16,23 @@
   # Configure Environment
   environment = {
     # List packages at system level
-    systemPackages = with pkgs; [
-      beekeeper-studio
-      bluez
-      dislocker
-      libreoffice-still
-      rtkit
-      tree
-      wirelesstools
-      inputs.zen-browser.packages."x86_64-linux".default
-    ];
+    systemPackages = builtins.attrValues {
+      inherit
+        (pkgs)
+        beekeeper-studio
+        bluez
+        dislocker
+        libreoffice-still
+        rtkit
+        tree
+        wirelesstools
+        ;
+      inherit
+        (inputs.zen-browser.packages."x86_64-linux")
+        default
+        ;
+    };
+
     variables = {
       EDITOR = "nvim";
       HOME = "/home/noah";
@@ -42,8 +49,8 @@
 
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-wlr
+    extraPortals = [
+      pkgs.xdg-desktop-portal-wlr
     ];
     wlr = {
       enable = true;

@@ -27,13 +27,16 @@
   # Configure Environment
   environment = {
     # List packages at system level
-    systemPackages = with pkgs; [
-      dislocker
-      killall
-      mangohud
-      neovim
-      vlc
-      wget
-    ];
+    systemPackages = builtins.attrValues {
+      inherit
+        (pkgs)
+        dislocker
+        killall
+        mangohud
+        neovim
+        vlc
+        wget
+        ;
+    };
   };
 }

@@ -5,7 +5,7 @@
   ...
 }: {
   config = lib.mkIf (config.services.desktop-config.linux.sxhkd == true) {
-    home.packages = with pkgs; [sxhkd];
+    home.packages = [pkgs.sxhkd];
     home.file.".config/sxhkd/sxhkdrc" = {
       text = ''
         # Dk and sxhkd settings

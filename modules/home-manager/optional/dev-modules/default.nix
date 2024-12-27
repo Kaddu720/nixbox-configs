@@ -25,16 +25,22 @@
   lazygit.enable =
     lib.mkDefault true;
 
-  home.packages = with pkgs; [
-    bat
-    jq
-    nerd-fonts.hack
-    nerd-fonts.jetbrains-mono
-    # AXS / Ekiree managment modules
-    awscli2
-    docker
-    terraform
-  ];
+  home.packages = builtins.attrValues {
+    inherit
+      (pkgs)
+      bat
+      jq
+      # AXS / Ekiree managment modules
+      awscli2
+      docker
+      terraform
+      ;
+    inherit
+      (pkgs.nerd-fonts)
+      hack
+      jetbrains-mono
+      ;
+  };
 
   programs = {
     direnv = {

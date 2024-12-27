@@ -11,7 +11,7 @@
 
   config = lib.mkIf config.kanata.enable {
     hardware.uinput.enable = true;
-    environment.systemPackages = with pkgs; [kanata];
+    environment.systemPackages = [pkgs.kanata];
 
     services.kanata = {
       enable = true;

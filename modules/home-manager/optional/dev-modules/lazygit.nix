@@ -10,7 +10,7 @@
   };
 
   config = lib.mkIf config.lazygit.enable {
-    home.packages = with pkgs; [lazygit];
+    home.packages = [pkgs.lazygit];
 
     home.file = {
       ".config/lazygit/config.yml".text =

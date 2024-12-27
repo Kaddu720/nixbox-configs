@@ -16,18 +16,19 @@
   nvim.enable = true;
 
   # Install Packages
-  home.packages = with pkgs; [
-    discord
-    firefox
-    flameshot
-    obsidian
-    pavucontrol
-    swaylock
-    zoom-us
-    river
-  ];
-
-  # Wayland
+  home.packages = builtins.attrValues {
+    inherit
+      (pkgs)
+      discord
+      firefox
+      flameshot
+      obsidian
+      pavucontrol
+      swaylock
+      zoom-us
+      river
+      ;
+  };
 
   # Imported Optional Modules
   services.desktop-config = {

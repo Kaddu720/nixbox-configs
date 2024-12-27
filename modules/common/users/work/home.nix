@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   # Import nix modules
 
   home = {
@@ -19,12 +16,17 @@
   nvim.enable = true;
 
   # Install Packages
-  home.packages = with pkgs; [
-    #(nerdfonts.override {fonts = ["Hack"];})
-    nerd-fonts.hack
-    nerd-fonts.jetbrains-mono
-    obsidian
-  ];
+  home.packages = builtins.attrValues {
+    inherit
+      (pkgs)
+      obsidian
+      ;
+    inherit
+      (pkgs.nerd-fonts)
+      hack
+      jetbrains-mono
+      ;
+  };
 
   # Imported Optional Modules
   services.desktop-config = {

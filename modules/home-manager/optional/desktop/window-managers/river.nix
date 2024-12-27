@@ -5,8 +5,8 @@
   ...
 }: {
   config = lib.mkIf (config.services.desktop-config.linux.river == true) {
-    home.packages = with pkgs; [
-      swaybg
+    home.packages = [
+      pkgs.swaybg
     ];
 
     wayland.windowManager.river = {

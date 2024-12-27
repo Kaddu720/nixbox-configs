@@ -9,9 +9,7 @@
       lib.mkEnableOption "enables dunst";
   };
   config = lib.mkIf config.dunst.enable {
-    home.packages = with pkgs; [
-      dunst
-    ];
+    home.packages = [pkgs.dunst];
 
     home.file = {
       ".config/dunst/dunstrc".text = ''

@@ -10,7 +10,7 @@
   };
 
   config = lib.mkIf config.tmux.enable {
-    home.packages = with pkgs; [tmuxp];
+    home.packages = [pkgs.tmuxp];
 
     programs.tmux = {
       enable = true;
@@ -22,10 +22,13 @@
       terminal = "alacritty";
       sensibleOnTop = false;
 
-      plugins = with pkgs.tmuxPlugins; [
-        vim-tmux-navigator
-        yank
-      ];
+      plugins = builtins.attrValues {
+        inherit
+          (pkgs.tmuxPlugins)
+          vim-tmux-navigator
+          yank
+          ;
+      };
       extraConfig = ''
         #True color settings
         set -g default-terminal "$TERM"
