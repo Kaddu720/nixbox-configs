@@ -43,7 +43,6 @@
     determinate,
     home-manager,
     darwin,
-    nixvim,
     ...
   } @ inputs: {
     # Host Configs
