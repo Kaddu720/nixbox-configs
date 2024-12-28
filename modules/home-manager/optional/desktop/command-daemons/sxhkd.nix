@@ -41,7 +41,7 @@
 
         # terminal
         alt + Return
-            alacritty
+            ghostty
 
         # browser
         alt + w

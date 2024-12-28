@@ -63,6 +63,7 @@
     casks = [
       "nikitabobko/tap/aerospace"
       "hiddenbar"
+      "ghostty"
       "gpg-suite"
       "raycast"
       "redisinsight"
