@@ -13,7 +13,7 @@
   home.packages = builtins.attrValues {
     inherit
       (pkgs)
-      bottom
+      btop
       fzf
       ripgrep
       sops
