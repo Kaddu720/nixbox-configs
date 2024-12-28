@@ -49,8 +49,8 @@
 
         #Left status bar
         set -g status-left "#[fg=#26233a,bold,bg=#ebbcba] #S #[fg=#ebbcba,bg=#191724] "
-        set -g window-status-current-format '#[fg=#ebbcba]#I:#W'
-        set -g window-status-format '#[fg=#908caa]#I:#W'
+        set -g window-status-current-format '#[fg=#ebbcba,bg=#191724]#I:#W'
+        set -g window-status-format '#[fg=#908caa,bg=#191724]#I:#W'
         set -g window-status-separator " "
 
         #Right status bar
