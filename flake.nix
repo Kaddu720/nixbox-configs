@@ -21,6 +21,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+    };
+
     nvim-config = {
       url = "github:Kaddu720/neovim-config?ref=master";
     };
@@ -36,6 +40,8 @@
       url = "github:AdnanHodzic/auto-cpufreq";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    stylix.url = "github:danth/stylix";
   };
 
   outputs = {
@@ -43,6 +49,7 @@
     determinate,
     home-manager,
     darwin,
+    ghostty,
     ...
   } @ inputs: {
     # Host Configs
@@ -53,6 +60,7 @@
         modules = [
           ./hosts/home-box/configuration.nix
           determinate.nixosModules.default
+          inputs.stylix.nixosModules.stylix
         ];
       };
       Mobile-Box = nixpkgs.lib.nixosSystem {
@@ -63,6 +71,7 @@
           determinate.nixosModules.default
           inputs.nixos-hardware.nixosModules.framework-12th-gen-intel
           inputs.auto-cpufreq.nixosModules.default
+          inputs.stylix.nixosModules.stylix
         ];
       };
     };
@@ -74,6 +83,7 @@
           ./hosts/work-box/configuration.nix
           determinate.darwinModules.default
           inputs.nix-homebrew.darwinModules.nix-homebrew
+          inputs.stylix.nixosModules.stylix
         ];
       };
     };
@@ -85,6 +95,7 @@
         modules = [
           ./hosts/home-box/home-manager.nix
           inputs.nvim-config.homeModules.default
+          {home.packages = [ghostty.packages.x86_64-linux.default];}
         ];
       };
       Mobile-Box = home-manager.lib.homeManagerConfiguration {
@@ -92,6 +103,7 @@
         modules = [
           ./hosts/mobile-box/home-manager.nix
           inputs.nvim-config.homeModules.default
+          {home.packages = [ghostty.packages.x86_64-linux.default];}
         ];
       };
       Work-Box = home-manager.lib.homeManagerConfiguration {

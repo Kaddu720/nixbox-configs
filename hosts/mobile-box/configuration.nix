@@ -11,6 +11,7 @@
     ../../modules/common/users/noah/nixos.nix
     ../../modules/nixos/core
     ../../modules/nixos/optional
+    ../../modules/common/static/stylix.nix
   ];
 
   boot = {
