@@ -7,6 +7,7 @@
     ./alacritty.nix
     ./tmux.nix
     ./fish.nix
+    ./ghostty.nix
     ./nushell.nix
     ./starship.nix
     ./lazygit.nix
@@ -17,6 +18,8 @@
   tmux.enable =
     lib.mkDefault true;
   fish.enable =
+    lib.mkDefault true;
+  ghostty.enable =
     lib.mkDefault true;
   nushell.enable =
     lib.mkDefault true;

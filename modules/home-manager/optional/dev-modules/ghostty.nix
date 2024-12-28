@@ -15,12 +15,9 @@
       text = ''
         # Shell
         command = ${pkgs.fish}/bin/fish
+        shell-integration = fish
 
         # Fonts
-        font-family = "JetBrainsMono Nerd Font Mono"
-        font-family-bold = "JetBrainsMono NFM Bold"
-        font-family-italic = "JetBrainsMono NFM Italic"
-        font-family-bold-italic = "JetBrainsMono NFM Bold Italic"
         font-size = 12
 
         # Padding
@@ -31,6 +28,9 @@
         window-decoration = false
         gtk-tabs-location = hidden
         macos-titlebar-style = hidden
+
+        # Background Color
+        background = #191724
 
         # Opacirty
         background-opacity = 0.8

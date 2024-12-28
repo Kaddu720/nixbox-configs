@@ -48,7 +48,7 @@
           xset dpms 300
 
           # Terminal
-          riverctl map normal Alt Return spawn alacritty
+          riverctl map normal Alt Return spawn ghostty
 
           # Browser
           riverctl map normal Alt W spawn zen
