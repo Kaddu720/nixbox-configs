@@ -1,6 +1,7 @@
 {...}: {
   stylix = {
     enable = true;
+    image = ./dark_fractal.jpg;
     base16Scheme = {
       base00 = "#191724";
       base01 = "#aa7264";
@@ -20,6 +21,4 @@
       base0F = "#c7c4c4";
     };
   };
-
-  stylix.image = ./dark_fractal.jpg;
 }

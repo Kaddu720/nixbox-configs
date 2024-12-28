@@ -1,5 +1,11 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  ...
+}: {
   # Import nix modules
+  imports = [
+    ../../static/stylix.nix
+  ];
 
   home = {
     username = "noah";

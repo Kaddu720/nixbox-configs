@@ -103,6 +103,7 @@
         modules = [
           ./hosts/mobile-box/home-manager.nix
           inputs.nvim-config.homeModules.default
+          inputs.stylix.homeManagerModules.stylix
           {home.packages = [ghostty.packages.x86_64-linux.default];}
         ];
       };
