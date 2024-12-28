@@ -91,7 +91,7 @@
                           bat="$(printf "%s%%  " $bat_capacity)" ;;
                   esac
                 else
-                  bat = "$(printf "%s%% " $bat_capacity)"
+                  bat="$(printf "%s%% " $bat_capacity)"
                 fi
               else
                 bat=""
