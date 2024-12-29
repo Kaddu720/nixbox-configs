@@ -31,6 +31,9 @@
 
         # Background Color
         background = #191724
+        
+        # Prompt
+        cursor-style = block
 
         # Opacirty
         background-opacity = 0.8
