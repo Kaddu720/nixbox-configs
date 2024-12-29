@@ -34,7 +34,7 @@
       bat
       jq
       # AXS / Ekiree managment modules
-      awscli2
+      # awscli2
       docker
       terraform
       ;
