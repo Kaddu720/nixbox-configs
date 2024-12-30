@@ -31,16 +31,16 @@
           # blur = true;
         };
 
-        font = {
-          size =
-            if "${config.home.username}" == "noahwilson"
-            then 18
-            else 12;
-          # normal = {
-          #   family = "JetBrainsMono Nerd Font Mono";
-          #   style = "Regular";
-          # };
-        };
+        # font = {
+        #   size =
+        #     if "${config.home.username}" == "noahwilson"
+        #     then 18
+        #     else 12;
+        #   # normal = {
+        #   #   family = "JetBrainsMono Nerd Font Mono";
+        #   #   style = "Regular";
+        #   # };
+        # };
       };
     };
   };

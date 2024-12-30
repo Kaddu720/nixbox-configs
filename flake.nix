@@ -83,7 +83,6 @@
           ./hosts/work-box/configuration.nix
           determinate.darwinModules.default
           inputs.nix-homebrew.darwinModules.nix-homebrew
-          inputs.stylix.nixosModules.stylix
         ];
       };
     };
@@ -95,6 +94,7 @@
         modules = [
           ./hosts/home-box/home-manager.nix
           inputs.nvim-config.homeModules.default
+          inputs.stylix.homeManagerModules.stylix
           {home.packages = [ghostty.packages.x86_64-linux.default];}
         ];
       };
@@ -111,6 +111,7 @@
         pkgs = import nixpkgs {system = "aarch64-darwin";};
         modules = [
           ./hosts/work-box/home-manager.nix
+          inputs.stylix.homeManagerModules.stylix
           inputs.nvim-config.homeModules.default
         ];
       };

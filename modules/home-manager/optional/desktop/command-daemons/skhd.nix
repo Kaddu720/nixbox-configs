@@ -7,7 +7,7 @@
     home.file.".config/skhd/skhdrc" = {
       text = ''
         # open terminal
-        alt - return : alacritty
+        alt - return : ghostty
 
         # open brower
         alt - w : open -n -a "Zen Browser"
