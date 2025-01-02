@@ -961,11 +961,11 @@
         "plugins-snacks": "plugins-snacks"
       },
       "locked": {
-        "lastModified": 1735589608,
-        "narHash": "sha256-d7GY259TydEwXatQ5VSsQUK4XUnCdIN0u5ilJVCo41c=",
+        "lastModified": 1735786192,
+        "narHash": "sha256-tV+t7IU6x9B6AE8E6Ay4GzBXZ2XM5s19hgaIhxUckec=",
         "owner": "Kaddu720",
         "repo": "neovim-config",
-        "rev": "aedb09cb54a713d54c6053960cb7297cc535d981",
+        "rev": "6a23db6252de2531998030d594b7d2cbf3ee2467",
         "type": "github"
       },
       "original": {
