@@ -36,8 +36,8 @@
         cursor-style = block
 
         # Opacirty
-        background-opacity = 0.8
-        background-blur-radius = 20
+        # background-opacity = 0.8
+        # background-blur-radius = 20
 
         # Hid mouse while typing
         mouse-hide-while-typing = true
