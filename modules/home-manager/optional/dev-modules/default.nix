@@ -33,6 +33,7 @@
       (pkgs)
       bat
       jq
+      yazi
       # AXS / Ekiree managment modules
       # awscli2
       docker

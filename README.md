@@ -85,3 +85,9 @@ I usually assume that I have a second monitor for communication or entertainment
 
 ### Ctl: Application level navigation
 ### Ctl + Shift: Application level unit movement
+
+### Themeing
+To theme zenbrowser: https://github.com/rose-pine/zen-browser/tree/main
+To them vesktop: 
+    - go to settings -> vencord -> themes -> Online Themes
+    - insert the following theme: https://raw.githubusercontent.com/rose-pine/discord/refs/heads/main/rose-pine.theme.css

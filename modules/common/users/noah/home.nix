@@ -33,7 +33,6 @@
       zoom-us
       river
       wl-clipboard
-      yazi
       grimblast # wayland screenshots
       vesktop # linux discord client
       ;

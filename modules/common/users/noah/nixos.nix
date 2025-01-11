@@ -36,6 +36,7 @@
     variables = {
       EDITOR = "nvim";
       HOME = "/home/noah";
+      TERMINAL = "alacritty";
     };
   };
 
