@@ -10,8 +10,7 @@
 
   config = lib.mkIf config.zen-browser.enable {
     home.file = {
-      "~/.zen/x1nm9cs7.Default Profile/chrome/userChrome.css" = {
-        executable = true;
+      ".zen/x1nm9cs7.Default Profile/chrome/userChrome.css" = {
         text =
           /*
           css
@@ -104,6 +103,32 @@
 
             #urlbar-background {
               border: 1px solid var(--overlay) !important;
+            }
+          '';
+      };
+
+      ".zen/x1nm9cs7.Default Profile/chrome/rose-pine-main.css" = {
+        text =
+          /*
+          css
+          */
+          ''
+            * {
+              --base:           #191724;
+              --surface:        #1f1d2e;
+              --overlay:        #26233a;
+              --muted:          #6e6a86;
+              --subtle:         #908caa;
+              --text:           #e0def4;
+              --love:           #eb6f92;
+              --gold:           #f6c177;
+              --rose:           #ebbcba;
+              --pine:           #31748f;
+              --foam:           #9ccfd8;
+              --iris:           #c4a7e7;
+              --highlightLow:   #21202e;
+              --highlightMed:   #403d52;
+              --highlightHigh:  #524f67;
             }
           '';
       };

@@ -41,6 +41,9 @@
     inputs.ghostty.packages.x86_64-linux.default
   ];
 
+  # Application Customization
+  zen-browser.enable = true;
+
   # Imported Optional Modules
   services.desktop-config = {
     enable = true;
