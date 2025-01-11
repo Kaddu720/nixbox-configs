@@ -1,8 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.noah = {
     isNormalUser = true;
@@ -16,23 +12,15 @@
   # Configure Environment
   environment = {
     # List packages at system level
-    systemPackages = builtins.attrValues {
-      inherit
-        (pkgs)
-        beekeeper-studio
-        bluez
-        dislocker
-        libreoffice-still
-        rtkit
-        tree
-        wirelesstools
-        ;
-      inherit
-        (inputs.zen-browser.packages."x86_64-linux")
-        default
-        ;
-    };
-
+    systemPackages = with pkgs; [
+      beekeeper-studio
+      bluez
+      dislocker
+      libreoffice-still
+      rtkit
+      tree
+      wirelesstools
+    ];
     variables = {
       EDITOR = "nvim";
       HOME = "/home/noah";

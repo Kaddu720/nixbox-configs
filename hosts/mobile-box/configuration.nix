@@ -37,14 +37,11 @@
   kanata.enable = true;
 
   # Configure system specific packages
-  environment.systemPackages = builtins.attrValues {
-    inherit
-      (pkgs)
-      brightnessctl
-      playerctl
-      framework-tool
-      ;
-  };
+  environment.systemPackages = with pkgs; [
+    brightnessctl
+    playerctl
+    framework-tool
+  ];
 
   # Configure system specific programs
   programs.auto-cpufreq = {

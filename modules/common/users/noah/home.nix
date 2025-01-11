@@ -1,10 +1,12 @@
 {
   pkgs,
+  inputs,
   ...
 }: {
   # Import nix modules
   imports = [
     ../../static/stylix.nix
+    ../../../home-manager/optional/applications/zen-browser.nix
   ];
 
   home = {
@@ -22,21 +24,22 @@
   nvim.enable = true;
 
   # Install Packages
-  home.packages = builtins.attrValues {
-    inherit
-      (pkgs)
-      firefox
-      flameshot # work in xord
-      obsidian
-      pavucontrol
-      swaylock
-      zoom-us
-      river
-      wl-clipboard
-      grimblast # wayland screenshots
-      vesktop # linux discord client
-      ;
-  };
+  home.packages = with pkgs; [
+    firefox
+    flameshot
+    obsidian
+    pavucontrol
+    swaylock
+    zoom-us
+    river
+    wl-clipboard
+    grimblast # wayland screenshots
+    vesktop # linux discord client
+
+    # flake  inputs
+    inputs.zen-browser.packages."x86_64-linux".default
+    inputs.ghostty.packages.x86_64-linux.default
+  ];
 
   # Imported Optional Modules
   services.desktop-config = {

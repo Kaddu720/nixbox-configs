@@ -19,17 +19,11 @@
   nvim.enable = true;
 
   # Install Packages
-  home.packages = builtins.attrValues {
-    inherit
-      (pkgs)
-      obsidian
-      ;
-    inherit
-      (pkgs.nerd-fonts)
-      hack
-      jetbrains-mono
-      ;
-  };
+  home.packages = with pkgs; [
+    obsidian
+    nerd-fonts.hack
+    nerd-fonts.jetbrains-mono
+  ];
 
   # Imported Optional Modules
   services.desktop-config = {

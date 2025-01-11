@@ -91,24 +91,25 @@
     homeConfigurations = {
       Home-Box = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."x86_64-linux";
+        extraSpecialArgs = {inherit inputs;};
         modules = [
           ./hosts/home-box/home-manager.nix
           inputs.nvim-config.homeModules.default
           inputs.stylix.homeManagerModules.stylix
-          {home.packages = [ghostty.packages.x86_64-linux.default];}
         ];
       };
       Mobile-Box = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."x86_64-linux";
+        extraSpecialArgs = {inherit inputs;};
         modules = [
           ./hosts/mobile-box/home-manager.nix
           inputs.nvim-config.homeModules.default
           inputs.stylix.homeManagerModules.stylix
-          {home.packages = [ghostty.packages.x86_64-linux.default];}
         ];
       };
       Work-Box = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {system = "aarch64-darwin";};
+        extraSpecialArgs = {inherit inputs;};
         modules = [
           ./hosts/work-box/home-manager.nix
           inputs.stylix.homeManagerModules.stylix
