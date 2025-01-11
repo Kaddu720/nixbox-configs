@@ -188,8 +188,8 @@
           riverctl rule-add -app-id 'zen-beta' tags 2
           riverctl rule-add -app-id 'zen-beta' output $Primary_Monitor
 
-          riverctl rule-add -app-id 'discord' tags 8
-          riverctl rule-add -app-id 'discord' output $Seconday_Monitor
+          riverctl rule-add -app-id 'vesktop' tags 8
+          riverctl rule-add -app-id 'vesktop' output $Seconday_Monitor
 
           # Make all views with an app-id that starts with "float" and title "foo" start floating.
           riverctl rule-add -app-id 'float*' -title 'foo' float
@@ -207,7 +207,7 @@
           riverctl focus-output $Seconday_Monitor
           riverctl send-layout-cmd rivertile "main-location right"
           riverctl set-focused-tags 8
-          riverctl spawn "discord"
+          riverctl spawn "vesktop"
 
           # Configure Primary_Monitor
           riverctl focus-output $Primary_Monitor

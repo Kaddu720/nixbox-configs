@@ -25,14 +25,17 @@
   home.packages = builtins.attrValues {
     inherit
       (pkgs)
-      discord
       firefox
-      flameshot
+      flameshot # work in xord
       obsidian
       pavucontrol
       swaylock
       zoom-us
       river
+      wl-clipboard
+      yazi
+      grimblast # wayland screenshots
+      vesktop # linux discord client
       ;
   };
 
