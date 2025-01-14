@@ -93,6 +93,11 @@
 
           # All possible commands: https://nikitabobko.github.io/AeroSpace/commands
 
+          # launch applications
+          # See: https://nikitabobko.github.io/AeroSpace/goodies#open-a-new-window-with-applescript
+          alt-enter = "exec-and-forget open -n -a 'ghostty'"
+          alt-w = "exec-and-forget open -n -a 'Zen Browser'"
+
           # See: https://nikitabobko.github.io/AeroSpace/commands#layout
           alt-slash = 'layout tiles horizontal vertical'
 

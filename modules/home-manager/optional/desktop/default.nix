@@ -4,7 +4,6 @@ with lib; {
     ./window-managers/aerospace.nix
     ./window-managers/dk.nix
     ./window-managers/river.nix
-    ./command-daemons/skhd.nix
     ./command-daemons/sxhkd.nix
     ./linux-utils
   ];
@@ -40,11 +39,6 @@ with lib; {
         type = types.bool;
         default = false;
         description = "Enable aerospace window manager for Mac";
-      };
-      skhd = mkOption {
-        type = types.bool;
-        default = false;
-        description = "Enable skhd command daemon for Mac";
       };
     };
   };

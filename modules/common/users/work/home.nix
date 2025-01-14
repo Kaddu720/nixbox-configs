@@ -30,7 +30,6 @@
     enable = true;
     mac = {
       aerospace = true;
-      skhd = true;
     };
   };
 
