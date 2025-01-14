@@ -3,7 +3,12 @@
   lib,
   config,
   ...
-}: {
+}: let
+  font-size =
+    if "${config.home.username}" == "noahwilson"
+    then "18"
+    else "12";
+in {
   options = {
     ghostty.enable =
       lib.mkEnableOption "enables ghostty";
@@ -18,7 +23,7 @@
         shell-integration = fish
 
         # Fonts
-        font-size = 12
+        font-size = ${font-size}
 
         # Padding
         window-padding-x = 10
@@ -31,7 +36,7 @@
 
         # Background Color
         background = #191724
-        
+
         # Prompt
         cursor-style = block
 
