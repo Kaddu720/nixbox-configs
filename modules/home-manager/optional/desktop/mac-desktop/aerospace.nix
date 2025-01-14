@@ -2,8 +2,15 @@
   lib,
   config,
   ...
+
 }: {
-  config = lib.mkIf (config.services.desktop-config.mac.aerospace == true) {
+  options = {
+    aerospace.enable =
+      lib.mkEnableOption "enables aerospace";
+  };
+
+  # Docs to read when I come back to fix this: https://github.com/kolunmi/aerospace
+  config = lib.mkIf config.aerospace.enable {
     home.file.".config/aerospace/aerospace.toml" = {
       text =
         /*

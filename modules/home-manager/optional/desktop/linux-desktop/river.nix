@@ -4,7 +4,13 @@
   config,
   ...
 }: {
-  config = lib.mkIf (config.services.desktop-config.linux.river == true) {
+  options = {
+    river.enable =
+      lib.mkEnableOption "enables river";
+  };
+
+  # Docs to read when I come back to fix this: https://github.com/kolunmi/river
+  config = lib.mkIf config.river.enable {
     home.packages = [
       pkgs.swaybg
     ];

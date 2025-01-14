@@ -28,9 +28,7 @@
   # Imported Optional Modules
   services.desktop-config = {
     enable = true;
-    mac = {
-      aerospace = true;
-    };
+    macDesktop = true;
   };
 
   # Standard Modules

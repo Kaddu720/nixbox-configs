@@ -47,11 +47,6 @@
   # Imported Optional Modules
   services.desktop-config = {
     enable = true;
-    linux = {
-      dk = true;
-      sxhkd = true;
-      river = true;
-      linuxUtils = true;
-    };
+    linuxDesktop = true;
   };
 }

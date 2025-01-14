@@ -13,9 +13,10 @@
     ./rofi.nix
     ./gtk-theme.nix
     ./sandbar.nix
+    ./river.nix
   ];
 
-  config = lib.mkIf (config.services.desktop-config.linux.linuxUtils == true) {
+  config = lib.mkIf (config.services.desktop-config.linuxDesktop == true) {
     dunst.enable = true;
     helper-scripts.enable = true;
     xinitrc.enable = true;
@@ -24,6 +25,7 @@
     rofi.enable = true;
     gtk-theme.enable = true;
     sandbar.enable = true;
+    river.enable = true;
 
     # Install Packages
     home.packages = builtins.attrValues {
