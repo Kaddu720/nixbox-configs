@@ -1011,11 +1011,11 @@
         "plugins-snacks": "plugins-snacks"
       },
       "locked": {
-        "lastModified": 1735786192,
-        "narHash": "sha256-tV+t7IU6x9B6AE8E6Ay4GzBXZ2XM5s19hgaIhxUckec=",
+        "lastModified": 1736896579,
+        "narHash": "sha256-KCwPlVQUVVXXECdLN0Dam8smAx56ywf90sjkL5qc138=",
         "owner": "Kaddu720",
         "repo": "neovim-config",
-        "rev": "6a23db6252de2531998030d594b7d2cbf3ee2467",
+        "rev": "27a6adf8e6828054fc267566e0bed3733e1907b0",
         "type": "github"
       },
       "original": {
