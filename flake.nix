@@ -49,7 +49,6 @@
     determinate,
     home-manager,
     darwin,
-    ghostty,
     ...
   } @ inputs: {
     # Host Configs
