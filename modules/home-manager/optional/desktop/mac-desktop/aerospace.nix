@@ -2,7 +2,6 @@
   lib,
   config,
   ...
-
 }: {
   options = {
     aerospace.enable =
@@ -37,7 +36,7 @@
           # See: https://nikitabobko.github.io/AeroSpace/guide#layouts
           # The 'accordion-padding' specifies the size of accordion padding
           # You can set 0 to disable the padding feature
-          accordion-padding = 30
+          accordion-padding = 0
 
           # Possible values: tiles|accordion
           default-root-container-layout = 'tiles'
@@ -105,9 +104,6 @@
           alt-enter = "exec-and-forget open -n -a 'ghostty'"
           alt-w = "exec-and-forget open -n -a 'Zen Browser'"
 
-          # See: https://nikitabobko.github.io/AeroSpace/commands#layout
-          alt-slash = 'layout tiles horizontal vertical'
-
           # See: https://nikitabobko.github.io/AeroSpace/commands#focus
           alt-h = 'focus left'
           alt-j = 'focus down'
@@ -120,10 +116,6 @@
           alt-shift-k = 'move up'
           alt-shift-l = 'move right'
 
-          # See: https://nikitabobko.github.io/AeroSpace/commands#resize
-          alt-shift-minus = 'resize smart -50'
-          alt-shift-equal = 'resize smart +50'
-
           # Close Window
           alt-shift-q = 'close'
 
@@ -131,7 +123,6 @@
           alt-1 = 'workspace dev'
           alt-2 = 'workspace web'
           alt-3 = 'workspace 3'
-          alt-4 = 'workspace 4'
 
           cmd-1 = 'workspace com'
           cmd-2 = "workspace doc"
@@ -140,7 +131,6 @@
           alt-shift-1 = 'move-node-to-workspace dev'
           alt-shift-2 = 'move-node-to-workspace web'
           alt-shift-3 = 'move-node-to-workspace 3'
-          alt-shift-4 = 'move-node-to-workspace 4'
 
           cmd-shift-1 = 'move-node-to-workspace com'
           cmd-shift-2 = 'move-node-to-workspace doc'
@@ -150,13 +140,10 @@
           alt-ctrl-1 = ['move-node-to-workspace dev', 'workspace dev']
           alt-ctrl-2 = ['move-node-to-workspace web', 'workspace web']
           alt-ctrl-3 = ['move-node-to-workspace 3', 'workspace 3']
-          alt-ctrl-4 = ['move-node-to-workspace 4', 'workspace 4']
 
           cmd-ctrl-1 = ['move-node-to-workspace com', 'workspace com']
           cmd-ctrl-2 = ['move-node-to-workspace doc', 'workspace doc']
 
-          # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
-          alt-tab = 'workspace-back-and-forth'
           # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-monitor
           alt-shift-period = 'move-node-to-monitor --wrap-around --focus-follows-window  next'
           alt-shift-comma = 'move-node-to-monitor --wrap-around --focus-follows-window prev'
@@ -168,17 +155,7 @@
           # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
           [mode.service.binding]
           esc = ['reload-config', 'mode main']
-          r = ['flatten-workspace-tree', 'mode main'] # reset layout
-          f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
           backspace = ['close-all-windows-but-current', 'mode main']
-
-          # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
-          #s = ['layout sticky tiling', 'mode main']
-
-          alt-shift-h = ['join-with left', 'mode main']
-          alt-shift-j = ['join-with down', 'mode main']
-          alt-shift-k = ['join-with up', 'mode main']
-          alt-shift-l = ['join-with right', 'mode main']
 
           [[on-window-detected]]
           if.app-name-regex-substring = 'ghostty'
@@ -208,6 +185,7 @@
           [workspace-to-monitor-force-assignment]
           dev = ['built-in', 'BenQ', 'VG27A']
           web = ['built-in', 'BenQ', 'VG27A']
+          3 = ['built-in', 'BenQ', 'VG27A']
           com = ['built-in', 'HP', 'VG279QR']
           doc = ['built-in', 'HP', 'VG279QR']
         '';
