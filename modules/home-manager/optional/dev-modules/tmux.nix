@@ -140,6 +140,7 @@
             focus: true
             panes:
               - shell_command:
+                - cd ~/Second_Brain
                 - nvim ~/Second_Brain
 
           - window_name: nvim
