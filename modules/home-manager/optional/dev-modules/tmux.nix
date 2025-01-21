@@ -141,7 +141,7 @@
             panes:
               - shell_command:
                 - cd ~/Second_Brain
-                - nvim ~/Second_Brain
+                - nvim 
 
           - window_name: nvim
             panes:
