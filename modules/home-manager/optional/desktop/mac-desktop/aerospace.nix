@@ -25,7 +25,6 @@
           # 'after-startup-command' is run after 'after-login-command'
           # Available commands : https://nikitabobko.github.io/AeroSpace/commands
           after-startup-command = [
-            exec-and-forget open -n -a "raycast"
             exec-and-forget open -n -a "Hidden Bar"
           ]
 
