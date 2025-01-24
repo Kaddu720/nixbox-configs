@@ -46,6 +46,9 @@
           riverctl spawn "$HOME/.config/river/status"
           riverctl spawn "$HOME/.config/river/bar"
 
+          #Activate dunst
+          dunst &
+
           # Set up caffine
           caffeine &
 

@@ -7,25 +7,21 @@
   imports = [
     ./dunst.nix
     ./helper-scripts.nix
-    ./xinitrc.nix
-    ./polybar.nix
-    ./picom.nix
+    ./river.nix
     ./rofi.nix
     ./gtk-theme.nix
     ./sandbar.nix
-    ./river.nix
+    ./swayidle.nix
   ];
 
   config = lib.mkIf (config.services.desktop-config.linuxDesktop == true) {
     dunst.enable = true;
     helper-scripts.enable = true;
-    xinitrc.enable = true;
-    polybar.enable = true;
-    picom.enable = true;
+    river.enable = true;
     rofi.enable = true;
     gtk-theme.enable = true;
     sandbar.enable = true;
-    river.enable = true;
+    swayidle.enable = true;
 
     # Install Packages
     home.packages = builtins.attrValues {
