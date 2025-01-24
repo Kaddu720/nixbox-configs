@@ -32,6 +32,7 @@ in {
         # Hide title bars
         window-decoration = false
         gtk-tabs-location = hidden
+        gtk-titlebar = false
         macos-titlebar-style = hidden
 
         # Background Color
