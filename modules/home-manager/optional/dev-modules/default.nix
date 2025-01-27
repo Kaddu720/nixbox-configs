@@ -10,7 +10,6 @@
     ./ghostty.nix
     ./nushell.nix
     ./starship.nix
-    ./lazygit.nix
   ];
 
   alacritty.enable =
@@ -25,26 +24,20 @@
     lib.mkDefault true;
   starship.enable =
     lib.mkDefault true;
-  lazygit.enable =
-    lib.mkDefault true;
 
-  home.packages = builtins.attrValues {
-    inherit
-      (pkgs)
-      bat
-      jq
-      yazi
-      # AXS / Ekiree managment modules
-      # awscli2
-      docker
-      terraform
-      ;
-    inherit
-      (pkgs.nerd-fonts)
-      hack
-      jetbrains-mono
-      ;
-  };
+  home.packages = with pkgs; [
+    bat
+    lazygit
+    lazydocker
+    jq
+    yazi
+    # AXS / Ekiree managment modules
+    # awscli2
+    docker
+    terraform
+    nerd-fonts.hack
+    nerd-fonts.jetbrains-mono
+  ];
 
   programs = {
     direnv = {
