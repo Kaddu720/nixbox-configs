@@ -32,8 +32,9 @@
     jq
     yazi
     # AXS / Ekiree managment modules
-    # awscli2
+    awscli2
     docker
+    kubectl
     terraform
     nerd-fonts.hack
     nerd-fonts.jetbrains-mono
