@@ -20,6 +20,7 @@
       rtkit
       tree
       wirelesstools
+      xdg-desktop-portal-wlr # enable screen sharing for river wm
     ];
     variables = {
       EDITOR = "nvim";
