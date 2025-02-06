@@ -1001,11 +1001,11 @@
         "plugins-ecolog": "plugins-ecolog"
       },
       "locked": {
-        "lastModified": 1738622230,
-        "narHash": "sha256-bvZcGg9MfETZYjatbcHZuACy2Y4xmSGtVzRNz/QT9dg=",
+        "lastModified": 1738704338,
+        "narHash": "sha256-LXMzBcgBCWzyFUXhlpwsBSmS4S6AG/gm4sJZdwavqKU=",
         "owner": "Kaddu720",
         "repo": "neovim-config",
-        "rev": "8e3cebca9eac256a1149cbd40ee8dd588ed58c23",
+        "rev": "afc58806d7479dd9dee369967b292bf02fd3fd27",
         "type": "github"
       },
       "original": {
