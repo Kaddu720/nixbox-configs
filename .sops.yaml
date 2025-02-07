@@ -1,9 +1,0 @@
-keys:
-  - &home-box age104sg5rshh030u3673f32qdkultgp9xr6qz9l6558u9frrzscl4qqacuau4
-  - &work-box age1hucqc43fyjxcj7uj7prugfjw0nsf9zcwpqjk0mcnmjnp2ndaspmqjj623d
-creation_rules:
-  - path_regex: secrets.yaml$
-    key_groups:
-      - age:
-        - *home-box
-        - *work-box
