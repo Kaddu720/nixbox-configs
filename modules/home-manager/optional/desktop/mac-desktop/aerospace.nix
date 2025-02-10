@@ -24,9 +24,9 @@
           # You can use it to add commands that run after AeroSpace startup.
           # 'after-startup-command' is run after 'after-login-command'
           # Available commands : https://nikitabobko.github.io/AeroSpace/commands
-          after-startup-command = [
-            exec-and-forget open -n -a "Hidden Bar"
-          ]
+          # after-startup-command = [
+          #   exec-and-forget open -n -a "Hidden Bar"
+          # ]
 
             # Start AeroSpace at login
             start-at-login = true
@@ -185,11 +185,11 @@
 
 
             [workspace-to-monitor-force-assignment]
-            dev = ['built-in', 'BenQ', 'VG27A']
-            web = ['built-in', 'BenQ', 'VG27A']
-            3 = ['built-in', 'BenQ', 'VG27A']
-            com = ['built-in', 'HP', 'VG279QR']
-            doc = ['built-in', 'HP', 'VG279QR']
+            dev = ['built-in', 'BenQ EX2710Q', 'VG27A']
+            web = ['built-in', 'BenQ EX2710Q', 'VG27A']
+            3 = ['built-in', 'BenQ EX2710Q', 'VG27A']
+            com = ['built-in', 'BenQ GW2491', 'VG279QR']
+            doc = ['built-in', 'BenQ GW2491', 'VG279QR']
         '';
     };
   };
