@@ -239,6 +239,11 @@
         profile Mobile-Box {
           output eDP-1 mode 2256x1504@59.999001Hz
         }
+        profile Movie-Night {
+          output DP-1 mode 2560x1440@165Hz position 1920,0 adaptive_sync on
+          output DP-2 mode 1920x1080@60Hz position 0,0
+          output HDMI-A-1 mode 3840x2160@60.000000Hz
+        }
       '';
     };
   };
