@@ -10,6 +10,9 @@
   programs.ssh = {
     enable = true;
     addKeysToAgent = "yes";
+    extraOptionOverrides = {
+      SetEnv = "TERM=xterm";
+    };
     matchBlocks = {
       "github.com" = {
         user = "git";
