@@ -35,6 +35,7 @@
     awscli2
     docker
     kubectl
+    k9s
     terraform
     nerd-fonts.hack
     nerd-fonts.jetbrains-mono
