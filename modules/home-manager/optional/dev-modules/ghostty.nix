@@ -2,10 +2,11 @@
   pkgs,
   lib,
   config,
+  vars,
   ...
 }: let
   font-size =
-    if "${config.home.username}" == "noahwilson"
+    if "${vars.hostName}" == "Work-Box"
     then "18"
     else "12";
 in {
