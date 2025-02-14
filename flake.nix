@@ -94,6 +94,7 @@
           inherit inputs;
           vars = {
             hostName = "Mobile-Box";
+            sshKey = "~/.ssh/personal/personal";
           };
         };
         modules = [
@@ -108,6 +109,7 @@
           inherit inputs;
           vars = {
             hostName = "Mobile-Box";
+            sshKey = "~/.ssh/mobile/mobile";
           };
         };
         modules = [
@@ -122,6 +124,7 @@
           inherit inputs;
           vars = {
             hostName = "Work-Box";
+            sshKey = "~/.ssh/work-box";
           };
         };
         modules = [
