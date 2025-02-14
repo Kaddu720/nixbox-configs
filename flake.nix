@@ -129,8 +129,8 @@
         };
         modules = [
           ./hosts/work-box/home-manager.nix
-          inputs.stylix.homeManagerModules.stylix
           inputs.nvim-config.homeModules.default
+          inputs.stylix.homeManagerModules.stylix
         ];
       };
     };
