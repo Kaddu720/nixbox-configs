@@ -6,23 +6,6 @@
     ../../modules/home-manager/optional/dev-modules
   ];
 
-  # Standard Modules
-  programs.ssh = {
-    enable = true;
-    addKeysToAgent = "yes";
-    extraOptionOverrides = {
-      SetEnv = "TERM=xterm";
-    };
-    matchBlocks = {
-      "github.com" = {
-        user = "git";
-        identityFile = [
-          "~/.ssh/mobile/mobile"
-        ];
-      };
-    };
-  };
-
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 

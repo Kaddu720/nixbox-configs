@@ -30,21 +30,4 @@
     enable = true;
     macDesktop = true;
   };
-
-  # Standard Modules
-  programs.ssh = {
-    enable = true;
-    addKeysToAgent = "yes";
-    extraOptionOverrides = {
-      SetEnv = "TERM=xterm";
-    };
-    matchBlocks = {
-      "github.com" = {
-        user = "git";
-        identityFile = [
-          "~/.ssh/work-box"
-        ];
-      };
-    };
-  };
 }
