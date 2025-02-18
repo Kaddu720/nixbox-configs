@@ -80,7 +80,6 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/work-box/configuration.nix
-          determinate.darwinModules.default
           inputs.nix-homebrew.darwinModules.nix-homebrew
         ];
       };

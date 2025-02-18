@@ -81,4 +81,8 @@
       "redis"
     ];
   };
+
+  system.activationScripts.startUp.text = ''
+    brew update
+  '';
 }
