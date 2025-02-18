@@ -215,6 +215,7 @@
           # Configure Seconday_Monitor
           riverctl focus-output $Seconday_Monitor
           riverctl send-layout-cmd rivertile "main-location right"
+          riverctl output-attach-mode top
           riverctl set-focused-tags 8
           riverctl spawn "vesktop"
 
