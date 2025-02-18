@@ -18,10 +18,10 @@
           timeout = 300;
           command = "~/.config/scripts/lockscreen.sh";
         }
-        {
-          timeout = 360;
-          command = "${pkgs.systemd}/bin/systemctl suspend";
-        }
+        # {
+        #   timeout = 360;
+        #   command = "${pkgs.systemd}/bin/systemctl suspend";
+        # }
       ];
     };
   };
