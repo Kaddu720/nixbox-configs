@@ -140,8 +140,7 @@
             focus: true
             panes:
               - shell_command:
-                - cd ~/Second_Brain
-                - nvim 
+                - cd ~/Second_Brain && nvim 
 
           - window_name: nvim
             panes:
@@ -156,8 +155,7 @@
           - window_name: term
             panes:
               - shell_command:
-                - cd nixos
-                - clear
+                - cd nixos && clear
         '';
 
       ".config/tmuxp/dashboard-config.yaml".text =
