@@ -12,7 +12,7 @@
   config = lib.mkIf config.btop.enable {
     home.packages = [pkgs.btop];
 
-    home.file.".config/btop/btop.config" = {
+    home.file.".config/btop/btop.conf" = {
       text =
         /*
         conf
