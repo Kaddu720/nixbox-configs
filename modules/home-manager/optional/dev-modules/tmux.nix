@@ -15,7 +15,7 @@
     programs.tmux = {
       enable = true;
 
-      shell = "${pkgs.fish}/bin/fish";
+      shell = "${pkgs.nushell}/bin/nu";
       mouse = true;
       keyMode = "vi";
       baseIndex = 1; #window and panes #s start on 1
@@ -101,7 +101,7 @@
           - window_name: notes
             panes:
               - shell_command:
-                - nvim ~/Second_Brain/areasOfResponsibility/Ekiree/Tech
+                - cd ~/Second_Brain ; nvim areasOfResponsibility/Ekiree/Tech
 
           - window_name: nvim
             focus: true
@@ -140,7 +140,8 @@
             focus: true
             panes:
               - shell_command:
-                - cd ~/Second_Brain && nvim 
+                - cd ~/Second_Brain ; nvim
+                # - cd ~/Second_Brain && nvim
 
           - window_name: nvim
             panes:
@@ -155,38 +156,8 @@
           - window_name: term
             panes:
               - shell_command:
-                - cd nixos && clear
-        '';
-
-      ".config/tmuxp/dashboard-config.yaml".text =
-        /*
-        yaml
-        */
-        ''
-          session_name: Dashboard-Config
-          start_directory: ~/Projects/dashboard/configuration
-
-          windows:
-          - window_name: notes
-            panes:
-            - shell_command:
-              - nvim ~/Second_Brain/areasOfResponsibility/Ekiree/Tech
-
-          - window_name: nvim
-            focus: true
-            panes:
-            - shell_command:
-              - nvim
-
-          - window_name: term
-            panes:
-            - shell_command:
-              - clear
-
-          - window_name: git
-            panes:
-            - shell_command:
-              - lazygit
+                - cd nixos ; clear
+                # - cd nixos && clear
         '';
     };
   };
