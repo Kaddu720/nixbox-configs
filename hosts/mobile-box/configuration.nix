@@ -11,7 +11,6 @@
     ../../modules/common/users/noah/nixos.nix
     ../../modules/nixos/core
     ../../modules/nixos/optional
-    ../../modules/common/static/stylix.nix
   ];
 
   boot = {
@@ -31,6 +30,11 @@
   };
 
   networking.hostName = "Mobile-Box"; # Define your hostname.
+
+  environment.sessionVariables = {
+    # Flake location for nh
+    FLAKE = "/home/noah/.config/nixos/";
+  };
 
   # Imported Optional Modules
   docker.enable = true;

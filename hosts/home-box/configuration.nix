@@ -32,6 +32,11 @@
 
   networking.hostName = "Home-Box"; # Define your hostname.
 
+  environment.sessionVariables = {
+    # Flake location for nh
+    FLAKE = "/home/noah/.config/nixos/";
+  };
+
   hardware.uinput.enable = true;
 
   # Imported Optional Modules

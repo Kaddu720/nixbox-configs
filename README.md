@@ -36,6 +36,12 @@ Mac: `nix run nix-darwin -- switch --flake ./#Work-Box --show-trace`
 ## Updating Packages installed
 `nix flake update`
 
+## Updating nixos with nh helper
+rebuild and switch: `nh os switch`
+rebuild and switch after boot: `nh os boot`
+rebuild and activate but no switch: `nh os test`
+rebuild home manager: `nh home switch`
+
 ## Notes for Apps
 __Activate proton db for gaming__
 run `protonup`

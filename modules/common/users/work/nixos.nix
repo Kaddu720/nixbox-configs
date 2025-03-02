@@ -39,8 +39,9 @@
   #Configure Environmental Variables
   environment = {
     # List packages at system level
-    systemPackages = [
-      pkgs.slack
+    systemPackages = with pkgs; [
+      nh
+      slack
     ];
   };
 

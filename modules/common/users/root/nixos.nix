@@ -32,6 +32,7 @@
       killall
       mangohud
       neovim
+      nh
       vlc
       wget
     ];

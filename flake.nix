@@ -59,7 +59,7 @@
         modules = [
           ./hosts/home-box/configuration.nix
           determinate.nixosModules.default
-          inputs.stylix.nixosModules.stylix
+          # inputs.stylix.nixosModules.stylix
         ];
       };
       Mobile-Box = nixpkgs.lib.nixosSystem {
@@ -70,7 +70,7 @@
           determinate.nixosModules.default
           inputs.nixos-hardware.nixosModules.framework-12th-gen-intel
           inputs.auto-cpufreq.nixosModules.default
-          inputs.stylix.nixosModules.stylix
+          # inputs.stylix.nixosModules.stylix
         ];
       };
     };
@@ -87,11 +87,12 @@
 
     # Home-manager Configs
     homeConfigurations = {
-      Home-Box = home-manager.lib.homeManagerConfiguration {
+      "noah@Home-Box" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."x86_64-linux";
         extraSpecialArgs = {
           inherit inputs;
           vars = {
+            hostName = "Home-Box";
             sshKey = "~/.ssh/personal/personal";
           };
         };
@@ -101,7 +102,7 @@
           inputs.stylix.homeManagerModules.stylix
         ];
       };
-      Mobile-Box = home-manager.lib.homeManagerConfiguration {
+      "noah@Mobile-Box" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."x86_64-linux";
         extraSpecialArgs = {
           inherit inputs;
