@@ -1,8 +1,15 @@
 {
   lib,
   pkgs,
+  vars,
   ...
-}: {
+}: let
+  # Optional packages for mac or linux
+  platformPackages =
+    if "${vars.hostName}" == "Work-Box"
+    then with pkgs; [awscli2 kubectl k9s terraform]
+    else with pkgs; [docker];
+in {
   imports = [
     ./alacritty.nix
     ./tmux.nix
@@ -25,21 +32,17 @@
   starship.enable =
     lib.mkDefault true;
 
-  home.packages = with pkgs; [
-    bat
-    lazygit
-    lazydocker
-    jq
-    yazi
-    # AXS / Ekiree managment modules
-    awscli2
-    docker
-    kubectl
-    k9s
-    terraform
-    nerd-fonts.hack
-    nerd-fonts.jetbrains-mono
-  ];
+  home.packages = with pkgs;
+    [
+      bat
+      lazygit
+      lazydocker
+      jq
+      yazi
+      nerd-fonts.hack
+      nerd-fonts.jetbrains-mono
+    ]
+    ++ platformPackages;
 
   programs = {
     direnv = {
