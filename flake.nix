@@ -92,7 +92,6 @@
         extraSpecialArgs = {
           inherit inputs;
           vars = {
-            hostName = "Mobile-Box";
             sshKey = "~/.ssh/personal/personal";
           };
         };
