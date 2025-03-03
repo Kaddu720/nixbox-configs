@@ -187,7 +187,7 @@
 
           # Set background and border color
           riverctl border-color-focused 0xebbcba
-          riverctl border-color-unfocused 0x31748f
+          riverctl border-color-unfocused 0xc4a7e7
           riverctl border-width 0
 
           # Set keyboard repeat rate
