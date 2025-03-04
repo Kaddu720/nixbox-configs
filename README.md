@@ -41,6 +41,7 @@ rebuild and switch: `nh os switch`
 rebuild and switch after boot: `nh os boot`
 rebuild and activate but no switch: `nh os test`
 rebuild home manager: `nh home switch`
+Note: Support for nix darwin will come out in nh 4.0.0 release
 
 ## Notes for Apps
 __Activate proton db for gaming__
