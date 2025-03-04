@@ -3,7 +3,7 @@
     home = "/Users/noahwilson";
   };
 
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   environment.variables = {
     EDITOR = "nvim";
