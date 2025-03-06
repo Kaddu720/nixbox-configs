@@ -37,4 +37,7 @@
       wget
     ];
   };
+
+  # enblae bluetooth
+  services.blueman.enable = true;
 }
