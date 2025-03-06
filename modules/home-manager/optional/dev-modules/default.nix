@@ -7,7 +7,7 @@
   # Optional packages for mac or linux
   platformPackages =
     if "${vars.hostName}" == "Work-Box"
-    then with pkgs; [awscli2 kubectl k9s terraform]
+    then with pkgs; []
     else with pkgs; [docker];
 in {
   imports = [
@@ -41,6 +41,10 @@ in {
       yazi
       nerd-fonts.hack
       nerd-fonts.jetbrains-mono
+      awscli2
+      kubectl
+      k9s
+      terraform
     ]
     ++ platformPackages;
 
