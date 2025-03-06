@@ -15,7 +15,7 @@
     programs.tmux = {
       enable = true;
 
-      shell = "${pkgs.nushell}/bin/nu";
+      shell = "${pkgs.fish}/bin/fish";
       mouse = true;
       keyMode = "vi";
       baseIndex = 1; #window and panes #s start on 1
