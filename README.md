@@ -98,3 +98,7 @@ To theme zenbrowser: https://github.com/rose-pine/zen-browser/tree/main
 To them vesktop: 
     - go to settings -> vencord -> themes -> Online Themes
     - insert the following theme: https://raw.githubusercontent.com/rose-pine/discord/refs/heads/main/rose-pine.theme.css
+
+## External tools
+### AWS
+ To set your aws profile use ```set -Ux AWS_PROFILE <profile name>```
