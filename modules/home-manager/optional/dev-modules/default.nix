@@ -8,7 +8,7 @@
   platformPackages =
     if "${vars.hostName}" == "Work-Box"
     then with pkgs; []
-    else with pkgs; [docker];
+    else with pkgs; [docker podman];
 in {
   imports = [
     ./alacritty.nix
