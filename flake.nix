@@ -1,6 +1,11 @@
 {
   description = "Flake for setting up boxes";
 
+  nixConfig.extra-substituters = ["https://cache.flox.dev"];
+  nixConfig.extra-trusted-public-keys = [
+    "flox-cache-public-1:7F4OyH7ZCnFhcze3fJdfyXYLQw/aV7GEed86nQ7IsOs="
+  ];
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
@@ -19,6 +24,10 @@
     nix-homebrew = {
       url = "github:zhaofengli-wip/nix-homebrew";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    flox = {
+      url = "github:flox/flox/v1.3.16";
     };
 
     ghostty = {
