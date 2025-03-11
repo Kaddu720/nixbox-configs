@@ -34,7 +34,7 @@
 
   environment.sessionVariables = {
     # Flake location for nh
-    FLAKE = "/home/noah/.config/nixos/";
+    FLAKE = "/home/noah/.config/nixos";
   };
 
   hardware.uinput.enable = true;
