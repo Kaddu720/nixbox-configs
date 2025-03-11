@@ -38,7 +38,7 @@
     ];
   };
 
-  # enblae bluetooth
+  # enable bluetooth
   services.blueman.enable = true;
   # enable tailscale
   services.tailscale.enable = true;
