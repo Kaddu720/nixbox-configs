@@ -1,6 +1,7 @@
 {
   description = "Flake for setting up boxes";
-
+  
+  #Caches for flox package manager
   nixConfig.extra-substituters = ["https://cache.flox.dev"];
   nixConfig.extra-trusted-public-keys = [
     "flox-cache-public-1:7F4OyH7ZCnFhcze3fJdfyXYLQw/aV7GEed86nQ7IsOs="

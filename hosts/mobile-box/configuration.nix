@@ -45,7 +45,6 @@
     brightnessctl
     playerctl
     framework-tool
-    inputs.flox.packages.${pkgs.system}.default
   ];
 
   # Configure system specific programs
