@@ -43,7 +43,7 @@
               Primary_Monitor=eDP-1
               Secondary_Monitor=eDP-1
             ;;
-            
+
             *)
               # Fallback configuration
               Primary_Monitor=$(riverctl list-outputs | head -n1)
@@ -67,7 +67,7 @@
           riverctl spawn "caffeine"
 
           # Application launchers
-          riverctl map normal Alt Return spawn ghostty
+          riverctl map normal Alt Return spawn 'riverctl set-focused-tags 1 && ghostty'
           riverctl map normal Alt W spawn zen
           riverctl map normal Alt Space spawn 'rofi -show drun'
           riverctl map normal Alt+Shift Space spawn "$HOME_DIR/.config/scripts/rofi-menu.sh"
@@ -195,12 +195,12 @@
           riverctl set-repeat 50 300
 
           # Terminal on tag 1, primary monitor
-          riverctl rule-add -app-id 'ghostty' tags 1
-          riverctl rule-add -app-id 'ghostty' output $Primary_Monitor
-          
+          riverctl rule-add -app-id 'com.mitchellh.ghostty' tags 1
+          riverctl rule-add -app-id 'com.mitchellh.ghostty' output $Primary_Monitor
+
           # Browser on tag 2, primary monitor
-          riverctl rule-add -app-id 'zen-beta' tags 2
-          riverctl rule-add -app-id 'zen-beta' output $Primary_Monitor
+          riverctl rule-add -app-id 'zen' tags 2
+          riverctl rule-add -app-id 'zen' output $Primary_Monitor
 
           # Discord on tag 8, secondary monitor
           riverctl rule-add -app-id 'vesktop' tags 8
@@ -210,7 +210,7 @@
           riverctl rule-add -app-id 'pavucontrol' float
           riverctl rule-add -app-id 'nm-connection-editor' float
           riverctl rule-add -app-id 'blueman-manager' float
-          
+
           # Client-side decorations
           riverctl rule-add -app-id "firefox" csd
 
@@ -231,67 +231,38 @@
           riverctl focus-output $Primary_Monitor
           riverctl send-layout-cmd rivertile "main-location left"
           riverctl set-focused-tags 1
-          
+
           # Start applications on primary monitor
           riverctl spawn "ghostty"  # Terminal on tag 1
           riverctl set-focused-tags 2
           riverctl spawn "zen"      # Browser on tag 2
           riverctl set-focused-tags 1  # Return focus to tag 1
+
+          # Start kanshi for display management
+          riverctl spawn "kanshi"
+
         '';
     };
-
-    # Auto display configuration with kanshi
     services.kanshi = {
       enable = true;
       systemdTarget = "river-session.target";
-      profiles = {
-        "Home-Box" = {
-          outputs = [
-            {
-              criteria = "DP-1";
-              mode = "2560x1440@165Hz";
-              position = "1920,0";
-              adaptiveSync = true;
-            }
-            {
-              criteria = "DP-2";
-              mode = "1920x1080@60Hz";
-              position = "0,0";
-            }
-            {
-              criteria = "HDMI-A-1";
-              status = "disable";
-            }
-          ];
-        };
-        "Mobile-Box" = {
-          outputs = [
-            {
-              criteria = "eDP-1";
-              mode = "2256x1504@59.999001Hz";
-            }
-          ];
-        };
-        "Movie-Night" = {
-          outputs = [
-            {
-              criteria = "DP-1";
-              mode = "2560x1440@165Hz";
-              position = "1920,0";
-              adaptiveSync = true;
-            }
-            {
-              criteria = "DP-2";
-              mode = "1920x1080@60Hz";
-              position = "0,0";
-            }
-            {
-              criteria = "HDMI-A-1";
-              mode = "3840x2160@60.000000Hz";
-            }
-          ];
-        };
-      };
+    };
+    home.file.".config/kanshi/config" = {
+      text = ''
+        profile Home-Box {
+          output DP-1 mode 2560x1440@165Hz position 1920,0 adaptive_sync on
+          output DP-2 mode 1920x1080@60Hz position 0,0
+          output HDMI-A-1 disable
+        }
+        profile Mobile-Box {
+          output eDP-1 mode 2256x1504@59.999001Hz
+        }
+        profile Movie-Night {
+          output DP-1 mode 2560x1440@165Hz position 1920,0 adaptive_sync on
+          output DP-2 mode 1920x1080@60Hz position 0,0
+          output HDMI-A-1 mode 3840x2160@60.000000Hz
+        }
+      '';
     };
   };
 }
