@@ -9,64 +9,68 @@
       lib.mkEnableOption "enables river";
   };
 
-  # Docs to read when I come back to fix this: https://github.com/kolunmi/river
+  # Docs: https://github.com/kolunmi/river
   config = lib.mkIf config.river.enable {
-    home.packages = [
-      pkgs.swaybg
+    home.packages = with pkgs; [
+      swaybg
+      dunst
+      pamixer
+      playerctl
+      brightnessctl
     ];
 
     wayland.windowManager.river = {
       enable = true;
       extraConfig =
         /*
-        bash
+        sh
         */
         ''
           #!/bin/sh
 
           HOSTNAME=$(uname -n)
+          HOME_DIR="${config.home.homeDirectory}"
+          WALLPAPER="$HOME_DIR/.config/nixos/modules/common/static/dark_fractal.jpg"
 
-          # Initialize environmental variables
+          # Initialize monitor configuration
           case $HOSTNAME in
             Home-Box)
               Primary_Monitor=DP-1
-              Seconday_Monitor=DP-2
+              Secondary_Monitor=DP-2
             ;;
 
             Mobile-Box)
               Primary_Monitor=eDP-1
-              Seconday_Monitor=eDP-1
+              Secondary_Monitor=eDP-1
+            ;;
+            
+            *)
+              # Fallback configuration
+              Primary_Monitor=$(riverctl list-outputs | head -n1)
+              Secondary_Monitor=$Primary_Monitor
             ;;
           esac
 
           # Set up desktop background
-          [[ -e $HOME/.config/nixos/modules/common/static/dark_fractal.jpg ]] && riverctl spawn "swaybg -m fill -i $HOME/.config/nixos/modules/common/static/dark_fractal.jpg"
+          if [ -e "$WALLPAPER" ]; then
+            riverctl spawn "swaybg -m fill -i $WALLPAPER"
+          fi
 
           # Set up sandbar
-          riverctl spawn "$HOME/.config/river/status"
-          riverctl spawn "$HOME/.config/river/bar"
+          riverctl spawn "$HOME_DIR/.config/river/status"
+          riverctl spawn "$HOME_DIR/.config/river/bar"
 
-          #Activate dunst
-          dunst &
+          # Activate notification daemon
+          riverctl spawn "dunst"
 
-          # Set up caffine
-          caffeine &
+          # Set up caffeine
+          riverctl spawn "caffeine"
 
-          # activate power star mode, and set screen to power off after 5 min
-          xset +dpms
-          xset dpms 300
-
-          # Terminal
+          # Application launchers
           riverctl map normal Alt Return spawn ghostty
-
-          # Browser
           riverctl map normal Alt W spawn zen
-
-          # Rofi
           riverctl map normal Alt Space spawn 'rofi -show drun'
-
-          # Rofi helper scripts
-          riverctl map normal Alt+Shift Space spawn /home/noah/.config/scripts/rofi-menu.sh
+          riverctl map normal Alt+Shift Space spawn "$HOME_DIR/.config/scripts/rofi-menu.sh"
 
           # Alt+Q to close the focused view
           riverctl map normal Alt+Shift Q close
@@ -112,35 +116,32 @@
           riverctl map-pointer normal Alt BTN_MIDDLE toggle-float
 
 
-          # Tag Naviagation
-          # Primary_Monitor
+          # Tag Navigation
+          # Primary Monitor (tags 1-3)
           for i in $(seq 1 3)
           do
             tags=$((1 << ($i - 1)))
 
-            # Alt+[1-9] to focus tag [0-8] on Primary_Monitor
+            # Alt+[1-3] to focus tag [0-2] on Primary Monitor
             riverctl map normal Alt $i spawn "riverctl focus-output $Primary_Monitor && riverctl set-focused-tags $tags"
 
-            # Alt+Shift+[1-9] to tag focused view with tag [0-8] on Primary_Monitor
+            # Alt+Shift+[1-3] to tag focused view with tag [0-2] on Primary Monitor
             riverctl map normal Alt+Shift $i spawn "riverctl focus-output $Primary_Monitor && riverctl set-view-tags $tags"
 
-            # Alt+Control+[1-9] to toggle focus of tag [0-8]
-            # riverctl map normal Alt+Control $i toggle-focused-tags $tags
-
-            # Alt+Shift+Control+[1-9] to toggle tag [0-8] of focused view
+            # Alt+Control+[1-3] to toggle tag [0-2] of focused view
             riverctl map normal Alt+Control $i toggle-view-tags $tags
           done
 
-          #Seconday_Monitor
+          # Secondary Monitor (tags 4-5)
           for i in $(seq 1 2)
           do
             tags=$((8 << ($i - 1)))
 
-            # Super[1-9] to focus on tag [0-8] on Seconday_Monitor
-            riverctl map normal Super $i spawn "riverctl focus-output $Seconday_Monitor && riverctl set-focused-tags $tags"
+            # Super+[1-2] to focus on tag [3-4] on Secondary Monitor
+            riverctl map normal Super $i spawn "riverctl focus-output $Secondary_Monitor && riverctl set-focused-tags $tags"
 
-            # Super+Shift+[1-9] to tag focused view with tag [0-8] on Seconday_Monitor
-             riverctl map normal Super+Shift $i spawn "riverctl focus-output $Seconday_Monitor && riverctl set-view-tags $tags"
+            # Super+Shift+[1-2] to tag focused view with tag [3-4] on Secondary Monitor
+            riverctl map normal Super+Shift $i spawn "riverctl focus-output $Secondary_Monitor && riverctl set-view-tags $tags"
           done
 
           # Alt+0 to focus all tags
@@ -193,18 +194,25 @@
           # Set keyboard repeat rate
           riverctl set-repeat 50 300
 
-          # Set up Rules
+          # Terminal on tag 1, primary monitor
+          riverctl rule-add -app-id 'ghostty' tags 1
+          riverctl rule-add -app-id 'ghostty' output $Primary_Monitor
+          
+          # Browser on tag 2, primary monitor
           riverctl rule-add -app-id 'zen-beta' tags 2
           riverctl rule-add -app-id 'zen-beta' output $Primary_Monitor
 
+          # Discord on tag 8, secondary monitor
           riverctl rule-add -app-id 'vesktop' tags 8
-          riverctl rule-add -app-id 'vesktop' output $Seconday_Monitor
+          riverctl rule-add -app-id 'vesktop' output $Secondary_Monitor
 
-          # Make all views with an app-id that starts with "float" and title "foo" start floating.
-          riverctl rule-add -app-id 'float*' -title 'foo' float
-
-          # Make all views with app-id "bar" and any title use client-side decorations
-          riverctl rule-add -app-id "bar" csd
+          # Floating windows
+          riverctl rule-add -app-id 'pavucontrol' float
+          riverctl rule-add -app-id 'nm-connection-editor' float
+          riverctl rule-add -app-id 'blueman-manager' float
+          
+          # Client-side decorations
+          riverctl rule-add -app-id "firefox" csd
 
           # Set the default layout generator to be rivertile and start it.
           # River will send the process group of the init executable SIGTERM on exit.
@@ -212,40 +220,78 @@
           rivertile -view-padding 6 -outer-padding 6 &
           riverctl default-attach-mode bottom
 
-          # Configure Seconday_Monitor
-          riverctl focus-output $Seconday_Monitor
+          # Configure Secondary Monitor
+          riverctl focus-output $Secondary_Monitor
           riverctl send-layout-cmd rivertile "main-location right"
           riverctl output-attach-mode top
           riverctl set-focused-tags 8
           riverctl spawn "vesktop"
 
-          # Configure Primary_Monitor
+          # Configure Primary Monitor
           riverctl focus-output $Primary_Monitor
           riverctl send-layout-cmd rivertile "main-location left"
           riverctl set-focused-tags 1
+          
+          # Start applications on primary monitor
+          riverctl spawn "ghostty"  # Terminal on tag 1
+          riverctl set-focused-tags 2
+          riverctl spawn "zen"      # Browser on tag 2
+          riverctl set-focused-tags 1  # Return focus to tag 1
         '';
     };
 
+    # Auto display configuration with kanshi
     services.kanshi = {
       enable = true;
       systemdTarget = "river-session.target";
-    };
-    home.file.".config/kanshi/config" = {
-      text = ''
-        profile Home-Box {
-          output DP-1 mode 2560x1440@165Hz position 1920,0 adaptive_sync on
-          output DP-2 mode 1920x1080@60Hz position 0,0
-          output HDMI-A-1 disable
-        }
-        profile Mobile-Box {
-          output eDP-1 mode 2256x1504@59.999001Hz
-        }
-        profile Movie-Night {
-          output DP-1 mode 2560x1440@165Hz position 1920,0 adaptive_sync on
-          output DP-2 mode 1920x1080@60Hz position 0,0
-          output HDMI-A-1 mode 3840x2160@60.000000Hz
-        }
-      '';
+      profiles = {
+        "Home-Box" = {
+          outputs = [
+            {
+              criteria = "DP-1";
+              mode = "2560x1440@165Hz";
+              position = "1920,0";
+              adaptiveSync = true;
+            }
+            {
+              criteria = "DP-2";
+              mode = "1920x1080@60Hz";
+              position = "0,0";
+            }
+            {
+              criteria = "HDMI-A-1";
+              status = "disable";
+            }
+          ];
+        };
+        "Mobile-Box" = {
+          outputs = [
+            {
+              criteria = "eDP-1";
+              mode = "2256x1504@59.999001Hz";
+            }
+          ];
+        };
+        "Movie-Night" = {
+          outputs = [
+            {
+              criteria = "DP-1";
+              mode = "2560x1440@165Hz";
+              position = "1920,0";
+              adaptiveSync = true;
+            }
+            {
+              criteria = "DP-2";
+              mode = "1920x1080@60Hz";
+              position = "0,0";
+            }
+            {
+              criteria = "HDMI-A-1";
+              mode = "3840x2160@60.000000Hz";
+            }
+          ];
+        };
+      };
     };
   };
 }
