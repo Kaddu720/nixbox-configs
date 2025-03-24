@@ -14,7 +14,7 @@
         executable = true;
         text =
           /*
-          bash
+          sh
           */
           ''
             #!/bin/sh
@@ -29,7 +29,7 @@
         executable = true;
         text =
           /*
-          bash
+          sh
           */
           ''
             #!/bin/sh
@@ -49,7 +49,7 @@
         executable = true;
         text =
           /*
-          bash
+          sh
           */
           ''
             #!/bin/sh
@@ -65,7 +65,7 @@
         executable = true;
         text =
           /*
-          bash
+          sh
           */
           ''
             #!/bin/sh

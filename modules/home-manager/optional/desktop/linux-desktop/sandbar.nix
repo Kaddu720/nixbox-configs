@@ -22,7 +22,7 @@
       file.".config/river/bar" = {
         text =
           /*
-          bash
+          sh
           */
           ''
             #!/usr/bin/env sh
@@ -50,7 +50,7 @@
       file.".config/river/status" = {
         text =
           /*
-          bash
+          sh
           */
           ''
             #!/usr/bin/env sh
