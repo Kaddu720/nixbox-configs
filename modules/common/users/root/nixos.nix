@@ -28,7 +28,6 @@
     systemPackages = with pkgs; [
       dislocker
       killall
-      mangohud
       neovim
       nh
       vlc
