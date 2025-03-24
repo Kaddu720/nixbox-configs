@@ -19,12 +19,6 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
-  # Enable experimental packages
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
