@@ -13,6 +13,12 @@
     ../../modules/nixos/optional
   ];
 
+  networking.hostName = "Mobile-Box"; # Define your hostname.
+
+  # Imported Optional Modules
+  docker.enable = true;
+  kanata.enable = true;
+
   boot = {
     # Use the systemd-boot EFI boot loader.
     loader = {
@@ -29,16 +35,8 @@
     };
   };
 
-  networking.hostName = "Mobile-Box"; # Define your hostname.
-
-  # Imported Optional Modules
-  docker.enable = true;
-  kanata.enable = true;
-
   # Configure system specific packages
   environment.systemPackages = with pkgs; [
-    brightnessctl
-    playerctl
     framework-tool
   ];
 

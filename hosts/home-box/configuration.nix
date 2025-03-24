@@ -8,6 +8,13 @@
     ../../modules/nixos/optional
   ];
 
+  networking.hostName = "Home-Box"; # Define your hostname.
+
+  # Imported Optional Modules
+  docker.enable = true;
+  kanata.enable = true;
+  games.enable = true;
+
   boot = {
     # Set up Grub
     loader = {
@@ -30,14 +37,7 @@
     initrd.kernelModules = ["amdgpu"];
   };
 
-  networking.hostName = "Home-Box"; # Define your hostname.
-
   hardware.uinput.enable = true;
-
-  # Imported Optional Modules
-  docker.enable = true;
-  kanata.enable = true;
-  games.enable = true;
 
   # Enable automatic garbage collection
   nix.gc = {
