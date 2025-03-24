@@ -74,7 +74,6 @@
 
   #Configure Programs
   programs = {
-    slock.enable = true;
     dconf.enable = true; #enable gtk desktops
     ssh = {
       startAgent = true;
