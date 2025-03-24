@@ -22,6 +22,11 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  environment.sessionVariables = {
+    # Flake location for nh
+    FLAKE = "/home/noah/.config/nixos";
+  };
+
   # Configure Environment
   environment = {
     # List packages at system level

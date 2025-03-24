@@ -31,11 +31,6 @@
 
   networking.hostName = "Mobile-Box"; # Define your hostname.
 
-  environment.sessionVariables = {
-    # Flake location for nh
-    FLAKE = "/home/noah/.config/nixos/";
-  };
-
   # Imported Optional Modules
   docker.enable = true;
   kanata.enable = true;
