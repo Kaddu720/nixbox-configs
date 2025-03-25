@@ -28,7 +28,6 @@
     # Package installations
     packages = with pkgs; [
       # Browsers & Communication
-      firefox
       zoom-us
       vesktop # Discord client
       
@@ -89,11 +88,5 @@
     
     # Add other programs
     bash.enable = true;  # Configure bash if you use it
-    
-    # Add any GUI applications that should be configured
-    firefox = {
-      enable = true;
-      # Add Firefox configuration as needed
-    };
   };
 }
