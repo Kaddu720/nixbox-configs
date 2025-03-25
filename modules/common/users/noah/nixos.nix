@@ -1,18 +1,18 @@
-{pkgs, ...}: {
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+{
+  pkgs,
+  ...
+}: {
+  # -------------------- User Accounts --------------------
   users.users.noah = {
     isNormalUser = true;
-    extraGroups = ["wheel" "networkmanager" "docker"]; # Enable ‘sudo’ for the user.
+    extraGroups = ["wheel" "networkmanager" "docker"]; # Enable 'sudo' for the user
     group = "users";
     createHome = true;
     home = "/home/noah";
     uid = 1000;
-  };
-
-  # Configure Environment
-  environment = {
-    # List packages at system level
-    systemPackages = with pkgs; [
+    
+    # System-level packages (prefer moving user-specific packages to home-manager)
+    packages = with pkgs; [
       beekeeper-studio
       bluez
       dislocker
@@ -22,59 +22,85 @@
       wirelesstools
       xdg-desktop-portal-wlr # enable screen sharing for river wm
     ];
-    variables = {
-      EDITOR = "nvim";
-      HOME = "/home/noah";
-      TERMINAL = "alacritty";
-    };
   };
 
-  # Enable river wm
+  # -------------------- System Configuration for Home Manager --------------------
+  # No direct home-manager integration - running standalone
+  # These settings ensure the system supports the standalone home-manager
+
+  # -------------------- Security Configuration --------------------
   security.pam.services.swaylock = {
     text = ''
       auth include login
     '';
   };
-  services.dbus.enable = true;
 
+  # -------------------- XDG Portal Configuration --------------------
+  services.dbus.enable = true;
   xdg.portal = {
     enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-wlr
+    
+    # Define which portal implementations to use
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-wlr  # For Wayland compositors like river
+      xdg-desktop-portal-gtk  # For better integration with GTK apps
     ];
+    
+    # Configure portal backends by desktop environment
+    config = {
+      river = {
+        default = [
+          "wlr"
+          "gtk"
+        ];
+        # Set preferred backends for specific portals
+        screencast = "wlr";
+        screenshot = "wlr";
+      };
+    };
+    
+    # WLR-specific settings
     wlr = {
       enable = true;
       settings = {
-        # uninteresting for this problem, for completeness only
         screencast = {
           output_name = "DP-1";
           max_fps = 30;
           chooser_type = "simple";
-          # chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
+          # Use slurp for area selection if needed
+          chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
+        };
+        
+        # Add screenshot settings
+        screenshot = {
+          choose_type = "slurp";  # Use slurp for selection
         };
       };
     };
   };
+  
+  # Enable additional dependencies for better portal functionality
+  programs.xwayland.enable = true;  # For X11 app compatibility
 
-  #Configure Services
+  # -------------------- System Services --------------------
+  # These services run at the system level and are available to all users
   services = {
+    # Services that should remain system-wide
     mysql = {
       enable = true;
       package = pkgs.mariadb;
     };
-
-    # Enable users to use system programs
+    # Enable locate for system-wide file indexing
     locate.enable = true;
-
-    # Enable SSH
+    # Enable SSH server (not the client)
     openssh = {
       enable = true;
     };
   };
 
-  #Configure Programs
+  # -------------------- System Programs --------------------
   programs = {
-    dconf.enable = true; #enable gtk desktops
+    dconf.enable = true; # enable gtk desktops
     ssh = {
       startAgent = true;
       askPassword = "";
