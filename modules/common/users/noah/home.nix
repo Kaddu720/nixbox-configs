@@ -6,7 +6,6 @@
 }: {
   # -------------------- Imports --------------------
   imports = [
-    ../../static/stylix.nix
     ../../../home-manager/optional/applications/zen-browser.nix
   ];
 
@@ -73,14 +72,6 @@
     
     # SSH agent service (user level)
     ssh-agent.enable = true;
-    
-    # Optional: MySQL service if you want it user-level instead of system-level
-    # Note: For database services, system-level is usually preferred
-    # mysql = {
-    #   enable = true;
-    #   package = pkgs.mariadb;
-    #   dataDir = "${config.home.homeDirectory}/.local/share/mysql";
-    # };
   };
   
   # -------------------- User Programs --------------------
