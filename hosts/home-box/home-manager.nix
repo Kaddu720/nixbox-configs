@@ -4,6 +4,7 @@
     ../../modules/home-manager/core
     ../../modules/home-manager/optional/desktop
     ../../modules/home-manager/optional/dev-modules
+    ../../modules/common/static/stylix.nix
   ];
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
