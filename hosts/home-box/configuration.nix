@@ -22,7 +22,6 @@
   };
 
   # -------------------- Optional Modules --------------------
-  # Imported Optional Modules
   docker.enable = true;
   kanata.enable = true;
   games.enable = true;
@@ -38,8 +37,6 @@
         efiSupport = true;
         useOSProber = true;
         # Optimize boot time
-        timeoutStyle = "hidden";
-        configurationLimit = 10; # Limit old configurations kept
       };
     };
     # decrypt encrypted partition
