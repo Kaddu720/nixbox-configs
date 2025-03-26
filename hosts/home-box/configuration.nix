@@ -63,6 +63,10 @@
     cpu.amd.updateMicrocode = true;
   };
 
+  time = {
+    hardwareClockInLocalTime = true;
+  };
+
   # -------------------- Power Management --------------------
   # Enable power management features
   powerManagement = {
