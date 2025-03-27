@@ -7,7 +7,7 @@
   # Optional packages for mac or linux
   platformPackages =
     if "${vars.hostName}" == "Work-Box"
-    then with pkgs; []
+    then with pkgs; [opentofu]
     else with pkgs; [docker podman];
 in {
   imports = [
