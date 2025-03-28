@@ -55,6 +55,8 @@ __Bios settings__
 - RAM
     - Set to Auto
     - Activate XMP
+- If you ever have to reset the CMOS
+  Turns out you need ot have the psu plugged in and turne on, with the system power off
 
 ## On Usage
 
