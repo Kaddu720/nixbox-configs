@@ -22,7 +22,7 @@
     sessionVariables = {
       EDITOR = "nvim";
       HOME = "/home/noah";
-      TERMINAL = "alacritty";
+      TERMINAL = "ghostty";
     };
     
     # Package installations
