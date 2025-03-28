@@ -29,7 +29,7 @@
     packages = with pkgs; [
       # Browsers & Communication
       zoom-us
-      vesktop # Discord client
+      discord
       
       # System Tools
       flameshot

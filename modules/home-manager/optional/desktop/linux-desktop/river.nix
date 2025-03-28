@@ -203,8 +203,8 @@
           riverctl rule-add -app-id 'zen' output $Primary_Monitor
 
           # Discord on tag 8, secondary monitor
-          riverctl rule-add -app-id 'vesktop' tags 8
-          riverctl rule-add -app-id 'vesktop' output $Secondary_Monitor
+          riverctl rule-add -app-id 'discord' tags 8
+          riverctl rule-add -app-id 'discord' output $Secondary_Monitor
 
           # Floating windows
           riverctl rule-add -app-id 'pavucontrol' float
@@ -225,7 +225,7 @@
           riverctl send-layout-cmd rivertile "main-location right"
           riverctl output-attach-mode top
           riverctl set-focused-tags 8
-          riverctl spawn "vesktop"
+          riverctl spawn "discord"
 
           # Configure Primary Monitor
           riverctl focus-output $Primary_Monitor
