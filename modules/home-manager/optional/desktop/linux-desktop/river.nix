@@ -17,6 +17,7 @@
       pamixer
       playerctl
       brightnessctl
+      wlr-randr
     ];
 
     wayland.windowManager.river = {
@@ -35,13 +36,14 @@
           # Initialize monitor configuration
           case $HOSTNAME in
             Home-Box)
+              wlr-randr --output HDMI-A-1 --off
               Primary_Monitor=DP-1
               Secondary_Monitor=DP-2
             ;;
 
             Mobile-Box)
-              Primary_Monitor=eDP-1
-              Secondary_Monitor=eDP-1
+              Primary_Monitor=DP-1
+              Secondary_Monitor=DP-2
             ;;
 
             *)
@@ -252,15 +254,23 @@
         profile Home-Box {
           output DP-1 mode 2560x1440@165Hz position 1920,0 adaptive_sync on
           output DP-2 mode 1920x1080@60Hz position 0,0
-          output HDMI-A-1 disable
-        }
-        profile Mobile-Box {
-          output eDP-1 mode 2256x1504@59.999001Hz
         }
         profile Movie-Night {
           output DP-1 mode 2560x1440@165Hz position 1920,0 adaptive_sync on
           output DP-2 mode 1920x1080@60Hz position 0,0
-          output HDMI-A-1 mode 3840x2160@60.000000Hz
+          output HDMI-A-1 
+        }
+        profile Mobile-Docked {
+          output DP-1 mode 2560x1440 position 1920,0 adaptive_sync on
+          output DP-2 mode 1920x1080 position 0,0
+          output eDP-1 disable
+        }
+        profile Mobile-Away {
+          output DP-1 position 0,0 adaptive_sync on
+          output eDP-1 mode 2256x1504@59.999001Hz position 0,0
+        }
+        profile Mobile-Box {
+          output eDP-1 mode 2256x1504@59.999001Hz
         }
       '';
     };
