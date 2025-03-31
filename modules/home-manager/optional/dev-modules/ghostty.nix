@@ -6,7 +6,7 @@
   ...
 }: let
   font-size =
-    if "${vars.hostName}" == "Work-Box"
+    if ("${vars.hostName}" == "Work-Box" || "${vars.hostName}" == "Mobile-Box")
     then "18"
     else "12";
 in {
