@@ -26,7 +26,8 @@
 
   fileSystems."/mnt/steam-library" =
     { device = "/dev/disk/by-uuid/6A529548529519C1";
-      fsType = "ntfs3";
+      fsType = "ntfs";
+      options = [ "defaults" "nofail" ];
     };
 
   swapDevices =

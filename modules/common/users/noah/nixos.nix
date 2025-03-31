@@ -16,6 +16,7 @@
       beekeeper-studio
       bluez
       dislocker
+      home-manager
       libreoffice-still
       rtkit
       tree
