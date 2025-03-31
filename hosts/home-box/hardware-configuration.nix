@@ -25,8 +25,8 @@
     };
 
   fileSystems."/mnt/steam-library" =
-    { device = "/dev/disk/by-uuid/6A529548529519C1";
-      fsType = "ntfs";
+    { device = "/dev/sda2";
+      fsType = "ext4";
       options = [ "defaults" "nofail" ];
     };
 
