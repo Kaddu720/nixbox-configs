@@ -70,7 +70,7 @@
       nh
       vlc
       wget
-      inputs.flox.packages.${pkgs.system}.default
+      # inputs.flox.packages.${pkgs.system}.default
 
       # Add useful admin tools
       htop # Better process viewer

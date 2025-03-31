@@ -12,11 +12,6 @@
   config = lib.mkIf config.games.enable {
 
     # Hardware and drivers
-    hardware.opengl = {
-      enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
-    };
     services.xserver.videoDrivers = ["amdgpu"];
 
     # Configure Environment
