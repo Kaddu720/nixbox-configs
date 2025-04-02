@@ -992,11 +992,11 @@
         "plugins-ecolog": "plugins-ecolog"
       },
       "locked": {
-        "lastModified": 1743583605,
-        "narHash": "sha256-ZQXYgI+2saMJMJChahWbm7Vt5+B6op9B202SAPF/h7c=",
+        "lastModified": 1743607438,
+        "narHash": "sha256-Whe+fSrvZwRsVAlrKS71dzkukXzZsahT7PpJg5sVP1E=",
         "owner": "Kaddu720",
         "repo": "neovim-config",
-        "rev": "084ad780bce59d49caf747ecf08c1e13dba9b319",
+        "rev": "82cf0dd1aa953954677471352699e5460f96019e",
         "type": "github"
       },
       "original": {
