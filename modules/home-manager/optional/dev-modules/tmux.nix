@@ -22,13 +22,11 @@
       terminal = "alacritty";
       sensibleOnTop = false;
 
-      plugins = builtins.attrValues {
-        inherit
-          (pkgs.tmuxPlugins)
-          vim-tmux-navigator
-          yank
-          ;
-      };
+      plugins = with pkgs.tmuxPlugins; [
+        tmux-fzf
+        vim-tmux-navigator
+        yank
+      ];
       extraConfig = ''
         #True color settings
         set -g default-terminal "$TERM"
@@ -85,9 +83,37 @@
         bind -n M-L resize-pane -R 5
         bind -n M-K resize-pane -U 5
         bind -n M-J resize-pane -D 5
+
+        # sesh setting
+        bind-key x kill-pane # skip "kill-pane 1? (y/n)" prompt
+        set -g detach-on-destroy off  # don't exit from tmux when closing a session
+
+        bind-key "K" run-shell "sesh connect \"$(
+          sesh list --icons | fzf-tmux -p 80%,70% \
+            --layout=reverse --no-sort --ansi --border-label ' sesh ' --prompt '>  ' \
+            --header ' :: <ctrl-d> to delete' \
+            --bind 'ctrl-d:execute(tmux kill-session -t {2..})+change-prompt(>  )+reload(sesh list --icons)' \
+            --preview-window 'right:55%' \
+            --preview 'sesh preview {}'
+        )\""
       '';
     };
 
+    ## Sesh configs
+    home.file = {
+      ".config/sesh/sesh.toml".text =
+        /*
+        toml
+        */
+        ''
+        [[session]]
+        name = "Second_Brain"
+        path = "~/Second_Brain"
+        startup_command = "nvim ."
+        '';
+    };
+
+    ## tmuxp config
     home.file = {
       ".config/tmuxp/dashboard.yaml".text =
         /*
