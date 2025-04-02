@@ -243,6 +243,9 @@
           # Start kanshi for display management
           riverctl spawn "kanshi"
 
+          # Support zoom
+          dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river
+          systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
         '';
     };
     services.kanshi = {
@@ -258,7 +261,7 @@
         profile Movie-Night {
           output DP-1 mode 2560x1440@165Hz position 1920,0 adaptive_sync on
           output DP-2 mode 1920x1080@60Hz position 0,0
-          output HDMI-A-1 
+          output HDMI-A-1
         }
         profile Mobile-Docked {
           output DP-1 mode 2560x1440 position 1920,0 adaptive_sync on
