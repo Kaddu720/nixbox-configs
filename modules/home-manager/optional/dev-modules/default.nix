@@ -8,7 +8,7 @@
   platformPackages =
     if "${vars.hostName}" == "Work-Box"
     then with pkgs; [opentofu lens]
-    else with pkgs; [docker podman];
+    else with pkgs; [docker podman lazydocker];
 in {
   imports = [
     ./alacritty.nix
@@ -36,7 +36,6 @@ in {
     [
       bat
       lazygit
-      lazydocker
       jq
       yazi
       nerd-fonts.hack
