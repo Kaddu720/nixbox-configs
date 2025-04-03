@@ -91,7 +91,7 @@
           sesh list -it | fzf-tmux -p 80%,70% \
             --layout=reverse --no-sort --ansi --border-label ' sesh ' --prompt '>  ' \
             --header ' :: & <ctrl-a> to add & <ctrl-x> to delete' \
-            --bind 'ctrl-x:execute(tmux kill-session -t {2..})+change-prompt(>  )+reload(sesh list --icons)' \
+            --bind 'ctrl-x:execute(tmux kill-session -t {2..})+change-prompt(>  )+reload(sesh list -it)' \
             --bind 'ctrl-a:change-prompt(  )+reload(sesh list -icz)' \
             --preview-window 'right:55%' \
             --preview 'sesh preview {}'
