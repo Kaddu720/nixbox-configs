@@ -88,13 +88,14 @@
         set -g detach-on-destroy off  # don't exit from tmux when closing a session
 
         bind-key "K" run-shell "sesh connect \"$(
-          sesh list -it | fzf-tmux -p 80%,70% \
-            --layout=reverse --no-sort --ansi --border-label ' sesh ' --prompt '>  ' \
-            --header ' :: & <ctrl-a> to add & <ctrl-d> to delete' \
+          sesh list -it | fzf-tmux -p 70%,80% \
+            --border=none \
+            --color='border:#e0def4,label:#e0def4,pointer:#f7768e' \
+            --list-label ' Sessions ' --list-border=rounded --layout=reverse --no-sort --ansi --prompt '>  ' \
+            --header ' :: & <ctrl-a> to add & <ctrl-d> to close' \
             --bind 'ctrl-d:execute(tmux kill-session -t {2..})+change-prompt(>  )+reload(sesh list -it)' \
             --bind 'ctrl-a:change-prompt(  )+reload(sesh list -icz)' \
-            --preview-window 'right:55%:rounded' \
-            --preview-label ' sesh ' \
+            --preview-window 'right:60%:rounded' \
             --preview 'sesh preview {}'
         )\""
       '';
