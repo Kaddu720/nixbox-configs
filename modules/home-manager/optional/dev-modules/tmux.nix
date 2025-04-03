@@ -106,10 +106,26 @@
         toml
         */
         ''
-        [[session]]
-        name = "Second_Brain"
-        path = "~/Second_Brain"
-        startup_command = "nvim ."
+          [[session]]
+          name = "Second_Brain"
+          path = "~/Second_Brain"
+          startup_command = "nvim ."
+
+          [[session]]
+          name = "nixos"
+          path = "~/.config/nixos"
+          startup_command = "tmuxp load -a lazygit && nvim ."
+
+          [[session]]
+          name = "nvim"
+          path = "~/.config/nvim-dev/"
+          startup_command = "tmuxp load -a lazygit && nvim ."
+
+          [[session]]
+          name = "axs-configurations"
+          path = "~/Documents/sre_lambda_layer/GitHub/axs-configurations"
+          startup_command = "tmuxp load -a lazygit && nvim ."
+
         '';
     };
 
@@ -153,37 +169,18 @@
                 - lazygit
         '';
 
-      ".config/tmuxp/work.yaml".text =
+      ".config/tmuxp/lazygit.yaml".text =
         /*
         yaml
         */
         ''
-          session_name: Work
-          start_directory: ~/Documents/sre_lambda_layer/Github/axs-configurations
-
+          session_name: lazygit
+          
           windows:
-          - window_name: notes
-            focus: true
-            panes:
-              - shell_command:
-                - cd ~/Second_Brain ; nvim
-                # - cd ~/Second_Brain && nvim
-
-          - window_name: nvim
-            panes:
-              - shell_command:
-                - nvim
-
           - window_name: git
             panes:
               - shell_command:
                 - lazygit
-
-          - window_name: term
-            panes:
-              - shell_command:
-                - cd nixos ; clear
-                # - cd nixos && clear
         '';
     };
   };
