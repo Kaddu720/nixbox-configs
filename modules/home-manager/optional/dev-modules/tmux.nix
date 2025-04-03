@@ -93,7 +93,8 @@
             --header ' :: & <ctrl-a> to add & <ctrl-d> to delete' \
             --bind 'ctrl-d:execute(tmux kill-session -t {2..})+change-prompt(>  )+reload(sesh list -it)' \
             --bind 'ctrl-a:change-prompt(  )+reload(sesh list -icz)' \
-            --preview-window 'right:55%' \
+            --preview-window 'right:55%:rounded' \
+            --preview-label ' sesh ' \
             --preview 'sesh preview {}'
         )\""
       '';
