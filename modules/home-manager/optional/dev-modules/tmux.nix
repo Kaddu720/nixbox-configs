@@ -2,8 +2,32 @@
   pkgs,
   lib,
   config,
+  vars,
   ...
-}: {
+}: let
+  seshConfigs =
+    if "${vars.hostName}" == "Work-Box"
+    then
+      /*
+      toml
+      */
+      ''
+        [[session]]
+        name = "axs-configurations"
+        path = "~/Documents/sre_lambda_layer/GitHub/axs-configurations"
+        startup_command = "tmuxp load -a lazygit && nvim ."
+      ''
+    else
+      /*
+      toml
+      */
+      ''
+        [[session]]
+        name = "ekiree_dashboard"
+        path = "~/Projects/dashboard/dev/ekiree_dashboard"
+        startup_command = "tmuxp load -a ekiree_dashboard && nvim ."
+      '';
+in {
   options = {
     tmux.enable =
       lib.mkEnableOption "enables tmux";
@@ -116,15 +140,7 @@
           path = "~/Second_Brain"
           startup_command = "nvim ."
 
-          [[session]]
-          name = "ekiree_dashboard"
-          path = "~/Projects/dashboard/dev/ekiree_dashboard"
-          startup_command = "tmuxp load -a ekiree_dashboard && nvim ."
-
-          [[session]]
-          name = "axs-configurations"
-          path = "~/Documents/sre_lambda_layer/GitHub/axs-configurations"
-          startup_command = "tmuxp load -a lazygit && nvim ."
+          ${seshConfigs}
         '';
     };
 
