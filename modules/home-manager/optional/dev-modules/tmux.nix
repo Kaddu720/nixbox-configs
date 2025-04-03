@@ -90,8 +90,8 @@
         bind-key "K" run-shell "sesh connect \"$(
           sesh list -it | fzf-tmux -p 80%,70% \
             --layout=reverse --no-sort --ansi --border-label ' sesh ' --prompt '>  ' \
-            --header ' :: & <ctrl-a> to add & <ctrl-x> to delete' \
-            --bind 'ctrl-x:execute(tmux kill-session -t {2..})+change-prompt(>  )+reload(sesh list -it)' \
+            --header ' :: & <ctrl-a> to add & <ctrl-d> to delete' \
+            --bind 'ctrl-d:execute(tmux kill-session -t {2..})+change-prompt(>  )+reload(sesh list -it)' \
             --bind 'ctrl-a:change-prompt(  )+reload(sesh list -icz)' \
             --preview-window 'right:55%' \
             --preview 'sesh preview {}'
@@ -106,51 +106,31 @@
         toml
         */
         ''
+          [default_session]
+          startup_command = "tmuxp load -a lazygit && nvim ."
+
           [[session]]
           name = "Second_Brain"
           path = "~/Second_Brain"
           startup_command = "nvim ."
 
           [[session]]
-          name = "nixos"
-          path = "~/.config/nixos"
-          startup_command = "tmuxp load -a lazygit && nvim ."
-
-          [[session]]
-          name = "nvim"
-          path = "~/.config/nvim-dev/"
-          startup_command = "tmuxp load -a lazygit && nvim ."
-
-          [[session]]
-          name = "axs-configurations"
-          path = "~/Documents/sre_lambda_layer/GitHub/axs-configurations"
-          startup_command = "tmuxp load -a lazygit && nvim ."
-
+          name = "ekiree_dashboard"
+          path = "~/Projects/dashboard/dev/ekiree_dashboard"
+          startup_command = "tmuxp load -a ekiree_dashboard && nvim ."
         '';
     };
 
     ## tmuxp config
     home.file = {
-      ".config/tmuxp/dashboard.yaml".text =
+      ".config/tmuxp/ekiree_dashboard.yaml".text =
         /*
         yaml
         */
         ''
-          session_name: Dashboard
-          start_directory: ~/Projects/dashboard/dev/ekiree_dashboard
+          session_name: ekiree_dashboard
 
           windows:
-          - window_name: notes
-            panes:
-              - shell_command:
-                - cd ~/Second_Brain ; nvim areasOfResponsibility/Ekiree/Tech
-
-          - window_name: nvim
-            focus: true
-            panes:
-              - shell_command:
-                - nvim ./ekiree_dashboard
-
           - window_name: term
             layout: main-vertical
             shell_command_before:
@@ -175,7 +155,7 @@
         */
         ''
           session_name: lazygit
-          
+
           windows:
           - window_name: git
             panes:
