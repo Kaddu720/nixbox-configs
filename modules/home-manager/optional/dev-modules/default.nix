@@ -44,7 +44,6 @@ in {
       awscli2
       kubectl
       k9s
-      sesh
       terraform
     ]
     ++ platformPackages;

@@ -10,8 +10,7 @@
   };
 
   config = lib.mkIf config.tmux.enable {
-    home.packages = [pkgs.tmuxp];
-
+    home.packages = [pkgs.tmuxp pkgs.sesh];
     programs.tmux = {
       enable = true;
 
@@ -89,10 +88,11 @@
         set -g detach-on-destroy off  # don't exit from tmux when closing a session
 
         bind-key "K" run-shell "sesh connect \"$(
-          sesh list --icons | fzf-tmux -p 80%,70% \
+          sesh list -it | fzf-tmux -p 80%,70% \
             --layout=reverse --no-sort --ansi --border-label ' sesh ' --prompt '>  ' \
-            --header ' :: <ctrl-d> to delete' \
+            --header ' :: & <ctrl-a> to add & <ctrl-d> to delete' \
             --bind 'ctrl-d:execute(tmux kill-session -t {2..})+change-prompt(>  )+reload(sesh list --icons)' \
+            --bind 'ctrl-a:change-prompt(  )+reload(sesh list -icz)' \
             --preview-window 'right:55%' \
             --preview 'sesh preview {}'
         )\""
