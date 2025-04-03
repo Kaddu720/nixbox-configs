@@ -109,7 +109,7 @@
         */
         ''
           [default_session]
-          startup_command = "tmuxp load -a lazygit && nvim ."
+          startup_command = "tmuxp load -a lazygit && tmux split-window -h -l 50% && nvim ."
 
           [[session]]
           name = "Second_Brain"
@@ -120,6 +120,11 @@
           name = "ekiree_dashboard"
           path = "~/Projects/dashboard/dev/ekiree_dashboard"
           startup_command = "tmuxp load -a ekiree_dashboard && nvim ."
+
+          [[session]]
+          name = "axs-configurations"
+          path = "~/Documents/sre_lambda_layer/GitHub/axs-configurations"
+          startup_command = "tmuxp load -a lazygit && nvim ."
         '';
     };
 
