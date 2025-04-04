@@ -137,6 +137,16 @@ in {
           path = "~/Second_Brain"
           startup_command = "nvim ."
 
+          [[session]]
+          name = "nixos"
+          path = "~/.config/nixos"
+          startup_command = "nvim ."
+
+          [[session]]
+          name = "nvim-dev"
+          path = "~/.config/nvim-dev"
+          startup_command = "nvim ."
+
           ${seshConfigs}
         '';
     };
