@@ -15,7 +15,7 @@
         [[session]]
         name = "axs-configurations"
         path = "~/Documents/sre_lambda_layer/GitHub/axs-configurations"
-        startup_command = "tmuxp load -a lazygit && nvim ."
+        startup_command = "tmuxp load -a lazygit && nvim"
       ''
     else
       /*
@@ -25,7 +25,7 @@
         [[session]]
         name = "ekiree_dashboard"
         path = "~/Projects/dashboard/dev/ekiree_dashboard"
-        startup_command = "tmuxp load -a ekiree_dashboard && nvim ."
+        startup_command = "tmuxp load -a ekiree_dashboard && nvim"
       '';
 in {
   options = {
@@ -69,8 +69,8 @@ in {
         set -g status-style " "
 
         #Left status bar
-        set -g status-left "#[fg=#26233a,bold,bg=#ebbcba] #S #[fg=#ebbcba,bg=#191724] "
-        set -g window-status-current-format '#[fg=#ebbcba,bg=#191724]#I:#W'
+        set -g status-left "#[fg=#eb6f92,bold,bg=#191724]  #S "
+        set -g window-status-current-format '#[fg=#e0def4,bg=#191724]#I:#W'
         set -g window-status-format '#[fg=#908caa,bg=#191724]#I:#W'
         set -g window-status-separator " "
 
@@ -83,12 +83,6 @@ in {
         unbind-key C-b
         set-option -g prefix C-a
         bind-key C-a send-prefix
-
-        # navigate panes with vim keyes
-        bind-key h select-pane -L
-        bind-key j select-pane -D
-        bind-key k select-pane -U
-        bind-key l select-pane -R
 
         #enable true vi mode for copying
         bind-key -T copy-mode-vi v send-keys -X begin-selection
@@ -133,7 +127,7 @@ in {
         */
         ''
           [default_session]
-          startup_command = "tmuxp load -a lazygit && tmux split-window -h -l 30% && nvim ."
+          startup_command = "tmuxp load -a lazygit && tmux split-window -h -l 30% && nvim"
 
           [[session]]
           name = "Second_Brain"
