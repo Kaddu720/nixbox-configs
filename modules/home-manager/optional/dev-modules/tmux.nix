@@ -140,12 +140,12 @@ in {
           [[session]]
           name = "nixos"
           path = "~/.config/nixos"
-          startup_command = "nvim ."
+          startup_command = "tmuxp load -a lazygit && tmux split-window -h -l 30% && nvim"
 
           [[session]]
           name = "nvim-dev"
           path = "~/.config/nvim-dev"
-          startup_command = "nvim ."
+          startup_command = "tmuxp load -a lazygit && tmux split-window -h -l 30% && nvim"
 
           ${seshConfigs}
         '';
