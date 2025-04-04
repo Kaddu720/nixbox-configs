@@ -105,6 +105,9 @@ in {
         bind-key x kill-pane # skip "kill-pane 1? (y/n)" prompt
         set -g detach-on-destroy off  # don't exit from tmux when closing a session
 
+        # Set up Sesh last for last session behavior
+        bind "L" run-shell "sesh last || tmux display-message -d 1000 'Only one session'"
+
         bind-key "K" run-shell "sesh connect \"$(
           sesh list -it | fzf-tmux -p 70%,80% \
             --border=none \
