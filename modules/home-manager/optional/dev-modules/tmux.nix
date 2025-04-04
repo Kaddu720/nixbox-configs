@@ -133,7 +133,7 @@ in {
         */
         ''
           [default_session]
-          startup_command = "tmuxp load -a lazygit && tmux split-window -h -l 50% && nvim ."
+          startup_command = "tmuxp load -a lazygit && tmux split-window -h -l 30% && nvim ."
 
           [[session]]
           name = "Second_Brain"
