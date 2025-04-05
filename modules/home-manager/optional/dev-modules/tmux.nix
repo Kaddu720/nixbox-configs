@@ -25,7 +25,7 @@
         [[session]]
         name = "ekiree_dashboard"
         path = "~/Projects/dashboard/dev/ekiree_dashboard"
-        startup_command = "tmuxp load -a ekiree_dashboard && nvim"
+        startup_command = "tmuxp load -a ekiree_dashboard && tmux split-window -h -l 30% && nvim"
       '';
 in {
   options = {
