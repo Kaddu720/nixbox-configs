@@ -23,6 +23,12 @@
         bottles
         piper
         libratbag
+        lutris
+        libadwaita # used by lutris
+        wine64
+        winetricks
+        wineWowPackages.stable
+        wineWowPackages.waylandFull
       ];
 
       sessionVariables = {
