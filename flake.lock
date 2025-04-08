@@ -789,11 +789,11 @@
         "plugins-ecolog": "plugins-ecolog"
       },
       "locked": {
-        "lastModified": 1744136594,
-        "narHash": "sha256-lPGsU+9ydiLdh0YakvWvl+kulgXsw9oS8gmgulvuccg=",
+        "lastModified": 1744155047,
+        "narHash": "sha256-gAlm7zO44N6OX6OMHK3z2tUgCuCFTyPKcAHdHXX+JPE=",
         "owner": "Kaddu720",
         "repo": "neovim-config",
-        "rev": "d51f764e2454ce3a7de7be6f5c027e631fc3d809",
+        "rev": "5ba5192f6392441d6f36ff2737f57032381d905a",
         "type": "github"
       },
       "original": {
