@@ -144,7 +144,7 @@ in {
 
           [[session]]
           name = "nvim-dev"
-          path = "~/.config/nvim-dev"
+          path = "~/.config/nvim"
           startup_command = "tmuxp load -a lazygit && nvim"
 
           ${seshConfigs}
