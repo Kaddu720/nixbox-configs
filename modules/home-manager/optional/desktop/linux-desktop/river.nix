@@ -255,17 +255,17 @@
     home.file.".config/kanshi/config" = {
       text = ''
         profile Home-Box {
-          output DP-1 mode 2560x1440@165Hz position 1920,0 adaptive_sync on
-          output DP-2 mode 1920x1080@60Hz position 0,0
+          output DP-1 mode 2560x1440@165Hz position 0,0 adaptive_sync on 
+          output DP-2 mode 1920x1080@60Hz position -1920,0
         }
         profile Movie-Night {
-          output DP-1 mode 2560x1440@165Hz position 1920,0 adaptive_sync on
-          output DP-2 mode 1920x1080@60Hz position 0,0
+          output DP-1 mode 2560x1440@165Hz position 0,0 adaptive_sync on 
+          output DP-2 mode 1920x1080@60Hz position -1920,0
           output HDMI-A-1
         }
         profile Mobile-Docked {
-          output DP-1 mode 2560x1440 position 1920,0 adaptive_sync on
-          output DP-2 mode 1920x1080 position 0,0
+          output DP-1 mode 2560x1440 position 0,0 adaptive_sync on
+          output DP-2 mode 1920x1080 position -1920,0
           output eDP-1 disable
         }
         profile Mobile-Away {
