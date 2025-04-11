@@ -810,11 +810,11 @@
         "plugins-ecolog": "plugins-ecolog"
       },
       "locked": {
-        "lastModified": 1744309291,
-        "narHash": "sha256-0rSWkcMS9+g5SbrEur5vcpc6n13QZro679HOWKwec44=",
+        "lastModified": 1744362835,
+        "narHash": "sha256-SJ5Y52/Bf3LWM8Gdg3LFIqQqAcs7hlCvVxOC5Npscbo=",
         "owner": "Kaddu720",
         "repo": "neovim-config",
-        "rev": "1dacc38fead91df741a136164b6c0ccc2e92eb3f",
+        "rev": "41614642a35b6705b6f5821af1817a7df4ac35a8",
         "type": "github"
       },
       "original": {
