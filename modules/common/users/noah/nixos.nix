@@ -13,7 +13,7 @@
     
     # System-level packages (prefer moving user-specific packages to home-manager)
     packages = with pkgs; [
-      beekeeper-studio
+      # beekeeper-studio
       bluez
       dislocker
       home-manager
