@@ -10,7 +10,6 @@
   };
 
   config = lib.mkIf config.games.enable {
-
     # Hardware and drivers
     services.xserver.videoDrivers = ["amdgpu"];
 
@@ -38,6 +37,10 @@
 
     # Configure Programs
     programs = {
+      corectrl = {
+        enable = true;
+        gpuOverclock.enable = true;
+      };
       gamemode.enable = true;
       steam = {
         enable = true;

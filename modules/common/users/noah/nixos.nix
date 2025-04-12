@@ -1,16 +1,13 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   # -------------------- User Accounts --------------------
   users.users.noah = {
     isNormalUser = true;
-    extraGroups = ["wheel" "networkmanager" "docker"]; # Enable 'sudo' for the user
+    extraGroups = ["wheel" "networkmanager" "docker" "corectrl"]; # Enable 'sudo' for the user
     group = "users";
     createHome = true;
     home = "/home/noah";
     uid = 1000;
-    
+
     # System-level packages (prefer moving user-specific packages to home-manager)
     packages = with pkgs; [
       # beekeeper-studio
@@ -40,13 +37,13 @@
   services.dbus.enable = true;
   xdg.portal = {
     enable = true;
-    
+
     # Define which portal implementations to use
     extraPortals = with pkgs; [
-      xdg-desktop-portal-wlr  # For Wayland compositors like river
-      xdg-desktop-portal-gtk  # For better integration with GTK apps
+      xdg-desktop-portal-wlr # For Wayland compositors like river
+      xdg-desktop-portal-gtk # For better integration with GTK apps
     ];
-    
+
     # Configure portal backends by desktop environment
     config = {
       river = {
@@ -59,7 +56,7 @@
         screenshot = "wlr";
       };
     };
-    
+
     # WLR-specific settings
     wlr = {
       enable = true;
@@ -71,17 +68,17 @@
           # Use slurp for area selection if needed
           chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
         };
-        
+
         # Add screenshot settings
         screenshot = {
-          choose_type = "slurp";  # Use slurp for selection
+          choose_type = "slurp"; # Use slurp for selection
         };
       };
     };
   };
-  
+
   # Enable additional dependencies for better portal functionality
-  programs.xwayland.enable = true;  # For X11 app compatibility
+  programs.xwayland.enable = true; # For X11 app compatibility
 
   # -------------------- System Services --------------------
   # These services run at the system level and are available to all users
