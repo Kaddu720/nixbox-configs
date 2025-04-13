@@ -596,11 +596,11 @@
     },
     "nixCats": {
       "locked": {
-        "lastModified": 1744104412,
-        "narHash": "sha256-UWMp5Rt1hREPANqoi5EyF0WT10pGk/T7bHkoIx8f5dg=",
+        "lastModified": 1744516232,
+        "narHash": "sha256-o6V+iOKp2WPvFf1vBwAYYpTLbAfXvYFEqhe0S6sCIJo=",
         "owner": "BirdeeHub",
         "repo": "nixCats-nvim",
-        "rev": "3f59bc16a2ac35478c053687b94221316ab0f335",
+        "rev": "75d52d614d2831839b48d137bf705fa9f51bdbe0",
         "type": "github"
       },
       "original": {
@@ -750,11 +750,11 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1744032190,
-        "narHash": "sha256-KSlfrncSkcu1YE+uuJ/PTURsSlThoGkRqiGDVdbiE/k=",
+        "lastModified": 1744536153,
+        "narHash": "sha256-awS2zRgF4uTwrOKwwiJcByDzDOdo3Q1rPZbiHQg/N38=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "b0b4b5f8f621bfe213b8b21694bab52ecfcbf30b",
+        "rev": "18dd725c29603f582cf1900e0d25f9f1063dbf11",
         "type": "github"
       },
       "original": {
@@ -810,11 +810,11 @@
         "plugins-ecolog": "plugins-ecolog"
       },
       "locked": {
-        "lastModified": 1744362835,
-        "narHash": "sha256-SJ5Y52/Bf3LWM8Gdg3LFIqQqAcs7hlCvVxOC5Npscbo=",
+        "lastModified": 1744544342,
+        "narHash": "sha256-e6FBPLplWLV3+7S15QEQRZSFgqyYj5SDMDl/FcmT+K4=",
         "owner": "Kaddu720",
         "repo": "neovim-config",
-        "rev": "41614642a35b6705b6f5821af1817a7df4ac35a8",
+        "rev": "d90b90159d34cfadb58dccb20794a65329800734",
         "type": "github"
       },
       "original": {
