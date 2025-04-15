@@ -201,8 +201,8 @@
           riverctl rule-add -app-id 'com.mitchellh.ghostty' output $Primary_Monitor
 
           # Browser on tag 2, primary monitor
-          riverctl rule-add -app-id 'zen' tags 2
-          riverctl rule-add -app-id 'zen' output $Primary_Monitor
+          riverctl rule-add -app-id 'zen-beta' tags 2
+          riverctl rule-add -app-id 'zen-beta' output $Primary_Monitor
 
           # Discord on tag 8, secondary monitor
           riverctl rule-add -app-id 'discord' tags 8

@@ -65,6 +65,7 @@ in {
       # Browsers & Communication
       zoom-us
       discord
+      vesktop
       # System Tools
       flameshot
       pavucontrol
