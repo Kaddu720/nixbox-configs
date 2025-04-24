@@ -24,8 +24,4 @@
     ripgrep
     sops
   ];
-
-  programs = {
-    zoxide.enable = true;
-  };
 }

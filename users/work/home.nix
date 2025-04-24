@@ -20,6 +20,11 @@
   # Use neovim from NixCats
   nvim.enable = true;
 
+  services.desktop-config = {
+    enable = true;
+    macDesktop = true;
+  };
+
   # -------------------- User Packages --------------------
   nixpkgs.config.allowUnfree = true;
   # Install Packages
@@ -28,12 +33,7 @@
     nerd-fonts.jetbrains-mono
   ];
 
-  # -------------------- Desktop Services --------------------
-  # Imported Optional Modules
-  services.desktop-config = {
-    enable = true;
-    macDesktop = true;
-  };
+  programs.zoxide.enable = true;
 
   # -------------------- Git Configuration --------------------
   #disables personall git credentials

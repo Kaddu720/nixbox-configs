@@ -80,6 +80,7 @@
       smartmontools # Hard drive monitoring
       ripgrep # Better grep
       fd # Better find
+      zoxide # Better cd
     ];
 
     # Improve bash experience for root
@@ -101,6 +102,7 @@
         alias grep='grep --color=auto'
         alias df='df -h'
         alias free='free -m'
+        alias cd='z'
 
         # Nix-specific aliases
         alias nrs='sudo nixos-rebuild switch'
