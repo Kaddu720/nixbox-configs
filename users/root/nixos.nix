@@ -68,7 +68,6 @@
       killall
       neovim
       nh
-      vlc
       wget
       # inputs.flox.packages.${pkgs.system}.default
 
