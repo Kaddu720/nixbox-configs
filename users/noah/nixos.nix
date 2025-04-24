@@ -17,6 +17,7 @@
       libreoffice-still
       rtkit
       tree
+      vlc
       wirelesstools
       xdg-desktop-portal-wlr # enable screen sharing for river wm
     ];
