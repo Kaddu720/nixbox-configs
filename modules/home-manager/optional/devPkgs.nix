@@ -6,7 +6,7 @@
   # Optional packages for mac or linux
   platformPackages =
     if "${vars.hostName}" == "Work-Box"
-    then with pkgs; [opentofu lens]
+    then with pkgs; [terraform lens]
     else with pkgs; [docker lazydocker];
 in {
   home.packages = with pkgs;
@@ -18,7 +18,7 @@ in {
       awscli2
       kubectl
       k9s
-      terraform
+      opentofu
     ]
     ++ platformPackages;
 
