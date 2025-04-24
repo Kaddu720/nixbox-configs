@@ -36,7 +36,6 @@
         ;
       inherit
         (pkgs.nerd-fonts)
-        hack
         jetbrains-mono
         ;
     };

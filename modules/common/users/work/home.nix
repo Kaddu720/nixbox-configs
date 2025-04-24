@@ -21,7 +21,6 @@
   # Install Packages
   home.packages = with pkgs; [
     obsidian
-    nerd-fonts.hack
     nerd-fonts.jetbrains-mono
   ];
 

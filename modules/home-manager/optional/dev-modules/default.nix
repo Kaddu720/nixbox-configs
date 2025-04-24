@@ -34,11 +34,8 @@ in {
 
   home.packages = with pkgs;
     [
-      bat
       lazygit
       jq
-      yazi
-      nerd-fonts.hack
       nerd-fonts.jetbrains-mono
       awscli2
       kubectl
