@@ -3,31 +3,7 @@
   pkgs,
   inputs,
   ...
-}: let
-  zoomOverlay = final: prev: {
-    zoom-us = prev.zoom-us.overrideAttrs (oldAttrs: {
-      # Add required runtime dependencies
-      buildInputs =
-        (oldAttrs.buildInputs or [])
-        ++ (with final; [
-          pipewire
-          libpulseaudio
-          xdg-desktop-portal
-          xdg-desktop-portal-wlr
-        ]);
-      # Modify the wrapper to include necessary environment variables
-      postFixup =
-        (oldAttrs.postFixup or "")
-        + ''
-          wrapProgram $out/bin/zoom \
-            --set XDG_SESSION_TYPE "wayland" \
-            --set XDG_CURRENT_DESKTOP "sway" \
-            --set QT_QPA_PLATFORM "wayland" \
-            --append-flags "--enable-features=WebRTCPipeWireCapturer"
-        '';
-    });
-  };
-in {
+}: {
   # -------------------- Imports --------------------
   imports = [
     ../../../home-manager/optional/applications/zen-browser.nix
@@ -37,9 +13,6 @@ in {
   programs.home-manager.enable = true;
   # -------------------- Nixpkgs Configuration --------------------
   nixpkgs = {
-    overlays = [
-      zoomOverlay
-    ];
     config = {
       allowUnfree = true;
     };
