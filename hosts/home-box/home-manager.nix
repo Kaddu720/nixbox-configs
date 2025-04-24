@@ -1,9 +1,9 @@
 {...}: {
   imports = [
-    ../../modules/common/users/noah/home.nix
+    ../../users/noah/home.nix
     ../../modules/home-manager/core
     ../../modules/home-manager/optional/desktop
-    ../../modules/home-manager/optional/dev-modules
+    ../../modules/home-manager/optional
     ../../modules/common/static/stylix.nix
   ];
   # Let Home Manager install and manage itself.

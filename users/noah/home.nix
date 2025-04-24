@@ -6,11 +6,25 @@
 }: {
   # -------------------- Imports --------------------
   imports = [
-    ../../../home-manager/optional/applications/zen-browser.nix
+    ../../modules/home-manager/core
+    ../../modules/home-manager/optional
+    ../../modules/home-manager/optional/desktop
+    ../../modules/home-manager/optional/zen-browser.nix
   ];
+
   # -------------------- Home Manager Configuration --------------------
   # Enable home-manager itself
   programs.home-manager.enable = true;
+
+  # -------------------- Optional Modules --------------------
+  fish.enable = true;
+  nushell.enable = true;
+  starship.enable = true;
+  ghostty.enable = true;
+  alacritty.enable = true;
+  # Use neovim from NixCats
+  nvim.enable = true;
+
   # -------------------- Nixpkgs Configuration --------------------
   nixpkgs = {
     config = {
@@ -79,9 +93,6 @@
     # SSH agent service (user level)
     ssh-agent.enable = true;
   };
-  # -------------------- User Programs --------------------
-  # Neovim from NixCats
-  nvim.enable = true;
   programs = {
     # SSH Configuration
     ssh = {

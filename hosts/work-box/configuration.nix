@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    ../../modules/common/users/work/nixos.nix
+    ../../users/work/nixos.nix
     ../../modules/darwin
   ];
 

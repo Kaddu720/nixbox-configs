@@ -7,23 +7,23 @@
     ./git.nix
     ./btop.nix
     ./ssh.nix
+    ./tmux.nix
   ];
 
   git.enable =
     lib.mkDefault true;
-  btop.enable = 
+  btop.enable =
     lib.mkDefault true;
   ssh.enable =
     lib.mkDefault true;
+  tmux.enable =
+    lib.mkDefault true;
 
-  home.packages = builtins.attrValues {
-    inherit
-      (pkgs)
-      fzf
-      ripgrep
-      sops
-      ;
-  };
+  home.packages = with pkgs; [
+    fzf
+    ripgrep
+    sops
+  ];
 
   programs = {
     zoxide.enable = true;

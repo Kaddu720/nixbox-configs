@@ -1,14 +1,13 @@
 {...}: {
   imports = [
-    ../../modules/common/users/work/home.nix
-    ../../modules/home-manager/core
-    ../../modules/home-manager/optional/desktop
-    ../../modules/home-manager/optional/dev-modules
+    ../../users/work/home.nix
     ../../modules/common/static/stylix.nix
   ];
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  # Optional Modules
 
   # Origial nix version this was configured on
   # Dont' delete or it could bork the entire config

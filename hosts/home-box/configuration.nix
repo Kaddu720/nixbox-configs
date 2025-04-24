@@ -3,8 +3,8 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../../modules/common/users/root/nixos.nix
-    ../../modules/common/users/noah/nixos.nix
+    ../../users/root/nixos.nix
+    ../../users/noah/nixos.nix
     ../../modules/nixos/core
     ../../modules/nixos/optional
   ];
