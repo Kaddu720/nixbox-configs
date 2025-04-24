@@ -19,6 +19,8 @@
   alacritty.enable = true;
   # Use neovim from NixCats
   nvim.enable = true;
+  #disables personall git credentials
+  git.enable = false;
 
   services.desktop-config = {
     enable = true;
@@ -34,8 +36,4 @@
   ];
 
   programs.zoxide.enable = true;
-
-  # -------------------- Git Configuration --------------------
-  #disables personall git credentials
-  git.enable = false;
 }
