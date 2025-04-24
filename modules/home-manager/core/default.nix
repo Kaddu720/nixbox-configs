@@ -26,7 +26,6 @@
   };
 
   programs = {
-    thefuck.enable = true;
     zoxide.enable = true;
   };
 }

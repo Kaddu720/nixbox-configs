@@ -52,5 +52,6 @@ in {
     };
     eza.enable = true;
     carapace.enable = true;
+    thefuck.enable = true;
   };
 }
