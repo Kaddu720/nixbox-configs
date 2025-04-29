@@ -35,5 +35,14 @@
     nerd-fonts.jetbrains-mono
   ];
 
+  #enable programs and services
   programs.zoxide.enable = true;
+  programs = {
+    nh = {
+      enable = true;
+      clean.enable = true;
+      clean.extraArgs = "--keep-since 4d --keep 3";
+      flake = "/Users/noahwilson/.config/nixos";
+    };
+  };
 }

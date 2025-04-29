@@ -1,6 +1,6 @@
 {
   description = "Flake for setting up boxes";
-  
+
   #Caches for flox package manager
   # nixConfig.extra-substituters = ["https://cache.flox.dev"];
   # nixConfig.extra-trusted-public-keys = [
@@ -29,7 +29,6 @@
     ghostty = {
       url = "github:ghostty-org/ghostty";
     };
-
 
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
@@ -128,8 +127,8 @@
           inputs.stylix.homeManagerModules.stylix
         ];
       };
-      Work-Box = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {system = "aarch64-darwin";};
+      "noah@Work-Box" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages."aarch64-darwin";
         extraSpecialArgs = {
           inherit inputs;
           vars = {

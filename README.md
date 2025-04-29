@@ -37,11 +37,18 @@ Mac: `nix run nix-darwin -- switch --flake ./#Work-Box --show-trace`
 `nix flake update`
 
 ## Updating nixos with nh helper
+### Nixos
 rebuild and switch: `nh os switch`
 rebuild and switch after boot: `nh os boot`
 rebuild and activate but no switch: `nh os test`
+
+### Nix Darwin
+nh darwin: `nh darwin switch -H Work-Box`
+
+### Home Manager
 rebuild home manager: `nh home switch`
-Note: Support for nix darwin will come out in nh 4.0.0 release
+until we get more patches: `home-manager switch --flake ./#noah@Work-Box`
+
 
 ## Notes for Apps
 __Activate proton db for gaming__

@@ -11,6 +11,8 @@
     Host = "aarch65-darwin";
     AWS_PROFILE = "sre_v1-prod";
     TF_SECRET = "terraform_builder";
+    NH_DARWIN_FLAKE = "/Users/noahwilson/.config/nixos#darwinConfigurations.Work-Box";
+    NH_HOME_FLAKE ="/Users/noahwilson/.config/nixos#homeConfigurations.noah@Work-Box";
   };
 
   system = {
@@ -40,7 +42,6 @@
   environment = {
     # List packages at system level
     systemPackages = with pkgs; [
-      nh
       slack
     ];
   };
