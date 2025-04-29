@@ -55,7 +55,7 @@
   # -------------------- Environment Variables --------------------
   environment.sessionVariables = {
     # Flake location for nh
-    FLAKE = "/home/noah/.config/nixos";
+    NH_FLAKE = "/home/noah/.config/nixos";
   };
 
   # -------------------- System Packages --------------------
