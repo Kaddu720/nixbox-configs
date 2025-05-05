@@ -807,14 +807,15 @@
       "inputs": {
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs_5",
-        "plugins-ecolog": "plugins-ecolog"
+        "plugins-ecolog": "plugins-ecolog",
+        "plugins-obsidian": "plugins-obsidian"
       },
       "locked": {
-        "lastModified": 1746473481,
-        "narHash": "sha256-ac5c09qnL29Yws+sQfbzk7G+HfFPpgOSAOv5ayOlZ1Q=",
+        "lastModified": 1746477151,
+        "narHash": "sha256-0/ym8BIk0iC4iDa6sbklFSyDiSb8YjwB2yvBqLwbDA8=",
         "owner": "Kaddu720",
         "repo": "neovim-config",
-        "rev": "1c8624fd2180fff58f5d9c3bcd0f463997c425bd",
+        "rev": "e3c98e75bb1b5fc782c951d136c2767c456d7d5f",
         "type": "github"
       },
       "original": {
@@ -837,6 +838,22 @@
       "original": {
         "owner": "philosofonusus",
         "repo": "ecolog.nvim",
+        "type": "github"
+      }
+    },
+    "plugins-obsidian": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1746453557,
+        "narHash": "sha256-5bNNQKKjneKASS3sWfnprHewa9MaIUznWkBfXpCrxHk=",
+        "owner": "obsidian-nvim",
+        "repo": "obsidian.nvim",
+        "rev": "0d053cb65fd308cac08cfa942ad12695ee25297f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "obsidian-nvim",
+        "repo": "obsidian.nvim",
         "type": "github"
       }
     },
