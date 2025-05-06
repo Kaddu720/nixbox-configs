@@ -811,11 +811,11 @@
         "plugins-obsidian": "plugins-obsidian"
       },
       "locked": {
-        "lastModified": 1746477151,
-        "narHash": "sha256-0/ym8BIk0iC4iDa6sbklFSyDiSb8YjwB2yvBqLwbDA8=",
+        "lastModified": 1746554293,
+        "narHash": "sha256-ppL3YsvVH45G+oBmV8jbfgFndsVev+DgZj/Fz1IjcRg=",
         "owner": "Kaddu720",
         "repo": "neovim-config",
-        "rev": "e3c98e75bb1b5fc782c951d136c2767c456d7d5f",
+        "rev": "e9613483289da750689f766ac2ca08cc44ee6075",
         "type": "github"
       },
       "original": {
