@@ -22,6 +22,7 @@
   starship.enable = true;
   ghostty.enable = true;
   alacritty.enable = true;
+  devPkgs.enable = true;
   # Use neovim from NixCats
   nvim.enable = true;
 
