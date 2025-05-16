@@ -42,8 +42,10 @@
             ;;
 
             Mobile-Box)
-              Primary_Monitor=DP-1
-              Secondary_Monitor=DP-2
+              # Primary_Monitor=DP-1
+              # Secondary_Monitor=DP-2
+              Primary_Monitor=eDP-1
+              Secondary_Monitor=eDP-1
             ;;
 
             *)
@@ -255,11 +257,11 @@
     home.file.".config/kanshi/config" = {
       text = ''
         profile Home-Box {
-          output DP-1 mode 2560x1440@165Hz position 0,0 adaptive_sync on 
+          output DP-1 mode 2560x1440@165Hz position 0,0 adaptive_sync on
           output DP-2 mode 1920x1080@60Hz position -1920,0
         }
         profile Movie-Night {
-          output DP-1 mode 2560x1440@165Hz position 0,0 adaptive_sync on 
+          output DP-1 mode 2560x1440@165Hz position 0,0 adaptive_sync on
           output DP-2 mode 1920x1080@60Hz position -1920,0
           output HDMI-A-1
         }
