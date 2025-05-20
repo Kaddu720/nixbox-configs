@@ -109,7 +109,7 @@
         modules = [
           ./hosts/home-box/home-manager.nix
           inputs.nvim-config.homeModules.default
-          inputs.stylix.homeManagerModules.stylix
+          inputs.stylix.homeModules.stylix
         ];
       };
       "noah@Mobile-Box" = home-manager.lib.homeManagerConfiguration {
@@ -124,7 +124,7 @@
         modules = [
           ./hosts/mobile-box/home-manager.nix
           inputs.nvim-config.homeModules.default
-          inputs.stylix.homeManagerModules.stylix
+          inputs.stylix.homeModules.stylix
         ];
       };
       "noah@Work-Box" = home-manager.lib.homeManagerConfiguration {
@@ -139,7 +139,7 @@
         modules = [
           ./hosts/work-box/home-manager.nix
           inputs.nvim-config.homeModules.default
-          inputs.stylix.homeManagerModules.stylix
+          inputs.stylix.homeModules.stylix
         ];
       };
     };
