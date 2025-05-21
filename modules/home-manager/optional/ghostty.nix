@@ -55,14 +55,14 @@ in {
     home.file.".config/ghostty/themes/reld" = {
       text = ''
         palette = 0=#191724
-        palette = 1=#aa7264
+        palette = 1=#b4637a
         palette = 2=#bb5c3a
         palette = 3=#c78645
         palette = 4=#3b83aa
         palette = 5=#563ea9
         palette = 6=#3b83aa
         palette = 7=#c7c4c4
-        palette = 8=#b4637a
+        palette = 8=#aa7264
         palette = 9=#aa7264
         palette = 10=#bb5c3a
         palette = 11=#c78645
