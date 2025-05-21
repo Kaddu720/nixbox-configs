@@ -1,7 +1,6 @@
 {...}: {
   imports = [
     ../../users/work/home.nix
-    ../../modules/common/static/stylix.nix
   ];
 
   # Let Home Manager install and manage itself.

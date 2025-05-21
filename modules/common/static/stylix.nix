@@ -1,7 +1,20 @@
-{...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   stylix = {
     enable = true;
     image = ./dark_fractal.jpg;
+    fonts = {
+      monospace = {
+        package = pkgs.nerd-fonts.jetbrains-mono;
+        name = "Jetbrains Mono";
+      };
+      serif = config.stylix.fonts.monospace;
+      sansSerif = config.stylix.fonts.monospace;
+      emoji = config.stylix.fonts.monospace;
+    };
     base16Scheme = {
       base00 = "#191724";
       base01 = "#aa7264";
@@ -20,5 +33,7 @@
       base0E = "#563ea9";
       base0F = "#c7c4c4";
     };
+    targets.gtk.enable = pkgs.lib.mkIf pkgs.stdenv.isLinux true;
+    targets.kde.enable = pkgs.lib.mkIf pkgs.stdenv.isLinux true;
   };
 }
