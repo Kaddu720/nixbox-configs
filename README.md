@@ -22,6 +22,9 @@ __Encryption__
 __Setting up a computer__
 - you'll have to set up the personal ssh key in the `.ssh/personal` directory
 
+__Lazy Trees__
+Make sure you set up lazy trees for faster builds : https://determinate.systems/posts/changelog-determinate-nix-352/
+
 ## Updating System Configurations
 Linux: `sudo nixos-rebuild switch --flake ./#Home-Box --option eval-cache false`
 
