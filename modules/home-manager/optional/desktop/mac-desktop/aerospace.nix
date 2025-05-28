@@ -78,10 +78,10 @@
         alt-shift-l = 'move right'
         
         # Resize focused window - using correct syntax
-        alt-ctrl-h = 'resize width -50'
+        alt-ctrl-l = 'resize width -50'
         alt-ctrl-j = 'resize height +50'
         alt-ctrl-k = 'resize height -50'
-        alt-ctrl-l = 'resize width +50'
+        alt-ctrl-h = 'resize width +50'
 
         # Development workspace group (alt modifier)
         alt-1 = 'workspace dev'
