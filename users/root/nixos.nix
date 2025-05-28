@@ -79,6 +79,8 @@
       ripgrep # Better grep
       fd # Better find
       zoxide # Better cd
+      du-dust # better du
+      dua # Rust file usage analyzer
     ];
 
     # Improve bash experience for root

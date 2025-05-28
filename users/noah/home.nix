@@ -64,6 +64,7 @@
       # Applications
       obsidian
       river
+      presenterm
       # Flake inputs
       inputs.zen-browser.packages."x86_64-linux".default
       inputs.ghostty.packages.x86_64-linux.default
