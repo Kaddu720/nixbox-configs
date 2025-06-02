@@ -16,7 +16,10 @@
         fish
         */
         ''
-          set fish_greeting " Praise the Omnissiah"
+          function fish_greeting
+              echo Hail the Machine God
+              echo Hail the Omnisiah
+          end
 
           # bat color scheme
           set -gx BAT_THEME "base16"
@@ -29,6 +32,9 @@
 
           # enable fzf, the fuck, and zoxide
           alias cd "z"
+
+          # Make kubeclt less of a pain to use
+          alias k "kubectl"
         '';
     };
 
@@ -41,6 +47,5 @@
       eza.enableFishIntegration = true;
       carapace.enableFishIntegration = true;
     };
-
   };
 }
