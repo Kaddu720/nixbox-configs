@@ -25,6 +25,7 @@ in {
         nerd-fonts.jetbrains-mono
         awscli2
         kubectl
+        kubectx
         k9s
         opentofu
       ]
