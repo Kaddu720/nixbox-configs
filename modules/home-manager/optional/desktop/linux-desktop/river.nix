@@ -250,34 +250,34 @@
           systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
         '';
     };
-    services.kanshi = {
-      enable = true;
-      systemdTarget = "river-session.target";
-    };
-    home.file.".config/kanshi/config" = {
-      text = ''
-        profile Home-Box {
-          output DP-1 mode 2560x1440@165Hz position 0,0 adaptive_sync on
-          output DP-2 mode 1920x1080@60Hz position -1920,0
-        }
-        profile Movie-Night {
-          output DP-1 mode 2560x1440@165Hz position 0,0 adaptive_sync on
-          output DP-2 mode 1920x1080@60Hz position -1920,0
-          output HDMI-A-1
-        }
-        profile Mobile-Docked {
-          output DP-1 mode 2560x1440 position 0,0 adaptive_sync on
-          output DP-2 mode 1920x1080 position -1920,0
-          output eDP-1 disable
-        }
-        profile Mobile-Away {
-          output DP-1 position 0,0 adaptive_sync on
-          output eDP-1 mode 2256x1504@59.999001Hz position 0,0
-        }
-        profile Mobile-Box {
-          output eDP-1 mode 2256x1504@59.999001Hz
-        }
-      '';
-    };
-  };
+  #   services.kanshi = {
+  #     enable = true;
+  #     systemdTarget = "river-session.target";
+  #   };
+  #   home.file.".config/kanshi/config" = {
+  #     text = ''
+  #       profile Home-Box {
+  #         output DP-1 mode 2560x1440@165Hz position 0,0 adaptive_sync on
+  #         output DP-2 mode 1920x1080@60Hz position -1920,0
+  #       }
+  #       profile Movie-Night {
+  #         output DP-1 mode 2560x1440@165Hz position 0,0 adaptive_sync on
+  #         output DP-2 mode 1920x1080@60Hz position -1920,0
+  #         output HDMI-A-1
+  #       }
+  #       profile Mobile-Docked {
+  #         output DP-1 mode 2560x1440 position 0,0 adaptive_sync on
+  #         output DP-2 mode 1920x1080 position -1920,0
+  #         output eDP-1 disable
+  #       }
+  #       profile Mobile-Away {
+  #         output DP-1 position 0,0 adaptive_sync on
+  #         output eDP-1 mode 2256x1504@59.999001Hz position 0,0
+  #       }
+  #       profile Mobile-Box {
+  #         output eDP-1 mode 2256x1504@59.999001Hz
+  #       }
+  #     '';
+  #   };
+   };
 }

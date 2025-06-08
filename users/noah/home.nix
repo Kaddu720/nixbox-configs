@@ -42,11 +42,6 @@
       HOME = "/home/noah";
       TERMINAL = "ghostty";
       XDG_SESSION_TYPE = "wayland";
-      XDG_CURRENT_DESKTOP = "river";
-      MOZ_ENABLE_WAYLAND = "1";
-      QT_QPA_PLATFORM = "wayland";
-      SDL_VIDEODRIVER = "wayland";
-      _JAVA_AWT_WM_NONREPARENTING = "1";
     };
     # Package installations
     packages = with pkgs; [
@@ -64,6 +59,7 @@
       # Applications
       obsidian
       river
+      sway
       presenterm
       # Flake inputs
       inputs.zen-browser.packages."x86_64-linux".default

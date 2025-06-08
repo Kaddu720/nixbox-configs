@@ -20,7 +20,7 @@
             #!/bin/sh
 
             # List scripts available
-            command=$(ls .config/scripts | sed -e 's/\.sh$//' | rofi -dmenu -p)
+            command=$(ls $HOME/.config/scripts | sed -e 's/\.sh$//' | rofi -dmenu -p)
 
             sh /home/noah/.config/scripts/$command.sh
           '';
