@@ -31,6 +31,7 @@
           {command = "caffeine";}
           {command = "${pkgs.ghostty}/bin/ghostty";}
           {command = "zen";}
+          {command = "discord";}
         ];
 
         # General Configs
@@ -43,7 +44,7 @@
           superKey = "Mod4"; # Windows/Super key
         in {
           # Application Launchers
-          "${modifier}+Return" = "exec ${pkgs.ghostty}/bin/ghostty";
+          "${modifier}+Return" = "exec 'swaymsg workspace dev && ${pkgs.ghostty}/bin/ghostty'";
           "${modifier}+w" = "exec zen";
           "${modifier}+space" = "exec 'rofi -show drun'";
           "${modifier}+Shift+space" = "exec '$HOME/.config/scripts/rofi-menu.sh'";
