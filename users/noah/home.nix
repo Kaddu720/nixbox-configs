@@ -72,16 +72,26 @@
   xdg.mimeApps.defaultApplications = {
     "inode/directory" = "thunar"; # Open directories with Thunar by default
   };
-  home.file.".config/xdg-desktop-portal/config" = {
-    text = ''
-      [preferred]
-      # Use GTK portal for most interfaces
-      default=gtk
-      # Use wlr portal for screen capture
-      org.freedesktop.portal.Screencast=wlr
-      org.freedesktop.portal.Screenshot=wlr
-    '';
+  xdg = {
+    portal = {
+      enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-wlr
+        xdg-desktop-portal-gtk
+      ];
+      xdgOpenUsePortal = true;
+    };
   };
+  # home.file.".config/xdg-desktop-portal/config" = {
+  #   text = ''
+  #     [preferred]
+  #     # Use GTK portal for most interfaces
+  #     default=gtk
+  #     # Use wlr portal for screen capture
+  #     org.freedesktop.portal.Screencast=wlr
+  #     org.freedesktop.portal.Screenshot=wlr
+  #   '';
+  # };
   # -------------------- User Services --------------------
   services = {
     # Desktop configuration
