@@ -55,7 +55,6 @@
       # Applications
       obsidian
       river
-      sway
       presenterm
       # Flake inputs
       inputs.zen-browser.packages."x86_64-linux".default
@@ -113,7 +112,5 @@
     };
     # SSH agent service (user level)
     ssh-agent.enable = true;
-  };
-  programs = {
   };
 }
