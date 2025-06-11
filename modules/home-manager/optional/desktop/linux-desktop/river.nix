@@ -229,7 +229,7 @@
           riverctl send-layout-cmd rivertile "main-location right"
           riverctl output-attach-mode top
           riverctl set-focused-tags 8
-          riverctl spawn "discord"
+          riverctl spawn "${pkgs.discord}/bin/discord --enable-features=UseOzonePlatform --ozone-platform=wayland"
 
           # Configure Primary Monitor
           riverctl focus-output $Primary_Monitor
