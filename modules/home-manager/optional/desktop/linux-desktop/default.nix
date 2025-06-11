@@ -8,7 +8,6 @@
     ./dunst.nix
     ./helper-scripts.nix
     ./river.nix
-    ./sway.nix
     ./rofi.nix
     ./gtk-theme.nix
     ./sandbar.nix
@@ -19,7 +18,6 @@
     dunst.enable = true;
     helper-scripts.enable = true;
     river.enable = true;
-    sway.enable = true;
     rofi.enable = true;
     gtk-theme.enable = true;
     sandbar.enable = true;
