@@ -37,7 +37,6 @@
     # extra nushell integrations
     programs = {
       zoxide.enableNushellIntegration = true;
-      thefuck.enableNushellIntegration = true;
       starship.enableNushellIntegration = true;
       eza.enableNushellIntegration = true;
       direnv.enableNushellIntegration = true;

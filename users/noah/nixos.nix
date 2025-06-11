@@ -20,8 +20,17 @@
       tree
       vlc
       wirelesstools
-      xdg-desktop-portal-wlr # enable screen sharing for river wm
+      # xdg-desktop-portal-wlr # enable screen sharing for river wm
     ];
+  };
+
+  programs = {
+    sway.enable = true;
+    dconf.enable = true; # enable gtk desktops
+    ssh = {
+      startAgent = true;
+      askPassword = "";
+    };
   };
 
   # -------------------- System Configuration for Home Manager --------------------
@@ -37,47 +46,6 @@
 
   # -------------------- XDG Portal Configuration --------------------
   services.dbus.enable = true;
-  xdg.portal = {
-    enable = true;
-
-    # Define which portal implementations to use
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-wlr # For Wayland compositors like river
-      xdg-desktop-portal-gtk # For better integration with GTK apps
-    ];
-
-    # Configure portal backends by desktop environment
-    config = {
-      river = {
-        default = [
-          "wlr"
-          "gtk"
-        ];
-        # Set preferred backends for specific portals
-        screencast = "wlr";
-        screenshot = "wlr";
-      };
-    };
-
-    # WLR-specific settings
-    wlr = {
-      enable = true;
-      settings = {
-        screencast = {
-          output_name = "DP-1";
-          max_fps = 30;
-          chooser_type = "simple";
-          # Use slurp for area selection if needed
-          chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
-        };
-
-        # Add screenshot settings
-        screenshot = {
-          choose_type = "slurp"; # Use slurp for selection
-        };
-      };
-    };
-  };
 
   # Enable additional dependencies for better portal functionality
   programs.xwayland.enable = true; # For X11 app compatibility
@@ -98,12 +66,4 @@
     };
   };
 
-  # -------------------- System Programs --------------------
-  programs = {
-    dconf.enable = true; # enable gtk desktops
-    ssh = {
-      startAgent = true;
-      askPassword = "";
-    };
-  };
 }

@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }: {
   options = {
@@ -17,5 +18,6 @@
       jack.enable = true;
       wireplumber.enable = true;
     };
+
   };
 }

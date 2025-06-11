@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
   ];
   # -------------------- Networking --------------------
@@ -18,6 +15,12 @@
   # -------------------- Internationalization --------------------
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
+
+  # -------------------- Package Management --------------------
+  # Enable experimental nix features
+  nix.settings = {
+    experimental-features = ["nix-command" "flakes"];
+  };
 
   # -------------------- Package Management --------------------
   # Allow unfree packages
@@ -66,7 +69,6 @@
       dislocker
       killall
       neovim
-      nh
       wget
       # inputs.flox.packages.${pkgs.system}.default
 

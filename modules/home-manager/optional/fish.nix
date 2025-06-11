@@ -42,7 +42,6 @@
     programs = {
       fzf.enableFishIntegration = true;
       zoxide.enableFishIntegration = true;
-      thefuck.enableFishIntegration = true;
       starship.enableFishIntegration = true;
       eza.enableFishIntegration = true;
       carapace.enableFishIntegration = true;
