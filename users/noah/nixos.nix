@@ -20,12 +20,11 @@
       tree
       vlc
       wirelesstools
-      # xdg-desktop-portal-wlr # enable screen sharing for river wm
     ];
   };
 
   programs = {
-    sway.enable = true;
+    sway.enable = true; # Sets up screenshaing infra used by river
     dconf.enable = true; # enable gtk desktops
     ssh = {
       startAgent = true;

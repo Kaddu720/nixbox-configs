@@ -9,6 +9,8 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  games.enable = true;
+
   # Origial nix version this was configured on
   # Dont' delete or it could bork the entire config
   home.stateVersion = "23.11";
