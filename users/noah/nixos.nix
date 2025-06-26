@@ -20,6 +20,7 @@
       tree
       vlc
       wirelesstools
+      zoom-us
     ];
   };
 
