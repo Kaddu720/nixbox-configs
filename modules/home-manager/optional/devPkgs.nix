@@ -8,7 +8,7 @@
   # Optional packages for mac or linux
   platformPackages =
     if "${vars.hostName}" == "Work-Box"
-    then with pkgs; [terraform lens]
+    then with pkgs; [terraform lens warp-terminal]
     else with pkgs; [docker lazydocker];
 in {
   options = {
