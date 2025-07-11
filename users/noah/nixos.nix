@@ -14,7 +14,6 @@
       bluez
       dislocker
       home-manager
-      libreoffice-still
       onlyoffice-desktopeditors
       rtkit
       tree
