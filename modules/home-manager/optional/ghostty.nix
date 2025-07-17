@@ -6,9 +6,15 @@
   ...
 }: let
   font-size =
-    if ("${vars.hostName}" == "Work-Box" || "${vars.hostName}" == "Mobile-Box")
-    then "18"
-    else "12";
+    if ("${vars.hostName}" == "Home-Box")
+    then "12"
+    else "18";
+
+
+  shell-command =
+    if ("${vars.hostName}" == "Work-Box")
+    then "${pkgs.fish}/bin/fish"
+    else "${pkgs.nushell}/bin/nu";
 in {
   options = {
     ghostty.enable =
@@ -20,7 +26,7 @@ in {
     home.file.".config/ghostty/config" = {
       text = ''
         # Shell
-        command = ${pkgs.fish}/bin/fish
+        command = ${shell-command} 
         shell-integration = fish
 
         # Fonts
