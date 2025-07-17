@@ -15,25 +15,40 @@
         #enable zoxide
         zoxide init nushell | save -f ~/.zoxide.nu
       '';
-      configFile.text = ''
-        # disable default banner
-        $env.config = {
-          show_banner: false
-        }
+      configFile.text =
+        /*
+        nu
+        */
+        ''
+          # disable default banner
+          $env.config = {
+            show_banner: false
+            buffer_editor: nvim
+            edit_mode: vi
+            keybindings: [
+              {
+                  name: accept_autosuggestion
+                  modifier: control
+                  keycode: char_f
+                  mode: vi_insert
+                  event: { send: historyhintcomplete }
+              }
+            ]
+          }
 
-        # set up welcome banner
-        def welcome [] {
-          print $"Praise the Omnisiah"
-        }
-        welcome
+          # set up welcome banner
+          def welcome [] {
+            print $"Praise the Omnisiah"
+          }
+          welcome
 
-        #enable zoxide
-        source ~/.zoxide.nu
-        alias cd = z
+          #enable zoxide
+          source ~/.zoxide.nu
+          alias cd = z
 
-        #config eza
-        alias e = eza
-      '';
+          #config eza
+          alias e = eza
+        '';
     };
 
     # extra nushell integrations
