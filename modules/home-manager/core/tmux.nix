@@ -38,7 +38,7 @@ in {
     programs.tmux = {
       enable = true;
 
-      shell = "${pkgs.fish}/bin/fish";
+      shell = "${pkgs.nushell}/bin/nu";
       mouse = true;
       keyMode = "vi";
       baseIndex = 1; #window and panes #s start on 1
