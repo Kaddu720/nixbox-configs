@@ -16,6 +16,11 @@
         zoxide init nushell | save -f ~/.zoxide.nu
       '';
       configFile.text = ''
+        # disable default banner
+        $env.config = {
+          show_banner: false
+        }
+
         # set up welcome banner
         def welcome [] {
           print $"Praise the Omnisiah"
@@ -26,11 +31,8 @@
         source ~/.zoxide.nu
         alias cd = z
 
-      '';
-      extraConfig = ''
-        $env.config = {
-          show_banner: false
-        }
+        #config eza
+        alias e = eza
       '';
     };
 
@@ -38,7 +40,7 @@
     programs = {
       zoxide.enableNushellIntegration = true;
       starship.enableNushellIntegration = true;
-      eza.enableNushellIntegration = true;
+      # eza.enableNushellIntegration = true;
       direnv.enableNushellIntegration = true;
       carapace.enableNushellIntegration = true;
     };
