@@ -20,8 +20,15 @@
         nu
         */
         ''
-          # disable default banner
+          # set up welcome banner
+          def welcome [] {
+            print $"Hail the Machine God"
+            print $"Hail the Omnisiah"
+          }
+
+          welcome
           $env.config = {
+            # disable default banner
             show_banner: false
             buffer_editor: nvim
             edit_mode: vi
@@ -36,18 +43,15 @@
             ]
           }
 
-          # set up welcome banner
-          def welcome [] {
-            print $"Praise the Omnisiah"
-          }
-          welcome
-
           #enable zoxide
           source ~/.zoxide.nu
           alias cd = z
 
           #config eza
           alias e = eza
+
+          # Make kubeclt less of a pain to use
+          alias k = kubectl
         '';
     };
 
