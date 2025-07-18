@@ -14,7 +14,6 @@
   # -------------------- Optional Modules --------------------
   fish.enable = true;
   nushell.enable = true;
-  starship.enable = true;
   ghostty.enable = true;
   alacritty.enable = true;
   devPkgs.enable = true;
@@ -37,7 +36,6 @@
   ];
 
   #enable programs and services
-  programs.zoxide.enable = true;
   programs = {
     nh = {
       enable = true;

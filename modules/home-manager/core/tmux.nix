@@ -130,7 +130,8 @@ in {
         */
         ''
           [default_session]
-          startup_command = "tmuxp load -a lazygit && tmux split-window -h -l 30% && nvim"
+          # startup_command = "tmuxp load -a lazygit && tmux split-window -h -l 30% && nvim"
+          startup_command = "tmuxp load -a lazygit ; tmux split-window -h -l 30% ; nvim"
 
           [[session]]
           name = "Second_Brain"
@@ -140,12 +141,14 @@ in {
           [[session]]
           name = "nixos"
           path = "~/.config/nixos"
-          startup_command = "tmuxp load -a lazygit && tmux split-window -h -l 30% && nvim"
+          # startup_command = "tmuxp load -a lazygit && tmux split-window -h -l 30% && nvim"
+          startup_command = "tmuxp load -a lazygit ; tmux split-window -h -l 30% ; nvim"
 
           [[session]]
           name = "nvim-dev"
           path = "~/.config/nvim"
-          startup_command = "tmuxp load -a lazygit && nvim"
+          # startup_command = "tmuxp load -a lazygit && nvim"
+          startup_command = "tmuxp load -a lazygit ; nvim"
 
           ${seshConfigs}
         '';
