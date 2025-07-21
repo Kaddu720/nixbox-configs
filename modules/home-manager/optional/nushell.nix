@@ -22,8 +22,8 @@
               print $"Hail the Machine God"
               print $"Hail the Omnisiah"
             }
-
             welcome
+
             $env.config = {
               # disable default banner
               show_banner: false
