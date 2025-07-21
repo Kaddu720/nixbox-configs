@@ -15,7 +15,7 @@
 
         # Startup configuration
         start-at-login = true
-        after-login-command = [
+        after-startup-command = [
           "exec-and-forget open -a 'Raycast'"
         ]
 
@@ -47,7 +47,7 @@
         [workspace-to-monitor-force-assignment]
         dev = ['built-in', 'BenQ EX2710Q', 'VG27A']
         web = ['built-in', 'BenQ EX2710Q', 'VG27A']
-        3 = ['built-in', 'BenQ EX2710Q', 'VG27A']
+        misc = ['built-in', 'BenQ EX2710Q', 'VG27A']
         com = ['built-in', 'BenQ GW2491', 'VG279QR']
         doc = ['built-in', 'BenQ GW2491', 'VG279QR']
 
@@ -86,13 +86,13 @@
         # Development workspace group (alt modifier)
         alt-1 = 'workspace dev'
         alt-2 = 'workspace web'
-        alt-3 = 'workspace 3'
+        alt-3 = 'workspace misic'
         alt-shift-1 = 'move-node-to-workspace dev'
         alt-shift-2 = 'move-node-to-workspace web'
-        alt-shift-3 = 'move-node-to-workspace 3'
+        alt-shift-3 = 'move-node-to-workspace misic'
         alt-ctrl-1 = ['move-node-to-workspace dev', 'workspace dev']
         alt-ctrl-2 = ['move-node-to-workspace web', 'workspace web']
-        alt-ctrl-3 = ['move-node-to-workspace 3', 'workspace 3']
+        alt-ctrl-3 = ['move-node-to-workspace misic', 'workspace misc']
 
         # Communication workspace group (cmd modifier)
         cmd-1 = 'workspace com'
