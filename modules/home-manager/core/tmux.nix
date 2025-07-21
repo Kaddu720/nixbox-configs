@@ -15,7 +15,7 @@
         [[session]]
         name = "axs-configurations"
         path = "~/Documents/sre_lambda_layer/GitHub/axs-configurations"
-        startup_command = "tmuxp load -a lazygit && nvim"
+        startup_command = "tmuxp load -a lazygit ; nvim"
       ''
     else
       /*
@@ -25,7 +25,7 @@
         [[session]]
         name = "ekiree_dashboard"
         path = "~/Projects/dashboard/dev/ekiree_dashboard"
-        startup_command = "tmuxp load -a ekiree_dashboard && tmux split-window -h -l 30% && nvim"
+        startup_command = "tmuxp load -a ekiree_dashboard ; tmux split-window -h -l 30% ; nvim"
       '';
 in {
   options = {
