@@ -42,7 +42,7 @@ in {
       mouse = true;
       keyMode = "vi";
       baseIndex = 1; #window and panes #s start on 1
-      terminal = "alacritty";
+      terminal = "ghostty";
       sensibleOnTop = false;
 
       plugins = with pkgs.tmuxPlugins; [
@@ -113,8 +113,8 @@ in {
             --border=none \
             --color='border:#e0def4,label:#e0def4,pointer:#f7768e' \
             --list-label ' Sessions ' --list-border=rounded --layout=reverse --no-sort --ansi --prompt '>  ' \
-            --header ' :: & <ctrl-a> to add & <ctrl-d> to close' \
-            --bind 'ctrl-d:execute(tmux kill-session -t {2..})+change-prompt(>  )+reload(sesh list -it)' \
+            --header ' :: & <ctrl-a> to add & <ctrl-x> to close' \
+            --bind 'ctrl-x:execute(tmux kill-session -t {2..})+change-prompt(>  )+reload(sesh list -it)' \
             --bind 'ctrl-a:change-prompt(  )+reload(sesh list -icz)' \
             --preview-window 'right:60%:rounded' \
             --preview 'sesh preview {}'
