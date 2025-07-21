@@ -13,8 +13,11 @@
       nushell = {
         enable = true;
         envFile.text = ''
-          #enable zoxide
+          #set up zoxide
           zoxide init nushell | save -f ~/.zoxide.nu
+
+          #set up atuin
+          atuin init nu | save -f ~/.local/share/atuin/init.nu
         '';
         configFile.text =
           /*
@@ -47,6 +50,9 @@
             #enable zoxide
             source ~/.zoxide.nu
             alias cd = z
+
+            #enable atuin
+            source ~/.local/share/atuin/init.nu
 
             #config eza
             alias e = eza
