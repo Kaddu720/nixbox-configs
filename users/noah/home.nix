@@ -50,7 +50,6 @@
       swaylock
       wl-clipboard
       grimblast # Wayland screenshots
-      zoxide # better cd
       # Applications
       obsidian
       river
@@ -75,7 +74,6 @@
     };
     # Add other programs
     bash.enable = true; # Configure bash if you use it
-    zoxide.enable = true;
   };
 
   # -------------------- Forcing X11 applications to work --------------------
