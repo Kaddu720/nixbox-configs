@@ -129,12 +129,12 @@
 
         # Terminal apps
         [[on-window-detected]]
-        if.app-name-regex-substring = 'ghostty'
+        if.app-name-regex-substring = 'com.mitchellh.ghostty'
         run = "move-node-to-workspace dev"
 
         # Browser windows
         [[on-window-detected]]
-        if.app-id = 'org.mozilla.com.zen.browser'
+        if.app-id = 'app.zen-browser.zen'
         run = "move-node-to-workspace web"
         
         # Floating apps
