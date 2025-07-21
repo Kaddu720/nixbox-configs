@@ -12,13 +12,6 @@
     programs = {
       nushell = {
         enable = true;
-        envFile.text = ''
-          #set up zoxide
-          zoxide init nushell | save -f ~/.zoxide.nu
-
-          #set up atuin
-          atuin init nu | save -f ~/.local/share/atuin/init.nu
-        '';
         configFile.text =
           /*
           nu
@@ -46,20 +39,14 @@
                 }
               ]
             }
-
-            #enable zoxide
-            source ~/.zoxide.nu
-            alias cd = z
-
-            #enable atuin
-            source ~/.local/share/atuin/init.nu
-
-            #config eza
-            alias e = eza
-
-            # Make kubeclt less of a pain to use
-            alias k = kubectl
           '';
+
+        shellAliases = {
+          # Zoxide
+          cd = "z";
+          # Kubectl
+          k = "kubectl";
+        };
       };
 
       # Extra nushell integrations
@@ -73,7 +60,7 @@
       };
       eza = {
         enable = true;
-        enableNushellIntegration = false;
+        enableNushellIntegration = true;
       };
       carapace = {
         enable = true;
@@ -81,6 +68,7 @@
       };
       atuin = {
         enable = true;
+        enableNushellIntegration = true;
       };
       direnv.enableNushellIntegration = true;
     };

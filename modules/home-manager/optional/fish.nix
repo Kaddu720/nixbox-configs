@@ -58,6 +58,7 @@
       };
       atuin = {
         enable = true;
+        enableFishIntegration = true;
       };
       fzf.enableFishIntegration = true;
     };
