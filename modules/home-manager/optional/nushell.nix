@@ -73,6 +73,9 @@
         enable = true;
         enableNushellIntegration = true;
       };
+      atuin = {
+        enable = true;
+      };
       direnv.enableNushellIntegration = true;
     };
   };
