@@ -20,6 +20,7 @@
     lib.mkDefault true;
 
   home.packages = with pkgs; [
+    bat
     fzf
     ripgrep
     sops

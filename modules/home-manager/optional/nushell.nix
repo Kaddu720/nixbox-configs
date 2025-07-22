@@ -46,6 +46,10 @@
           cd = "z";
           # Kubectl
           k = "kubectl";
+          # ripgrep
+          grep = "rg";
+          #bat
+          cat = "bat";
         };
       };
 

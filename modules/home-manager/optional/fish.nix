@@ -24,6 +24,10 @@
 
             # bat color scheme
             set -gx BAT_THEME "base16"
+            alias cat "bat" 
+            
+            # ripgrep
+            alias grep "rg"
 
             # Command to activate vi mode
             set -g fish_key_bindings fish_vi_key_bindings
