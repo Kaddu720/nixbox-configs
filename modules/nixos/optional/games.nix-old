@@ -6,22 +6,38 @@
 }: {
   options = {
     games.enable =
-      lib.mkEnableOption "enables Steam";
+      lib.mkEnableOption "enables steam";
   };
 
   config = lib.mkIf config.games.enable {
+    # Hardware and drivers
     hardware.graphics = {
       enable = true;
       enable32Bit = true;
     };
+    services.xserver.videoDrivers = ["amdgpu"];
 
+    # System Packages
+    environment = {
+      systemPackages = with pkgs; [
+        bottles
+        lutris
+        libadwaita # used by lutris
+        wine64
+        winetricks
+        wineWowPackages.stable
+        wineWowPackages.waylandFull
 
-    # AMDgpu tool
-    environment.systemPackages = with pkgs; [
-      lact
-      gamescope
-      # gamescope-wsi
-    ];
+        # Steam Specific
+        protonup
+        lact
+        gamescope
+        # gamescope-wsi
+      ];
+      sessionVariables = {
+        STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/noah/.steam/root/compatibilityrools.d";
+      };
+    };
 
     systemd = {
       packages = with pkgs; [lact];
@@ -88,6 +104,11 @@
             end = "${pkgs.libnotify}/bin/notify-send 'GameMode ended'";
           };
         };
+      };
+
+      corectrl = {
+        enable = true;
+        gpuOverclock.enable = true;
       };
     };
   };

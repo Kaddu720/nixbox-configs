@@ -5,6 +5,5 @@
     ./fish.nix
     ./ghostty.nix
     ./nushell.nix
-    ./gamescope.nix
   ];
 }
