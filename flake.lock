@@ -640,11 +640,11 @@
         "plugins-obsidian": "plugins-obsidian"
       },
       "locked": {
-        "lastModified": 1753822089,
-        "narHash": "sha256-ry7yqHOvPsSM5gf3X9ne6cUG8Eg479EK52uKZGDJrHs=",
+        "lastModified": 1753830813,
+        "narHash": "sha256-WVrA5uVjZZlE1RuKAGSGHagUgdRfkZlb/Q3mq57dVWA=",
         "owner": "Kaddu720",
         "repo": "neovim-config",
-        "rev": "4dd9327d00d7be2ff3a26532092dd380997e9cfd",
+        "rev": "2a70a5ec7ca8c58d19481e7d3ab6b496599edd76",
         "type": "github"
       },
       "original": {
