@@ -11,10 +11,10 @@
     else "18";
 
 
-  shell-command =
-    if ("${vars.hostName}" == "Work-Box")
-    then "${pkgs.fish}/bin/fish"
-    else "${pkgs.nushell}/bin/nu";
+  # shell-command =
+  #   if ("${vars.hostName}" == "Work-Box")
+  #   then "${pkgs.fish}/bin/fish"
+  #   else "${pkgs.nushell}/bin/nu";
 in {
   options = {
     ghostty.enable =
@@ -26,7 +26,7 @@ in {
     home.file.".config/ghostty/config" = {
       text = ''
         # Shell
-        command = ${shell-command} 
+        command = ${pkgs.fish}/bin/fish
         shell-integration = fish
 
         # Fonts
