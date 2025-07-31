@@ -69,7 +69,6 @@
         modules = [
           ./hosts/home-box/configuration.nix
           determinate.nixosModules.default
-          # inputs.stylix.nixosModules.stylix
         ];
       };
       Mobile-Box = nixpkgs.lib.nixosSystem {
@@ -80,7 +79,6 @@
           determinate.nixosModules.default
           inputs.nixos-hardware.nixosModules.framework-12th-gen-intel
           inputs.auto-cpufreq.nixosModules.default
-          # inputs.stylix.nixosModules.stylix
         ];
       };
     };
