@@ -198,13 +198,17 @@
           # Set keyboard repeat rate
           riverctl set-repeat 50 300
 
-          # Terminal on tag 1, primary monitor
+          # Tercminal on tag 1, primary monitor
           riverctl rule-add -app-id 'com.mitchellh.ghostty' tags 1
           riverctl rule-add -app-id 'com.mitchellh.ghostty' output $Primary_Monitor
 
           # Browser on tag 2, primary monitor
           riverctl rule-add -app-id 'zen-beta' tags 2
           riverctl rule-add -app-id 'zen-beta' output $Primary_Monitor
+
+          # Obsidian on tag 3, primary monitor
+          riverctl rule-add -app-id 'obsidian' tags 4
+          riverctl rule-add -app-id 'obsidian' output $Primary_Monitor
 
           # Discord on tag 8, secondary monitor
           riverctl rule-add -app-id 'discord' tags 8
@@ -240,6 +244,8 @@
           riverctl spawn "ghostty"  # Terminal on tag 1
           riverctl set-focused-tags 2
           riverctl spawn "zen"      # Browser on tag 2
+          riverctl set-focused-tags 3
+          riverctl spawn "obsidian"      # Browser on tag 2
           riverctl set-focused-tags 1  # Return focus to tag 1
 
           # Start kanshi for display management
