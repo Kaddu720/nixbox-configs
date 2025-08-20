@@ -87,5 +87,6 @@
 
   system.activationScripts.startUp.text = ''
     brew update
+    brew upgrade
   '';
 }
