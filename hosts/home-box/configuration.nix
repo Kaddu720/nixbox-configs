@@ -28,7 +28,6 @@
 
   # -------------------- Boot Configuration --------------------
   boot = {
-    # Set up Grub
     loader = {
       efi.canTouchEfiVariables = true;
       grub = {
@@ -36,23 +35,26 @@
         devices = ["nodev"];
         efiSupport = true;
         useOSProber = true;
-        # Optimize boot time
       };
     };
-    # decrypt encrypted partition
+
     initrd.luks.devices = {
       root = {
         device = "/dev/nvme1n1p2";
         preLVM = true;
-        allowDiscards = true; # Enable TRIM for SSDs
+        allowDiscards = true;
       };
     };
-    # Set up AMD Graphics Drivers
-    initrd.kernelModules = ["amdgpu"];
 
-    # Kernel optimization
+    initrd.kernelModules = ["amdgpu"];
+    boot.initrd.prepend = true;
+
+    # Blacklist simpledrm in initrd so AMD becomes card0
+    blacklistedKernelModules = ["simpledrm"];
+
     kernelParams = [
-      "amd_pstate=active" # Better AMD CPU power management
+      "amd_pstate=active"
+      "initcall_blacklist=simpledrm_platform_driver_init"
     ];
   };
 

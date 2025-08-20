@@ -2,7 +2,7 @@
   # -------------------- User Accounts --------------------
   users.users.noah = {
     isNormalUser = true;
-    extraGroups = ["wheel" "networkmanager" "docker" "corectrl"]; # Enable 'sudo' for the user
+    extraGroups = ["wheel" "networkmanager" "docker" "corectrl" "video" "render"]; # Enable 'sudo' for the user
     group = "users";
     createHome = true;
     home = "/home/noah";
@@ -21,6 +21,12 @@
       wirelesstools
       zoom-us
     ];
+  };
+
+  services.xserver.videoDrivers = ["amdgpu"];
+  hardware.graphics = {
+    enable = true; # Enables GPU acceleration
+    enable32Bit = true; # Needed for 32-bit apps (e.g., Steam, Wine)
   };
 
   programs = {
@@ -64,5 +70,4 @@
       enable = true;
     };
   };
-
 }
