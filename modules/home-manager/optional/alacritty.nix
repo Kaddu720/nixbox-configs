@@ -12,10 +12,12 @@
   config = lib.mkIf config.alacritty.enable {
     programs.alacritty = {
       enable = true;
+
       settings = {
         terminal.shell = {
           program = "${pkgs.fish}/bin/fish";
         };
+
         env = {
           term = "xterm-256color";
         };
