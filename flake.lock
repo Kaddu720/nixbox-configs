@@ -629,11 +629,11 @@
         "plugins-obsidian": "plugins-obsidian"
       },
       "locked": {
-        "lastModified": 1755541703,
-        "narHash": "sha256-mFNNvbhUi5REdpk5XBlklqgK9SxxS9U150u2iRO9rSk=",
+        "lastModified": 1755799896,
+        "narHash": "sha256-OVCuOEYqFmxhc5PP7IEFSJyrl2rmPhfPIIUglcTXNgM=",
         "owner": "Kaddu720",
         "repo": "neovim-config",
-        "rev": "e62c3e6a97be445b3d100ae104e9697e8a0edeeb",
+        "rev": "f11eb9214240fc9e42911d6237e083daad788e24",
         "type": "github"
       },
       "original": {
