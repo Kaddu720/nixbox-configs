@@ -56,24 +56,7 @@
       presenterm
       # Flake inputs
       inputs.zen-browser.packages."x86_64-linux".default
-
-      # inputs.ghostty.packages.x86_64-linux.default
-      # Temp Ghostty wrapper with Wayland fix + fallback
-      (pkgs.writeShellScriptBin "ghostty" ''
-        #!/usr/bin/env bash
-        # Force Mesa/GBM to use the AMD GPU (card1)
-        export DRM_DEVICE=/dev/dri/card1
-
-        # Try native Wayland first
-        if ! ${inputs.ghostty.packages.x86_64-linux.default}/bin/ghostty "$@" 2>/dev/null; then
-          echo "Wayland EGL failed — falling back to XWayland + Cairo"
-          export GDK_BACKEND=x11
-          export GSK_RENDERER=cairo
-          export GDK_GL=disable
-          export GDK_DISABLE=gles-api,vulkan
-          exec ${inputs.ghostty.packages.x86_64-linux.default}/bin/ghostty "$@"
-        fi
-      '')
+      inputs.ghostty.packages.x86_64-linux.default
     ];
     # This is required for home-manager to work properly
     stateVersion = "23.11"; # Use the appropriate version

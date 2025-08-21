@@ -51,6 +51,10 @@
 
   # -------------------- XDG Portal Configuration --------------------
   services.dbus.enable = true;
+  xdg.portal = {
+    enable = true;
+    extraPortals = [pkgs.xdg-desktop-portal-wlr];
+  };
 
   # Enable additional dependencies for better portal functionality
   programs.xwayland.enable = true; # For X11 app compatibility

@@ -47,7 +47,6 @@
     };
 
     initrd.kernelModules = ["amdgpu"];
-    boot.initrd.prepend = true;
 
     # Blacklist simpledrm in initrd so AMD becomes card0
     blacklistedKernelModules = ["simpledrm"];
@@ -68,11 +67,6 @@
     graphics = {
       enable = true;
       enable32Bit = true;
-    };
-
-    amdgpu.amdvlk = {
-      enable = true;
-      support32Bit.enable = true;
     };
   };
 
