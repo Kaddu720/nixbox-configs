@@ -28,6 +28,7 @@ in {
         kubectx
         k9s
         opentofu
+        opencode
       ]
       ++ platformPackages;
 
