@@ -63,6 +63,7 @@
   homebrew = {
     enable = true;
     casks = [
+      "lm-studio"
       "nikitabobko/tap/aerospace"
       "hiddenbar"
       "ghostty"

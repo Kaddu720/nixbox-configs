@@ -9,7 +9,7 @@
   platformPackages =
     if "${vars.hostName}" == "Work-Box"
     then with pkgs; [terraform lens warp-terminal]
-    else with pkgs; [docker lazydocker];
+    else with pkgs; [docker lazydocker lmstudio];
 in {
   options = {
     devPkgs.enable =
@@ -28,7 +28,10 @@ in {
         kubectx
         k9s
         opentofu
+
+        # AI
         opencode
+        ollama
       ]
       ++ platformPackages;
 
