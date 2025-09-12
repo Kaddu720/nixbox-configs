@@ -36,21 +36,27 @@
           # Initialize monitor configuration
           case $HOSTNAME in
             Home-Box)
-              wlr-randr --output HDMI-A-1 --off
+              # Check if wlr-randr is available and HDMI-A-1 exists before disabling it
+              if command -v wlr-randr >/dev/null 2>&1; then
+                if wlr-randr | grep -q "HDMI-A-1"; then
+                  wlr-randr --output HDMI-A-1 --off
+                fi
+              fi
               Primary_Monitor=DP-1
               Secondary_Monitor=DP-2
             ;;
 
             Mobile-Box)
-              # Primary_Monitor=DP-1
-              # Secondary_Monitor=DP-2
               Primary_Monitor=eDP-1
               Secondary_Monitor=eDP-1
             ;;
 
             *)
-              # Fallback configuration
-              Primary_Monitor=$(riverctl list-outputs | head -n1)
+              # Fallback configuration - ensure we have valid outputs
+              Primary_Monitor=$(riverctl list-outputs 2>/dev/null | head -n1)
+              if [ -z "$Primary_Monitor" ]; then
+                Primary_Monitor="Unknown"
+              fi
               Secondary_Monitor=$Primary_Monitor
             ;;
           esac
@@ -60,15 +66,23 @@
             riverctl spawn "swaybg -m fill -i $WALLPAPER"
           fi
 
-          # Set up sandbar
-          riverctl spawn "$HOME_DIR/.config/river/status"
-          riverctl spawn "$HOME_DIR/.config/river/bar"
+          # Set up sandbar (check if scripts exist)
+          if [ -x "$HOME_DIR/.config/river/status" ]; then
+            riverctl spawn "$HOME_DIR/.config/river/status"
+          fi
+          if [ -x "$HOME_DIR/.config/river/bar" ]; then
+            riverctl spawn "$HOME_DIR/.config/river/bar"
+          fi
 
-          # Activate notification daemon
-          riverctl spawn "dunst"
+          # Activate notification daemon (check if available)
+          if command -v dunst >/dev/null 2>&1; then
+            riverctl spawn "dunst"
+          fi
 
-          # Set up caffeine
-          riverctl spawn "caffeine"
+          # Set up caffeine (check if available)
+          if command -v caffeine >/dev/null 2>&1; then
+            riverctl spawn "caffeine"
+          fi
 
           # Application launchers
           riverctl map normal Alt Return spawn 'riverctl set-focused-tags 1 && ghostty'
@@ -256,12 +270,18 @@
             riverctl set-focused-tags 1  # Return focus to tag 1
           } &
 
-          # Start kanshi for display management
-          riverctl spawn "kanshi"
+          # Start kanshi for display management (check if available)
+          if command -v kanshi >/dev/null 2>&1; then
+            riverctl spawn "kanshi"
+          fi
 
-          # Support zoom
-          dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river
-          systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+          # Support zoom (check if dbus commands are available)
+          if command -v dbus-update-activation-environment >/dev/null 2>&1; then
+            dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river
+          fi
+          if command -v systemctl >/dev/null 2>&1; then
+            systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+          fi
         '';
     };
     services.kanshi = {
