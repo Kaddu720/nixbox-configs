@@ -60,11 +60,11 @@
             }
 
             memory() {
-            	memory=" $(free -h | sed -n "2s/\([^ ]* *\)\{2\}\([^ ]*\).*/\2/p")"
+            	memory=" $(awk '/^MemTotal:/ {total=$2} /^MemAvailable:/ {avail=$2} END {used=total-avail; if(used>=1048576) printf "%.1fG", used/1048576; else printf "%.0fM", used/1024}' /proc/meminfo)"
             }
 
             disk() {
-            	disk=" $(df -h | awk 'NR==5{print $5}')"
+            	disk=" $(df -h / | awk 'NR==2{print $5}')"
             }
 
             datetime() {
@@ -72,10 +72,18 @@
             }
 
             bat() {
-              if test -f "/sys/class/power_supply/BAT1/status"; then
+              # Find available battery
+              BAT_PATH=""
+              for bat in /sys/class/power_supply/BAT*; do
+                if [ -f "$bat/status" ] && [ -f "$bat/capacity" ]; then
+                  BAT_PATH="$bat"
+                  break
+                fi
+              done
 
-                read -r bat_status </sys/class/power_supply/BAT1/status
-                read -r bat_capacity </sys/class/power_supply/BAT1/capacity
+              if [ -n "$BAT_PATH" ]; then
+                read -r bat_status <"$BAT_PATH/status"
+                read -r bat_capacity <"$BAT_PATH/capacity"
 
                 if [ "$bat_status" = "Discharging" ]; then
                   case 1 in
@@ -99,7 +107,13 @@
             }
 
             vol() {
-            	vol="$([ "$(pamixer --get-mute)" = "false" ] && printf "  %s%%" "$(pamixer --get-volume)" || printf ' -')"
+            	vol_mute=$(pamixer --get-mute)
+            	if [ "$vol_mute" = "false" ]; then
+            		vol_level=$(pamixer --get-volume)
+            		vol="$(printf " %s%%" "$vol_level")"
+            	else
+            		vol=" -"
+            	fi
             }
 
             display() {
