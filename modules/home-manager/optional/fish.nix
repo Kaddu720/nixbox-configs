@@ -41,15 +41,18 @@
             # Make kubeclt less of a pain to use
             alias k "kubectl"
 
-            # Auto start sesh
-            sesh connect \"$(
-            sesh list -icz | fzf-tmux -p 70%,80% \
-              --border=none \
-              --color='border:#e0def4,label:#e0def4,pointer:#f7768e' \
-              --list-label ' Sessions ' --list-border=rounded --layout=reverse --no-sort --ansi --prompt '>  ' \
-              --preview-window 'right:60%:rounded' \
-              --preview 'sesh preview {}'
-            )\"
+            # Auto start sesh only if not already in tmux
+            if test -z "$TMUX"
+                set session_name (sesh list -icz | fzf-tmux -p 70%,80% \
+                  --border=none \
+                  --color='border:#e0def4,label:#e0def4,pointer:#f7768e' \
+                  --list-label ' Sessions ' --list-border=rounded --layout=reverse --no-sort --ansi --prompt '>  ' \
+                  --preview-window 'right:60%:rounded' \
+                  --preview 'sesh preview {}')
+                if test -n "$session_name"
+                    sesh connect "$session_name"
+                end
+            end
           '';
       };
 
