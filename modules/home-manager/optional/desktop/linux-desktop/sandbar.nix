@@ -110,9 +110,17 @@
             	vol_mute=$(pamixer --get-mute)
             	if [ "$vol_mute" = "false" ]; then
             		vol_level=$(pamixer --get-volume)
-            		vol="$(printf " %s%%" "$vol_level")"
+            		new_vol="$(printf " %s%%" "$vol_level")"
             	else
-            		vol=" -"
+            		new_vol=" -"
+            	fi
+            	
+            	# Only update if volume changed
+            	if [ "$new_vol" != "$vol" ]; then
+            		vol="$new_vol"
+            		vol_changed=1
+            	else
+            		vol_changed=0
             	fi
             }
 
@@ -124,6 +132,7 @@
             FIFO="$XDG_RUNTIME_DIR/sandbar"
             [ -e "$FIFO" ] || mkfifo "$FIFO"
             sec=0
+            vol_changed=0
 
             while true; do
             	sleep 1 &
@@ -132,10 +141,14 @@
             		[ $((sec % 15)) -eq 0 ] && cpu
             		[ $((sec % 15)) -eq 0 ] && disk
             		[ $((sec % 30)) -eq 0 ] && bat
-            		[ $((sec % 5)) -eq 0 ] && vol
+            		vol  # Check volume every second
             		[ $((sec % 5)) -eq 0 ] && datetime
 
-            		[ $((sec % 5)) -eq 0 ] && display
+            		# Update display every 5 seconds OR when volume changes
+            		if [ $((sec % 5)) -eq 0 ] || [ "$vol_changed" -eq 1 ]; then
+            			display
+            			vol_changed=0
+            		fi
 
             		sec=$((sec + 1))
             	}
