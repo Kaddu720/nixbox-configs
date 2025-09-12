@@ -56,7 +56,7 @@
             #!/usr/bin/env sh
 
             cpu() {
-            	cpu=" $(grep -o "^[^ ]*" /proc/loadavg)%"
+            	cpu=" $(vmstat 1 2 | tail -1 | awk '{print 100-$15}')%"
             }
 
             memory() {
