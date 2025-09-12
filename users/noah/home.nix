@@ -93,6 +93,14 @@
       terminal = false;
       categories = ["Network" "InstantMessaging"];
     };
+    "zoom-wayland" = {
+      name = "Zoom (Wayland)";
+      comment = "Video conferencing with Wayland support";
+      exec = "${pkgs.zoom-us}/bin/zoom-us --enable-features=UseOzonePlatform --ozone-platform=wayland";
+      icon = "zoom";
+      terminal = false;
+      categories = ["Network" "VideoConference"];
+    };
   };
 
   # -------------------- XDG Configuration --------------------
