@@ -24,8 +24,8 @@
 
             # bat color scheme
             set -gx BAT_THEME "base16"
-            alias cat "bat" 
-            
+            alias cat "bat"
+
             # ripgrep
             alias grep "rg"
 
@@ -42,7 +42,14 @@
             alias k "kubectl"
 
             # Auto start sesh
-            sesh connect "$(sesh list | fzf)"
+            sesh connect \"$(
+            sesh list -icz | fzf-tmux -p 70%,80% \
+              --border=none \
+              --color='border:#e0def4,label:#e0def4,pointer:#f7768e' \
+              --list-label ' Sessions ' --list-border=rounded --layout=reverse --no-sort --ansi --prompt '>  ' \
+              --preview-window 'right:60%:rounded' \
+              --preview 'sesh preview {}'
+            )\"
           '';
       };
 
