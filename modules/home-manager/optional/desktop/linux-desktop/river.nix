@@ -127,10 +127,10 @@
             tags=$((1 << ($i - 1)))
 
             # Alt+[1-3] to focus tag [0-2] on Primary Monitor
-            riverctl map normal Alt $i spawn "riverctl focus-output $Primary_Monitor && riverctl set-focused-tags $tags"
+            riverctl map normal Alt $i spawn "riverctl focus-output $Primary_Monitor; riverctl set-focused-tags $tags"
 
             # Alt+Shift+[1-3] to tag focused view with tag [0-2] on Primary Monitor
-            riverctl map normal Alt+Shift $i spawn "riverctl focus-output $Primary_Monitor && riverctl set-view-tags $tags"
+            riverctl map normal Alt+Shift $i spawn "riverctl focus-output $Primary_Monitor; riverctl set-view-tags $tags"
 
             # Alt+Control+[1-3] to toggle tag [0-2] of focused view
             riverctl map normal Alt+Control $i toggle-view-tags $tags
@@ -142,10 +142,10 @@
             tags=$((8 << ($i - 1)))
 
             # Super+[1-2] to focus on tag [3-4] on Secondary Monitor
-            riverctl map normal Super $i spawn "riverctl focus-output $Secondary_Monitor && riverctl set-focused-tags $tags"
+            riverctl map normal Super $i spawn "riverctl focus-output $Secondary_Monitor; riverctl set-focused-tags $tags"
 
             # Super+Shift+[1-2] to tag focused view with tag [3-4] on Secondary Monitor
-            riverctl map normal Super+Shift $i spawn "riverctl focus-output $Secondary_Monitor && riverctl set-view-tags $tags"
+            riverctl map normal Super+Shift $i spawn "riverctl focus-output $Secondary_Monitor; riverctl set-view-tags $tags"
           done
 
           # Alt+0 to focus all tags
@@ -190,27 +190,25 @@
              riverctl map $mode None XF86MonBrightnessDown spawn 'brightnessctl set 5%-'
           done
 
-          # Set background and border color
-          riverctl border-color-focused 0xebbcba
-          riverctl border-color-unfocused 0xc4a7e7
+          # Set border width (no borders)
           riverctl border-width 0
 
           # Set keyboard repeat rate
           riverctl set-repeat 50 300
 
-          # Tercminal on tag 1, primary monitor
+          # Tercminal on tag 1 (dev), primary monitor
           riverctl rule-add -app-id 'com.mitchellh.ghostty' tags 1
           riverctl rule-add -app-id 'com.mitchellh.ghostty' output $Primary_Monitor
 
-          # Browser on tag 2, primary monitor
+          # Browser on tag 2 (web), primary monitor
           riverctl rule-add -app-id 'zen-beta' tags 2
           riverctl rule-add -app-id 'zen-beta' output $Primary_Monitor
 
-          # Obsidian on tag 3, primary monitor
+          # Obsidian on tag 4 (misic), primary monitor
           riverctl rule-add -app-id 'obsidian' tags 4
           riverctl rule-add -app-id 'obsidian' output $Primary_Monitor
 
-          # Discord on tag 8, secondary monitor
+          # Discord on tag 8 (fun), secondary monitor
           riverctl rule-add -app-id 'discord' tags 8
           riverctl rule-add -app-id 'discord' output $Secondary_Monitor
 
@@ -233,20 +231,25 @@
           riverctl send-layout-cmd rivertile "main-location right"
           riverctl output-attach-mode top
           riverctl set-focused-tags 8
-          riverctl spawn "${pkgs.discord}/bin/discord --enable-features=UseOzonePlatform --ozone-platform=wayland"
 
           # Configure Primary Monitor
           riverctl focus-output $Primary_Monitor
           riverctl send-layout-cmd rivertile "main-location left"
           riverctl set-focused-tags 1
 
-          # Start applications on primary monitor
-          riverctl spawn "ghostty"  # Terminal on tag 1
-          riverctl set-focused-tags 2
-          riverctl spawn "zen"      # Browser on tag 2
-          riverctl set-focused-tags 3
-          riverctl spawn "obsidian"      # Browser on tag 2
-          riverctl set-focused-tags 1  # Return focus to tag 1
+          # Start applications with staggered delays
+          {
+            riverctl spawn "ghostty" &  # Terminal on tag 1
+            sleep 1
+            riverctl set-focused-tags 2
+            riverctl spawn "zen" &      # Browser on tag 2  
+            sleep 2
+            riverctl set-focused-tags 4
+            riverctl spawn "obsidian" & # Obsidian on tag 4
+            sleep 1
+            riverctl spawn "${pkgs.discord}/bin/discord --enable-features=UseOzonePlatform --ozone-platform=wayland" &
+            riverctl set-focused-tags 1  # Return focus to tag 1
+          } &
 
           # Start kanshi for display management
           riverctl spawn "kanshi"
