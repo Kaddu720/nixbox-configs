@@ -40,6 +40,9 @@
 
             # Make kubeclt less of a pain to use
             alias k "kubectl"
+
+            # Auto start sesh
+            sesh connect "$(sesh list | fzf)"
           '';
       };
 
