@@ -120,33 +120,38 @@
           riverctl map-pointer normal Alt BTN_MIDDLE toggle-float
 
 
+          # Pre-calculate tag bit values
+          TAG1=1   # 1 << 0
+          TAG2=2   # 1 << 1  
+          TAG3=4   # 1 << 2
+          TAG4=8   # 1 << 3
+          TAG5=16  # 1 << 4
+
           # Tag Navigation
           # Primary Monitor (tags 1-3)
-          for i in $(seq 1 3)
-          do
-            tags=$((1 << ($i - 1)))
+          # Alt+1 to focus tag 1 on Primary Monitor
+          riverctl map normal Alt 1 spawn "riverctl focus-output $Primary_Monitor; riverctl set-focused-tags $TAG1"
+          riverctl map normal Alt+Shift 1 spawn "riverctl focus-output $Primary_Monitor; riverctl set-view-tags $TAG1"
+          riverctl map normal Alt+Control 1 toggle-view-tags $TAG1
 
-            # Alt+[1-3] to focus tag [0-2] on Primary Monitor
-            riverctl map normal Alt $i spawn "riverctl focus-output $Primary_Monitor; riverctl set-focused-tags $tags"
+          # Alt+2 to focus tag 2 on Primary Monitor  
+          riverctl map normal Alt 2 spawn "riverctl focus-output $Primary_Monitor; riverctl set-focused-tags $TAG2"
+          riverctl map normal Alt+Shift 2 spawn "riverctl focus-output $Primary_Monitor; riverctl set-view-tags $TAG2"
+          riverctl map normal Alt+Control 2 toggle-view-tags $TAG2
 
-            # Alt+Shift+[1-3] to tag focused view with tag [0-2] on Primary Monitor
-            riverctl map normal Alt+Shift $i spawn "riverctl focus-output $Primary_Monitor; riverctl set-view-tags $tags"
-
-            # Alt+Control+[1-3] to toggle tag [0-2] of focused view
-            riverctl map normal Alt+Control $i toggle-view-tags $tags
-          done
+          # Alt+3 to focus tag 3 on Primary Monitor
+          riverctl map normal Alt 3 spawn "riverctl focus-output $Primary_Monitor; riverctl set-focused-tags $TAG3"
+          riverctl map normal Alt+Shift 3 spawn "riverctl focus-output $Primary_Monitor; riverctl set-view-tags $TAG3"
+          riverctl map normal Alt+Control 3 toggle-view-tags $TAG3
 
           # Secondary Monitor (tags 4-5)
-          for i in $(seq 1 2)
-          do
-            tags=$((8 << ($i - 1)))
+          # Super+1 to focus tag 4 on Secondary Monitor
+          riverctl map normal Super 1 spawn "riverctl focus-output $Secondary_Monitor; riverctl set-focused-tags $TAG4"
+          riverctl map normal Super+Shift 1 spawn "riverctl focus-output $Secondary_Monitor; riverctl set-view-tags $TAG4"
 
-            # Super+[1-2] to focus on tag [3-4] on Secondary Monitor
-            riverctl map normal Super $i spawn "riverctl focus-output $Secondary_Monitor; riverctl set-focused-tags $tags"
-
-            # Super+Shift+[1-2] to tag focused view with tag [3-4] on Secondary Monitor
-            riverctl map normal Super+Shift $i spawn "riverctl focus-output $Secondary_Monitor; riverctl set-view-tags $tags"
-          done
+          # Super+2 to focus tag 5 on Secondary Monitor
+          riverctl map normal Super 2 spawn "riverctl focus-output $Secondary_Monitor; riverctl set-focused-tags $TAG5"
+          riverctl map normal Super+Shift 2 spawn "riverctl focus-output $Secondary_Monitor; riverctl set-view-tags $TAG5"
 
           # Alt+0 to focus all tags
           # Alt+Shift+0 to tag focused view with all tags
@@ -239,6 +244,8 @@
 
           # Start applications with staggered delays
           {
+            riverctl spawn "${pkgs.discord}/bin/discord --enable-features=UseOzonePlatform --ozone-platform=wayland" &
+            sleep 1
             riverctl spawn "ghostty" &  # Terminal on tag 1
             sleep 1
             riverctl set-focused-tags 2
@@ -246,8 +253,6 @@
             sleep 2
             riverctl set-focused-tags 4
             riverctl spawn "obsidian" & # Obsidian on tag 4
-            sleep 1
-            riverctl spawn "${pkgs.discord}/bin/discord --enable-features=UseOzonePlatform --ozone-platform=wayland" &
             riverctl set-focused-tags 1  # Return focus to tag 1
           } &
 
