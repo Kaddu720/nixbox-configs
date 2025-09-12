@@ -52,7 +52,7 @@
       grimblast # Wayland screenshots
       # Applications
       obsidian
-      river
+      river-classic
       presenterm
       # Flake inputs
       inputs.zen-browser.packages."x86_64-linux".default

@@ -119,7 +119,7 @@
   # enable bluetooth
   services.blueman.enable = true;
   # enable tailscale
-  services.tailscale.enable = true;
+  # services.tailscale.enable = true;
 
   # -------------------- System Hardening --------------------
   # Clear /tmp on boot
