@@ -23,43 +23,8 @@ in {
 
   # Docs to read when I come back to fix this: https://github.com/kolunmi/ghostty
   config = lib.mkIf config.ghostty.enable {
-    home.file.".config/ghostty/config" = {
-      text = ''
-        # Shell
-        command = ${pkgs.fish}/bin/fish
-        shell-integration = fish
-
-        # Fonts
-        font-size = ${font-size}
-
-        # Padding
-        window-padding-x = 10
-        window-padding-y = 5
-
-        # Hide title bars
-        window-decoration = false
-        gtk-tabs-location = hidden
-        gtk-titlebar = false
-        macos-titlebar-style = hidden
-
-        #Themes
-        theme = "reld"
-        # Background Color
-        background = #191724
-
-        # Prompt
-        cursor-style = block
-
-        # Opacirty
-        # background-opacity = 0.8
-        # background-blur-radius = 20
-
-        # Hid mouse while typing
-        mouse-hide-while-typing = true
-      '';
-    };
-    home.file.".config/ghostty/themes/reld" = {
-      text = ''
+    home = let
+      ghostty-theme = pkgs.writeText "ghostty-reld-theme" ''
         palette = 0=#191724
         palette = 1=#b4637a
         palette = 2=#bb5c3a
@@ -83,6 +48,42 @@ in {
         selection-background = #c7c4c4
         selection-foreground = #191724
       '';
+      
+      ghostty-config = pkgs.writeText "ghostty-config" ''
+        # Shell
+        command = ${pkgs.fish}/bin/fish
+        shell-integration = fish
+
+        # Fonts
+        font-size = ${font-size}
+
+        # Padding
+        window-padding-x = 10
+        window-padding-y = 5
+
+        # Hide title bars
+        window-decoration = false
+        gtk-tabs-location = hidden
+        gtk-titlebar = false
+        macos-titlebar-style = hidden
+
+        #Themes
+        theme = ${ghostty-theme}
+        # Background Color
+        background = #191724
+
+        # Prompt
+        cursor-style = block
+
+        # Opacirty
+        # background-opacity = 0.8
+        # background-blur-radius = 20
+
+        # Hid mouse while typing
+        mouse-hide-while-typing = true
+      '';
+    in {
+      file.".config/ghostty/config".source = "${ghostty-config}";
     };
   };
 }
