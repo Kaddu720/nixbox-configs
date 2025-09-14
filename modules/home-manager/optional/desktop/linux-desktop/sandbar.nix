@@ -87,9 +87,9 @@
           vol_mute=$(pamixer --get-mute)
           if [ "$vol_mute" = "false" ]; then
             vol_level=$(pamixer --get-volume)
-            new_vol="$(printf " %s%%" "$vol_level")"
+            new_vol="$(printf " %s%%" "$vol_level")"
           else
-            new_vol=" -"
+            new_vol=" -"
           fi
           
           # Only update if volume changed
