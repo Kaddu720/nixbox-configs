@@ -41,7 +41,7 @@
         }
 
         disk() {
-          disk=" $(df -h / | awk 'NR==2{print $5}')"
+          disk=" $(df -h / | awk 'NR==2{print $5}')"
         }
 
         datetime() {
