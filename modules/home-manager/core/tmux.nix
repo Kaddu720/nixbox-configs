@@ -135,7 +135,7 @@ in {
 
           [[session]]
           name = "Second_Brain"
-          path = "~/Second_Brain"
+          path = "~/Vaults/Second_Brain"
           startup_command = "nvim ."
 
           [[session]]
