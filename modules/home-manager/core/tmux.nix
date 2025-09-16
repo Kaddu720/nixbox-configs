@@ -13,6 +13,11 @@
       */
       ''
         [[session]]
+        name = "Work_Brain"
+        path = "~/Vaults"
+        startup_command = "nvim ./Work_Brain"
+
+        [[session]]
         name = "axs-configurations"
         path = "~/Documents/sre_lambda_layer/GitHub/axs-configurations"
         startup_command = "tmuxp load -a lazygit ; nvim"
@@ -22,6 +27,11 @@
       toml
       */
       ''
+        [[session]]
+        name = "Second_Brain"
+        path = "~/Vaults/Second_Brain"
+        startup_command = "nvim ."
+
         [[session]]
         name = "ekiree_dashboard"
         path = "~/Projects/dashboard/dev/ekiree_dashboard"
@@ -129,14 +139,12 @@ in {
         toml
         */
         ''
+          ${seshConfigs}
+
           [default_session]
           startup_command = "tmuxp load -a lazygit && tmux split-window -h -l 30% && nvim"
           # startup_command = "tmuxp load -a lazygit ; tmux split-window -h -l 30% ; nvim"
 
-          [[session]]
-          name = "Second_Brain"
-          path = "~/Vaults/Second_Brain"
-          startup_command = "nvim ."
 
           [[session]]
           name = "nixos"
@@ -150,7 +158,6 @@ in {
           startup_command = "tmuxp load -a lazygit && nvim"
           # startup_command = "tmuxp load -a lazygit ; nvim"
 
-          ${seshConfigs}
         '';
     };
 
