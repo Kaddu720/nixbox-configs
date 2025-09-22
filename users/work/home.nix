@@ -9,6 +9,10 @@
   home = {
     username = "noahwilson";
     homeDirectory = "/Users/noahwilson";
+    # Set NH_HOME_FLAKE to use noah@Work-Box configuration
+    sessionVariables = {
+      NH_HOME_FLAKE = "/Users/noahwilson/.nixos#noah@Work-Box";
+    };
   };
 
   # -------------------- Optional Modules --------------------
