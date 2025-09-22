@@ -14,8 +14,8 @@
       ''
         [[session]]
         name = "Work_Brain"
-        path = "~/Vaults"
-        startup_command = "nvim ./Work_Brain"
+        path = "~/Vaults/Work_Brain/"
+        startup_command = "nvim ."
 
         [[session]]
         name = "axs-configurations"
