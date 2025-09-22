@@ -61,18 +61,7 @@
     darwin,
     self,
     ...
-  }: let
-    darwinConfigurations = {
-      Work-Box = darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./hosts/work-box/configuration.nix
-          inputs.nix-homebrew.darwinModules.nix-homebrew
-        ];
-      };
-    };
-  in {
+  }: {
     # Host Configs
     nixosConfigurations = {
       Home-Box = nixpkgs.lib.nixosSystem {
@@ -95,10 +84,25 @@
       };
     };
     
-    inherit darwinConfigurations;
-
+    darwinConfigurations = {
+      Work-Box = darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/work-box/configuration.nix
+          inputs.nix-homebrew.darwinModules.nix-homebrew
+        ];
+      };
+    };
     # Expose darwin system for nh
-    packages.aarch64-darwin.Work-Box = darwinConfigurations.Work-Box.config.system.build.toplevel;
+    packages.aarch64-darwin.Work-Box = darwin.lib.darwinSystem {
+      system = "aarch64-darwin";
+      specialArgs = {inherit inputs;};
+      modules = [
+        ./hosts/work-box/configuration.nix
+        inputs.nix-homebrew.darwinModules.nix-homebrew
+      ];
+    };
 
     # Home-manager Configs
     homeConfigurations = {
