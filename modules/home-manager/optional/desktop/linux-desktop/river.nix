@@ -31,7 +31,7 @@
 
           HOSTNAME=$(uname -n)
           HOME_DIR="${config.home.homeDirectory}"
-          WALLPAPER="$HOME_DIR/.config/nixos/modules/common/static/dark_fractal.jpg"
+          WALLPAPER="$HOME_DIR/.nixos/modules/common/static/dark_fractal.jpg"
 
           # Initialize monitor configuration
           case $HOSTNAME in
