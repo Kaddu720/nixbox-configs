@@ -3,7 +3,14 @@
   lib,
   config,
   ...
-}: {
+}:
+let
+  wallpaper = builtins.path {
+    path = ../../../../common/static/dark_fractal.jpg;
+    name = "dark_fractal.jpg";
+  };
+in
+{
   options = {
     river.enable =
       lib.mkEnableOption "enables river";
@@ -31,7 +38,7 @@
 
           HOSTNAME=$(uname -n)
           HOME_DIR="${config.home.homeDirectory}"
-          WALLPAPER="$HOME_DIR/.nixos/modules/common/static/dark_fractal.jpg"
+          WALLPAPER="${wallpaper}"
 
           # Initialize monitor configuration
           case $HOSTNAME in
