@@ -11,8 +11,8 @@
     Host = "aarch65-darwin";
     AWS_PROFILE = "sre_v1-prod";
     TF_SECRET = "terraform_builder";
-    NH_DARWIN_FLAKE = "/Users/noahwilson/.config/nixos#darwinConfigurations.Work-Box";
-    NH_HOME_FLAKE = "/Users/noahwilson/.config/nixos#homeConfigurations.noah@Work-Box";
+    NH_DARWIN_FLAKE = "/Users/noahwilson/.nixos#darwinConfigurations.Work-Box";
+    NH_HOME_FLAKE = "/Users/noahwilson/.nixos#homeConfigurations.noah@Work-Box";
   };
 
   system = {

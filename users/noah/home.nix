@@ -1,4 +1,3 @@
-# ~/.config/home-manager/noah.nix
 {
   pkgs,
   inputs,
@@ -66,7 +65,7 @@
       enable = true;
       clean.enable = true;
       clean.extraArgs = "--keep-since 4d --keep 3";
-      flake = "/home/noah/.config/nixos";
+      flake = "/home/noah/.nixos";
     };
     # SSH Configuration
     ssh = {
