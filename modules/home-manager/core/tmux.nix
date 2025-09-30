@@ -123,7 +123,7 @@ in {
               --border=none \
               --color='border:#e0def4,label:#e0def4,pointer:#f7768e' \
               --list-label ' Sessions ' --list-border=rounded --layout=reverse --no-sort --ansi --prompt '>  ' \
-              --header $' :: & <\033[38;2;224;222;244mctrl-a\033[0m> to \033[38;2;235;111;146madd\033[0m & <\033[38;2;224;222;244mctrl-x\033[0m> to \033[38;2;235;111;146mclose\033[0m' \
+              --header $' :: & <\033[38;2;232;201;160mctrl-a\033[0m> to \033[38;2;235;111;146madd\033[0m & <\033[38;2;232;201;160mctrl-x\033[0m> to \033[38;2;235;111;146mclose\033[0m' \
               --bind 'ctrl-x:execute(tmux kill-session -t {2..})+change-prompt(>  )+reload(sesh list -it)' \
               --bind 'ctrl-a:change-prompt(  )+reload(sesh list -icz)' \
               --preview-window 'right:60%:rounded' \
