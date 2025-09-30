@@ -113,20 +113,6 @@
   # -------------------- Program Configuration --------------------
   # Configure system specific programs
   programs = {
-    auto-cpufreq = {
-      enable = true;
-      settings = {
-        charger = {
-          governor = "performance";
-          turbo = "auto";
-        };
-        battery = {
-          governor = "powersave";
-          turbo = "auto";
-        };
-      };
-    };
-
     # Light for backlight control
     light.enable = true;
   };
