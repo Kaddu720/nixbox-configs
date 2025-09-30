@@ -79,7 +79,6 @@
           ./hosts/mobile-box/configuration.nix
           determinate.nixosModules.default
           inputs.nixos-hardware.nixosModules.framework-12th-gen-intel
-          inputs.auto-cpufreq.nixosModules.default
         ];
       };
     };
