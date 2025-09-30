@@ -32,6 +32,9 @@ in {
         # AI
         opencode
         ollama
+
+        # News
+        circumflex
       ]
       ++ platformPackages;
 
