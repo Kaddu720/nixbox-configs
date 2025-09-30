@@ -78,21 +78,21 @@
         alt-shift-l = 'move right'
         
         # Resize focused window - using correct syntax
-        alt-ctrl-l = 'resize width -50'
-        alt-ctrl-j = 'resize height +50'
-        alt-ctrl-k = 'resize height -50'
-        alt-ctrl-h = 'resize width +50'
+        alt-ctrl-l = 'resize width -20'
+        alt-ctrl-j = 'resize height +20'
+        alt-ctrl-k = 'resize height -20'
+        alt-ctrl-h = 'resize width +20'
 
         # Development workspace group (alt modifier)
         alt-1 = 'workspace dev'
         alt-2 = 'workspace web'
-        alt-3 = 'workspace misic'
+        alt-3 = 'workspace misc'
         alt-shift-1 = 'move-node-to-workspace dev'
         alt-shift-2 = 'move-node-to-workspace web'
-        alt-shift-3 = 'move-node-to-workspace misic'
+        alt-shift-3 = 'move-node-to-workspace misc'
         alt-ctrl-1 = ['move-node-to-workspace dev', 'workspace dev']
         alt-ctrl-2 = ['move-node-to-workspace web', 'workspace web']
-        alt-ctrl-3 = ['move-node-to-workspace misic', 'workspace misc']
+        alt-ctrl-3 = ['move-node-to-workspace misc', 'workspace misc']
 
         # Communication workspace group (cmd modifier)
         cmd-1 = 'workspace com'
@@ -102,6 +102,10 @@
         cmd-ctrl-1 = ['move-node-to-workspace com', 'workspace com']
         cmd-ctrl-2 = ['move-node-to-workspace doc', 'workspace doc']
 
+        # Monitor navigation
+        alt-comma = 'focus-monitor prev'
+        alt-period = 'focus-monitor next'
+        
         # Monitor movement
         alt-shift-period = 'move-node-to-monitor --wrap-around --focus-follows-window next'
         alt-shift-comma = 'move-node-to-monitor --wrap-around --focus-follows-window prev'
@@ -112,6 +116,15 @@
         
         # Switch orientation
         alt-backslash = 'layout horizontal vertical'
+        
+        # Join windows
+        alt-shift-left = 'join-with left'
+        alt-shift-right = 'join-with right'
+        alt-shift-up = 'join-with up'
+        alt-shift-down = 'join-with down'
+        
+        # Window management
+        alt-equal = 'balance-sizes'
 
         # Utility mode access
         alt-shift-semicolon = 'mode service'
@@ -151,6 +164,10 @@
         run = "layout floating"
         
         [[on-window-detected]]
+        if.app-id = 'com.apple.ActivityMonitor'
+        run = "layout floating"
+        
+        [[on-window-detected]]
         if.app-name-regex-substring = 'Raycast'
         run = "layout floating"
 
@@ -162,6 +179,15 @@
         [[on-window-detected]]
         if.app-id = 'com.microsoft.Outlook'
         run = "move-node-to-workspace com"
+
+        # Misc workspace apps
+        [[on-window-detected]]
+        if.app-id = 'com.microsoft.teams2'
+        run = "move-node-to-workspace misc"
+
+        [[on-window-detected]]
+        if.app-id = 'md.obsidian'
+        run = "move-node-to-workspace misc"
 
         # Meeting and document apps
         [[on-window-detected]]
