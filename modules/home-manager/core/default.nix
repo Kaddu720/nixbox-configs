@@ -8,6 +8,7 @@
     ./btop.nix
     ./ssh.nix
     ./tmux.nix
+    ./sesh.nix
   ];
 
   git.enable =
@@ -17,6 +18,8 @@
   ssh.enable =
     lib.mkDefault true;
   tmux.enable =
+    lib.mkDefault true;
+  sesh.enable =
     lib.mkDefault true;
 
   home.packages = with pkgs; [
