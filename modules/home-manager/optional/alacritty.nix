@@ -36,15 +36,15 @@ in {
         size = ${toString font-size}
 
         [font.normal]
-        family = "JetBrains Mono Nerd Font"
+        family = "monospace"
         style = "Regular"
 
         [font.bold]
-        family = "JetBrains Mono Nerd Font"
+        family = "monospace"
         style = "Bold"
 
         [font.italic]
-        family = "JetBrains Mono Nerd Font"
+        family = "monospace"
         style = "Italic"
 
         [colors.primary]
