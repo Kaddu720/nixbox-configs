@@ -265,7 +265,7 @@ in
 
           # Start applications with staggered delays
           {
-            riverctl spawn "${pkgs.discord}/bin/discord --enable-features=UseOzonePlatform --ozone-platform=wayland" &
+            # riverctl spawn "${pkgs.discord}/bin/discord --enable-features=UseOzonePlatform --ozone-platform=wayland" &
             sleep 1
             riverctl spawn "ghostty" &  # Terminal on tag 1
             sleep 1
