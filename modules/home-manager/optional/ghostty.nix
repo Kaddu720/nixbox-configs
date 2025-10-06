@@ -22,9 +22,8 @@ in {
   };
 
   # Docs to read when I come back to fix this: https://github.com/kolunmi/ghostty
-  config = lib.mkIf config.ghostty.enable {
-    home = let
-      ghostty-theme = pkgs.writeText "ghostty-reld-theme" ''
+  config = lib.mkIf config.ghostty.enable (let
+    ghostty-theme = pkgs.writeText "ghostty-reld-theme" ''
         palette = 0=#191724
         palette = 1=#b4637a
         palette = 2=#bb5c3a
@@ -82,8 +81,7 @@ in {
         # Hid mouse while typing
         mouse-hide-while-typing = true
       '';
-    in {};
-    
+  in {
     xdg.configFile."ghostty/config".source = "${ghostty-config}";
-  };
+  });
 }

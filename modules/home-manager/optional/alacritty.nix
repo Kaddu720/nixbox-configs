@@ -15,9 +15,8 @@ in {
       lib.mkEnableOption "enables alacritty";
   };
 
-  config = lib.mkIf config.alacritty.enable {
-    home = let
-      alacritty-config = pkgs.writeText "alacritty-config" ''
+  config = lib.mkIf config.alacritty.enable (let
+    alacritty-config = pkgs.writeText "alacritty-config" ''
         [env]
         TERM = "xterm-256color"
 
@@ -99,10 +98,9 @@ in {
           { key = "Key0", mods = "Control", action = "ResetFontSize" }
         ]
       '';
-    in {
-      packages = with pkgs; [alacritty];
-    };
+  in {
+    home.packages = with pkgs; [alacritty];
     
     xdg.configFile."alacritty/alacritty.toml".source = "${alacritty-config}";
-  };
+  });
 }
