@@ -9,8 +9,12 @@
   home = {
     username = "noahwilson";
     homeDirectory = "/Users/noahwilson";
-    # Set NH_HOME_FLAKE to use noah@Work-Box configuration
     sessionVariables = {
+      EDITOR = "nvim";
+      HOME = "/Users/noahwilson";
+      AWS_PROFILE = "sre_v1-prod";
+      TF_SECRET = "terraform_builder";
+      NH_DARWIN_FLAKE = "/Users/noahwilson/.nixos#darwinConfigurations.Work-Box";
       NH_HOME_FLAKE = "/Users/noahwilson/.nixos#noah@Work-Box";
     };
   };
@@ -37,6 +41,7 @@
   home.packages = with pkgs; [
     obsidian
     nerd-fonts.jetbrains-mono
+    slack
   ];
 
   #enable programs and services

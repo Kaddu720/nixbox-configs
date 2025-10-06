@@ -41,18 +41,21 @@
       TERMINAL = "ghostty";
       XDG_SESSION_TYPE = "wayland";
     };
-    # Package installations
     packages = with pkgs; [
       # System Tools
       kooha
       pavucontrol
       swaylock
+      tree
       wl-clipboard
-      grimblast # Wayland screenshots
+      grimblast # Wayland Screenshots
       # Applications
       obsidian
+      onlyoffice-desktopeditors
       river-classic
       presenterm
+      vlc
+      zoom-us
       # Flake inputs
       inputs.zen-browser.packages."x86_64-linux".default
       inputs.ghostty.packages.x86_64-linux.default

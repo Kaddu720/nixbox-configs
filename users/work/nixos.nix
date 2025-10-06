@@ -6,13 +6,7 @@
   security.pam.services.sudo_local.touchIdAuth = true;
 
   environment.variables = {
-    EDITOR = "nvim";
-    HOME = "/Users/noahwilson";
     Host = "aarch65-darwin";
-    AWS_PROFILE = "sre_v1-prod";
-    TF_SECRET = "terraform_builder";
-    NH_DARWIN_FLAKE = "/Users/noahwilson/.nixos#darwinConfigurations.Work-Box";
-    NH_HOME_FLAKE = "/Users/noahwilson/.nixos#homeConfigurations.noah@Work-Box";
   };
 
   system = {
@@ -42,9 +36,7 @@
   #Configure Environmental Variables
   environment = {
     # List packages at system level
-    systemPackages = with pkgs; [
-      slack
-    ];
+    systemPackages = with pkgs; [];
   };
 
   #enable programs and services
@@ -69,8 +61,8 @@
       "ghostty"
       "gpg-suite"
       "raycast"
-      "redisinsight"
-      "zen-browser"
+      "redis-insight"
+      "zen"
     ];
     brews = [
       "ca-certificates"

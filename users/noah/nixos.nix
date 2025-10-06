@@ -8,18 +8,12 @@
     home = "/home/noah";
     uid = 1000;
 
-    # System-level packages (prefer moving user-specific packages to home-manager)
     packages = with pkgs; [
-      # beekeeper-studio
       bluez
       dislocker
       home-manager
-      onlyoffice-desktopeditors
       rtkit
-      tree
-      vlc
       wirelesstools
-      zoom-us
     ];
   };
 
