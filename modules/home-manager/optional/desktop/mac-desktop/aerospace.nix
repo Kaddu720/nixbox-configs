@@ -8,8 +8,7 @@
   };
 
   config = lib.mkIf config.aerospace.enable {
-    home.file.".config/aerospace/aerospace.toml" = {
-      text = /*toml*/ ''
+    xdg.configFile."aerospace/aerospace.toml".text = /*toml*/ ''
         # AeroSpace Configuration v0.17.1
         # Documentation: https://nikitabobko.github.io/AeroSpace/
 
@@ -202,6 +201,5 @@
         if.app-name-regex-substring = 'Word'
         run = "move-node-to-workspace doc"
       '';
-    };
   };
 }

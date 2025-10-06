@@ -82,8 +82,8 @@ in {
         # Hid mouse while typing
         mouse-hide-while-typing = true
       '';
-    in {
-      file.".config/ghostty/config".source = "${ghostty-config}";
-    };
+    in {};
+    
+    xdg.configFile."ghostty/config".source = "${ghostty-config}";
   };
 }

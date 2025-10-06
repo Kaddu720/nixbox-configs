@@ -13,8 +13,7 @@
       configPath = "~/.config/rofi/nixGeneratedConfig";
     };
 
-    home.file = {
-      ".config/rofi/config.rasi".text = ''
+    xdg.configFile."rofi/config.rasi".text = ''
         * {
             background:     #191724FF;
             background-alt: #121212FF;
@@ -286,6 +285,5 @@
             text-color:                  @foreground-colour;
         }
       '';
-    };
   };
 }

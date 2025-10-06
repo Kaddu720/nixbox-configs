@@ -295,8 +295,8 @@ in
       enable = true;
       systemdTarget = "river-session.target";
     };
-    home.file.".config/kanshi/config" = {
-      text = ''
+    
+    xdg.configFile."kanshi/config".text = ''
         profile Home-Box {
           output DP-1 mode 2560x1440@165Hz position 0,0 adaptive_sync on
           output DP-2 mode 1920x1080@60Hz position -1920,0
@@ -320,6 +320,5 @@ in
           output eDP-1 mode 2256x1504@59.999001Hz
         }
       '';
-    };
-   };
+  };
 }

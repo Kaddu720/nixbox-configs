@@ -101,7 +101,8 @@ in {
       '';
     in {
       packages = with pkgs; [alacritty];
-      file.".config/alacritty/alacritty.toml".source = "${alacritty-config}";
     };
+    
+    xdg.configFile."alacritty/alacritty.toml".source = "${alacritty-config}";
   };
 }
