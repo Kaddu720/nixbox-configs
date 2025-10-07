@@ -21,7 +21,7 @@ in {
         TERM = "xterm-256color"
 
         [terminal.shell]
-        program = "${pkgs.fish}/bin/fish"
+        program = "fish"
         args = []
 
         [window]
@@ -30,21 +30,6 @@ in {
         dynamic_padding = true
         decorations = "None"
         opacity = 1.0
-
-        [font]
-        size = ${toString font-size}
-
-        [font.normal]
-        family = "monospace"
-        style = "Regular"
-
-        [font.bold]
-        family = "monospace"
-        style = "Bold"
-
-        [font.italic]
-        family = "monospace"
-        style = "Italic"
 
         [colors.primary]
         background = "#191724"
@@ -77,6 +62,9 @@ in {
         magenta = "#3b83aa"
         cyan = "#563ea9"
         white = "#c7c4c4"
+
+        [font]
+        size = ${toString font-size}
 
         [cursor]
         style = "Block"
