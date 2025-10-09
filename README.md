@@ -19,7 +19,8 @@
     - `linux.nix` - Linux-specific home-manager config (Wayland, XDG, desktop)
     - `nixos.nix` - NixOS system-level user account config
   - `work/` - Work user configurations
-    - `home.nix` - Work-specific home-manager config
+    - `home.nix` - Cross-platform work home-manager config
+    - `macos.nix` - macOS-specific home-manager config (desktop, bash)
     - `nixos.nix` - Work user account config (if needed)
 
 - **`system/`** - System-wide base configurations
