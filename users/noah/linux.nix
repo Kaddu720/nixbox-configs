@@ -34,11 +34,11 @@
     clean.extraArgs = "--keep-since 4d --keep 3";
   };
   
-  # Services (home-manager native & custom module options)
-  services = {
-    desktop-config.linuxDesktop = true; # (custom module option)
-    ssh-agent.enable = true; # (home-manager native)
-  };
+  # Linux desktop environment (custom module option)
+  linux-desktop.enable = true;
+  
+  # Services (home-manager native)
+  services.ssh-agent.enable = true;
   
   # Wayland desktop entries (home-manager native)
   xdg.desktopEntries = {
