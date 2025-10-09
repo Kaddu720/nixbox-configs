@@ -40,7 +40,7 @@
       {
         name = "nixos";
         path = "~/.nixos";
-        startupCommand = "tmux split-window -h -l 30% && nvim && tmux new-window lazygit";
+        startupCommand = "tmux rename-window config && tmux split-window -h -l 30% && tmux new-window -n lazygit lazygit && tmux select-window -t 1 && nvim";
       }
       {
         name = "nvim-dev";

@@ -32,7 +32,7 @@
 
       defaultStartupCommand = lib.mkOption {
         type = lib.types.str;
-        default = "tmux split-window -h -l 30% && nvim && tmux new-window lazygit";
+        default = "tmux split-window -h -l 30% && tmux new-window -n lazygit lazygit && tmux select-window -t 1 && nvim";
         description = "Default startup command for new sessions";
       };
 
