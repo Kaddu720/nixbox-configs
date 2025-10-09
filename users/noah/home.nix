@@ -1,18 +1,5 @@
 {pkgs, ...}: {
   # -------------------- User Preferences (same across all machines) --------------------
-  
-  # Shell and terminal (custom module options)
-  fish.enable = true;
-  nushell.enable = true;
-  ghostty.enable = true;
-  alacritty.enable = true;
-  
-  # Development tools (custom module options)
-  devPkgs.enable = true;
-  dev-kubernetes.enable = true;
-  dev-cloud.enable = true;
-  nvim.enable = true;
-  
   # User info (home-manager native)
   home.username = "noah";
   
@@ -21,13 +8,30 @@
     EDITOR = "nvim";
   };
   
-  # Common packages (home-manager native)
-  home.packages = with pkgs; [
-    obsidian
-  ];
-  
   # Allow unfree packages (nixpkgs native)
   nixpkgs.config.allowUnfree = true;
+
+  # Common packages (home-manager native)
+  home.packages = with pkgs; [
+    tree
+    obsidian
+    onlyoffice-desktopeditors
+    presenterm
+    vlc
+    zoom-us
+  ];
+
+  # Shell and terminal (custom module options)
+  fish.enable = true;
+  nushell.enable = true;
+  ghostty.enable = true;
+  alacritty.enable = true;
+  
+  # Development tools (custom module options)
+  devPkgs.enable = true;
+  dev-cloud.enable = true;
+  dev-kubernetes.enable = true;
+  nvim.enable = true;
   
   # Common sesh sessions (custom module option)
   sesh = {
@@ -45,4 +49,8 @@
       }
     ];
   };
+  
+  programs.home-manager.enable = true;
+  
+  home.stateVersion = "23.11";
 }

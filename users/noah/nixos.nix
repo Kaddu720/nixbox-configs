@@ -17,6 +17,12 @@
     ];
   };
 
+  # -------------------- Environment Variables --------------------
+  environment.sessionVariables = {
+    NH_FLAKE = "/home/noah/.nixos";
+    NH_NO_CHECKS = "1";
+  };
+
   services.xserver.videoDrivers = ["amdgpu"];
   hardware.graphics = {
     enable = true; # Enables GPU acceleration

@@ -1,11 +1,11 @@
 {
   pkgs,
-  inputs,
   lib,
   ...
 }: {
   imports = [
     ../../users/noah/home.nix
+    ../../users/noah/linux.nix
     ../../modules/home-manager/core
     ../../modules/home-manager/optional
     ../../modules/home-manager/optional/desktop
@@ -17,76 +17,19 @@
   # Home directory (home-manager native)
   home.homeDirectory = "/home/noah";
   
-  # Host-specific session variables (home-manager native)
   home.sessionVariables = {
     HOME = "/home/noah";
-    TERMINAL = "ghostty";
-    XDG_SESSION_TYPE = "wayland";
   };
   
-  # SSH configuration (custom module option)
   ssh.githubIdentityFile = "~/.ssh/personal/personal";
 
-  # nh configuration (home-manager native)
-  programs.nh = {
-    enable = true;
-    clean.enable = true;
-    clean.extraArgs = "--keep-since 4d --keep 3";
-    flake = "/home/noah/.nixos";
-  };
+  programs.nh.flake = "/home/noah/.nixos";
   
-  # Host-specific packages (home-manager native)
-  home.packages = with pkgs; [
-    # System Tools
-    kooha
-    pavucontrol
-    swaylock
-    tree
-    wl-clipboard
-    grimblast
-    # Applications
-    onlyoffice-desktopeditors
-    river-classic
-    presenterm
-    vlc
-    zoom-us
-    # Flake inputs
-    inputs.zen-browser.packages."x86_64-linux".default
-    inputs.ghostty.packages.x86_64-linux.default
-  ];
-
-
-  # Services
-  services = {
-    desktop-config = { # (custom module option)
-      enable = true;
-      linuxDesktop = true;
-    };
-    ssh-agent.enable = true; # (home-manager native)
-  };
+  services.desktop-config.enable = true;
   
-  # Terminal font size (custom module options)
   ghostty.fontSize = 12;
   alacritty.fontSize = 12;
   
-  # Linux-specific dev tools (custom module option)
-  dev-containers.enable = true;
-  
-  # Host-specific sesh sessions (custom module option)
-  sesh.sessions = lib.mkAfter [
-    {
-      name = "Second_Brain";
-      path = "~/Vaults/Second_Brain";
-      startupCommand = "nvim . && tmux new-window lazygit";
-    }
-    {
-      name = "ekiree_dashboard";
-      path = "~/Projects/dashboard/dev/ekiree_dashboard";
-      startupCommand = "tmuxp load -a ekiree_dashboard && tmux split-window -h -l 30% && nvim && tmux new-window lazygit";
-    }
-  ];
-  
-  # Tmuxp layouts (custom module option)
   sesh.tmuxpLayouts = {
     ekiree_dashboard = ''
       session_name: ekiree_dashboard
@@ -111,38 +54,18 @@
     '';
   };
   
-  
-  programs.bash.enable = true; # (home-manager native)
-  
-  # Wayland desktop entries (home-manager native)
-  xdg.desktopEntries = {
-    "discord-wayland" = {
-      name = "Discord (Wayland)";
-      comment = "Chat client with native Wayland support";
-      exec = "${pkgs.discord}/bin/discord --enable-features=UseOzonePlatform --ozone-platform=wayland";
-      icon = "discord";
-      terminal = false;
-      categories = ["Network" "InstantMessaging"];
-    };
-    "zoom-wayland" = {
-      name = "Zoom (Wayland)";
-      comment = "Video conferencing with Wayland support";
-      exec = "${pkgs.zoom-us}/bin/zoom-us --enable-features=UseOzonePlatform --ozone-platform=wayland";
-      icon = "zoom";
-      terminal = false;
-      categories = ["Network" "VideoConference"];
-    };
-  };
-  
-  # XDG configuration (home-manager native)
-  xdg.mimeApps.defaultApplications = {
-    "inode/directory" = "thunar";
-  };
-  
-  # Let Home Manager install and manage itself (home-manager native)
-  programs.home-manager.enable = true;
-
-  # State version (home-manager native)
-  home.stateVersion = "23.11";
+  sesh.sessions = lib.mkAfter [
+  sesh.sessions = lib.mkAfter [
+    {
+      name = "Second_Brain";
+      path = "~/Vaults/Second_Brain";
+      startupCommand = "nvim . && tmux new-window lazygit";
+    }
+    {
+      name = "ekiree_dashboard";
+      path = "~/Projects/dashboard/dev/ekiree_dashboard";
+      startupCommand = "tmuxp load -a ekiree_dashboard && tmux split-window -h -l 30% && nvim && tmux new-window lazygit";
+    }
+  ];
 }
 

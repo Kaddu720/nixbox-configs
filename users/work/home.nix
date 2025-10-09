@@ -1,5 +1,22 @@
 {pkgs, ...}: {
   # -------------------- User Preferences (same across all machines) --------------------
+
+  # User info (home-manager native)
+  home.username = "noahwilson";
+  
+  # Session variables (home-manager native)
+  home.sessionVariables = {
+    EDITOR = "nvim";
+  };
+
+  # Allow unfree packages (nixpkgs native)
+  nixpkgs.config.allowUnfree = true;
+  
+  # Common packages (home-manager native)
+  home.packages = with pkgs; [
+    obsidian
+    slack
+  ];
   
   # Shell and terminal (custom module options)
   fish.enable = true;
@@ -15,23 +32,6 @@
   
   # Disable personal git credentials (custom module option)
   git.enable = false;
-  
-  # User info (home-manager native)
-  home.username = "noahwilson";
-  
-  # Session variables (home-manager native)
-  home.sessionVariables = {
-    EDITOR = "nvim";
-  };
-  
-  # Common packages (home-manager native)
-  home.packages = with pkgs; [
-    obsidian
-    slack
-  ];
-  
-  # Allow unfree packages (nixpkgs native)
-  nixpkgs.config.allowUnfree = true;
   
   # Common sesh sessions (custom module option)
   sesh = {
