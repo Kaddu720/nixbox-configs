@@ -12,7 +12,7 @@
   config = lib.mkIf config.dev-ai.enable {
     home.packages = with pkgs; [
       ollama
-      lmstudio
+      # lmstudio
     ];
   };
 }

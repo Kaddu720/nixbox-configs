@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  lib,
   ...
 }: {
   imports = [
@@ -54,7 +55,7 @@
   ];
   
   # Host-specific sesh sessions
-  sesh.sessions = sesh.sessions ++ [
+  sesh.sessions = lib.mkAfter [
     {
       name = "Second_Brain";
       path = "~/Vaults/Second_Brain";

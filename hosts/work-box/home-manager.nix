@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
     ../../users/work/home.nix
     ../../modules/home-manager/core
@@ -36,7 +40,7 @@
   ];
   
   # Host-specific sesh sessions
-  sesh.sessions = sesh.sessions ++ [
+  sesh.sessions = lib.mkAfter [
     {
       name = "Work_Brain";
       path = "~/Vaults/Work_Brain/";

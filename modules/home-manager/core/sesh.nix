@@ -3,29 +3,7 @@
   lib,
   config,
   ...
-}: let
-  seshConfig = pkgs.writeTextFile {
-    name = "sesh.toml";
-    text = ''
-      ${lib.concatStringsSep "\n" (map (session: ''
-        [[session]]
-        name = "${session.name}"
-        path = "${session.path}"
-        startup_command = "${session.startupCommand}"
-      '') config.sesh.sessions)}
-
-      [default_session]
-      startup_command = "${config.sesh.defaultStartupCommand}"
-    '';
-  };
-
-  tmuxpConfigs = lib.mapAttrs' (name: content:
-    lib.nameValuePair name (pkgs.writeTextFile {
-      name = "${name}.yaml";
-      text = content;
-    })
-  ) config.sesh.tmuxpLayouts;
-in {
+}: {
   options = {
     sesh = {
       enable = lib.mkEnableOption "enables sesh";
@@ -66,12 +44,36 @@ in {
     };
   };
 
-  config = lib.mkIf config.sesh.enable {
+  config = let
+    seshConfig = pkgs.writeTextFile {
+      name = "sesh.toml";
+      text = ''
+        ${lib.concatStringsSep "\n" (map (session: ''
+          [[session]]
+          name = "${session.name}"
+          path = "${session.path}"
+          startup_command = "${session.startupCommand}"
+        '') config.sesh.sessions)}
+
+        [default_session]
+        startup_command = "${config.sesh.defaultStartupCommand}"
+      '';
+    };
+
+    tmuxpConfigs = lib.mapAttrs' (name: content:
+      lib.nameValuePair name (pkgs.writeTextFile {
+        name = "${name}.yaml";
+        text = content;
+      })
+    ) config.sesh.tmuxpLayouts;
+  in lib.mkIf config.sesh.enable {
     home.packages = [pkgs.sesh] 
       ++ lib.optional (config.sesh.tmuxpLayouts != {}) pkgs.tmuxp;
 
-    xdg.configFile."sesh/sesh.toml".source = seshConfig;
-  } // (lib.mapAttrs' (name: file:
-    lib.nameValuePair "xdg.configFile.\"tmuxp/${name}.yaml\".source" file
-  ) tmuxpConfigs);
+    xdg.configFile = {
+      "sesh/sesh.toml".source = seshConfig;
+    } // (lib.mapAttrs' (name: file:
+      lib.nameValuePair "tmuxp/${name}.yaml" { source = file; }
+    ) tmuxpConfigs);
+  };
 }
