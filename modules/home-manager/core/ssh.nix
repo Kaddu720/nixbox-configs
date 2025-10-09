@@ -1,12 +1,16 @@
 {
   lib,
   config,
-  vars,
   ...
 }: {
   options = {
-    ssh.enable =
-      lib.mkEnableOption "enables ssh";
+    ssh = {
+      enable = lib.mkEnableOption "enables ssh";
+      githubIdentityFile = lib.mkOption {
+        type = lib.types.str;
+        description = "SSH key path for GitHub authentication";
+      };
+    };
   };
 
   config = lib.mkIf config.ssh.enable {
@@ -22,7 +26,7 @@
         };
         "github.com" = {
           user = "git";
-          identityFile = "${vars.sshKey}";
+          identityFile = config.ssh.githubIdentityFile;
         };
       };
     };

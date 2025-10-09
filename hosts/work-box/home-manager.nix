@@ -3,6 +3,9 @@
     ../../users/work/home.nix
   ];
 
+  # SSH configuration
+  ssh.githubIdentityFile = "~/.ssh/work-box";
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 

@@ -7,6 +7,9 @@
     ../../modules/common/static/stylix.nix
   ];
 
+  # SSH configuration
+  ssh.githubIdentityFile = "~/.ssh/mobile/mobile";
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 

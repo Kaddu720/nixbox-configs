@@ -6,6 +6,10 @@
     ../../modules/home-manager/optional
     ../../modules/common/static/stylix.nix
   ];
+  
+  # SSH configuration
+  ssh.githubIdentityFile = "~/.ssh/personal/personal";
+  
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 

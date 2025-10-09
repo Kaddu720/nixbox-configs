@@ -2,23 +2,17 @@
   pkgs,
   lib,
   config,
-  vars,
   ...
-}: let
-  font-size =
-    if ("${vars.hostName}" == "Home-Box")
-    then "12"
-    else "18";
-
-
-  # shell-command =
-  #   if ("${vars.hostName}" == "Work-Box")
-  #   then "${pkgs.fish}/bin/fish"
-  #   else "${pkgs.nushell}/bin/nu";
-in {
+}: {
   options = {
-    ghostty.enable =
-      lib.mkEnableOption "enables ghostty";
+    ghostty = {
+      enable = lib.mkEnableOption "enables ghostty";
+      fontSize = lib.mkOption {
+        type = lib.types.int;
+        default = 12;
+        description = "Font size for ghostty terminal";
+      };
+    };
   };
 
   # Docs to read when I come back to fix this: https://github.com/kolunmi/ghostty
@@ -54,7 +48,7 @@ in {
         shell-integration = fish
 
         # Fonts
-        font-size = ${font-size}
+        font-size = ${toString config.ghostty.fontSize}
 
         # Padding
         window-padding-x = 10

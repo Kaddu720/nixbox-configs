@@ -22,8 +22,14 @@
   # -------------------- Optional Modules --------------------
   fish.enable = true;
   nushell.enable = true;
-  ghostty.enable = true;
-  alacritty.enable = true;
+  ghostty = {
+    enable = true;
+    fontSize = 18;
+  };
+  alacritty = {
+    enable = true;
+    fontSize = 18;
+  };
   devPkgs.enable = true;
   dev-ai.enable = true;
   dev-kubernetes.enable = true;
@@ -32,6 +38,33 @@
   nvim.enable = true;
   #disables personall git credentials
   git.enable = false;
+
+  # Sesh sessions
+  sesh = {
+    enable = true;
+    sessions = [
+      {
+        name = "Work_Brain";
+        path = "~/Vaults/Work_Brain/";
+        startupCommand = "nvim .";
+      }
+      {
+        name = "axs-configurations";
+        path = "~/Documents/sre_lambda_layer/GitHub/axs-configurations";
+        startupCommand = "nvim && tmux new-window lazygit";
+      }
+      {
+        name = "nixos";
+        path = "~/.nixos";
+        startupCommand = "tmux split-window -h -l 30% && nvim && tmux new-window lazygit";
+      }
+      {
+        name = "nvim-dev";
+        path = "~/.config/nvim";
+        startupCommand = "nvim && tmux new-window lazygit";
+      }
+    ];
+  };
 
   services.desktop-config = {
     enable = true;

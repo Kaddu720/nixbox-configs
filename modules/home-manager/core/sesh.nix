@@ -2,101 +2,76 @@
   pkgs,
   lib,
   config,
-  vars,
   ...
 }: let
-  seshConfigs =
-    if "${vars.hostName}" == "Work-Box"
-    then ''
-      [[session]]
-      name = "Work_Brain"
-      path = "~/Vaults/Work_Brain/"
-      startup_command = "nvim ."
-
-      [[session]]
-      name = "axs-configurations"
-      path = "~/Documents/sre_lambda_layer/GitHub/axs-configurations"
-      startup_command = "tmuxp load -a lazygit ; nvim"
-    ''
-    else ''
-      [[session]]
-      name = "Second_Brain"
-      path = "~/Vaults/Second_Brain"
-      startup_command = "nvim ."
-
-      [[session]]
-      name = "ekiree_dashboard"
-      path = "~/Projects/dashboard/dev/ekiree_dashboard"
-      startup_command = "tmuxp load -a ekiree_dashboard ; tmux split-window -h -l 30% ; nvim"
-    '';
-
   seshConfig = pkgs.writeTextFile {
     name = "sesh.toml";
     text = ''
-      ${seshConfigs}
+      ${lib.concatStringsSep "\n" (map (session: ''
+        [[session]]
+        name = "${session.name}"
+        path = "${session.path}"
+        startup_command = "${session.startupCommand}"
+      '') config.sesh.sessions)}
 
       [default_session]
-      startup_command = "tmuxp load -a lazygit && tmux split-window -h -l 30% && nvim"
-
-      [[session]]
-      name = "nixos"
-      path = "~/.nixos"
-      startup_command = "tmuxp load -a lazygit && tmux split-window -h -l 30% && nvim"
-
-      [[session]]
-      name = "nvim-dev"
-      path = "~/.config/nvim"
-      startup_command = "tmuxp load -a lazygit && nvim"
+      startup_command = "${config.sesh.defaultStartupCommand}"
     '';
   };
 
-  ekireeDashboardConfig = pkgs.writeTextFile {
-    name = "ekiree_dashboard.yaml";
-    text = ''
-      session_name: ekiree_dashboard
-
-      windows:
-      - window_name: term
-        layout: main-vertical
-        shell_command_before:
-          - cd ekiree_dashboard
-        panes:
-          - shell_command:
-            - clear
-            focus: true
-          - shell_command:
-            - clear
-            - python manage.py runserver
-
-      - window_name: git
-        panes:
-          - shell_command:
-            - lazygit
-    '';
-  };
-
-  lazygitConfig = pkgs.writeTextFile {
-    name = "lazygit.yaml";
-    text = ''
-      session_name: lazygit
-
-      windows:
-      - window_name: git
-        panes:
-          - shell_command:
-            - lazygit
-    '';
-  };
+  tmuxpConfigs = lib.mapAttrs' (name: content:
+    lib.nameValuePair name (pkgs.writeTextFile {
+      name = "${name}.yaml";
+      text = content;
+    })
+  ) config.sesh.tmuxpLayouts;
 in {
   options = {
-    sesh.enable = lib.mkEnableOption "enables sesh";
+    sesh = {
+      enable = lib.mkEnableOption "enables sesh";
+      
+      sessions = lib.mkOption {
+        type = lib.types.listOf (lib.types.submodule {
+          options = {
+            name = lib.mkOption {
+              type = lib.types.str;
+              description = "Session name";
+            };
+            path = lib.mkOption {
+              type = lib.types.str;
+              description = "Session working directory";
+            };
+            startupCommand = lib.mkOption {
+              type = lib.types.str;
+              default = "nvim .";
+              description = "Command to run when session starts";
+            };
+          };
+        });
+        default = [];
+        description = "List of sesh sessions";
+      };
+
+      defaultStartupCommand = lib.mkOption {
+        type = lib.types.str;
+        default = "tmux split-window -h -l 30% && nvim && tmux new-window lazygit";
+        description = "Default startup command for new sessions";
+      };
+
+      tmuxpLayouts = lib.mkOption {
+        type = lib.types.attrsOf lib.types.str;
+        default = {};
+        description = "Tmuxp layout configurations";
+      };
+    };
   };
 
   config = lib.mkIf config.sesh.enable {
-    home.packages = [pkgs.tmuxp pkgs.sesh];
+    home.packages = [pkgs.sesh] 
+      ++ lib.optional (config.sesh.tmuxpLayouts != {}) pkgs.tmuxp;
 
     xdg.configFile."sesh/sesh.toml".source = seshConfig;
-    xdg.configFile."tmuxp/ekiree_dashboard.yaml".source = ekireeDashboardConfig;
-    xdg.configFile."tmuxp/lazygit.yaml".source = lazygitConfig;
-  };
+  } // (lib.mapAttrs' (name: file:
+    lib.nameValuePair "xdg.configFile.\"tmuxp/${name}.yaml\".source" file
+  ) tmuxpConfigs);
 }

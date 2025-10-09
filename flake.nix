@@ -99,10 +99,6 @@
         pkgs = nixpkgs.legacyPackages."x86_64-linux";
         extraSpecialArgs = {
           inherit inputs;
-          vars = {
-            hostName = "Home-Box";
-            sshKey = "~/.ssh/personal/personal";
-          };
         };
         modules = [
           ./hosts/home-box/home-manager.nix
@@ -114,10 +110,6 @@
         pkgs = nixpkgs.legacyPackages."x86_64-linux";
         extraSpecialArgs = {
           inherit inputs;
-          vars = {
-            hostName = "Mobile-Box";
-            sshKey = "~/.ssh/mobile/mobile";
-          };
         };
         modules = [
           ./hosts/mobile-box/home-manager.nix
@@ -129,10 +121,6 @@
         pkgs = nixpkgs.legacyPackages."aarch64-darwin";
         extraSpecialArgs = {
           inherit inputs;
-          vars = {
-            hostName = "Work-Box";
-            sshKey = "~/.ssh/work-box";
-          };
         };
         modules = [
           ./hosts/work-box/home-manager.nix

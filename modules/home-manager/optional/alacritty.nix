@@ -2,17 +2,17 @@
   pkgs,
   lib,
   config,
-  vars,
   ...
-}: let
-  font-size =
-    if ("${vars.hostName}" == "Home-Box")
-    then 12
-    else 18;
-in {
+}: {
   options = {
-    alacritty.enable =
-      lib.mkEnableOption "enables alacritty";
+    alacritty = {
+      enable = lib.mkEnableOption "enables alacritty";
+      fontSize = lib.mkOption {
+        type = lib.types.int;
+        default = 12;
+        description = "Font size for alacritty terminal";
+      };
+    };
   };
 
   config = lib.mkIf config.alacritty.enable (let
@@ -64,7 +64,7 @@ in {
         white = "#c7c4c4"
 
         [font]
-        size = ${toString font-size}
+        size = ${toString config.alacritty.fontSize}
 
         [cursor]
         style = "Block"

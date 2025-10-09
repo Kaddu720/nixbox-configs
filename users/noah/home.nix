@@ -18,14 +18,70 @@
   # -------------------- Optional Modules --------------------
   fish.enable = true;
   nushell.enable = true;
-  ghostty.enable = true;
-  alacritty.enable = true;
+  ghostty = {
+    enable = true;
+    fontSize = 12;
+  };
+  alacritty = {
+    enable = true;
+    fontSize = 12;
+  };
   devPkgs.enable = true;
   dev-containers.enable = true;
   dev-kubernetes.enable = true;
   dev-cloud.enable = true;
   # Use neovim from NixCats
   nvim.enable = true;
+
+  # Sesh sessions
+  sesh = {
+    enable = true;
+    sessions = [
+      {
+        name = "Second_Brain";
+        path = "~/Vaults/Second_Brain";
+        startupCommand = "nvim . && tmux new-window lazygit";
+      }
+      {
+        name = "ekiree_dashboard";
+        path = "~/Projects/dashboard/dev/ekiree_dashboard";
+        startupCommand = "tmuxp load -a ekiree_dashboard && tmux split-window -h -l 30% && nvim && tmux new-window lazygit";
+      }
+      {
+        name = "nixos";
+        path = "~/.nixos";
+        startupCommand = "tmux split-window -h -l 30% && nvim && tmux new-window lazygit";
+      }
+      {
+        name = "nvim-dev";
+        path = "~/.config/nvim";
+        startupCommand = "nvim && tmux new-window lazygit";
+      }
+    ];
+    tmuxpLayouts = {
+      ekiree_dashboard = ''
+        session_name: ekiree_dashboard
+
+        windows:
+        - window_name: term
+          layout: main-vertical
+          shell_command_before:
+            - cd ekiree_dashboard
+          panes:
+            - shell_command:
+              - clear
+              focus: true
+            - shell_command:
+              - clear
+              - python manage.py runserver
+
+        - window_name: git
+          panes:
+            - shell_command:
+              - lazygit
+      '';
+    };
+  };
 
   # -------------------- Nixpkgs Configuration --------------------
   nixpkgs = {
