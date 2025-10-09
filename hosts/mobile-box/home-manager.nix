@@ -14,27 +14,23 @@
 
   # -------------------- Host-specific Configuration --------------------
   
-  # Home directory
   home.homeDirectory = "/home/noah";
   
-  # Host-specific session variables
   home.sessionVariables = {
     HOME = "/home/noah";
     TERMINAL = "ghostty";
     XDG_SESSION_TYPE = "wayland";
   };
   
-  # SSH configuration
   ssh.githubIdentityFile = "~/.ssh/mobile/mobile";
+
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 4d --keep 3";
+    flake = "/home/noah/.nixos";
+  };
   
-  # Terminal font size (laptop = larger font)
-  ghostty.fontSize = 14;
-  alacritty.fontSize = 14;
-  
-  # Linux-specific dev tools
-  dev-containers.enable = true;
-  
-  # Host-specific packages
   home.packages = with pkgs; [
     # System Tools
     kooha
@@ -53,8 +49,20 @@
     inputs.zen-browser.packages."x86_64-linux".default
     inputs.ghostty.packages.x86_64-linux.default
   ];
+
+  services = {
+    desktop-config = {
+      enable = true;
+      linuxDesktop = true;
+    };
+    ssh-agent.enable = true;
+  };
   
-  # Host-specific sesh sessions
+  ghostty.fontSize = 14;
+  alacritty.fontSize = 14;
+  
+  dev-containers.enable = true;
+  
   sesh.sessions = lib.mkAfter [
     {
       name = "Second_Brain";
@@ -63,17 +71,8 @@
     }
   ];
   
-  # nh configuration
-  programs.nh = {
-    enable = true;
-    clean.enable = true;
-    clean.extraArgs = "--keep-since 4d --keep 3";
-    flake = "/home/noah/.nixos";
-  };
-  
   programs.bash.enable = true;
   
-  # Wayland desktop entries
   xdg.desktopEntries = {
     "discord-wayland" = {
       name = "Discord (Wayland)";
@@ -93,24 +92,12 @@
     };
   };
   
-  # XDG configuration
   xdg.mimeApps.defaultApplications = {
     "inode/directory" = "thunar";
   };
   
-  # Services
-  services = {
-    desktop-config = {
-      enable = true;
-      linuxDesktop = true;
-    };
-    ssh-agent.enable = true;
-  };
-
-  # Let Home Manager install and manage itself
   programs.home-manager.enable = true;
 
-  # State version
   home.stateVersion = "23.11";
 }
 

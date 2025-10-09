@@ -26,13 +26,14 @@
   
   # SSH configuration (custom module option)
   ssh.githubIdentityFile = "~/.ssh/personal/personal";
-  
-  # Terminal font size (custom module options)
-  ghostty.fontSize = 12;
-  alacritty.fontSize = 12;
-  
-  # Linux-specific dev tools (custom module option)
-  dev-containers.enable = true;
+
+  # nh configuration (home-manager native)
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 4d --keep 3";
+    flake = "/home/noah/.nixos";
+  };
   
   # Host-specific packages (home-manager native)
   home.packages = with pkgs; [
@@ -53,6 +54,23 @@
     inputs.zen-browser.packages."x86_64-linux".default
     inputs.ghostty.packages.x86_64-linux.default
   ];
+
+
+  # Services
+  services = {
+    desktop-config = { # (custom module option)
+      enable = true;
+      linuxDesktop = true;
+    };
+    ssh-agent.enable = true; # (home-manager native)
+  };
+  
+  # Terminal font size (custom module options)
+  ghostty.fontSize = 12;
+  alacritty.fontSize = 12;
+  
+  # Linux-specific dev tools (custom module option)
+  dev-containers.enable = true;
   
   # Host-specific sesh sessions (custom module option)
   sesh.sessions = lib.mkAfter [
@@ -93,13 +111,6 @@
     '';
   };
   
-  # nh configuration (home-manager native)
-  programs.nh = {
-    enable = true;
-    clean.enable = true;
-    clean.extraArgs = "--keep-since 4d --keep 3";
-    flake = "/home/noah/.nixos";
-  };
   
   programs.bash.enable = true; # (home-manager native)
   
@@ -126,15 +137,6 @@
   # XDG configuration (home-manager native)
   xdg.mimeApps.defaultApplications = {
     "inode/directory" = "thunar";
-  };
-  
-  # Services
-  services = {
-    desktop-config = { # (custom module option)
-      enable = true;
-      linuxDesktop = true;
-    };
-    ssh-agent.enable = true; # (home-manager native)
   };
   
   # Let Home Manager install and manage itself (home-manager native)
