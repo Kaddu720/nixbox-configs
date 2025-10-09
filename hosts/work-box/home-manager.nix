@@ -24,12 +24,7 @@
   
   ssh.githubIdentityFile = "~/.ssh/work-box";
 
-  programs.nh = {
-    enable = true;
-    clean.enable = true;
-    clean.extraArgs = "--keep-since 4d --keep 3";
-    flake = "/Users/noahwilson/.nixos";
-  };
+  programs.nh.flake = "/Users/noahwilson/.nixos";
   
   home.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
@@ -57,9 +52,5 @@
       startupCommand = "nvim && tmux new-window lazygit";
     }
   ];
-  
-  programs.home-manager.enable = true;
-
-  home.stateVersion = "23.11";
 }
 
