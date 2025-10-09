@@ -21,6 +21,9 @@
   ghostty.enable = true;
   alacritty.enable = true;
   devPkgs.enable = true;
+  dev-containers.enable = true;
+  dev-kubernetes.enable = true;
+  dev-cloud.enable = true;
   # Use neovim from NixCats
   nvim.enable = true;
 

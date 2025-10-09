@@ -25,6 +25,9 @@
   ghostty.enable = true;
   alacritty.enable = true;
   devPkgs.enable = true;
+  dev-ai.enable = true;
+  dev-kubernetes.enable = true;
+  dev-cloud.enable = true;
   # Use neovim from NixCats
   nvim.enable = true;
   #disables personall git credentials

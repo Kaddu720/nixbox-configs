@@ -1,42 +1,23 @@
 {
   pkgs,
-  vars,
   lib,
   config,
   ...
-}: let
-  # Optional packages for mac or linux
-  platformPackages =
-    if "${vars.hostName}" == "Work-Box"
-    then with pkgs; [terraform lens warp-terminal]
-    else with pkgs; [docker lazydocker lmstudio];
-in {
+}: {
   options = {
     devPkgs.enable =
-      lib.mkEnableOption "enables development packages";
+      lib.mkEnableOption "enables core development packages";
   };
 
   config = lib.mkIf config.devPkgs.enable {
-    home.packages = with pkgs;
-      [
-        podman
-        lazygit
-        jq
-        nerd-fonts.jetbrains-mono
-        awscli2
-        kubectl
-        kubectx
-        k9s
-        opentofu
-
-        # AI
-        opencode
-        ollama
-
-        # News
-        circumflex
-      ]
-      ++ platformPackages;
+    home.packages = with pkgs; [
+      lazygit
+      jq
+      nerd-fonts.jetbrains-mono
+      warp-terminal
+      circumflex
+      opencode
+    ];
 
     programs = {
       direnv = {
