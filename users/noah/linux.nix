@@ -51,9 +51,9 @@
       categories = ["Network" "InstantMessaging"];
     };
     "zoom-wayland" = {
-      name = "Zoom (Wayland)";
-      comment = "Video conferencing with Wayland support";
-      exec = "${pkgs.zoom-us}/bin/zoom-us --enable-features=UseOzonePlatform --ozone-platform=wayland";
+      name = "Zoom (XWayland)";
+      comment = "Video conferencing - runs under XWayland for better compatibility";
+      exec = "env QT_QPA_PLATFORM=xcb ${pkgs.zoom-us}/bin/zoom-us";
       icon = "zoom";
       terminal = false;
       categories = ["Network" "VideoConference"];
