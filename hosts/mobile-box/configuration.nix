@@ -8,7 +8,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     inputs.nixos-hardware.nixosModules.framework-12th-gen-intel
-    ../../users/root/nixos.nix
+    ../../system/base.nix
     ../../users/noah/nixos.nix
     ../../modules/nixos/core
     ../../modules/nixos/optional
