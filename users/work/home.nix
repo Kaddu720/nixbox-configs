@@ -1,58 +1,42 @@
 {pkgs, ...}: {
-  imports = [
-    ../../modules/home-manager/core
-    ../../modules/home-manager/optional
-    ../../modules/home-manager/optional/desktop
-  ];
-
-  # -------------------- User Configuration --------------------
-  home = {
-    username = "noahwilson";
-    homeDirectory = "/Users/noahwilson";
-    sessionVariables = {
-      EDITOR = "nvim";
-      HOME = "/Users/noahwilson";
-      AWS_PROFILE = "sre_v1-prod";
-      TF_SECRET = "terraform_builder";
-      NH_DARWIN_FLAKE = "/Users/noahwilson/.nixos#darwinConfigurations.Work-Box";
-      NH_HOME_FLAKE = "/Users/noahwilson/.nixos#noah@Work-Box";
-    };
-  };
-
-  # -------------------- Optional Modules --------------------
+  # -------------------- User Preferences (same across all machines) --------------------
+  
+  # Shell and terminal (custom module options)
   fish.enable = true;
   nushell.enable = true;
-  ghostty = {
-    enable = true;
-    fontSize = 18;
-  };
-  alacritty = {
-    enable = true;
-    fontSize = 18;
-  };
+  ghostty.enable = true;
+  alacritty.enable = true;
+  
+  # Development tools (custom module options)
   devPkgs.enable = true;
-  dev-ai.enable = true;
   dev-kubernetes.enable = true;
   dev-cloud.enable = true;
-  # Use neovim from NixCats
   nvim.enable = true;
-  #disables personall git credentials
+  
+  # Disable personal git credentials (custom module option)
   git.enable = false;
-
-  # Sesh sessions
+  
+  # User info (home-manager native)
+  home.username = "noahwilson";
+  
+  # Session variables (home-manager native)
+  home.sessionVariables = {
+    EDITOR = "nvim";
+  };
+  
+  # Common packages (home-manager native)
+  home.packages = with pkgs; [
+    obsidian
+    slack
+  ];
+  
+  # Allow unfree packages (nixpkgs native)
+  nixpkgs.config.allowUnfree = true;
+  
+  # Common sesh sessions (custom module option)
   sesh = {
     enable = true;
     sessions = [
-      {
-        name = "Work_Brain";
-        path = "~/Vaults/Work_Brain/";
-        startupCommand = "nvim .";
-      }
-      {
-        name = "axs-configurations";
-        path = "~/Documents/sre_lambda_layer/GitHub/axs-configurations";
-        startupCommand = "nvim && tmux new-window lazygit";
-      }
       {
         name = "nixos";
         path = "~/.nixos";
@@ -64,29 +48,5 @@
         startupCommand = "nvim && tmux new-window lazygit";
       }
     ];
-  };
-
-  services.desktop-config = {
-    enable = true;
-    macDesktop = true;
-  };
-
-  # -------------------- User Packages --------------------
-  nixpkgs.config.allowUnfree = true;
-  # Install Packages
-  home.packages = with pkgs; [
-    obsidian
-    nerd-fonts.jetbrains-mono
-    slack
-  ];
-
-  #enable programs and services
-  programs = {
-    nh = {
-      enable = true;
-      clean.enable = true;
-      clean.extraArgs = "--keep-since 4d --keep 3";
-      flake = "/Users/noahwilson/.nixos";
-    };
   };
 }
