@@ -15,7 +15,9 @@ in
     ./aerospace.nix
   ];
 
-  config = lib.mkIf (config.services.desktop-config.macDesktop == true) {
+  options.mac-desktop.enable = lib.mkEnableOption "Enable macOS desktop environment (Aerospace, etc.)";
+
+  config = lib.mkIf config.mac-desktop.enable {
     aerospace.enable = true;
     
     # Set wallpaper

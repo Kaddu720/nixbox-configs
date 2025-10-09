@@ -5,9 +5,10 @@
 }: {
   imports = [
     ../../users/work/home.nix
+    ../../users/work/macos.nix
     ../../modules/home-manager/core
     ../../modules/home-manager/optional
-    ../../modules/home-manager/optional/desktop
+    ../../modules/home-manager/optional/desktop/mac-desktop
   ];
 
   # -------------------- Host-specific Configuration --------------------
@@ -29,11 +30,6 @@
   home.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
   ];
-
-  services.desktop-config = {
-    enable = true;
-    macDesktop = true;
-  };
   
   ghostty.fontSize = 18;
   alacritty.fontSize = 18;

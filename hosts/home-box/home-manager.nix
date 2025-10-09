@@ -8,7 +8,7 @@
     ../../users/noah/linux.nix
     ../../modules/home-manager/core
     ../../modules/home-manager/optional
-    ../../modules/home-manager/optional/desktop
+    ../../modules/home-manager/optional/desktop/linux-desktop
     ../../modules/common/static/stylix.nix
   ];
   
@@ -24,8 +24,6 @@
   ssh.githubIdentityFile = "~/.ssh/personal/personal";
 
   programs.nh.flake = "/home/noah/.nixos";
-  
-  services.desktop-config.enable = true;
   
   ghostty.fontSize = 12;
   alacritty.fontSize = 12;

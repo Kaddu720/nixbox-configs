@@ -14,7 +14,9 @@
     ./swayidle.nix
   ];
 
-  config = lib.mkIf (config.services.desktop-config.linuxDesktop == true) {
+  options.linux-desktop.enable = lib.mkEnableOption "Enable Linux desktop environment (River, Rofi, etc.)";
+
+  config = lib.mkIf config.linux-desktop.enable {
     dunst.enable = true;
     helper-scripts.enable = true;
     river.enable = true;
