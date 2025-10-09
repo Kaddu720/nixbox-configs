@@ -1,17 +1,42 @@
 # Nixbox-configs
 
-## Installation Philosophy
+## Repository Structure
 
-- __Hosts:__ settings specific to a particular machine
+### Top-Level Directories
 
-- __Modules:__ Contains users and nix packages/modules
+- **`hosts/`** - Machine-specific configurations
+  - `home-box/` - Desktop Linux machine (NixOS)
+  - `mobile-box/` - Framework laptop (NixOS)
+  - `work-box/` - macOS work machine (nix-darwin)
+  - Each host contains:
+    - `configuration.nix` - NixOS/darwin system configuration
+    - `home-manager.nix` - Home-manager user configuration
+    - `hardware-configuration.nix` - Hardware-specific settings
 
-    - __Users:__ Configures users settings, imports all nix packages/modules, and is imported by a host
-        - Root contains all the default settings for a machine
+- **`users/`** - User-specific configurations
+  - `noah/` - Personal user configurations
+    - `home.nix` - Cross-platform home-manager base config
+    - `linux.nix` - Linux-specific home-manager config (Wayland, XDG, desktop)
+    - `nixos.nix` - NixOS system-level user account config
+  - `work/` - Work user configurations
+    - `home.nix` - Work-specific home-manager config
+    - `nixos.nix` - Work user account config (if needed)
 
-    - __Darwin, home-manager, nixos:__ Contains all the packages, modules, and configurations of their respective nix component
+- **`system/`** - System-wide base configurations
+  - `base.nix` - Common NixOS system settings (networking, security, packages)
 
-    - __Static:__ Static files like wallpapers
+- **`modules/`** - Reusable nix modules and configurations
+  - `darwin/` - macOS-specific modules
+  - `home-manager/` - Home-manager modules
+    - `core/` - Essential user tools (git, tmux, btop, ssh)
+    - `optional/` - Optional features (dev tools, shells, terminals)
+      - `desktop/` - Desktop environment configs
+        - `linux-desktop/` - Linux desktop components (River, Rofi, etc.)
+        - `mac-desktop/` - macOS desktop components (Aerospace)
+  - `nixos/` - NixOS-specific modules
+    - `core/` - Essential system components
+    - `optional/` - Optional system features (Docker, games, Kanata)
+  - `common/static/` - Static files (wallpapers, themes)
 
 [__Install Article__](https://qfpl.io/posts/installing-nixos/)
 
@@ -25,32 +50,62 @@ __Setting up a computer__
 __Lazy Trees__
 Make sure you set up lazy trees for faster builds : https://determinate.systems/posts/changelog-determinate-nix-352/
 
+## Configuration Philosophy
+
+### Separation of Concerns
+
+1. **Cross-platform vs Platform-specific**
+   - `users/noah/home.nix` - Settings that work on both Linux and macOS
+   - `users/noah/linux.nix` - Linux-specific desktop settings (Wayland, XDG)
+   - Platform-specific packages separated from common packages
+
+2. **User vs System**
+   - User configs in `users/` (home-manager, personal preferences)
+   - System configs in `system/` (NixOS, system-wide settings)
+   - Host-specific overrides in `hosts/`
+
+3. **Personal vs Work**
+   - `users/noah/` - Personal configurations
+   - `users/work/` - Work-specific configurations
+   - Separate SSH keys, git configs, and packages
+
 ## Updating System Configurations
-Linux: `sudo nixos-rebuild switch --flake ./#Home-Box --option eval-cache false`
 
-Mac: `nix run nix-darwin -- switch --flake ./#Work-Box --show-trace`
+### Using nh (Recommended)
 
-## Updating home-manager
+**NixOS:**
+- Rebuild and switch: `nh os switch`
+- Rebuild and switch after boot: `nh os boot`
+- Rebuild and test (no persistence): `nh os test`
 
- `nix run home-manager -- switch --flake ./#FlakeName`
+**Nix Darwin (macOS):**
+- `nh darwin switch -H Work-Box`
 
- Linux back up : `home-manager switch --flake ./#Home --option eval-cache  false`
+**Home Manager:**
+- Linux: `nh home switch`
+- macOS: `nh home switch -c "noah@Work-Box"`
 
-## Updating Packages installed
-`nix flake update`
+### Manual Commands
 
-## Updating nixos with nh helper
-### Nixos
-rebuild and switch: `nh os switch`
-rebuild and switch after boot: `nh os boot`
-rebuild and activate but no switch: `nh os test`
+**NixOS:**
+```bash
+sudo nixos-rebuild switch --flake ./#Home-Box
+```
 
-### Nix Darwin
-nh darwin: `nh darwin switch -H Work-Box`
+**Nix Darwin:**
+```bash
+nix run nix-darwin -- switch --flake ./#Work-Box
+```
 
-### Home Manager
-rebuild home manager: `nh home switch`
-until we get more patches: `home-manager switch --flake ./#noah@Work-Box`
+**Home Manager:**
+```bash
+home-manager switch --flake ./#noah@Home-Box
+```
+
+### Updating Flake Inputs
+```bash
+nix flake update
+```
 
 
 ## Notes for Apps
