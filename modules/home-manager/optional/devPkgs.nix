@@ -14,7 +14,6 @@
       lazygit
       jq
       nerd-fonts.jetbrains-mono
-      warp-terminal
       circumflex
       opencode
     ];
