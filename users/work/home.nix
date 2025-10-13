@@ -26,8 +26,9 @@
   
   # Development tools (custom module options)
   devPkgs.enable = true;
-  dev-kubernetes.enable = true;
   dev-cloud.enable = true;
+  dev-containers.enable = true;
+  dev-kubernetes.enable = true;
   nvim.enable = true;
   
   # Disable personal git credentials (custom module option)

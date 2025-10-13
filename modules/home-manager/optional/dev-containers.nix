@@ -12,6 +12,7 @@
   config = lib.mkIf config.dev-containers.enable {
     home.packages = with pkgs; [
       podman
+      podman-compose
       docker
       lazydocker
     ];
