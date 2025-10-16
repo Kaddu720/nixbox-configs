@@ -26,7 +26,7 @@
   ghostty.fontSize = 14;
   alacritty.fontSize = 14;
   
-  sesh.sessions = lib.mkAfter [
+  sesh.sessions = lib.mkBefore [
     {
       name = "Second_Brain";
       path = "~/Vaults/Second_Brain";

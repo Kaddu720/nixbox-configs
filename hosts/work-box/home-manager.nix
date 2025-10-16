@@ -36,7 +36,7 @@
   
   dev-ai.enable = true;
   
-  sesh.sessions = lib.mkAfter [
+  sesh.sessions = lib.mkBefore [
     {
       name = "Work_Brain";
       path = "~/Vaults/Work_Brain/";
