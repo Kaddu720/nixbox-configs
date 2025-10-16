@@ -12,13 +12,10 @@
 
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/0.1";
 
+    darwin.url = "https://flakehub.com/f/nix-darwin/nix-darwin/0";
+
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    darwin = {
-      url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -89,6 +86,12 @@
       specialArgs = {inherit inputs;};
       modules = [
         ./hosts/work-box/configuration.nix
+        inputs.determinate.darwinModules.default
+          {
+            determinate-nix.customSettings = {
+              lazy-trees = true;
+            };
+          }
         inputs.nix-homebrew.darwinModules.nix-homebrew
       ];
     };
