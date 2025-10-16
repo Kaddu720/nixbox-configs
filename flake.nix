@@ -51,7 +51,7 @@
     };
   };
 
-  outputs = inputs@{
+  outputs = inputs @ {
     nixpkgs,
     determinate,
     home-manager,
@@ -59,7 +59,7 @@
     self,
     ...
   }: {
-    # Host Configs
+    # Nixos Host Configs
     nixosConfigurations = {
       Home-Box = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -79,21 +79,23 @@
         ];
       };
     };
-    
-    # Expose darwin system for nh
-    packages.aarch64-darwin.Work-Box = darwin.lib.darwinSystem {
-      system = "aarch64-darwin";
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./hosts/work-box/configuration.nix
-        inputs.determinate.darwinModules.default
+
+    # Nix-Darwin Host Configs
+    packages.aarch64-darwin = {
+      Work-Box = darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/work-box/configuration.nix
+          inputs.determinate.darwinModules.default
           {
             determinate-nix.customSettings = {
               lazy-trees = true;
             };
           }
-        inputs.nix-homebrew.darwinModules.nix-homebrew
-      ];
+          inputs.nix-homebrew.darwinModules.nix-homebrew
+        ];
+      };
     };
 
     # Home-manager Configs
