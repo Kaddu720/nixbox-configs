@@ -11,11 +11,13 @@
   config = lib.mkIf config.git.enable {
     programs.git = {
       enable = true;
-      userName = "Kaddu720";
-      userEmail = "nwilsonmalgus@gmail.com";
-      extraConfig = {
+      settings = {
         pull.rebase = true;
         core.editor = "nvim";
+        user = {
+          name = "Kaddu720";
+          email = "nwilsonmalgus@gmail.com";
+        };
       };
     };
   };
