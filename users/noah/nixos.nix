@@ -10,7 +10,7 @@
 
     packages = with pkgs; [
       bluez
-      dislocker
+      # dislocker
       home-manager
       rtkit
       wirelesstools

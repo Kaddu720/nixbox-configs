@@ -60,7 +60,6 @@
   environment = {
     # List packages at system level
     systemPackages = with pkgs; [
-      dislocker
       killall
       neovim
       wget
